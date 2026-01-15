@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Availability & Booking Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { margin-bottom: 5px; }
+    p { margin-top: 0; color: #555; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: center; font-size: 12px; vertical-align: top; }
+    th { background: #f4f4f4; position: sticky; top: 0; }
+    .time { background: #fafafa; font-weight: bold; white-space: nowrap; }
+    input[type="checkbox"] { transform: scale(1.1); }
+    textarea { width: 95%; height: 38px; font-size: 11px; }
+    .student-info { margin-top: 15px; }
+    .student-info input { margin-right: 10px; }
+    .note { margin-top: 15px; font-size: 13px; }
+    button { margin-top: 15px; padding: 8px 14px; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<h1>Weekly Availability & Class Booking Form</h1>
+<p>Each row is a <strong>90-minute class start time</strong> (10:00 AM – 8:00 PM).<br>
+✔ Tick if you are available for a full 90‑minute class starting at that time.<br>
+📝 Use the text box to mention conflicts, existing bookings, or preferences.</p>
+
+<div class="student-info">
+  <label>Name: <input type="text" id="studentName" /></label>
+  <label>Grade/Class: <input type="text" id="studentClass" /></label>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time Slot</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+    </tr>
+  </thead>
+  <tbody id="schedule-body"></tbody>
+</table>
+
+<button onclick="submitData()">Submit / Update Availability</button>
+
+<div class="note">
+  <strong>How this works:</strong><br>
+  • Your entries are saved to a shared Google Sheet.<br>
+  • You can reopen this form to edit or update your availability anytime.<br>
+  • The teacher uses the combined availability to finalise class schedules.
+</div>
+
+<script>
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOKEU3p-UJAsajooz1pKpjNS22jBvZBtIKpn5AsKdfhMiXgjAlmB4QIW__ilJovcSR/exec";
+
+  const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  const tbody = document.getElementById('schedule-body');
+
+  /* ================== BUILD TABLE ================== */
+  const startHour = 10;
+  const endHour = 20; // last start time
+
+  function formatTime(h) {
+    const hour12 = h % 12 === 0 ? 12 : h % 12;
+    return `${hour12}:00 ${h < 12 ? 'AM' : 'PM'}`;
+  }
+
+  for (let h = startHour; h <= endHour; h += 1.5) {
+    const row = document.createElement('tr');
+    const timeCell = document.createElement('td');
+    timeCell.className = 'time';
+    timeCell.textContent = `${formatTime(Math.floor(h))} – ${formatTime(Math.floor(h + 1.5))}`;
+    row.appendChild(timeCell);
+
+    days.forEach(day => {
+      const cell = document.createElement('td');
+      cell.innerHTML = `
+        <input type="checkbox" data-day="${day}" data-time="${h}" /> <br>
+        <textarea placeholder="Notes / conflicts" data-day="${day}" data-time="${h}"></textarea>
+      `;
+      row.appendChild(cell);
+    });
+
+    tbody.appendChild(row);
+  }
+
+  /* ================== SUBMIT TO GOOGLE SHEET ================== */
+  function submitData() {
+    const name = document.getElementById('studentName').value.trim();
+    const studentClass = document.getElementById('studentClass').value.trim();
+
+    if (!name) {
+      alert('Please enter your name');
+      return;
+    }
+
+    const entries = [];
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const day = cb.dataset.day;
+      const time = cb.dataset.time;
+      const note = document.querySelector(`textarea[data-day="${day}"][data-time="${time}"]`).value;
+
+      entries.push({
+        name,
+        studentClass,
+        day,
+        time,
+        available: cb.checked,
+        note
+      });
+    });
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entries)
+    })
+    .then(res => res.text())
+    .then(() => alert('Availability saved successfully'))
+    .catch(() => alert('Error saving data'));
+  }
+</script>
+
+</body>
+</html>
