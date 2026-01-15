@@ -3,130 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Availability & Booking Form</title>
+  <title>Final Student Availability & Booking Form</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { margin-bottom: 5px; }
-    p { margin-top: 0; color: #555; }
-    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 6px; text-align: center; font-size: 12px; vertical-align: top; }
-    th { background: #f4f4f4; position: sticky; top: 0; }
-    .time { background: #fafafa; font-weight: bold; white-space: nowrap; }
-    input[type="checkbox"] { transform: scale(1.1); }
-    textarea { width: 95%; height: 38px; font-size: 11px; }
-    .student-info { margin-top: 15px; }
-    .student-info input { margin-right: 10px; }
-    .note { margin-top: 15px; font-size: 13px; }
-    button { margin-top: 15px; padding: 8px 14px; font-size: 14px; }
+    body { font-family: system-ui, Arial, sans-serif; padding: 20px; background:#fafafa }
+    h1 { margin-bottom: 6px }
+    p { margin-top: 0; color:#555 }
+    table { border-collapse: collapse; width: 100%; margin-top: 16px }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: center; font-size: 12px; vertical-align: top }
+    th { background: #f0f0f0; position: sticky; top: 0 }
+    .time { font-weight: 600; background:#fff; white-space:nowrap }
+    textarea { width: 95%; height: 36px; font-size: 11px }
+    input[type=checkbox] { transform: scale(1.1) }
+    .controls { margin-top: 12px }
+    button { padding: 8px 14px; font-size: 14px; margin-right:6px }
+    .hidden { display:none }
+    .slot { font-size:11px }
   </style>
 </head>
 <body>
 
-<h1>Weekly Availability & Class Booking Form</h1>
-<p>Each row is a <strong>90-minute class start time</strong> (10:00 AM – 8:00 PM).<br>
-✔ Tick if you are available for a full 90‑minute class starting at that time.<br>
-📝 Use the text box to mention conflicts, existing bookings, or preferences.</p>
+<h1>Weekly Availability & Class Booking</h1>
+<p>90-minute slots • 10:00 AM – 8:00 PM • Monday–Sunday</p>
 
-<div class="student-info">
-  <label>Name: <input type="text" id="studentName" /></label>
-  <label>Grade/Class: <input type="text" id="studentClass" /></label>
+<div class="controls">
+  <label>Name <input id="name" /></label>
+  <label>Class <input id="studentClass" /></label>
+  <button onclick="loadMyData()">Load</button>
+  <button onclick="saveAvailability()">Save Availability</button>
+  <button onclick="toggleBookingMode()">Final Booking</button>
 </div>
 
-<table>
+<table id="availabilityGrid">
   <thead>
     <tr>
-      <th>Time Slot</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
+      <th>Time</th>
+      <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
     </tr>
   </thead>
-  <tbody id="schedule-body"></tbody>
+  <tbody></tbody>
 </table>
 
-<button onclick="submitData()">Submit / Update Availability</button>
-
-<div class="note">
-  <strong>How this works:</strong><br>
-  • Your entries are saved to a shared Google Sheet.<br>
-  • You can reopen this form to edit or update your availability anytime.<br>
-  • The teacher uses the combined availability to finalise class schedules.
-</div>
+<table id="bookingGrid" class="hidden">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Time</th>
+      <th>Available Seats</th>
+      <th>Book</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
 <script>
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOKEU3p-UJAsajooz1pKpjNS22jBvZBtIKpn5AsKdfhMiXgjAlmB4QIW__ilJovcSR/exec";
+// ================= CONFIG =================
+const GOOGLE_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE";
+const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const START = 10;
+const END = 20;
+let bookingMode = false;
 
-  const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-  const tbody = document.getElementById('schedule-body');
+// ================= BUILD AVAILABILITY GRID =================
+const tbody = document.querySelector('#availabilityGrid tbody');
+function fmt(h){ const t=h%12||12; return `${t}:00 ${h<12?'AM':'PM'}` }
+for(let h=START;h<=END;h+=1.5){
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class='time'>${fmt(Math.floor(h))} – ${fmt(Math.floor(h+1.5))}</td>`;
+  DAYS.forEach(d=>{
+    const td=document.createElement('td');
+    td.innerHTML=`<input type='checkbox' data-d='${d}' data-h='${h}'>
+                  <br><textarea data-d='${d}' data-h='${h}' placeholder='Notes'></textarea>`;
+    tr.appendChild(td);
+  });
+  tbody.appendChild(tr);
+}
 
-  /* ================== BUILD TABLE ================== */
-  const startHour = 10;
-  const endHour = 20; // last start time
+// ================= LOAD STUDENT DATA =================
+async function loadMyData(){
+  const name=document.getElementById('name').value.trim();
+  if(!name) return alert('Enter name');
+  const res=await fetch(`${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(name)}`);
+  const data=await res.json();
 
-  function formatTime(h) {
-    const hour12 = h % 12 === 0 ? 12 : h % 12;
-    return `${hour12}:00 ${h < 12 ? 'AM' : 'PM'}`;
-  }
+  document.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);
+  document.querySelectorAll('textarea').forEach(t=>t.value='');
 
-  for (let h = startHour; h <= endHour; h += 1.5) {
-    const row = document.createElement('tr');
-    const timeCell = document.createElement('td');
-    timeCell.className = 'time';
-    timeCell.textContent = `${formatTime(Math.floor(h))} – ${formatTime(Math.floor(h + 1.5))}`;
-    row.appendChild(timeCell);
+  data.forEach(e=>{
+    const cb=document.querySelector(`input[data-d='${e.day}'][data-h='${e.time}']`);
+    const ta=document.querySelector(`textarea[data-d='${e.day}'][data-h='${e.time}']`);
+    if(cb) cb.checked = e.available === 'YES';
+    if(ta) ta.value = e.note || '';
+  });
+}
 
-    days.forEach(day => {
-      const cell = document.createElement('td');
-      cell.innerHTML = `
-        <input type="checkbox" data-day="${day}" data-time="${h}" /> <br>
-        <textarea placeholder="Notes / conflicts" data-day="${day}" data-time="${h}"></textarea>
-      `;
-      row.appendChild(cell);
-    });
+// ================= SAVE AVAILABILITY =================
+async function saveAvailability(){
+  const name=document.getElementById('name').value.trim();
+  if(!name) return alert('Enter name');
+  const cls=document.getElementById('studentClass').value.trim();
 
-    tbody.appendChild(row);
-  }
+  const payload=[];
+  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    const d=cb.dataset.d;
+    const h=cb.dataset.h;
+    const note=document.querySelector(`textarea[data-d='${d}'][data-h='${h}']`).value;
+    payload.push({ name, studentClass:cls, day:d, time:h, available:cb.checked, note });
+  });
 
-  /* ================== SUBMIT TO GOOGLE SHEET ================== */
-  function submitData() {
-    const name = document.getElementById('studentName').value.trim();
-    const studentClass = document.getElementById('studentClass').value.trim();
+  await fetch(GOOGLE_SCRIPT_URL,{ method:'POST', body:JSON.stringify(payload) });
+  alert('Availability saved');
+}
 
-    if (!name) {
-      alert('Please enter your name');
-      return;
-    }
+// ================= BOOKING MODE =================
+async function toggleBookingMode(){
+  bookingMode=!bookingMode;
+  document.getElementById('availabilityGrid').classList.toggle('hidden',bookingMode);
+  document.getElementById('bookingGrid').classList.toggle('hidden',!bookingMode);
+  if(bookingMode) loadFinalSlots();
+}
 
-    const entries = [];
+async function loadFinalSlots(){
+  const res=await fetch(`${GOOGLE_SCRIPT_URL}?mode=final`);
+  const data=await res.json();
+  const tbody=document.querySelector('#bookingGrid tbody');
+  tbody.innerHTML='';
+  data.forEach(s=>{
+    const remaining = s.capacity - s.booked;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${s.day}</td><td>${fmt(Math.floor(s.time))}</td>
+                  <td>${remaining}</td>
+                  <td><button ${remaining<=0?'disabled':''} onclick="bookSlot('${s.day}','${s.time}')">Book</button></td>`;
+    tbody.appendChild(tr);
+  });
+}
 
-    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-      const day = cb.dataset.day;
-      const time = cb.dataset.time;
-      const note = document.querySelector(`textarea[data-day="${day}"][data-time="${time}"]`).value;
-
-      entries.push({
-        name,
-        studentClass,
-        day,
-        time,
-        available: cb.checked,
-        note
-      });
-    });
-
-    fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(entries)
-    })
-    .then(res => res.text())
-    .then(() => alert('Availability saved successfully'))
-    .catch(() => alert('Error saving data'));
-  }
+async function bookSlot(day,time){
+  const name=document.getElementById('name').value.trim();
+  if(!name) return alert('Enter name');
+  await fetch(`${GOOGLE_SCRIPT_URL}?mode=book&day=${day}&time=${time}&name=${encodeURIComponent(name)}`);
+  alert('Booked');
+  loadFinalSlots();
+}
 </script>
 
 </body>
