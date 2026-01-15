@@ -1,150 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final Student Availability & Booking Form</title>
-  <style>
-    body { font-family: system-ui, Arial, sans-serif; padding: 20px; background:#fafafa }
-    h1 { margin-bottom: 6px }
-    p { margin-top: 0; color:#555 }
-    table { border-collapse: collapse; width: 100%; margin-top: 16px }
-    th, td { border: 1px solid #ccc; padding: 6px; text-align: center; font-size: 12px; vertical-align: top }
-    th { background: #f0f0f0; position: sticky; top: 0 }
-    .time { font-weight: 600; background:#fff; white-space:nowrap }
-    textarea { width: 95%; height: 36px; font-size: 11px }
-    input[type=checkbox] { transform: scale(1.1) }
-    .controls { margin-top: 12px }
-    button { padding: 8px 14px; font-size: 14px; margin-right:6px }
-    .hidden { display:none }
-    .slot { font-size:11px }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Scheduling System</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.student-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.schedule-grid {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #4CAF50;
+  color: white;
+  font-weight: 600;
+}
+
+td.time-cell {
+  background: #f9f9f9;
+  font-weight: 500;
+}
+
+.slot-cell {
+  min-width: 120px;
+}
+
+.slot-checkbox {
+  margin-bottom: 5px;
+}
+
+.slot-notes {
+  width: 100%;
+  min-height: 40px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #45a049;
+}
+
+.btn-secondary {
+  background: #2196F3;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #0b7dda;
+}
+
+.btn-danger {
+  background: #f44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #da190b;
+}
+
+.btn-warning {
+  background: #ff9800;
+  color: white;
+}
+
+.btn-warning:hover {
+  background: #e68900;
+}
+
+.status {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  display: none;
+}
+
+.status.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.hidden {
+  display: none;
+}
+
+.teacher-panel {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff3cd;
+  border-radius: 4px;
+  border: 1px solid #ffc107;
+}
+
+.teacher-panel h2 {
+  margin-bottom: 15px;
+  color: #856404;
+}
+
+.booking-grid {
+  margin-top: 20px;
+}
+
+.booking-slot {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.booking-slot h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.booking-slot .capacity {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.booking-slot.full {
+  background: #ffebee;
+  border-color: #f44336;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+</style>
 </head>
 <body>
+<div class="container">
+  <h1>Student Weekly Availability System</h1>
+  
+  <div class="student-info">
+    <div class="form-group">
+      <label for="studentName">Student Name *</label>
+      <input type="text" id="studentName" required>
+    </div>
+    <div class="form-group">
+      <label for="studentClass">Grade/Class</label>
+      <input type="text" id="studentClass">
+    </div>
+  </div>
 
-<h1>Weekly Availability & Class Booking</h1>
-<p>90-minute slots • 10:00 AM – 8:00 PM • Monday–Sunday</p>
+  <div class="status" id="status"></div>
 
-<div class="controls">
-  <label>Name <input id="name" /></label>
-  <label>Class <input id="studentClass" /></label>
-  <button onclick="loadMyData()">Load</button>
-  <button onclick="saveAvailability()">Save Availability</button>
-  <button onclick="toggleBookingMode()">Final Booking</button>
+  <div id="availabilityMode">
+    <div class="schedule-grid">
+      <table id="scheduleTable">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+          </tr>
+        </thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="submitAvailability()">Submit Availability</button>
+      <button class="btn-secondary" onclick="loadMyAvailability()">Load My Data</button>
+      <button class="btn-warning" onclick="toggleTeacherMode()">Teacher Mode</button>
+      <button class="btn-danger" onclick="switchToBookingMode()">Booking Mode</button>
+    </div>
+  </div>
+
+  <div id="bookingMode" class="hidden">
+    <div class="booking-grid" id="bookingGrid"></div>
+    <div class="actions">
+      <button class="btn-secondary" onclick="switchToAvailabilityMode()">Back to Availability</button>
+    </div>
+  </div>
+
+  <div id="teacherPanel" class="teacher-panel hidden">
+    <h2>Teacher Control Panel</h2>
+    <div class="actions">
+      <button class="btn-primary" onclick="aggregateAvailability()">Analyze Availability</button>
+      <button class="btn-secondary" onclick="toggleTeacherMode()">Close Panel</button>
+    </div>
+    <div id="teacherResults"></div>
+  </div>
 </div>
 
-<table id="availabilityGrid">
-  <thead>
-    <tr>
-      <th>Time</th>
-      <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
-<table id="bookingGrid" class="hidden">
-  <thead>
-    <tr>
-      <th>Day</th>
-      <th>Time</th>
-      <th>Available Seats</th>
-      <th>Book</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
 <script>
-// ================= CONFIG =================
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOSE9BWt4rUpQc1M8-VIJWtQeNDkJwMQ3QWdkTckGgWHUr3pwtl-d_XlROxpMztIh1/execE";
-const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-const START = 10;
-const END = 20;
-let bookingMode = false;
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytaJKETIPg7B1pozkh5KBjzRq-PKLUvz6kZUoZZ6dE03oorAXzUQsFGvgPvhIvtJL3/exec';
 
-// ================= BUILD AVAILABILITY GRID =================
-const tbody = document.querySelector('#availabilityGrid tbody');
-function fmt(h){ const t=h%12||12; return `${t}:00 ${h<12?'AM':'PM'}` }
-for(let h=START;h<=END;h+=1.5){
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td class='time'>${fmt(Math.floor(h))} – ${fmt(Math.floor(h+1.5))}</td>`;
-  DAYS.forEach(d=>{
-    const td=document.createElement('td');
-    td.innerHTML=`<input type='checkbox' data-d='${d}' data-h='${h}'>
-                  <br><textarea data-d='${d}' data-h='${h}' placeholder='Notes'></textarea>`;
-    tr.appendChild(td);
-  });
-  tbody.appendChild(tr);
+const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const START_HOUR = 10;
+const END_HOUR = 20;
+const SLOT_DURATION = 90;
+
+function generateTimeSlots() {
+  const slots = [];
+  let currentMinutes = START_HOUR * 60;
+  const endMinutes = END_HOUR * 60;
+  
+  while (currentMinutes < endMinutes) {
+    const hours = Math.floor(currentMinutes / 60);
+    const mins = currentMinutes % 60;
+    const endTime = currentMinutes + SLOT_DURATION;
+    const endHours = Math.floor(endTime / 60);
+    const endMins = endTime % 60;
+    
+    if (endTime <= endMinutes) {
+      const timeStr = `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')} - ${String(endHours).padStart(2, '0')}:${String(endMins).padStart(2, '0')}`;
+      slots.push(timeStr);
+    }
+    
+    currentMinutes += SLOT_DURATION;
+  }
+  
+  return slots;
 }
 
-// ================= LOAD STUDENT DATA =================
-async function loadMyData(){
-  const name=document.getElementById('name').value.trim();
-  if(!name) return alert('Enter name');
-  const res=await fetch(`${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(name)}`);
-  const data=await res.json();
-
-  document.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);
-  document.querySelectorAll('textarea').forEach(t=>t.value='');
-
-  data.forEach(e=>{
-    const cb=document.querySelector(`input[data-d='${e.day}'][data-h='${e.time}']`);
-    const ta=document.querySelector(`textarea[data-d='${e.day}'][data-h='${e.time}']`);
-    if(cb) cb.checked = e.available === 'YES';
-    if(ta) ta.value = e.note || '';
-  });
-}
-
-// ================= SAVE AVAILABILITY =================
-async function saveAvailability(){
-  const name=document.getElementById('name').value.trim();
-  if(!name) return alert('Enter name');
-  const cls=document.getElementById('studentClass').value.trim();
-
-  const payload=[];
-  document.querySelectorAll('input[type=checkbox]').forEach(cb=>{
-    const d=cb.dataset.d;
-    const h=cb.dataset.h;
-    const note=document.querySelector(`textarea[data-d='${d}'][data-h='${h}']`).value;
-    payload.push({ name, studentClass:cls, day:d, time:h, available:cb.checked, note });
-  });
-
-  await fetch(GOOGLE_SCRIPT_URL,{ method:'POST', body:JSON.stringify(payload) });
-  alert('Availability saved');
-}
-
-// ================= BOOKING MODE =================
-async function toggleBookingMode(){
-  bookingMode=!bookingMode;
-  document.getElementById('availabilityGrid').classList.toggle('hidden',bookingMode);
-  document.getElementById('bookingGrid').classList.toggle('hidden',!bookingMode);
-  if(bookingMode) loadFinalSlots();
-}
-
-async function loadFinalSlots(){
-  const res=await fetch(`${GOOGLE_SCRIPT_URL}?mode=final`);
-  const data=await res.json();
-  const tbody=document.querySelector('#bookingGrid tbody');
-  tbody.innerHTML='';
-  data.forEach(s=>{
-    const remaining = s.capacity - s.booked;
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${s.day}</td><td>${fmt(Math.floor(s.time))}</td>
-                  <td>${remaining}</td>
-                  <td><button ${remaining<=0?'disabled':''} onclick="bookSlot('${s.day}','${s.time}')">Book</button></td>`;
-    tbody.appendChild(tr);
+function initializeSchedule() {
+  const timeSlots = generateTimeSlots();
+  const tbody = document.getElementById('scheduleBody');
+  tbody.innerHTML = '';
+  
+  timeSlots.forEach(time => {
+    const row = document.createElement('tr');
+    const timeCell = document.createElement('td');
+    timeCell.className = 'time-cell';
+    timeCell.textContent = time;
+    row.appendChild(timeCell);
+    
+    DAYS.forEach(day => {
+      const cell = document.createElement('td');
+      cell.className = 'slot-cell';
+      
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'slot-checkbox';
+      checkbox.dataset.day = day;
+      checkbox.dataset.time = time;
+      
+      const label = document.createElement('label');
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(' Available'));
+      
+      const textarea = document.createElement('textarea');
+      textarea.className = 'slot-notes';
+      textarea.placeholder = 'Notes...';
+      textarea.dataset.day = day;
+      textarea.dataset.time = time;
+      
+      cell.appendChild(label);
+      cell.appendChild(document.createElement('br'));
+      cell.appendChild(textarea);
+      row.appendChild(cell);
+    });
+    
+    tbody.appendChild(row);
   });
 }
 
-async function bookSlot(day,time){
-  const name=document.getElementById('name').value.trim();
-  if(!name) return alert('Enter name');
-  await fetch(`${GOOGLE_SCRIPT_URL}?mode=book&day=${day}&time=${time}&name=${encodeURIComponent(name)}`);
-  alert('Booked');
+function showStatus(message, isError = false) {
+  const status = document.getElementById('status');
+  status.textContent = message;
+  status.className = 'status ' + (isError ? 'error' : 'success');
+  status.style.display = 'block';
+  
+  setTimeout(() => {
+    status.style.display = 'none';
+  }, 5000);
+}
+
+function collectAvailabilityData() {
+  const name = document.getElementById('studentName').value.trim();
+  const studentClass = document.getElementById('studentClass').value.trim();
+  
+  if (!name) {
+    showStatus('Please enter your name', true);
+    return null;
+  }
+  
+  const data = [];
+  const checkboxes = document.querySelectorAll('.slot-checkbox');
+  
+  checkboxes.forEach(checkbox => {
+    const day = checkbox.dataset.day;
+    const time = checkbox.dataset.time;
+    const available = checkbox.checked;
+    const notes = document.querySelector(`textarea[data-day="${day}"][data-time="${time}"]`).value.trim();
+    
+    data.push({
+      name: name,
+      class: studentClass,
+      day: day,
+      time: time,
+      available: available,
+      notes: notes
+    });
+  });
+  
+  return data;
+}
+
+async function submitAvailability() {
+  const data = collectAvailabilityData();
+  if (!data) return;
+  
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      showStatus('Availability submitted successfully!');
+    } else {
+      showStatus(result.message || 'Error submitting data', true);
+    }
+  } catch (error) {
+    showStatus('Error: ' + error.message, true);
+  }
+}
+
+async function loadMyAvailability() {
+  const name = document.getElementById('studentName').value.trim();
+  
+  if (!name) {
+    showStatus('Please enter your name first', true);
+    return;
+  }
+  
+  try {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(name)}`);
+    const result = await response.json();
+    
+    if (result.success && result.data.length > 0) {
+      document.querySelectorAll('.slot-checkbox').forEach(cb => cb.checked = false);
+      document.querySelectorAll('.slot-notes').forEach(ta => ta.value = '');
+      
+      result.data.forEach(item => {
+        const checkbox = document.querySelector(`.slot-checkbox[data-day="${item.day}"][data-time="${item.time}"]`);
+        const textarea = document.querySelector(`.slot-notes[data-day="${item.day}"][data-time="${item.time}"]`);
+        
+        if (checkbox) checkbox.checked = item.available === 'TRUE' || item.available === true;
+        if (textarea) textarea.value = item.notes || '';
+      });
+      
+      if (result.data[0].class) {
+        document.getElementById('studentClass').value = result.data[0].class;
+      }
+      
+      showStatus('Data loaded successfully!');
+    } else {
+      showStatus('No data found for this student', true);
+    }
+  } catch (error) {
+    showStatus('Error: ' + error.message, true);
+  }
+}
+
+function toggleTeacherMode() {
+  const panel = document.getElementById('teacherPanel');
+  panel.classList.toggle('hidden');
+}
+
+async function aggregateAvailability() {
+  try {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?mode=aggregate`);
+    const result = await response.json();
+    
+    if (result.success) {
+      const slots = result.data;
+      slots.sort((a, b) => b.count - a.count);
+      
+      console.log('=== AVAILABILITY ANALYSIS ===');
+      console.log('Ranked slots by availability:');
+      slots.forEach((slot, index) => {
+        console.log(`${index + 1}. ${slot.day} ${slot.time} - ${slot.count} students available`);
+      });
+      
+      const resultsDiv = document.getElementById('teacherResults');
+      let html = '<h3>Availability Analysis (Top 10)</h3><table><tr><th>Rank</th><th>Day</th><th>Time</th><th>Available Students</th></tr>';
+      
+      slots.slice(0, 10).forEach((slot, index) => {
+        html += `<tr><td>${index + 1}</td><td>${slot.day}</td><td>${slot.time}</td><td>${slot.count}</td></tr>`;
+      });
+      
+      html += '</table>';
+      resultsDiv.innerHTML = html;
+      
+      showStatus('Analysis complete - check console for full results');
+    } else {
+      showStatus('Error analyzing data', true);
+    }
+  } catch (error) {
+    showStatus('Error: ' + error.message, true);
+  }
+}
+
+function switchToBookingMode() {
+  document.getElementById('availabilityMode').classList.add('hidden');
+  document.getElementById('bookingMode').classList.remove('hidden');
   loadFinalSlots();
 }
-</script>
 
+function switchToAvailabilityMode() {
+  document.getElementById('bookingMode').classList.add('hidden');
+  document.getElementById('availabilityMode').classList.remove('hidden');
+}
+
+async function loadFinalSlots() {
+  const grid = document.getElementById('bookingGrid');
+  grid.innerHTML = '<div class="loading">Loading available slots...</div>';
+  
+  try {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?mode=final`);
+    const result = await response.json();
+    
+    if (result.success && result.data.length > 0) {
+      let html = '';
+      
+      result.data.forEach(slot => {
+        const remaining = slot.capacity - slot.booked;
+        const isFull = remaining <= 0;
+        
+        html += `
+          <div class="booking-slot ${isFull ? 'full' : ''}">
+            <h3>${slot.day} - ${slot.time}</h3>
+            <div class="capacity">Capacity: ${slot.capacity}</div>
+            <div class="capacity">Booked: ${slot.booked}</div>
+            <div class="capacity">Remaining: ${remaining}</div>
+            ${!isFull ? `<button class="btn-primary" onclick="bookSlot('${slot.day}', '${slot.time}')">Book This Slot</button>` : '<p style="color: #f44336; font-weight: bold;">SLOT FULL</p>'}
+          </div>
+        `;
+      });
+      
+      grid.innerHTML = html;
+    } else {
+      grid.innerHTML = '<p>No final slots available yet. Teacher must mark slots as final.</p>';
+    }
+  } catch (error) {
+    grid.innerHTML = '<p class="error">Error loading slots: ' + error.message + '</p>';
+  }
+}
+
+async function bookSlot(day, time) {
+  const name = document.getElementById('studentName').value.trim();
+  
+  if (!name) {
+    showStatus('Please enter your name first', true);
+    return;
+  }
+  
+  try {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?mode=book&day=${encodeURIComponent(day)}&time=${encodeURIComponent(time)}&name=${encodeURIComponent(name)}`);
+    const result = await response.json();
+    
+    if (result.success) {
+      showStatus('Slot booked successfully!');
+      loadFinalSlots();
+    } else {
+      showStatus(result.message || 'Error booking slot', true);
+    }
+  } catch (error) {
+    showStatus('Error: ' + error.message, true);
+  }
+}
+
+window.onload = function() {
+  initializeSchedule();
+};
+</script>
 </body>
 </html>
