@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Schedule Planner</title>
+
+<style>
+body { font-family: system-ui; margin: 0; padding: 1rem }
+header { display: flex; gap: .5rem; flex-wrap: wrap }
+button { padding: .5rem }
+.grid { display: grid; overflow-x: auto }
+.row { display: contents }
+.cell {
+  min-width: 64px;
+  height: 36px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.label { font-size: .75rem; text-align: center }
+.zone { padding: .5rem; margin: .25rem 0; border-left: 6px solid }
+</style>
+</head>
+
+<body>
+
+<header>
+  <input id="code" placeholder="Share Code">
+  <input id="name" placeholder="Your Name">
+  <button onclick="join()">Join</button>
+  <button onclick="zones()">Find 90-min Zones</button>
+</header>
+
+<h3 id="title"></h3>
+<div id="grid"></div>
+<div id="zones"></div>
+
+<script>
+const API = 'https://script.google.com/macros/s/AKfycbzA5jakTGppHi1DgkkvGcZgHl7DZyJBL_evSKxapxyZAopXQXWsqr5iD7XbFxgMqxRm/exec';
+let state = {};
+
+const api = p =>
+  fetch(API + '?' + new URLSearchParams(p)).then(r => r.json());
+
+const fmt = m =>
+  String(Math.floor(m/60)).padStart(2,'0') + ':' +
+  String(m%60).padStart(2,'0');
+
+async function join() {
+  const codeV = code.value;
+  const u = await api({ action:'joinSchedule', code:codeV, name:name.value });
+  state.userId = u.userId;
+  state.color = u.color;
+  await load(codeV);
+}
+
+async function load(codeV) {
+  const d = await api({ action:'getSchedule', code:codeV });
+  state = { ...state, ...d };
+  title.textContent = d.schedule.title;
+  render();
+}
+
+function render() {
+  const g = document.getElementById('grid');
+  g.innerHTML = '';
+
+  const slots = [];
+  for (let t=state.schedule.start; t<state.schedule.end; t+=state.schedule.interval)
+    slots.push(t);
+
+  g.style.gridTemplateColumns = `80px repeat(${slots.length}, 64px)`;
+
+  g.append('', ...slots.map(s=>{
+    const d=document.createElement('div');
+    d.className='label'; d.textContent=fmt(s); return d;
+  }));
+
+  state.users.forEach(u=>{
+    g.append(u.name);
+    slots.forEach(s=>{
+      const d=document.createElement('div');
+      d.className='cell';
+
+      const busy = state.commitments.filter(c=>c.timeSlot==s).length;
+      const pct = busy/state.users.length;
+      d.style.background =
+        pct<.2?'#c8f7c5':
+        pct<.4?'#f9f7c3':
+        pct<.6?'#fbd1a2':
+        pct<.8?'#f7a1a1':'#e06666';
+
+      if (u.id===state.userId &&
+          state.commitments.some(c=>c.userId===u.id && c.timeSlot==s))
+        d.style.background=u.color;
+
+      d.onclick=async()=>{
+        if(u.id!==state.userId) return;
+        await api({
+          action:'toggleCommitment',
+          scheduleId:state.schedule.id,
+          userId:u.id,
+          timeSlot:s
+        });
+        await load(code.value);
+      };
+
+      g.append(d);
+    });
+  });
+}
+
+function zones() {
+  const out=[];
+  const slots=[];
+  for (let t=state.schedule.start; t<state.schedule.end; t+=state.schedule.interval)
+    slots.push(t);
+
+  const win = Math.floor(90/state.schedule.interval);
+
+  for (let i=0;i<=slots.length-win;i++){
+    let sum=0;
+    for(let j=0;j<win;j++){
+      sum+=state.commitments.filter(c=>c.timeSlot==slots[i+j]).length;
+    }
+    out.push({
+      start:slots[i],
+      end:slots[i+win],
+      pct:sum/(win*state.users.length)
+    });
+  }
+
+  out.sort((a,b)=>a.pct-b.pct);
+
+  zones.innerHTML='<h3>Best Zones</h3>' +
+    out.slice(0,3).map(z=>`
+      <div class="zone" style="border-color:#4caf50">
+        ${fmt(z.start)}–${fmt(z.end)} (${Math.round(z.pct*100)}% busy)
+      </div>`).join('');
+}
+</script>
+
+</body>
+</html>
