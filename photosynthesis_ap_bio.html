@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photosynthesis — AP Biology Crash Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #0d2b1a;
+  --green-forest: #1a4a2e;
+  --green-mid: #2d7a4a;
+  --green-bright: #4db87a;
+  --green-lime: #a8e063;
+  --green-neon: #c8ff6a;
+  --gold: #f0c040;
+  --amber: #ff9f40;
+  --sky: #7ae8ff;
+  --lavender: #c4a8ff;
+  --cream: #faf6ee;
+  --paper: #f5f0e8;
+  --dark: #0a1f12;
+  --text-dark: #1a2e1e;
+  --text-mid: #3d5e45;
+  --white: #ffffff;
+  --slide-bg: #0d2b1a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--dark);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── TOP NAV ── */
+#topnav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(10,31,18,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(168,224,99,0.2);
+  display: flex; align-items: center;
+  padding: 0 24px; height: 58px; gap: 8px;
+}
+
+#topnav .logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--green-neon);
+  letter-spacing: -0.5px;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+#topnav .logo span { color: var(--gold); }
+
+.tab-btn {
+  padding: 7px 18px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: rgba(250,246,238,0.6);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.tab-btn:hover { color: var(--green-lime); background: rgba(168,224,99,0.08); }
+.tab-btn.active {
+  background: rgba(168,224,99,0.15);
+  color: var(--green-lime);
+  border: 1px solid rgba(168,224,99,0.35);
+}
+
+/* ── MAIN PANELS ── */
+.panel { display:none; padding-top: 58px; min-height: 100vh; }
+.panel.active { display:block; }
+
+/* ════════════════════════════════
+   SLIDES PANEL
+════════════════════════════════ */
+#slides-panel {
+  background: linear-gradient(135deg, #040e07 0%, #0d2b1a 100%);
+}
+
+.slides-layout {
+  display: flex; height: calc(100vh - 58px);
+}
+
+.slide-sidebar {
+  width: 200px;
+  background: rgba(0,0,0,0.4);
+  border-right: 1px solid rgba(168,224,99,0.12);
+  overflow-y: auto;
+  padding: 12px 8px;
+  flex-shrink: 0;
+}
+
+.slide-thumb {
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: rgba(250,246,238,0.5);
+  line-height: 1.4;
+  margin-bottom: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.slide-thumb:hover { background: rgba(168,224,99,0.08); color: var(--green-lime); }
+.slide-thumb.active {
+  background: rgba(168,224,99,0.15);
+  color: var(--green-lime);
+  border-color: rgba(168,224,99,0.3);
+}
+.slide-thumb .num {
+  display: block;
+  font-size: 9px;
+  color: var(--green-bright);
+  margin-bottom: 2px;
+}
+
+.slide-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.slide-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 40px 16px;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  max-width: 880px;
+  background: var(--green-deep);
+  border: 1px solid rgba(168,224,99,0.18);
+  border-radius: 12px;
+  padding: 52px 60px 44px;
+  min-height: 460px;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(168,224,99,0.06);
+  overflow: hidden;
+}
+.slide.active { display: flex; flex-direction: column; animation: slideIn 0.3s ease; }
+
+@keyframes slideIn {
+  from { opacity:0; transform: translateY(10px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(168,224,99,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.slide-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--green-bright);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.slide h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 1.1;
+  color: var(--green-neon);
+  margin-bottom: 20px;
+}
+.slide h1 .accent { color: var(--gold); }
+
+.slide h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--green-lime);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+.slide h2 .sub { font-size: 18px; font-weight: 400; color: var(--green-bright); display: block; margin-top: 4px; }
+
+.slide-body {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(250,246,238,0.88);
+}
+
+.slide-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.slide-cols.three { grid-template-columns: 1fr 1fr 1fr; }
+
+.col-box {
+  background: rgba(168,224,99,0.05);
+  border: 1px solid rgba(168,224,99,0.15);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.col-box h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green-neon);
+  margin-bottom: 10px;
+}
+.col-box p, .col-box li { font-size: 13.5px; line-height: 1.65; }
+.col-box ul { list-style: none; padding: 0; }
+.col-box ul li::before { content: '▸ '; color: var(--green-bright); }
+
+.eq-box {
+  background: rgba(77,184,122,0.08);
+  border: 1px solid var(--green-mid);
+  border-radius: 8px;
+  padding: 20px 28px;
+  text-align: center;
+  margin: 16px 0;
+  font-size: 20px;
+  font-family: 'DM Mono', monospace;
+  color: var(--green-neon);
+  letter-spacing: 1px;
+}
+.eq-box .label { font-size: 11px; color: var(--green-bright); letter-spacing: 2px; display: block; margin-bottom: 8px; text-transform: uppercase; }
+
+.key-points {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.key-points li {
+  padding: 10px 14px 10px 38px;
+  background: rgba(168,224,99,0.05);
+  border-radius: 6px;
+  font-size: 14px;
+  position: relative;
+  border-left: 3px solid var(--green-mid);
+}
+.key-points li::before {
+  content: attr(data-n);
+  position: absolute;
+  left: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green-bright);
+  font-weight: 500;
+}
+
+.highlight { color: var(--green-neon); font-weight: 600; }
+.amber { color: var(--amber); font-weight: 600; }
+.sky { color: var(--sky); }
+.lav { color: var(--lavender); }
+.gold { color: var(--gold); }
+
+/* ATP/NADPH badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+.badge.atp { background: rgba(240,192,64,0.2); color: var(--gold); border: 1px solid var(--gold); }
+.badge.nadph { background: rgba(114,232,255,0.15); color: var(--sky); border: 1px solid var(--sky); }
+.badge.co2 { background: rgba(196,168,255,0.15); color: var(--lavender); border: 1px solid var(--lavender); }
+.badge.o2 { background: rgba(77,184,122,0.2); color: var(--green-lime); border: 1px solid var(--green-mid); }
+
+.table-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.table-grid th {
+  background: rgba(168,224,99,0.1);
+  color: var(--green-lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(168,224,99,0.2);
+}
+.table-grid td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(168,224,99,0.08);
+  color: rgba(250,246,238,0.85);
+}
+.table-grid tr:hover td { background: rgba(168,224,99,0.04); }
+
+/* slide nav bar */
+.slide-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding: 14px;
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(168,224,99,0.1);
+}
+.slide-nav-btn {
+  padding: 8px 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(168,224,99,0.3);
+  background: rgba(168,224,99,0.07);
+  color: var(--green-lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+.slide-nav-btn:hover { background: rgba(168,224,99,0.15); }
+.slide-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.slide-counter {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: rgba(250,246,238,0.4);
+  min-width: 80px;
+  text-align: center;
+}
+
+/* presenter notes strip */
+.presenter-strip {
+  background: rgba(0,0,0,0.5);
+  border-top: 1px solid rgba(168,224,99,0.12);
+  padding: 12px 40px;
+  font-size: 13px;
+  color: rgba(250,246,238,0.55);
+  font-style: italic;
+  display: none;
+  max-height: 80px;
+  overflow-y: auto;
+}
+.presenter-strip.show { display: block; }
+
+.presenter-toggle {
+  padding: 5px 14px;
+  border-radius: 5px;
+  border: 1px solid rgba(168,224,99,0.2);
+  background: transparent;
+  color: rgba(250,246,238,0.4);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-left: auto;
+  text-transform: uppercase;
+}
+.presenter-toggle:hover { color: var(--green-lime); border-color: rgba(168,224,99,0.4); }
+
+/* ════════════════════════════════
+   NOTES PANEL
+════════════════════════════════ */
+#notes-panel {
+  background: var(--paper);
+  color: var(--text-dark);
+}
+
+.notes-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+.notes-header {
+  border-bottom: 3px solid var(--green-forest);
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.notes-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--green-deep);
+  font-weight: 900;
+}
+.notes-header .subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--green-mid);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.note-section {
+  margin-bottom: 48px;
+  page-break-inside: avoid;
+}
+
+.note-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--green-deep);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.note-section .section-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--green-mid);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+.note-section .divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--green-mid), transparent);
+  margin-bottom: 18px;
+}
+
+.note-body { font-size: 15px; line-height: 1.9; color: var(--text-dark); }
+.note-body p { margin-bottom: 14px; }
+.note-body strong { color: var(--green-forest); }
+.note-body em { color: var(--green-mid); }
+
+.note-callout {
+  background: #e8f5ec;
+  border-left: 4px solid var(--green-mid);
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.note-callout.amber { background: #fff8e6; border-color: #d4a017; }
+.note-callout.sky { background: #e8f4ff; border-color: #4a9fd4; }
+.note-callout .callout-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.note-eq {
+  background: var(--green-deep);
+  color: var(--green-neon);
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  text-align: center;
+  padding: 18px;
+  border-radius: 8px;
+  margin: 18px 0;
+  letter-spacing: 1px;
+}
+
+.notes-list { padding-left: 20px; margin: 10px 0; }
+.notes-list li { margin-bottom: 8px; font-size: 14.5px; line-height: 1.7; }
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13.5px;
+}
+.comparison-table th {
+  background: var(--green-forest);
+  color: var(--green-neon);
+  padding: 10px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+.comparison-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid #dde8e0;
+  vertical-align: top;
+}
+.comparison-table tr:nth-child(even) td { background: #f0f7f2; }
+
+/* ════════════════════════════════
+   DIAGRAMS PANEL
+════════════════════════════════ */
+#diagrams-panel {
+  background: linear-gradient(180deg, #04110a 0%, #0a1f12 100%);
+  min-height: 100vh;
+}
+
+.diagrams-container {
+  padding: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.diagrams-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--green-neon);
+  margin-bottom: 8px;
+}
+.diagrams-container .subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green-mid);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.diagram-tabs {
+  display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;
+}
+.dtab {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(168,224,99,0.25);
+  background: transparent;
+  color: rgba(250,246,238,0.55);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dtab:hover { color: var(--green-lime); border-color: rgba(168,224,99,0.5); }
+.dtab.active {
+  background: rgba(168,224,99,0.12);
+  color: var(--green-lime);
+  border-color: rgba(168,224,99,0.5);
+}
+
+.diagram-view { display: none; }
+.diagram-view.active { display: block; }
+
+/* SVG diagrams styling */
+.diagram-svg-wrap {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(168,224,99,0.15);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+
+svg text { font-family: 'DM Mono', monospace; }
+
+.diagram-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  font-size: 13px;
+}
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%; flex-shrink: 0;
+}
+
+/* ════════════════════════════════
+   QUIZ PANEL
+════════════════════════════════ */
+#quiz-panel {
+  background: linear-gradient(160deg, #030e06 0%, #0a2015 100%);
+  min-height: 100vh;
+}
+
+.quiz-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+.quiz-header {
+  margin-bottom: 40px;
+}
+.quiz-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--green-neon);
+  margin-bottom: 6px;
+}
+.quiz-header p {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--green-mid);
+  letter-spacing: 1px;
+}
+
+.quiz-section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(168,224,99,0.2);
+}
+
+.q-card {
+  background: rgba(13,43,26,0.8);
+  border: 1px solid rgba(168,224,99,0.15);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin-bottom: 18px;
+}
+
+.q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green-bright);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.q-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(250,246,238,0.92);
+  margin-bottom: 16px;
+}
+
+.q-options {
+  display: flex; flex-direction: column; gap: 8px;
+}
+
+.q-opt {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(168,224,99,0.15);
+  background: rgba(255,255,255,0.03);
+  color: rgba(250,246,238,0.75);
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: left;
+  font-family: 'Lora', serif;
+  line-height: 1.5;
+}
+.q-opt:hover { border-color: rgba(168,224,99,0.4); background: rgba(168,224,99,0.06); color: var(--cream); }
+.q-opt.correct { background: rgba(77,184,122,0.18); border-color: var(--green-bright); color: var(--green-lime); }
+.q-opt.wrong { background: rgba(255,100,100,0.12); border-color: rgba(255,100,100,0.5); color: #ff8888; }
+.q-opt.selected { border-color: var(--gold); }
+.q-opt:disabled { cursor: default; }
+
+.q-explain {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(168,224,99,0.06);
+  border-radius: 6px;
+  font-size: 13px;
+  color: rgba(250,246,238,0.7);
+  line-height: 1.65;
+  border-left: 3px solid var(--green-mid);
+}
+.q-explain.show { display: block; }
+
+.frq-card {
+  background: rgba(13,43,26,0.8);
+  border: 1px solid rgba(240,192,64,0.2);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin-bottom: 18px;
+}
+.frq-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.frq-card .frq-q {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(250,246,238,0.88);
+  margin-bottom: 14px;
+}
+.frq-answer-btn {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(240,192,64,0.35);
+  background: rgba(240,192,64,0.07);
+  color: var(--gold);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.frq-answer-btn:hover { background: rgba(240,192,64,0.14); }
+.frq-answer {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: rgba(240,192,64,0.05);
+  border-radius: 6px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(250,246,238,0.8);
+  border-left: 3px solid var(--gold);
+}
+.frq-answer.show { display: block; }
+.frq-answer ul { padding-left: 20px; }
+.frq-answer li { margin-bottom: 6px; }
+
+.quiz-score-bar {
+  background: rgba(168,224,99,0.07);
+  border: 1px solid rgba(168,224,99,0.2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 20px;
+}
+.score-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: var(--green-neon);
+  line-height: 1;
+}
+.score-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green-mid);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.score-sub { font-size: 13px; color: rgba(250,246,238,0.5); }
+
+.reset-btn {
+  margin-left: auto;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgba(168,224,99,0.3);
+  background: rgba(168,224,99,0.07);
+  color: var(--green-lime);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover { background: rgba(168,224,99,0.14); }
+
+/* scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+::-webkit-scrollbar-thumb { background: rgba(168,224,99,0.25); border-radius: 3px; }
+
+/* AP Exam tip */
+.ap-tip {
+  background: linear-gradient(135deg, rgba(196,168,255,0.08), rgba(114,232,255,0.06));
+  border: 1px solid rgba(196,168,255,0.25);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 13px;
+}
+.ap-tip .tip-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 4px;
+}
+
+/* OVERVIEW cards on first slide */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.ov-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(168,224,99,0.12);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.ov-card:hover { border-color: rgba(168,224,99,0.3); }
+.ov-card .ov-icon { font-size: 28px; margin-bottom: 8px; }
+.ov-card .ov-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-lime);
+  margin-bottom: 4px;
+}
+.ov-card .ov-text { font-size: 12px; color: rgba(250,246,238,0.6); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav id="topnav">
+  <div class="logo">Photo<span>synthesis</span></div>
+  <button class="tab-btn active" onclick="showPanel('slides')">📽 Slides</button>
+  <button class="tab-btn" onclick="showPanel('notes')">📖 Notes</button>
+  <button class="tab-btn" onclick="showPanel('diagrams')">🔬 Diagrams</button>
+  <button class="tab-btn" onclick="showPanel('quiz')">✏ Quiz</button>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     SLIDES PANEL
+═══════════════════════════════════════ -->
+<div id="slides-panel" class="panel active">
+  <div class="slides-layout">
+    <!-- sidebar -->
+    <div class="slide-sidebar">
+      <!-- thumbs injected by JS -->
+    </div>
+    <!-- main -->
+    <div class="slide-main">
+      <div class="slide-viewport">
+        <!-- SLIDE 1 -->
+        <div class="slide active" id="s1">
+          <div class="slide-tag">AP BIOLOGY · UNIT 3 · ENERGY</div>
+          <h1>Photo<span class="accent">synthesis</span></h1>
+          <div class="slide-body">
+            <p style="font-size:16px; margin-bottom:20px; color:rgba(250,246,238,0.7);">Converting light energy into chemical energy — the foundation of almost all life on Earth.</p>
+            <div class="overview-grid">
+              <div class="ov-card"><div class="ov-icon">🌿</div><div class="ov-title">Location</div><div class="ov-text">Chloroplasts in plant/algae cells</div></div>
+              <div class="ov-card"><div class="ov-icon">☀️</div><div class="ov-title">Light Rxns</div><div class="ov-text">Thylakoid membranes; make ATP & NADPH</div></div>
+              <div class="ov-card"><div class="ov-icon">🔄</div><div class="ov-title">Calvin Cycle</div><div class="ov-text">Stroma; fixes CO₂ into G3P</div></div>
+              <div class="ov-card"><div class="ov-icon">💧</div><div class="ov-title">Reactants</div><div class="ov-text">6CO₂ + 6H₂O + Light</div></div>
+              <div class="ov-card"><div class="ov-icon">🍬</div><div class="ov-title">Products</div><div class="ov-text">C₆H₁₂O₆ + 6O₂</div></div>
+              <div class="ov-card"><div class="ov-icon">📊</div><div class="ov-title">AP Exam</div><div class="ov-text">~8–12% of exam; FRQ staple</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide" id="s2">
+          <div class="slide-tag">SLIDE 2 · OVERVIEW</div>
+          <h2>The Overall Equation<span class="sub">What goes in, what comes out</span></h2>
+          <div class="slide-body">
+            <div class="eq-box">
+              <span class="label">The Photosynthesis Equation</span>
+              6CO₂ + 6H₂O + Light Energy → C₆H₁₂O₆ + 6O₂
+            </div>
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>Reactants</h3>
+                <ul>
+                  <li><span class="lav">CO₂</span> — absorbed through stomata (6 molecules)</li>
+                  <li><span class="sky">H₂O</span> — absorbed by roots, transported up (6 molecules)</li>
+                  <li><span class="gold">Light</span> — absorbed by chlorophyll pigments</li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>Products</h3>
+                <ul>
+                  <li><span class="highlight">Glucose (C₆H₁₂O₆)</span> — used for cellular respiration & biosynthesis</li>
+                  <li><span class="highlight">O₂</span> — byproduct from splitting water (photolysis)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="ap-tip" style="margin-top:14px;">
+              <div class="tip-label">⭐ AP Exam Tip</div>
+              The O₂ released comes from the splitting of <em>water</em>, NOT from CO₂. This is a classic wrong-answer trap!
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide" id="s3">
+          <div class="slide-tag">SLIDE 3 · CHLOROPLAST STRUCTURE</div>
+          <h2>Chloroplast Anatomy<span class="sub">Form follows function</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>Key Structures</h3>
+                <ul>
+                  <li><span class="highlight">Outer & Inner Membrane</span> — double membrane envelope</li>
+                  <li><span class="highlight">Thylakoids</span> — flattened sacs; stacked = grana</li>
+                  <li><span class="highlight">Granum (pl. grana)</span> — stacks of thylakoids connected by lamellae</li>
+                  <li><span class="highlight">Stroma</span> — aqueous fluid surrounding thylakoids</li>
+                  <li><span class="highlight">Thylakoid Lumen</span> — space inside thylakoid membrane</li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>Where Reactions Occur</h3>
+                <ul>
+                  <li><span class="sky">Light Reactions</span> — thylakoid membranes (embedded proteins)</li>
+                  <li><span class="green-neon highlight">Calvin Cycle</span> — stroma (soluble enzymes)</li>
+                  <li><span class="gold">Chemiosmosis</span> — ATP synthase on thylakoid membrane</li>
+                </ul>
+                <div style="margin-top:12px; font-size:12px; color:rgba(250,246,238,0.5);">
+                  Inner membrane surface area ↑ with grana → more room for photosystems
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" id="s4">
+          <div class="slide-tag">SLIDE 4 · LIGHT REACTIONS</div>
+          <h2>Light Reactions<span class="sub">Photosystems I & II — the Z-scheme</span></h2>
+          <div class="slide-body">
+            <ul class="key-points">
+              <li data-n="1"><strong>Photosystem II (P680)</strong> — absorbs light; oxidizes water (photolysis): 2H₂O → O₂ + 4H⁺ + 4e⁻. Electrons enter ETC.</li>
+              <li data-n="2"><strong>Electron Transport Chain (ETC)</strong> — electrons pass from PSII → plastoquinone (PQ) → cytochrome b6f → plastocyanin. Pumps H⁺ into lumen.</li>
+              <li data-n="3"><strong>Chemiosmosis</strong> — H⁺ gradient drives ATP synthase → produces <span class="badge atp">ATP</span>. ~3 ATP per 2e⁻.</li>
+              <li data-n="4"><strong>Photosystem I (P700)</strong> — re-energizes electrons with light; passes to ferredoxin → NADP⁺ reductase → <span class="badge nadph">NADPH</span>.</li>
+              <li data-n="5"><strong>Net output per 2 H₂O split:</strong> 3 <span class="badge atp">ATP</span>, 2 <span class="badge nadph">NADPH</span>, 1 O₂ released</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="slide" id="s5">
+          <div class="slide-tag">SLIDE 5 · LIGHT REACTIONS DETAIL</div>
+          <h2>Photolysis & Electron Flow<span class="sub">The Z-Scheme in detail</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>The Z-Scheme Path</h3>
+                <ul>
+                  <li>H₂O → <span class="sky">PSII (P680)</span></li>
+                  <li>↓ PQ (plastoquinone)</li>
+                  <li>↓ Cytochrome b6f complex</li>
+                  <li>↓ Plastocyanin (PC)</li>
+                  <li>↓ <span class="highlight">PSI (P700)</span></li>
+                  <li>↓ Ferredoxin (Fd)</li>
+                  <li>↓ NADP⁺ reductase</li>
+                  <li>→ <span class="badge nadph">NADPH</span></li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>Proton Gradient</h3>
+                <p style="font-size:13px; margin-bottom:10px;">H⁺ accumulates in thylakoid lumen via:</p>
+                <ul>
+                  <li>Water splitting (PSII side)</li>
+                  <li>PQ shuttling (moves H⁺ across)</li>
+                  <li>Cytochrome b6f pumping</li>
+                </ul>
+                <p style="font-size:12px; margin-top:10px; color:rgba(250,246,238,0.6);">Lumen becomes acidic → drives H⁺ out through ATP synthase (CF₁CF₀)</p>
+              </div>
+            </div>
+            <div class="ap-tip" style="margin-top:14px;">
+              <div class="tip-label">⭐ AP Tip</div>
+              The Z-scheme is named for the shape of the electron energy diagram — electrons start low, get boosted twice by light, end at NADPH (high energy).
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 6 -->
+        <div class="slide" id="s6">
+          <div class="slide-tag">SLIDE 6 · CALVIN CYCLE</div>
+          <h2>The Calvin Cycle<span class="sub">Carbon fixation in the stroma — 3 stages</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols three">
+              <div class="col-box">
+                <h3>Stage 1: Carbon Fixation</h3>
+                <p>RuBisCO enzyme fixes <span class="lav">3 CO₂</span> to 3 RuBP (5C) → 6 molecules of <strong>3-PGA</strong> (3-carbon)</p>
+                <p style="font-size:12px; margin-top:8px; color:rgba(250,246,238,0.55);">RuBisCO = most abundant enzyme on Earth</p>
+              </div>
+              <div class="col-box">
+                <h3>Stage 2: Reduction</h3>
+                <p>6 3-PGA + 6 <span class="badge atp">ATP</span> + 6 <span class="badge nadph">NADPH</span> → 6 <strong>G3P</strong> (glyceraldehyde-3-phosphate)</p>
+                <p style="font-size:12px; margin-top:8px; color:rgba(250,246,238,0.55);">G3P = the actual sugar output; used for glucose synthesis</p>
+              </div>
+              <div class="col-box">
+                <h3>Stage 3: Regeneration</h3>
+                <p>5 of 6 G3P + 3 <span class="badge atp">ATP</span> → regenerate 3 <strong>RuBP</strong> to continue the cycle</p>
+                <p style="font-size:12px; margin-top:8px; color:rgba(250,246,238,0.55);">1 G3P exits; 2 G3P needed for glucose</p>
+              </div>
+            </div>
+            <div class="eq-box" style="margin-top:14px; font-size:15px;">
+              <span class="label">Per 3 CO₂ fixed (1 turn)</span>
+              3 ATP (fixation) + 6 ATP (reduction) + 3 ATP (regeneration) = <span class="badge atp">9 ATP</span> + <span class="badge nadph">6 NADPH</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 7 -->
+        <div class="slide" id="s7">
+          <div class="slide-tag">SLIDE 7 · CALVIN CYCLE STOICHIOMETRY</div>
+          <h2>Calvin Cycle Accounting<span class="sub">To make 1 molecule of G3P (net)</span></h2>
+          <div class="slide-body">
+            <table class="table-grid">
+              <thead><tr><th>Molecule</th><th>Input</th><th>Output</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>CO₂</td><td>3</td><td>—</td><td>Carbon fixation by RuBisCO</td></tr>
+                <tr><td>RuBP (5C)</td><td>3</td><td>3 (regenerated)</td><td>CO₂ acceptor</td></tr>
+                <tr><td>3-PGA (3C)</td><td>—</td><td>6 produced</td><td>Intermediate; reduced to G3P</td></tr>
+                <tr><td>ATP</td><td>9</td><td>—</td><td>Energy for fixation & regen.</td></tr>
+                <tr><td>NADPH</td><td>6</td><td>—</td><td>Reducing power for G3P</td></tr>
+                <tr><td>G3P (3C)</td><td>—</td><td>6 (5 recycled, 1 net)</td><td>Sugar precursor; exits cycle</td></tr>
+              </tbody>
+            </table>
+            <div class="ap-tip" style="margin-top:16px;">
+              <div class="tip-label">⭐ AP Exam Tip</div>
+              To make 1 glucose (6C), the cycle must turn <strong>6 times</strong> (fixing 6 CO₂) → costs 18 ATP + 12 NADPH total.
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 8 -->
+        <div class="slide" id="s8">
+          <div class="slide-tag">SLIDE 8 · PHOTORESPIRATION & C4/CAM</div>
+          <h2>Photorespiration<span class="sub">RuBisCO's mistake — and evolution's workarounds</span></h2>
+          <div class="slide-body">
+            <div class="col-box" style="margin-bottom:14px;">
+              <h3>Photorespiration (C3 plants)</h3>
+              <p style="font-size:13.5px;">When CO₂ is low and O₂ is high (hot, dry days; stomata close), RuBisCO adds <strong>O₂</strong> to RuBP instead of CO₂. This produces 2-phosphoglycolate (toxic; must be recycled) — wastes ATP/NADPH with <em>no sugar output</em>. Reduces photosynthesis efficiency by ~25%.</p>
+            </div>
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>C4 Plants</h3>
+                <ul>
+                  <li>Corn, sugarcane, crabgrass</li>
+                  <li>CO₂ fixed in mesophyll by <strong>PEP carboxylase</strong> (no O₂ affinity) → 4C malate</li>
+                  <li>Transported to <strong>bundle sheath cells</strong> → releases CO₂ for Calvin cycle</li>
+                  <li>Kraanz anatomy separates fixation from Calvin cycle</li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>CAM Plants</h3>
+                <ul>
+                  <li>Cacti, succulents, pineapple</li>
+                  <li>Open stomata <strong>at night</strong> → fix CO₂ as malate, store in vacuole</li>
+                  <li>Stomata closed during day; release CO₂ for Calvin cycle</li>
+                  <li>Temporal separation instead of spatial</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 9 -->
+        <div class="slide" id="s9">
+          <div class="slide-tag">SLIDE 9 · C3 vs C4 vs CAM</div>
+          <h2>Comparison: C3, C4, CAM<span class="sub">Adaptations to different environments</span></h2>
+          <div class="slide-body">
+            <table class="table-grid">
+              <thead><tr><th>Feature</th><th>C3</th><th>C4</th><th>CAM</th></tr></thead>
+              <tbody>
+                <tr><td>First stable product</td><td>3-PGA (3C)</td><td>Oxaloacetate (4C)</td><td>Malate (4C)</td></tr>
+                <tr><td>CO₂ fixation enzyme</td><td>RuBisCO</td><td>PEP carboxylase then RuBisCO</td><td>PEP carboxylase then RuBisCO</td></tr>
+                <tr><td>Separation</td><td>None</td><td>Spatial (mesophyll/bundle sheath)</td><td>Temporal (night/day)</td></tr>
+                <tr><td>Stomata</td><td>Open day</td><td>Open day (mostly)</td><td>Open night only</td></tr>
+                <tr><td>Best climate</td><td>Moderate, moist</td><td>Hot, sunny</td><td>Hot, very dry (desert)</td></tr>
+                <tr><td>Examples</td><td>Wheat, rice, soybeans</td><td>Corn, sugarcane, sorghum</td><td>Cacti, agave, pineapple</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SLIDE 10 -->
+        <div class="slide" id="s10">
+          <div class="slide-tag">SLIDE 10 · PIGMENTS</div>
+          <h2>Pigments & Light Absorption<span class="sub">Chlorophylls, carotenoids, and the absorption spectrum</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>Major Pigments</h3>
+                <ul>
+                  <li><span class="highlight">Chlorophyll a</span> — primary; absorbs violet-blue (430nm) & red (680nm); reflects green</li>
+                  <li><span class="amber">Chlorophyll b</span> — accessory; absorbs blue (450nm) & orange-red (640nm)</li>
+                  <li><span class="gold">Carotenoids</span> (carotene/xanthophylls) — absorb blue-green; reflect yellow/orange; photoprotection</li>
+                  <li><span class="lav">Phycoerythrin/Phycocyanin</span> — red/blue algae pigments</li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>Key Concepts</h3>
+                <ul>
+                  <li><strong>Absorption spectrum</strong> — wavelengths absorbed by a pigment</li>
+                  <li><strong>Action spectrum</strong> — rate of photosynthesis at each wavelength; mirrors absorption</li>
+                  <li>Green light is <em>least effective</em> (mostly reflected)</li>
+                  <li>Antenna complex funnels energy to reaction center (P680/P700)</li>
+                  <li>Paper chromatography separates pigments by polarity/size</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 11 -->
+        <div class="slide" id="s11">
+          <div class="slide-tag">SLIDE 11 · FACTORS AFFECTING</div>
+          <h2>Limiting Factors<span class="sub">What controls the rate of photosynthesis?</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols three">
+              <div class="col-box">
+                <h3>☀️ Light Intensity</h3>
+                <p>Increases rate until <strong>light saturation point</strong>; light-independent reactions then become limiting. Too much → photoinhibition (damages PSII).</p>
+              </div>
+              <div class="col-box">
+                <h3>🌡️ Temperature</h3>
+                <p>Affects Calvin cycle enzymes (RuBisCO). Optimal ~25–35°C. Too high → denature enzymes. Light reactions less temperature-sensitive (physical process).</p>
+              </div>
+              <div class="col-box">
+                <h3>🌬️ CO₂ Concentration</h3>
+                <p>Substrate for Calvin cycle. Increases rate until CO₂ saturation. Today's atm. CO₂ (420 ppm) is often <em>limiting</em> for C3 plants.</p>
+              </div>
+            </div>
+            <div class="ap-tip" style="margin-top:14px;">
+              <div class="tip-label">⭐ AP Exam Tip</div>
+              FRQ often asks you to predict and explain what happens to rate of photosynthesis when one factor changes while others are held constant — use the concept of <em>limiting factors</em>.
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 12 -->
+        <div class="slide" id="s12">
+          <div class="slide-tag">SLIDE 12 · CONNECTION TO RESPIRATION</div>
+          <h2>Photosynthesis ↔ Respiration<span class="sub">Two sides of the same coin</span></h2>
+          <div class="slide-body">
+            <div class="slide-cols">
+              <div class="col-box">
+                <h3>Photosynthesis</h3>
+                <ul>
+                  <li>Produces glucose & O₂</li>
+                  <li>Consumes CO₂ & H₂O</li>
+                  <li>Stores energy (endergonic)</li>
+                  <li>Occurs in chloroplasts</li>
+                  <li>Only in light (mostly)</li>
+                </ul>
+              </div>
+              <div class="col-box">
+                <h3>Cellular Respiration</h3>
+                <ul>
+                  <li>Consumes glucose & O₂</li>
+                  <li>Produces CO₂ & H₂O</li>
+                  <li>Releases energy (exergonic) → ATP</li>
+                  <li>Occurs in mitochondria</li>
+                  <li>Occurs all the time</li>
+                </ul>
+              </div>
+            </div>
+            <div class="note-eq" style="margin-top:16px; background:rgba(77,184,122,0.08); border:1px solid rgba(77,184,122,0.3); border-radius:8px; padding:14px; font-family:'DM Mono',monospace; font-size:13px; text-align:center; color:var(--green-lime);">
+              Both involve <strong>electron transport chains</strong>, <strong>chemiosmosis</strong>, and <strong>ATP synthase</strong> — key AP connection!
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 13 -->
+        <div class="slide" id="s13">
+          <div class="slide-tag">SLIDE 13 · AP EXAM REVIEW</div>
+          <h2>AP Exam Must-Knows<span class="sub">High-frequency topics & FRQ strategies</span></h2>
+          <div class="slide-body">
+            <ul class="key-points">
+              <li data-n="✓">O₂ comes from splitting H₂O (not CO₂) — photolysis at PSII</li>
+              <li data-n="✓">Light reactions produce ATP + NADPH + O₂; Calvin cycle uses ATP + NADPH to fix CO₂</li>
+              <li data-n="✓">RuBisCO fixes CO₂; can also bind O₂ (photorespiration) — reduced by C4/CAM adaptations</li>
+              <li data-n="✓">Per glucose: 18 ATP + 12 NADPH consumed in Calvin cycle; 12 H₂O split, 6 O₂ released</li>
+              <li data-n="✓">Light reactions: PSII before PSI in the Z-scheme (confusing — II happens first!)</li>
+              <li data-n="✓">For graph FRQs: identify independent variable, predict effect on rate, explain mechanism</li>
+              <li data-n="✓">Noncyclic photophosphorylation is the main pathway; cyclic produces only ATP (no NADPH, no O₂)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- slide controls -->
+      <div class="slide-controls">
+        <button class="presenter-toggle" id="presenterToggle" onclick="togglePresenter()">📝 Presenter Notes</button>
+        <button class="slide-nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>◀ Prev</button>
+        <div class="slide-counter" id="slideCounter">1 / 13</div>
+        <button class="slide-nav-btn" id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+      </div>
+      <div class="presenter-strip" id="presenterStrip"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     NOTES PANEL
+═══════════════════════════════════════ -->
+<div id="notes-panel" class="panel">
+  <div class="notes-container">
+    <div class="notes-header">
+      <h1>Photosynthesis — Full Study Notes</h1>
+      <div class="subtitle">AP Biology · Unit 3 · Comprehensive Lecture Notes</div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="note-section">
+      <h2>1. Overview & Big Picture</h2>
+      <span class="section-tag">Concept 10.1</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>Photosynthesis is the process by which photoautotrophs (plants, algae, cyanobacteria) convert light energy into chemical energy stored in glucose. It is the primary source of organic carbon for nearly all life on Earth, and the ultimate source of the O₂ in our atmosphere.</p>
+        <div class="note-eq">6CO₂ + 6H₂O + Light Energy → C₆H₁₂O₆ + 6O₂</div>
+        <p>This equation conceals an enormous complexity — photosynthesis occurs in two main stages: the <strong>light-dependent reactions</strong> and the <strong>light-independent reactions (Calvin cycle)</strong>, each in a distinct location within the chloroplast.</p>
+        <div class="note-callout">
+          <div class="callout-label">🔑 Key Concept</div>
+          Photosynthesis is an example of energy transduction — converting electromagnetic energy (light) into chemical potential energy (glucose). The process is endergonic overall (ΔG > 0).
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="note-section">
+      <h2>2. Chloroplast Structure</h2>
+      <span class="section-tag">Concept 10.1</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>Chloroplasts are double-membrane organelles found in plant mesophyll cells and algae. Their internal architecture is precisely organized to maximize photosynthetic efficiency.</p>
+        <ul class="notes-list">
+          <li><strong>Outer membrane</strong> — freely permeable to small molecules</li>
+          <li><strong>Inner membrane</strong> — selectively permeable; contains transporters</li>
+          <li><strong>Intermembrane space</strong> — thin region between outer and inner membranes</li>
+          <li><strong>Stroma</strong> — aqueous fluid filling the inner space; contains Calvin cycle enzymes, ribosomes, DNA (chloroplasts have their own genome)</li>
+          <li><strong>Thylakoid membranes</strong> — extensive internal membrane system; photosystems, ETC proteins, and ATP synthase are embedded here</li>
+          <li><strong>Grana</strong> (sing. granum) — stacks of thylakoids; increases surface area for light reactions</li>
+          <li><strong>Stroma lamellae</strong> — unstacked thylakoid membranes connecting adjacent grana</li>
+          <li><strong>Thylakoid lumen</strong> — space inside thylakoid membranes; H⁺ accumulates here during light reactions</li>
+        </ul>
+        <div class="note-callout amber">
+          <div class="callout-label">📌 Structure → Function</div>
+          The compartmentalization is critical: the proton gradient (H⁺) can only build up across the thylakoid membrane if the lumen is separate from the stroma. This gradient drives ATP synthesis.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="note-section">
+      <h2>3. Light Reactions</h2>
+      <span class="section-tag">Concept 10.2 — The Z-scheme</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>The light reactions occur on the thylakoid membranes. They capture light energy and convert it into the chemical currency of the cell — <strong>ATP</strong> and <strong>NADPH</strong> — while releasing O₂ as a byproduct.</p>
+
+        <p><strong>Photosystem II (PSII, P680):</strong> Absorbs light at ~680 nm. Two water molecules are oxidized (photolysis): <br><code>2H₂O → O₂ + 4H⁺ + 4e⁻</code><br> The electrons replace those lost from the reaction center chlorophyll a (P680⁺). This is where ALL O₂ is produced.</p>
+
+        <p><strong>Electron Transport Chain:</strong> High-energy electrons flow from PSII through: Plastoquinone (PQ) → Cytochrome b6f complex → Plastocyanin (PC). The cytochrome b6f complex pumps additional H⁺ into the thylakoid lumen as electrons pass through, creating a proton-motive force.</p>
+
+        <p><strong>Chemiosmosis (Photophosphorylation):</strong> The H⁺ concentration in the lumen (~3 pH units lower than stroma) drives H⁺ back through ATP synthase (CF₁CF₀), which phosphorylates ADP + Pᵢ → ATP. This is called <em>photophosphorylation</em>.</p>
+
+        <p><strong>Photosystem I (PSI, P700):</strong> Electrons arriving at PSI from PC are re-energized by absorption of ~700 nm light. They pass to ferredoxin (Fd) → NADP⁺ reductase → reduce NADP⁺ + H⁺ → NADPH.</p>
+
+        <div class="note-callout">
+          <div class="callout-label">🔑 Noncyclic vs Cyclic Photophosphorylation</div>
+          <strong>Noncyclic:</strong> Both PSII and PSI operate; produces ATP, NADPH, and O₂ (main pathway).<br>
+          <strong>Cyclic:</strong> Only PSI operates; electrons cycle back to cytochrome b6f; produces <em>only ATP</em>, no NADPH and no O₂. Occurs when NADPH is in excess.
+        </div>
+
+        <p><strong>Net output of light reactions (per 2 H₂O split):</strong> 3 ATP, 2 NADPH, 1 O₂ released</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="note-section">
+      <h2>4. The Calvin Cycle (Light-Independent Reactions)</h2>
+      <span class="section-tag">Concept 10.3 — Carbon fixation in the stroma</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>The Calvin cycle occurs in the stroma and uses the ATP and NADPH from the light reactions to "fix" inorganic CO₂ into organic molecules (G3P). Despite being called "light-independent," the cycle depends on ATP and NADPH which require light — so it only runs continuously in light.</p>
+
+        <p><strong>Stage 1 — Carbon Fixation:</strong> RuBisCO (ribulose-1,5-bisphosphate carboxylase/oxygenase) catalyzes the attachment of 3 CO₂ to 3 molecules of RuBP (5-carbon), producing 6 unstable 6-carbon intermediates that immediately split into 6 molecules of <strong>3-phosphoglycerate (3-PGA)</strong>.</p>
+
+        <p><strong>Stage 2 — Reduction:</strong> 6 ATP and 6 NADPH are used to convert 6 3-PGA → 6 <strong>glyceraldehyde-3-phosphate (G3P)</strong>. G3P is a 3-carbon sugar phosphate — the direct product of the cycle. This is where CO₂ is "reduced" using electrons from NADPH.</p>
+
+        <p><strong>Stage 3 — Regeneration of RuBP:</strong> 5 of the 6 G3P molecules are used (with 3 ATP) to regenerate 3 molecules of RuBP, allowing the cycle to continue. The remaining 1 G3P is the net output.</p>
+
+        <div class="note-callout amber">
+          <div class="callout-label">📐 Stoichiometry</div>
+          For 3 CO₂ fixed (1 turn): consumes 9 ATP and 6 NADPH; produces 1 net G3P.<br>
+          For 1 glucose (6 turns): consumes <strong>18 ATP</strong> and <strong>12 NADPH</strong>; requires 6 CO₂.
+        </div>
+
+        <p><strong>What happens to G3P?</strong> G3P can be used to: synthesize glucose (2 G3P → glucose via gluconeogenesis), make fatty acids, amino acids, and other organic molecules — it's the building block of all cellular carbon compounds.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="note-section">
+      <h2>5. Photorespiration & C4/CAM Plants</h2>
+      <span class="section-tag">Concept 10.4 — Adaptations</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p><strong>Photorespiration</strong> occurs when RuBisCO binds O₂ instead of CO₂ (when O₂ is high relative to CO₂ — e.g., hot day, closed stomata). The product (2-phosphoglycolate) cannot enter the Calvin cycle and must be metabolized in the peroxisome and mitochondria, releasing CO₂ and consuming ATP/NADPH without making sugar. This can reduce photosynthetic output by ~25%.</p>
+
+        <p><strong>C4 Plants</strong> (corn, sugarcane, sorghum) evolved a biochemical CO₂ pump:</p>
+        <ul class="notes-list">
+          <li>Mesophyll cells fix CO₂ using <strong>PEP carboxylase</strong> → oxaloacetate (4C) → malate (4C). PEP carboxylase has no affinity for O₂, avoiding photorespiration.</li>
+          <li>Malate is transported to <strong>bundle sheath cells</strong> (surrounding vascular bundles), where it is decarboxylated, releasing CO₂ for RuBisCO and the Calvin cycle in a high-CO₂ environment.</li>
+          <li>Kraanz anatomy: concentric rings of mesophyll cells around bundle sheath cells, visible in cross-section.</li>
+        </ul>
+
+        <p><strong>CAM Plants</strong> (cacti, aloe, pineapple) separate fixation and the Calvin cycle <em>temporally</em>:</p>
+        <ul class="notes-list">
+          <li>Stomata open <strong>at night</strong> → CO₂ fixed to malate by PEP carboxylase → stored as malic acid in vacuoles.</li>
+          <li>During the day, stomata close → malate releases CO₂ → drives Calvin cycle using daytime light reactions.</li>
+          <li>Adaptation for arid environments: minimizes water loss while maintaining photosynthesis.</li>
+        </ul>
+
+        <table class="comparison-table">
+          <thead><tr><th>Feature</th><th>C3</th><th>C4</th><th>CAM</th></tr></thead>
+          <tbody>
+            <tr><td>First stable CO₂ product</td><td>3-PGA (3C)</td><td>Oxaloacetate (4C)</td><td>Malate (4C, night)</td></tr>
+            <tr><td>Primary CO₂ fixation enzyme</td><td>RuBisCO</td><td>PEP carboxylase</td><td>PEP carboxylase</td></tr>
+            <tr><td>Separation strategy</td><td>None</td><td>Spatial (cell type)</td><td>Temporal (time of day)</td></tr>
+            <tr><td>Stomata pattern</td><td>Open during day</td><td>Open during day</td><td>Open at night only</td></tr>
+            <tr><td>Climate adaptation</td><td>Temperate/moist</td><td>Hot and sunny</td><td>Hot and dry</td></tr>
+            <tr><td>Water use efficiency</td><td>Low</td><td>Medium-High</td><td>Very High</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="note-section">
+      <h2>6. Pigments & Spectra</h2>
+      <span class="section-tag">Concept 10.2 — Light absorption</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>Different pigments absorb different wavelengths of light. Having multiple pigments (antenna complex) allows plants to capture a broader spectrum of light energy.</p>
+        <ul class="notes-list">
+          <li><strong>Chlorophyll a</strong> — primary photosynthetic pigment; absorbs violet-blue (~430 nm) and red (~680 nm); reflects green; participates directly in light reactions at reaction centers P680 and P700</li>
+          <li><strong>Chlorophyll b</strong> — accessory pigment; absorbs blue (~450 nm) and orange-red (~640 nm); transfers energy to chlorophyll a</li>
+          <li><strong>Carotenoids</strong> (β-carotene, xanthophylls) — accessory pigments absorbing blue-green; reflect yellow/orange; also serve as photoprotective antioxidants, quenching excess light energy</li>
+        </ul>
+        <div class="note-callout sky">
+          <div class="callout-label">📊 Absorption vs Action Spectrum</div>
+          The <strong>absorption spectrum</strong> shows which wavelengths a pigment absorbs. The <strong>action spectrum</strong> shows the rate of photosynthesis at each wavelength. They closely mirror each other, demonstrating that light absorption drives photosynthesis. Green light is poorly absorbed → lowest rate.
+        </div>
+        <p><strong>Paper Chromatography:</strong> Used to separate pigments. More soluble pigments travel further up the paper with solvent (carotenoids travel furthest; chlorophylls travel less). The Rf value = distance traveled by pigment ÷ distance traveled by solvent.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 7 -->
+    <div class="note-section">
+      <h2>7. Factors Affecting Photosynthesis</h2>
+      <span class="section-tag">Experimental analysis — AP Lab focus</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p>The rate of photosynthesis is determined by whichever factor is in shortest supply (the <strong>limiting factor principle</strong>). Typical graphs show rate increasing with a factor until another factor becomes limiting.</p>
+        <ul class="notes-list">
+          <li><strong>Light intensity</strong>: Rate increases until the light saturation point, beyond which the Calvin cycle (not light capture) is limiting. Very high intensity can cause photoinhibition (PSII damage).</li>
+          <li><strong>CO₂ concentration</strong>: Substrate for RuBisCO; higher CO₂ increases Calvin cycle rate. Elevated CO₂ may increase photosynthesis in C3 plants by suppressing photorespiration.</li>
+          <li><strong>Temperature</strong>: Primarily affects enzyme-catalyzed reactions (Calvin cycle). Optimal ~25–35°C for most plants. Light reactions are less temperature sensitive. Above optimal → enzymes denature.</li>
+          <li><strong>Water availability</strong>: Water is a reactant; deficiency causes stomata to close → less CO₂ entry → photorespiration increases in C3 plants.</li>
+        </ul>
+        <div class="note-callout">
+          <div class="callout-label">🧪 AP Lab — Floating Leaf Disk Assay</div>
+          Leaf disks infiltrated with NaHCO₃ (CO₂ source) sink initially (air removed). Under light, photosynthesis produces O₂ → disks rise. Rate measured by counting disks floating per unit time. Variables: light color, intensity, CO₂ concentration.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8 -->
+    <div class="note-section">
+      <h2>8. AP Exam Strategy</h2>
+      <span class="section-tag">Exam preparation — FRQ & MCQ</span>
+      <div class="divider"></div>
+      <div class="note-body">
+        <p><strong>High-frequency MCQ topics:</strong> Where O₂ comes from (water); which stage makes ATP vs NADPH; what RuBisCO does; distinguishing C3/C4/CAM; effects of changing CO₂/light/temp.</p>
+        <p><strong>FRQ strategy:</strong> Use the "CRAM" framework — Claim, Reasoning, Anatomy (mechanism), and Make prediction. Always mention the specific molecule involved, the location, and the enzyme when explaining a process.</p>
+        <div class="note-callout amber">
+          <div class="callout-label">⚠️ Common Mistakes</div>
+          <ul style="margin-top:6px; padding-left:20px;">
+            <li>Saying O₂ comes from CO₂ — it comes from H₂O!</li>
+            <li>Confusing PSII and PSI — PSII acts first (P680), PSI acts second (P700)</li>
+            <li>Saying Calvin cycle doesn't need light — it does indirectly (needs ATP/NADPH)</li>
+            <li>Forgetting G3P is the direct product, not glucose (must combine two G3P to make glucose)</li>
+            <li>Mixing up C4 (spatial) vs CAM (temporal) separation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     DIAGRAMS PANEL
+═══════════════════════════════════════ -->
+<div id="diagrams-panel" class="panel">
+  <div class="diagrams-container">
+    <h1>Interactive Diagrams</h1>
+    <div class="subtitle">Click labels to learn · Hover for details</div>
+
+    <div class="diagram-tabs">
+      <button class="dtab active" onclick="showDiagram('chloroplast')">Chloroplast</button>
+      <button class="dtab" onclick="showDiagram('zscheme')">Z-Scheme</button>
+      <button class="dtab" onclick="showDiagram('calvin')">Calvin Cycle</button>
+      <button class="dtab" onclick="showDiagram('comparison')">C3/C4/CAM</button>
+    </div>
+
+    <!-- CHLOROPLAST DIAGRAM -->
+    <div class="diagram-view active" id="d-chloroplast">
+      <div class="diagram-svg-wrap">
+        <svg viewBox="0 0 820 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:420px;">
+          <!-- Outer membrane -->
+          <ellipse cx="410" cy="210" rx="380" ry="170" fill="none" stroke="#4db87a" stroke-width="3" opacity="0.6"/>
+          <!-- Inner membrane -->
+          <ellipse cx="410" cy="210" rx="355" ry="148" fill="rgba(13,43,26,0.7)" stroke="#a8e063" stroke-width="2" stroke-dasharray="6,3"/>
+          <!-- Stroma label -->
+          <text x="70" y="200" fill="#a8e063" font-size="13" font-family="DM Mono">STROMA</text>
+          <text x="70" y="216" fill="rgba(168,224,99,0.6)" font-size="10">Calvin cycle enzymes</text>
+
+          <!-- Grana stacks -->
+          <!-- Granum 1 -->
+          <g id="granum1">
+            <rect x="240" y="130" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="240" y="155" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="240" y="180" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="240" y="205" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="240" y="230" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <text x="270" y="125" fill="#c8ff6a" font-size="11" text-anchor="middle" font-family="DM Mono">GRANUM</text>
+          </g>
+
+          <!-- Granum 2 -->
+          <g id="granum2">
+            <rect x="380" y="145" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="380" y="170" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="380" y="195" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="380" y="220" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <text x="410" y="140" fill="#c8ff6a" font-size="11" text-anchor="middle" font-family="DM Mono">GRANUM</text>
+          </g>
+
+          <!-- Granum 3 -->
+          <g id="granum3">
+            <rect x="530" y="135" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="530" y="160" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="530" y="185" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="530" y="210" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <rect x="530" y="235" width="60" height="20" rx="4" fill="#1a4a2e" stroke="#4db87a" stroke-width="1.5"/>
+            <text x="560" y="130" fill="#c8ff6a" font-size="11" text-anchor="middle" font-family="DM Mono">GRANUM</text>
+          </g>
+
+          <!-- Stroma lamellae -->
+          <path d="M300 190 Q340 185 380 195" fill="none" stroke="#2d7a4a" stroke-width="2" stroke-dasharray="4,2"/>
+          <path d="M440 195 Q485 188 530 195" fill="none" stroke="#2d7a4a" stroke-width="2" stroke-dasharray="4,2"/>
+          <text x="450" y="183" fill="rgba(77,184,122,0.8)" font-size="9" font-family="DM Mono">stroma lamella</text>
+
+          <!-- Lumen indicator -->
+          <line x1="255" y1="175" x2="220" y2="285" stroke="#7ae8ff" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="145" y="280" width="88" height="28" rx="4" fill="rgba(122,232,255,0.1)" stroke="rgba(122,232,255,0.4)" stroke-width="1"/>
+          <text x="189" y="292" fill="#7ae8ff" font-size="10" text-anchor="middle" font-family="DM Mono">THYLAKOID</text>
+          <text x="189" y="304" fill="#7ae8ff" font-size="10" text-anchor="middle" font-family="DM Mono">LUMEN</text>
+
+          <!-- Outer membrane label -->
+          <line x1="790" y1="210" x2="760" y2="210" stroke="#4db87a" stroke-width="1"/>
+          <text x="760" y="196" fill="#4db87a" font-size="10" text-anchor="end" font-family="DM Mono">Outer membrane</text>
+          <text x="760" y="220" fill="rgba(77,184,122,0.7)" font-size="10" text-anchor="end" font-family="DM Mono">Inner membrane</text>
+
+          <!-- DNA label -->
+          <circle cx="150" cy="290" r="5" fill="none" stroke="#c4a8ff" stroke-width="1.5" opacity="0"/>
+          <text x="680" y="270" fill="rgba(168,224,99,0.7)" font-size="10" font-family="DM Mono">Light rxns:</text>
+          <text x="680" y="283" fill="#a8e063" font-size="10" font-family="DM Mono">thylakoid membrane</text>
+          <text x="680" y="308" fill="rgba(168,224,99,0.7)" font-size="10" font-family="DM Mono">Calvin cycle:</text>
+          <text x="680" y="321" fill="#a8e063" font-size="10" font-family="DM Mono">stroma</text>
+
+          <!-- ATP synthase indicator -->
+          <circle cx="270" cy="255" r="8" fill="rgba(240,192,64,0.2)" stroke="#f0c040" stroke-width="1.5"/>
+          <text x="270" y="259" fill="#f0c040" font-size="8" text-anchor="middle" font-family="DM Mono">ATP</text>
+          <text x="270" y="274" fill="rgba(240,192,64,0.7)" font-size="8" text-anchor="middle" font-family="DM Mono">synthase</text>
+
+          <!-- Title -->
+          <text x="410" y="40" fill="#c8ff6a" font-size="16" text-anchor="middle" font-weight="bold" font-family="DM Mono">CHLOROPLAST CROSS-SECTION</text>
+          <text x="410" y="58" fill="rgba(168,224,99,0.5)" font-size="10" text-anchor="middle" font-family="DM Mono">Hover grana or labels for details</text>
+        </svg>
+      </div>
+      <div class="diagram-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#4db87a"></div><span>Outer/Inner membranes (double membrane envelope)</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c8ff6a"></div><span>Grana — thylakoid stacks; site of light reactions</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7ae8ff"></div><span>Thylakoid lumen — H⁺ accumulates here</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a8e063"></div><span>Stroma — site of Calvin cycle</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f0c040"></div><span>ATP synthase — embedded in thylakoid membrane</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#2d7a4a"></div><span>Stroma lamellae — connect adjacent grana</span></div>
+      </div>
+    </div>
+
+    <!-- Z-SCHEME DIAGRAM -->
+    <div class="diagram-view" id="d-zscheme">
+      <div class="diagram-svg-wrap">
+        <svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:460px;">
+          <!-- Y axis label -->
+          <text x="22" y="240" fill="rgba(250,246,238,0.5)" font-size="11" font-family="DM Mono" transform="rotate(-90,22,240)">ELECTRON ENERGY (eV)</text>
+          <!-- High/Low -->
+          <text x="42" y="60" fill="#a8e063" font-size="10" font-family="DM Mono">HIGH</text>
+          <text x="42" y="420" fill="rgba(168,224,99,0.5)" font-size="10" font-family="DM Mono">LOW</text>
+          <!-- Axis line -->
+          <line x1="55" y1="50" x2="55" y2="430" stroke="rgba(168,224,99,0.3)" stroke-width="1"/>
+          <line x1="55" y1="430" x2="780" y2="430" stroke="rgba(168,224,99,0.3)" stroke-width="1"/>
+
+          <!-- Water oxidation -->
+          <rect x="80" y="360" width="90" height="32" rx="5" fill="rgba(122,232,255,0.15)" stroke="#7ae8ff" stroke-width="1.5"/>
+          <text x="125" y="372" fill="#7ae8ff" font-size="11" text-anchor="middle" font-family="DM Mono">H₂O</text>
+          <text x="125" y="386" fill="#7ae8ff" font-size="9" text-anchor="middle" font-family="DM Mono">oxidation</text>
+
+          <!-- Arrow from H2O to PSII -->
+          <line x1="170" y1="376" x2="200" y2="360" stroke="#7ae8ff" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- PSII block -->
+          <rect x="200" y="320" width="100" height="44" rx="6" fill="rgba(77,184,122,0.2)" stroke="#4db87a" stroke-width="2"/>
+          <text x="250" y="338" fill="#c8ff6a" font-size="12" text-anchor="middle" font-family="DM Mono" font-weight="bold">PSII</text>
+          <text x="250" y="354" fill="#a8e063" font-size="10" text-anchor="middle" font-family="DM Mono">P680</text>
+
+          <!-- Light arrow to PSII -->
+          <line x1="250" y1="290" x2="250" y2="318" stroke="#f0c040" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrgold)"/>
+          <text x="260" y="305" fill="#f0c040" font-size="10" font-family="DM Mono">light</text>
+          <text x="260" y="317" fill="#f0c040" font-size="10" font-family="DM Mono">680nm</text>
+
+          <!-- e- path from PSII up (Z shape) -->
+          <path d="M300 340 L350 340 L380 160" fill="none" stroke="#a8e063" stroke-width="2.5" marker-end="url(#arrgreen)"/>
+
+          <!-- PQ label -->
+          <text x="348" y="330" fill="#c8ff6a" font-size="10" font-family="DM Mono">PQ</text>
+
+          <!-- Cyt b6f -->
+          <rect x="370" y="220" width="100" height="40" rx="5" fill="rgba(168,224,99,0.1)" stroke="#a8e063" stroke-width="1.5"/>
+          <text x="420" y="237" fill="#a8e063" font-size="11" text-anchor="middle" font-family="DM Mono">Cyt b6f</text>
+          <text x="420" y="251" fill="rgba(168,224,99,0.7)" font-size="9" text-anchor="middle" font-family="DM Mono">H⁺ pumped</text>
+
+          <!-- ATP synthesis callout -->
+          <rect x="490" y="215" width="100" height="36" rx="5" fill="rgba(240,192,64,0.1)" stroke="#f0c040" stroke-width="1.5"/>
+          <text x="540" y="231" fill="#f0c040" font-size="11" text-anchor="middle" font-family="DM Mono">ATP</text>
+          <text x="540" y="244" fill="rgba(240,192,64,0.7)" font-size="9" text-anchor="middle" font-family="DM Mono">synthase→ATP</text>
+          <line x1="470" y1="237" x2="490" y2="237" stroke="rgba(240,192,64,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+
+          <!-- PC label -->
+          <path d="M380 220 L410 150" fill="none" stroke="#a8e063" stroke-width="2" marker-end="url(#arrgreen)"/>
+          <text x="388" y="175" fill="#c8ff6a" font-size="10" font-family="DM Mono">PC</text>
+
+          <!-- PSI block -->
+          <rect x="490" y="100" width="100" height="44" rx="6" fill="rgba(196,168,255,0.2)" stroke="#c4a8ff" stroke-width="2"/>
+          <text x="540" y="118" fill="#c4a8ff" font-size="12" text-anchor="middle" font-family="DM Mono" font-weight="bold">PSI</text>
+          <text x="540" y="134" fill="rgba(196,168,255,0.8)" font-size="10" text-anchor="middle" font-family="DM Mono">P700</text>
+
+          <!-- e- arrives at PSI -->
+          <line x1="425" y1="150" x2="488" y2="128" stroke="#a8e063" stroke-width="2" marker-end="url(#arrgreen)"/>
+
+          <!-- Light arrow to PSI -->
+          <line x1="540" y1="60" x2="540" y2="98" stroke="#f0c040" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrgold)"/>
+          <text x="550" y="76" fill="#f0c040" font-size="10" font-family="DM Mono">light</text>
+          <text x="550" y="88" fill="#f0c040" font-size="10" font-family="DM Mono">700nm</text>
+
+          <!-- e- from PSI to NADPH -->
+          <path d="M590 122 L640 122 L660 90" fill="none" stroke="#c4a8ff" stroke-width="2.5" marker-end="url(#arrlav)"/>
+
+          <!-- Fd label -->
+          <text x="630" y="112" fill="#c4a8ff" font-size="10" font-family="DM Mono">Fd</text>
+
+          <!-- NADPH box -->
+          <rect x="655" y="60" width="110" height="40" rx="6" fill="rgba(122,232,255,0.15)" stroke="#7ae8ff" stroke-width="2"/>
+          <text x="710" y="77" fill="#7ae8ff" font-size="12" text-anchor="middle" font-family="DM Mono" font-weight="bold">NADPH</text>
+          <text x="710" y="92" fill="rgba(122,232,255,0.7)" font-size="9" text-anchor="middle" font-family="DM Mono">Calvin cycle fuel</text>
+
+          <!-- NADP+ reductase label -->
+          <text x="660" y="52" fill="rgba(196,168,255,0.7)" font-size="9" font-family="DM Mono">NADP⁺ reductase</text>
+
+          <!-- O2 release -->
+          <rect x="80" y="280" width="90" height="32" rx="5" fill="rgba(77,184,122,0.15)" stroke="#4db87a" stroke-width="1.5"/>
+          <text x="125" y="298" fill="#4db87a" font-size="11" text-anchor="middle" font-family="DM Mono">O₂ released</text>
+          <text x="125" y="310" fill="rgba(77,184,122,0.6)" font-size="9" text-anchor="middle" font-family="DM Mono">byproduct</text>
+
+          <!-- Title -->
+          <text x="410" y="28" fill="#c8ff6a" font-size="16" text-anchor="middle" font-weight="bold" font-family="DM Mono">THE Z-SCHEME (Electron Transport)</text>
+
+          <!-- Arrow markers -->
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#7ae8ff"/>
+            </marker>
+            <marker id="arrgreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#a8e063"/>
+            </marker>
+            <marker id="arrgold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#f0c040"/>
+            </marker>
+            <marker id="arrlav" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c4a8ff"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+      <div class="diagram-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#7ae8ff"></div><span>Water splitting (photolysis) — source of electrons & O₂</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4db87a"></div><span>PSII (P680) — energizes electrons with 680nm light</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#a8e063"></div><span>Electron transport chain (PQ → Cyt b6f → PC)</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f0c040"></div><span>ATP synthesis via chemiosmosis</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c4a8ff"></div><span>PSI (P700) → Ferredoxin → NADPH</span></div>
+      </div>
+    </div>
+
+    <!-- CALVIN CYCLE DIAGRAM -->
+    <div class="diagram-view" id="d-calvin">
+      <div class="diagram-svg-wrap">
+        <svg viewBox="0 0 820 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:480px;">
+          <!-- Background circle -->
+          <circle cx="410" cy="240" r="175" fill="none" stroke="rgba(168,224,99,0.12)" stroke-width="1" stroke-dasharray="8,4"/>
+
+          <!-- Stage 1: CO2 Fixation -->
+          <rect x="310" y="30" width="200" height="64" rx="8" fill="rgba(196,168,255,0.12)" stroke="#c4a8ff" stroke-width="2"/>
+          <text x="410" y="52" fill="#c4a8ff" font-size="13" text-anchor="middle" font-family="DM Mono" font-weight="bold">CARBON FIXATION</text>
+          <text x="410" y="68" fill="rgba(196,168,255,0.8)" font-size="11" text-anchor="middle" font-family="DM Mono">3CO₂ + 3 RuBP (5C)</text>
+          <text x="410" y="84" fill="rgba(196,168,255,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">→ 6 × 3-PGA (3C)</text>
+
+          <!-- RuBisCO label -->
+          <text x="530" y="62" fill="rgba(196,168,255,0.7)" font-size="10" font-family="DM Mono">RuBisCO</text>
+
+          <!-- CO2 input arrow -->
+          <line x1="410" y1="16" x2="410" y2="28" stroke="#c4a8ff" stroke-width="2" marker-end="url(#arrlav2)"/>
+          <text x="410" y="11" fill="#c4a8ff" font-size="11" text-anchor="middle" font-family="DM Mono">3CO₂ (input)</text>
+
+          <!-- Arrow fix → reduction (right side down) -->
+          <path d="M510 65 Q620 65 640 200" fill="none" stroke="#a8e063" stroke-width="2.5" marker-end="url(#arrgreen2)"/>
+          <text x="600" y="130" fill="rgba(168,224,99,0.7)" font-size="10" font-family="DM Mono">6 3-PGA</text>
+
+          <!-- Stage 2: Reduction -->
+          <rect x="560" y="195" width="210" height="80" rx="8" fill="rgba(122,232,255,0.1)" stroke="#7ae8ff" stroke-width="2"/>
+          <text x="665" y="218" fill="#7ae8ff" font-size="13" text-anchor="middle" font-family="DM Mono" font-weight="bold">REDUCTION</text>
+          <text x="665" y="235" fill="rgba(122,232,255,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">6 3-PGA → 6 G3P</text>
+          <text x="665" y="252" fill="rgba(122,232,255,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">uses 6ATP + 6NADPH</text>
+          <text x="665" y="268" fill="rgba(122,232,255,0.5)" font-size="9" text-anchor="middle" font-family="DM Mono">(glyceraldehyde-3-phosphate)</text>
+
+          <!-- ATP/NADPH input arrows -->
+          <text x="560" y="190" fill="#f0c040" font-size="10" text-anchor="end" font-family="DM Mono">6ATP →</text>
+          <text x="560" y="202" fill="#7ae8ff" font-size="10" text-anchor="end" font-family="DM Mono">6NADPH →</text>
+
+          <!-- G3P output arrow -->
+          <path d="M665 275 Q665 360 550 370" fill="none" stroke="#a8e063" stroke-width="2.5" marker-end="url(#arrgreen2)"/>
+
+          <!-- G3P exit box -->
+          <rect x="440" y="350" width="120" height="52" rx="7" fill="rgba(77,184,122,0.2)" stroke="#4db87a" stroke-width="2"/>
+          <text x="500" y="370" fill="#c8ff6a" font-size="12" text-anchor="middle" font-family="DM Mono" font-weight="bold">6 G3P</text>
+          <text x="500" y="386" fill="rgba(168,224,99,0.7)" font-size="10" text-anchor="middle" font-family="DM Mono">5 recycled</text>
+          <text x="500" y="398" fill="rgba(168,224,99,0.7)" font-size="10" text-anchor="middle" font-family="DM Mono">1 exits → glucose</text>
+
+          <!-- Exit arrow for glucose -->
+          <line x1="440" y1="390" x2="380" y2="420" stroke="#c8ff6a" stroke-width="2" stroke-dasharray="5,2" marker-end="url(#arrneon)"/>
+          <rect x="260" y="412" width="118" height="30" rx="5" fill="rgba(200,255,106,0.08)" stroke="rgba(200,255,106,0.4)" stroke-width="1.5"/>
+          <text x="319" y="428" fill="#c8ff6a" font-size="11" text-anchor="middle" font-family="DM Mono">→ Glucose/sugar</text>
+
+          <!-- Stage 3: Regeneration -->
+          <rect x="50" y="195" width="220" height="80" rx="8" fill="rgba(255,159,64,0.1)" stroke="#ff9f40" stroke-width="2"/>
+          <text x="160" y="218" fill="#ff9f40" font-size="13" text-anchor="middle" font-family="DM Mono" font-weight="bold">REGENERATION</text>
+          <text x="160" y="235" fill="rgba(255,159,64,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">5 G3P → 3 RuBP (5C)</text>
+          <text x="160" y="252" fill="rgba(255,159,64,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">uses 3 ATP</text>
+          <text x="160" y="268" fill="rgba(255,159,64,0.5)" font-size="9" text-anchor="middle" font-family="DM Mono">(complex reshuffling)</text>
+
+          <!-- 3ATP for regen -->
+          <text x="50" y="195" fill="#f0c040" font-size="10" text-anchor="start" font-family="DM Mono">← 3ATP</text>
+
+          <!-- Arrow from G3P (5) to Regeneration -->
+          <path d="M440 370 Q300 370 270 258" fill="none" stroke="#ff9f40" stroke-width="2.5" marker-end="url(#arrambr)"/>
+
+          <!-- Arrow from Regeneration to Fixation (RuBP regenerated) -->
+          <path d="M160 193 Q160 100 308 65" fill="none" stroke="#ff9f40" stroke-width="2.5" marker-end="url(#arrambr)"/>
+          <text x="185" y="130" fill="rgba(255,159,64,0.7)" font-size="10" font-family="DM Mono">3 RuBP</text>
+          <text x="185" y="143" fill="rgba(255,159,64,0.5)" font-size="9" font-family="DM Mono">regenerated</text>
+
+          <!-- Title -->
+          <text x="410" y="460" fill="#c8ff6a" font-size="15" text-anchor="middle" font-weight="bold" font-family="DM Mono">THE CALVIN CYCLE (Light-Independent Reactions)</text>
+
+          <defs>
+            <marker id="arrlav2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c4a8ff"/>
+            </marker>
+            <marker id="arrgreen2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#a8e063"/>
+            </marker>
+            <marker id="arrneon" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c8ff6a"/>
+            </marker>
+            <marker id="arrambr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#ff9f40"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+      <div class="diagram-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#c4a8ff"></div><span>Stage 1: Carbon Fixation — RuBisCO attaches CO₂ to RuBP → 3-PGA</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7ae8ff"></div><span>Stage 2: Reduction — 6 ATP + 6 NADPH convert 3-PGA → G3P</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ff9f40"></div><span>Stage 3: Regeneration — 5 G3P + 3 ATP → 3 RuBP (cycle continues)</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c8ff6a"></div><span>Net output: 1 G3P exits per turn (2 G3P needed for glucose)</span></div>
+      </div>
+    </div>
+
+    <!-- C3/C4/CAM COMPARISON -->
+    <div class="diagram-view" id="d-comparison">
+      <div class="diagram-svg-wrap">
+        <svg viewBox="0 0 820 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:420px;">
+          <!-- Title -->
+          <text x="410" y="30" fill="#c8ff6a" font-size="16" text-anchor="middle" font-family="DM Mono" font-weight="bold">C3 vs C4 vs CAM PLANTS</text>
+
+          <!-- Column headers -->
+          <rect x="60" y="45" width="210" height="36" rx="5" fill="rgba(77,184,122,0.15)" stroke="#4db87a" stroke-width="1.5"/>
+          <text x="165" y="68" fill="#4db87a" font-size="14" text-anchor="middle" font-family="DM Mono" font-weight="bold">C3 PLANTS</text>
+
+          <rect x="305" y="45" width="210" height="36" rx="5" fill="rgba(240,192,64,0.15)" stroke="#f0c040" stroke-width="1.5"/>
+          <text x="410" y="68" fill="#f0c040" font-size="14" text-anchor="middle" font-family="DM Mono" font-weight="bold">C4 PLANTS</text>
+
+          <rect x="550" y="45" width="210" height="36" rx="5" fill="rgba(196,168,255,0.15)" stroke="#c4a8ff" stroke-width="1.5"/>
+          <text x="655" y="68" fill="#c4a8ff" font-size="14" text-anchor="middle" font-family="DM Mono" font-weight="bold">CAM PLANTS</text>
+
+          <!-- Row labels -->
+          <text x="52" y="118" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">1st product</text>
+          <text x="52" y="158" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Enzyme</text>
+          <text x="52" y="198" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Separation</text>
+          <text x="52" y="238" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Stomata</text>
+          <text x="52" y="278" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Photorespir.</text>
+          <text x="52" y="318" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Climate</text>
+          <text x="52" y="358" fill="rgba(250,246,238,0.5)" font-size="10" text-anchor="end" font-family="DM Mono">Examples</text>
+
+          <!-- horizontal rules -->
+          <line x1="55" y1="98" x2="765" y2="98" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="138" x2="765" y2="138" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="178" x2="765" y2="178" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="218" x2="765" y2="218" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="258" x2="765" y2="258" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="298" x2="765" y2="298" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+          <line x1="55" y1="338" x2="765" y2="338" stroke="rgba(168,224,99,0.1)" stroke-width="1"/>
+
+          <!-- C3 Column Data -->
+          <text x="165" y="118" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">3-PGA (3C)</text>
+          <text x="165" y="158" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">RuBisCO only</text>
+          <text x="165" y="198" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">None</text>
+          <text x="165" y="238" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Open daytime</text>
+          <text x="165" y="278" fill="#ff8888" font-size="11" text-anchor="middle" font-family="DM Mono">Yes (significant)</text>
+          <text x="165" y="318" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Temperate/moist</text>
+          <text x="165" y="358" fill="rgba(250,246,238,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">Wheat, rice, beans</text>
+
+          <!-- C4 Column Data -->
+          <text x="410" y="118" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Oxaloacetate (4C)</text>
+          <text x="410" y="158" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">PEP carboxylase+RuBisCO</text>
+          <text x="410" y="198" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Spatial (2 cell types)</text>
+          <text x="410" y="238" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Open daytime</text>
+          <text x="410" y="278" fill="#a8e063" font-size="11" text-anchor="middle" font-family="DM Mono">Minimal</text>
+          <text x="410" y="318" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Hot, sunny</text>
+          <text x="410" y="358" fill="rgba(250,246,238,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">Corn, sugarcane</text>
+
+          <!-- CAM Column Data -->
+          <text x="655" y="118" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Malate (4C, night)</text>
+          <text x="655" y="158" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">PEP carboxylase+RuBisCO</text>
+          <text x="655" y="198" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Temporal (night/day)</text>
+          <text x="655" y="238" fill="#7ae8ff" font-size="11" text-anchor="middle" font-family="DM Mono">Open at NIGHT only</text>
+          <text x="655" y="278" fill="#a8e063" font-size="11" text-anchor="middle" font-family="DM Mono">Minimal</text>
+          <text x="655" y="318" fill="rgba(250,246,238,0.85)" font-size="11" text-anchor="middle" font-family="DM Mono">Hot, arid (desert)</text>
+          <text x="655" y="358" fill="rgba(250,246,238,0.6)" font-size="10" text-anchor="middle" font-family="DM Mono">Cacti, aloe, pineapple</text>
+
+          <!-- Vertical separators -->
+          <line x1="285" y1="85" x2="285" y2="380" stroke="rgba(168,224,99,0.12)" stroke-width="1"/>
+          <line x1="530" y1="85" x2="530" y2="380" stroke="rgba(168,224,99,0.12)" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     QUIZ PANEL
+═══════════════════════════════════════ -->
+<div id="quiz-panel" class="panel">
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1>AP Biology Quiz</h1>
+      <p>PHOTOSYNTHESIS · 15 MCQ + 3 FRQ · Click an answer to check instantly</p>
+    </div>
+
+    <div class="quiz-score-bar">
+      <div>
+        <div class="score-label">Score</div>
+        <div class="score-num" id="scoreNum">0</div>
+      </div>
+      <div>
+        <div class="score-label">Answered</div>
+        <div class="score-num" id="answeredNum" style="font-size:28px;color:var(--green-bright);">0</div>
+        <div class="score-sub">of 15 MCQ</div>
+      </div>
+      <button class="reset-btn" onclick="resetQuiz()">↺ Reset</button>
+    </div>
+
+    <div class="quiz-section-label">Section I — Multiple Choice (15 Questions)</div>
+
+    <!-- Q1 -->
+    <div class="q-card">
+      <div class="q-num">Q1 · DIFFICULTY: ★☆☆</div>
+      <div class="q-text">Where in the chloroplast do the light reactions occur?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q1')">A. The stroma</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q1')">B. The thylakoid membranes</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q1')">C. The outer membrane</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q1')">D. The intermembrane space</button>
+      </div>
+      <div class="q-explain" id="eq1">✓ The thylakoid membranes house the photosystems (PSII, PSI), the ETC, and ATP synthase. The stroma is where the Calvin cycle (light-independent reactions) occurs.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-num">Q2 · DIFFICULTY: ★☆☆</div>
+      <div class="q-text">What is the immediate source of the O₂ released during photosynthesis?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q2')">A. Glucose</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q2')">B. CO₂</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q2')">C. Water (H₂O)</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q2')">D. ATP</button>
+      </div>
+      <div class="q-explain" id="eq2">✓ Oxygen is released as a byproduct of photolysis — the splitting of water molecules at Photosystem II: 2H₂O → O₂ + 4H⁺ + 4e⁻. A very common exam trap!</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card">
+      <div class="q-num">Q3 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">Which of the following correctly describes the role of NADPH in the Calvin cycle?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q3')">A. It provides the energy to split water molecules</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q3')">B. It acts as an electron donor to reduce 3-PGA to G3P</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q3')">C. It is the enzyme that fixes CO₂ to RuBP</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q3')">D. It regenerates RuBP using energy from ATP</button>
+      </div>
+      <div class="q-explain" id="eq3">✓ In Stage 2 (reduction), NADPH donates electrons (reducing power) to reduce 3-PGA into G3P. ATP provides the phosphate group in this step. NADPH is oxidized back to NADP⁺.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-num">Q4 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">A researcher adds a drug that blocks ATP synthase in isolated chloroplasts exposed to light. Which of the following would most likely occur?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q4')">A. O₂ production would stop immediately</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q4')">B. The proton gradient across the thylakoid membrane would increase</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q4')">C. NADPH production would stop</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q4')">D. CO₂ fixation would increase</button>
+      </div>
+      <div class="q-explain" id="eq4">✓ Blocking ATP synthase prevents H⁺ from flowing back into the stroma. H⁺ continues to be pumped into the lumen (by ETC), causing the gradient to build up. O₂ production would continue (PSII still works) but ATP synthesis stops, eventually halting the Calvin cycle.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card">
+      <div class="q-num">Q5 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">Which enzyme is responsible for carbon fixation in C3 plants, and what is its key characteristic related to photorespiration?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q5')">A. PEP carboxylase; it can bind both CO₂ and O₂</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q5')">B. RuBisCO; it can bind both CO₂ and O₂, causing photorespiration when O₂ is high</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q5')">C. RuBisCO; it exclusively binds CO₂ with high specificity</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q5')">D. ATP synthase; it catalyzes the addition of CO₂ to RuBP</button>
+      </div>
+      <div class="q-explain" id="eq5">✓ RuBisCO can bind O₂ instead of CO₂ when O₂ levels are high (hot, dry conditions with closed stomata). This leads to photorespiration, which wastes energy without producing sugar. C4 and CAM plants use PEP carboxylase (which cannot bind O₂) to avoid this.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card">
+      <div class="q-num">Q6 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">How many turns of the Calvin cycle are required to produce one molecule of glucose (C₆H₁₂O₆)?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q6')">A. 1 turn</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q6')">B. 3 turns</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q6')">C. 6 turns</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q6')">D. 12 turns</button>
+      </div>
+      <div class="q-explain" id="eq6">✓ Each turn fixes 1 CO₂ and produces 1 net G3P (3C). Glucose is a 6-carbon molecule, requiring 2 G3P. Since 1 net G3P per turn, you need 6 turns to fix 6 CO₂ and produce 2 G3P to combine into glucose. Total cost: 18 ATP + 12 NADPH.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card">
+      <div class="q-num">Q7 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">In the Z-scheme, which of the following correctly describes the sequence of electron transport?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q7')">A. PSI → ETC → PSII → NADPH</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q7')">B. H₂O → PSII → ETC → PSI → NADPH</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q7')">C. NADPH → PSI → ETC → PSII → H₂O</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q7')">D. H₂O → PSI → ETC → PSII → NADPH</button>
+      </div>
+      <div class="q-explain" id="eq7">✓ The correct flow is: H₂O (photolysis) → PSII (P680) → PQ → Cytochrome b6f → PC → PSI (P700) → Ferredoxin → NADP⁺ reductase → NADPH. Electrons flow from water to NADPH, gaining energy at each photosystem.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card">
+      <div class="q-num">Q8 · DIFFICULTY: ★★★</div>
+      <div class="q-text">A scientist measures the rate of photosynthesis in spinach leaves at increasing CO₂ concentrations while keeping light intensity constant at a low level. The rate plateaus early. What is the most likely explanation?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q8')">A. The leaves have run out of chlorophyll</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q8')">B. Light intensity is the limiting factor, not CO₂</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q8')">C. RuBisCO has been denatured by high CO₂</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q8')">D. Stomata close in response to high CO₂</button>
+      </div>
+      <div class="q-explain" id="eq8">✓ Even with ample CO₂, if light intensity is low, there is insufficient ATP and NADPH being produced to drive the Calvin cycle. Light becomes the limiting factor — increasing CO₂ further has no effect because the light reactions can't supply enough energy currency.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card">
+      <div class="q-num">Q9 · DIFFICULTY: ★★★</div>
+      <div class="q-text">Which of the following best explains why CAM plants are well adapted to desert environments?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q9')">A. They do not perform photosynthesis during the day</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q9')">B. They open stomata only at night, reducing water loss while still fixing CO₂</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q9')">C. They use a different type of chlorophyll that requires less water</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q9')">D. Their Calvin cycle occurs in specialized cells that prevent water loss</button>
+      </div>
+      <div class="q-explain" id="eq9">✓ CAM plants open stomata at night (when it's cooler and more humid) to fix CO₂ as malate. During the hot, dry day, stomata close (minimizing water loss), and malate releases CO₂ for the Calvin cycle powered by daytime light reactions. Temporal separation is the key.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card">
+      <div class="q-num">Q10 · DIFFICULTY: ★★★</div>
+      <div class="q-text">If ¹⁸O-labeled water (H₂¹⁸O) is provided to a plant, where would you expect to find the labeled ¹⁸O atoms?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q10')">A. In the glucose produced by the Calvin cycle</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q10')">B. In the O₂ gas released during photosynthesis</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q10')">C. In the CO₂ absorbed by the leaf</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q10')">D. In the ATP produced by the light reactions</button>
+      </div>
+      <div class="q-explain" id="eq10">✓ Water is split at PSII (photolysis), releasing O₂ as a byproduct. Therefore, ¹⁸O from labeled water would appear in the O₂ gas released. This was confirmed by classic isotope-tracing experiments. If CO₂ were labeled with ¹⁸O, the label would end up in glucose/G3P via the Calvin cycle.</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card">
+      <div class="q-num">Q11 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">Cyclic photophosphorylation differs from noncyclic photophosphorylation in that it:</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q11')">A. Produces NADPH but not ATP</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q11')">B. Produces ATP but not NADPH, and does not split water</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q11')">C. Involves both PSI and PSII</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q11')">D. Occurs only in C4 plants</button>
+      </div>
+      <div class="q-explain" id="eq11">✓ Cyclic photophosphorylation involves only PSI. Electrons cycle back to cytochrome b6f after being energized, creating a proton gradient for ATP synthesis. No water is split (no PSII), and no NADPH is produced. It occurs when NADPH is in excess relative to ATP.</div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card">
+      <div class="q-num">Q12 · DIFFICULTY: ★★★</div>
+      <div class="q-text">A plant is placed in the dark but supplied with externally provided ATP and NADPH. Which of the following processes could still proceed?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q12')">A. Light reactions (PSII and PSI activity)</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q12')">B. The Calvin cycle (carbon fixation and G3P production)</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q12')">C. Chlorophyll synthesis only</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q12')">D. Neither light reactions nor Calvin cycle</button>
+      </div>
+      <div class="q-explain" id="eq12">✓ The Calvin cycle (light-independent reactions) does not directly require light — it requires ATP and NADPH (which normally come from light reactions). If those molecules are supplied externally, carbon fixation can proceed in the dark. This demonstrates the two stages are functionally separable.</div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card">
+      <div class="q-num">Q13 · DIFFICULTY: ★★☆</div>
+      <div class="q-text">During paper chromatography of leaf pigments, which pigment is expected to travel the furthest from the origin?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q13')">A. Chlorophyll a</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q13')">B. Chlorophyll b</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q13')">C. β-carotene (carotenoids)</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q13')">D. Xanthophylls</button>
+      </div>
+      <div class="q-explain" id="eq13">✓ β-carotene is the most nonpolar pigment, so it is most soluble in the nonpolar solvent and travels furthest. Order from top (furthest): carotenes → xanthophylls → chlorophyll a → chlorophyll b. Chlorophylls are more polar and interact more with the polar paper.</div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card">
+      <div class="q-num">Q14 · DIFFICULTY: ★★★</div>
+      <div class="q-text">Which of the following is the correct net equation for 3 turns of the Calvin cycle?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q14')">A. 3CO₂ + 6ATP + 6NADPH → 1G3P + 3ADP + 6NADP⁺</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q14')">B. 3CO₂ + 9ATP + 6NADPH → 1G3P + 9ADP + 6NADP⁺ + 3RuBP</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q14')">C. 6CO₂ + 18ATP + 12NADPH → 1 glucose + 18ADP + 12NADP⁺</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q14')">D. 3CO₂ + 3ATP + 3NADPH → 1G3P + 3ADP + 3NADP⁺</button>
+      </div>
+      <div class="q-explain" id="eq14">✓ For 3 turns (3 CO₂ fixed): Stage 1 uses 0 ATP/NADPH; Stage 2 uses 6 ATP + 6 NADPH (for 6 3-PGA → 6 G3P); Stage 3 uses 3 ATP (to regenerate 3 RuBP). Total: 9 ATP + 6 NADPH. Net output: 1 G3P (3C). The RuBP is regenerated internally, not shown as a "product."</div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="q-card">
+      <div class="q-num">Q15 · DIFFICULTY: ★★★</div>
+      <div class="q-text">In a C4 plant, why is photorespiration minimized compared to C3 plants?</div>
+      <div class="q-options">
+        <button class="q-opt" onclick="checkAns(this,'A','q15')">A. C4 plants have more RuBisCO molecules than C3 plants</button>
+        <button class="q-opt" onclick="checkAns(this,'B','q15')">B. CO₂ is concentrated in bundle sheath cells, outcompeting O₂ for RuBisCO</button>
+        <button class="q-opt" onclick="checkAns(this,'C','q15')">C. RuBisCO in C4 plants has a higher affinity for O₂ than CO₂</button>
+        <button class="q-opt" onclick="checkAns(this,'D','q15')">D. C4 plants only perform the Calvin cycle at night when O₂ is low</button>
+      </div>
+      <div class="q-explain" id="eq15">✓ PEP carboxylase in mesophyll cells fixes CO₂ into 4-carbon compounds (malate/OAA), which are shuttled to bundle sheath cells. There, CO₂ is released in high concentrations, flooding RuBisCO with CO₂ and making O₂ binding (photorespiration) kinetically unfavorable. Separation is spatial (2 cell types).</div>
+    </div>
+
+    <!-- FRQ SECTION -->
+    <div class="quiz-section-label" style="margin-top:48px;">Section II — Free Response Questions (FRQ)</div>
+
+    <div class="frq-card">
+      <h3>FRQ 1 — Light Reactions (8 pts)</h3>
+      <div class="frq-q">
+        A student places spinach chloroplasts in an illuminated buffer containing ADP, Pᵢ, and NADP⁺, but no CO₂. Describe what happens in the thylakoid membrane. Your answer must address: (a) how light energy is captured and transferred; (b) the role of the electron transport chain; (c) how ATP and NADPH are produced; and (d) what happens to the oxygen atoms from water.
+      </div>
+      <button class="frq-answer-btn" onclick="toggleFRQ(this)">▶ Show Model Answer</button>
+      <div class="frq-answer">
+        <strong>Model Answer (8 points):</strong>
+        <ul>
+          <li><strong>(a) Light capture (2 pts):</strong> Chlorophyll and accessory pigments in the antenna complex of PSII absorb photons (~680 nm). Resonance energy transfer moves the excitation energy to the reaction center (P680), where it excites an electron to a higher energy state. Similarly, PSI (P700) captures ~700 nm photons to re-energize electrons.</li>
+          <li><strong>(b) ETC role (2 pts):</strong> Excited electrons from P680 are transferred to plastoquinone (PQ), then to the cytochrome b6f complex, then to plastocyanin (PC). This electron flow is coupled to H⁺ pumping into the thylakoid lumen, creating a proton-motive force. Electrons arrive at PSI and are excited again before being passed to ferredoxin.</li>
+          <li><strong>(c) ATP and NADPH (2 pts):</strong> The H⁺ gradient drives protons back across the thylakoid membrane through ATP synthase (CF₁CF₀), which catalyzes ADP + Pᵢ → ATP (photophosphorylation). At PSI, ferredoxin passes electrons to NADP⁺ reductase, reducing NADP⁺ + H⁺ → NADPH.</li>
+          <li><strong>(d) Oxygen (2 pts):</strong> Electrons removed from P680 are replenished by oxidizing water molecules at the oxygen-evolving complex (OEC) associated with PSII: 2H₂O → O₂ + 4H⁺ + 4e⁻. The oxygen is released as O₂ gas (byproduct). Without CO₂, the Calvin cycle cannot proceed, but light reactions will continue as long as NADP⁺ and ADP are available.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="frq-card">
+      <h3>FRQ 2 — Experimental Design (6 pts)</h3>
+      <div class="frq-q">
+        Design an experiment to test whether green light or red light is more effective at driving photosynthesis in aquatic plants (Elodea). Include a hypothesis, control, independent and dependent variables, and expected results with explanation.
+      </div>
+      <button class="frq-answer-btn" onclick="toggleFRQ(this)">▶ Show Model Answer</button>
+      <div class="frq-answer">
+        <strong>Model Answer (6 points):</strong>
+        <ul>
+          <li><strong>Hypothesis (1 pt):</strong> Red light will drive photosynthesis at a higher rate than green light because chlorophyll absorbs red light (~680 nm) strongly, whereas green light (~550 nm) is mostly reflected and transmitted.</li>
+          <li><strong>Variables (2 pts):</strong> Independent variable = wavelength of light (red filter vs. green filter vs. white light control). Dependent variable = rate of photosynthesis (measured as O₂ bubble production per minute, or O₂ concentration increase). Controlled variables: light intensity (equal lumens), temperature, CO₂ concentration (NaHCO₃ in water), same Elodea species and size.</li>
+          <li><strong>Control (1 pt):</strong> White light group serves as positive control; dark group serves as negative control to establish baseline O₂ production/consumption.</li>
+          <li><strong>Expected Results (2 pts):</strong> Red light should show significantly more O₂ bubbles per minute than green light. This is because red light (~680 nm) matches the absorption peak of chlorophyll a and drives both PSII and PSI efficiently. Green light is poorly absorbed — most photons are reflected or transmitted, so very little energy enters the photosystems. The action spectrum of photosynthesis mirrors the absorption spectrum of the pigments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="frq-card">
+      <h3>FRQ 3 — C3 vs C4 Comparison (5 pts)</h3>
+      <div class="frq-q">
+        On a hot, sunny day, a farmer observes that her corn crop (C4 plant) continues to photosynthesize efficiently while her soybean crop (C3 plant) shows reduced photosynthetic rate. Explain the molecular and anatomical basis for this difference. Discuss photorespiration and how corn avoids it.
+      </div>
+      <button class="frq-answer-btn" onclick="toggleFRQ(this)">▶ Show Model Answer</button>
+      <div class="frq-answer">
+        <strong>Model Answer (5 points):</strong>
+        <ul>
+          <li><strong>C3 problem (1 pt):</strong> On a hot, sunny day, soybeans close their stomata to prevent water loss. This causes CO₂ levels inside the leaf to drop and O₂ levels to rise. RuBisCO (the carbon-fixing enzyme) has dual affinity for both CO₂ and O₂; when O₂ is high, RuBisCO catalyzes oxygenation of RuBP instead of carboxylation, producing 2-phosphoglycolate (a toxic compound). This photorespiration consumes ATP and NADPH without producing G3P, reducing net photosynthesis by ~25%.</li>
+          <li><strong>C4 solution — biochemistry (2 pts):</strong> Corn uses PEP carboxylase in mesophyll cells to initially fix CO₂ into a 4-carbon compound (oxaloacetate → malate). PEP carboxylase has essentially no affinity for O₂, so photorespiration is avoided at the fixation step. The 4-carbon malate is then transported to bundle sheath cells, where it is decarboxylated, releasing CO₂ at high concentrations directly near RuBisCO. RuBisCO in bundle sheath cells encounters such high local CO₂ that O₂ cannot compete — photorespiration is minimized.</li>
+          <li><strong>Anatomy (1 pt):</strong> Corn has Kranz anatomy — mesophyll cells arranged in a ring around bundle sheath cells (containing chloroplasts with dense RuBisCO). This spatial separation allows the CO₂ pump to function: mesophyll cells capture CO₂ efficiently and concentrate it in bundle sheath cells.</li>
+          <li><strong>Outcome (1 pt):</strong> On a hot, sunny day, corn continues to fix CO₂ efficiently even with closed stomata because the CO₂ pump maintains high CO₂ at the site of RuBisCO. Soybeans lack this mechanism and suffer significant photorespiratory losses.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ═══════════ TAB NAVIGATION ═══════════
+function showPanel(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(name + '-panel').classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ═══════════ SLIDES ═══════════
+const SLIDES = 13;
+let currentSlide = 1;
+
+const presenterNotes = {
+  1: "Welcome slide. Emphasize that photosynthesis is AP Unit 3 and appears heavily in both MCQ and FRQs (8-12% of exam). Ask: where have students seen photosynthesis in their daily lives?",
+  2: "Stress the equation and ask students to identify each atom's source. Key trap: O₂ comes from water, not CO₂. Have them balance the equation themselves.",
+  3: "Draw the chloroplast on the board. Emphasize compartmentalization: stroma vs thylakoid lumen. The proton gradient only works because these spaces are separate. Show a real TEM image if possible.",
+  4: "Walk through each step of the Z-scheme using the energy diagram. Emphasize that PSII comes BEFORE PSI despite the numbering. Total output: 3 ATP + 2 NADPH per 2 e⁻ (per H₂O split).",
+  5: "Detail the Z-scheme path. Students often forget plastoquinone and plastocyanin — mention these are electron carriers analogous to NADH/FADH₂ in cellular respiration ETC.",
+  6: "Use the 3-stage framework. Stage names: Fixation, Reduction, Regeneration. Ask: what happens if RuBP runs out? That's why regeneration is essential — the cycle must continue.",
+  7: "Walk through the stoichiometry carefully. Key numbers for AP: 9 ATP + 6 NADPH per 3 CO₂ (1 net G3P); 18 ATP + 12 NADPH for 1 glucose (6 turns). These come up in calculation FRQs.",
+  8: "Show students the structure of a C3 vs C4 leaf cross-section. Kraanz anatomy is visible and AP-tested. CAM is temporal, C4 is spatial — this distinction is critical.",
+  9: "Use the comparison table. Have students predict which plant type would perform better in a greenhouse experiment at high temperature and low CO₂. Answer: C4 > C3 due to photorespiration avoidance.",
+  10: "Show an absorption spectrum overlay with action spectrum. Ask: why is green light least effective? Not because chlorophyll ignores it — it's mostly reflected. Connect to paper chromatography lab.",
+  11: "Graph interpretation skill: draw rate vs. light intensity curve with 2 CO₂ concentrations. At low light, CO₂ doesn't matter. At high light, CO₂ becomes limiting. Classic AP graph question.",
+  12: "Connect to cellular respiration unit. Emphasize the common machinery: ETC and chemiosmosis. ATP synthase works in both organelles — direction is different. Great FRQ comparison question.",
+  13: "Final review. Have students rank these points by difficulty and quiz each other. Emphasize the FRQ strategy: always name the molecule, name the location, and name the enzyme."
+};
+
+function buildThumbs() {
+  const sidebar = document.querySelector('.slide-sidebar');
+  const titles = [
+    'Overview','Overall Equation','Chloroplast Anatomy',
+    'Light Reactions','Photolysis & Z-Scheme','Photolysis Detail',
+    'Calvin Cycle','Calvin Stoichiometry','Photorespiration & C4/CAM',
+    'C3 vs C4 vs CAM','Pigments & Spectra','Limiting Factors',
+    'Connect to Respiration & AP Tips'
+  ];
+  sidebar.innerHTML = '';
+  for (let i = 1; i <= SLIDES; i++) {
+    const t = document.createElement('div');
+    t.className = 'slide-thumb' + (i === 1 ? ' active' : '');
+    t.innerHTML = `<span class="num">SLIDE ${i}</span>${titles[i-1]}`;
+    t.onclick = () => goToSlide(i);
+    sidebar.appendChild(t);
+  }
+}
+
+function goToSlide(n) {
+  document.querySelector('#s' + currentSlide).classList.remove('active');
+  document.querySelectorAll('.slide-thumb')[currentSlide - 1].classList.remove('active');
+  currentSlide = n;
+  document.querySelector('#s' + currentSlide).classList.add('active');
+  document.querySelectorAll('.slide-thumb')[currentSlide - 1].classList.add('active');
+  document.getElementById('slideCounter').textContent = currentSlide + ' / ' + SLIDES;
+  document.getElementById('prevBtn').disabled = currentSlide === 1;
+  document.getElementById('nextBtn').disabled = currentSlide === SLIDES;
+  const strip = document.getElementById('presenterStrip');
+  strip.textContent = '📝 ' + (presenterNotes[currentSlide] || '');
+}
+
+function changeSlide(dir) {
+  const next = currentSlide + dir;
+  if (next >= 1 && next <= SLIDES) goToSlide(next);
+}
+
+function togglePresenter() {
+  const strip = document.getElementById('presenterStrip');
+  strip.classList.toggle('show');
+  strip.textContent = '📝 ' + (presenterNotes[currentSlide] || '');
+  document.getElementById('presenterToggle').textContent =
+    strip.classList.contains('show') ? '📝 Hide Notes' : '📝 Presenter Notes';
+}
+
+buildThumbs();
+
+// Keyboard nav
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('slides-panel').classList.contains('active')) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  }
+});
+
+// ═══════════ DIAGRAMS ═══════════
+function showDiagram(name) {
+  document.querySelectorAll('.diagram-view').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.dtab').forEach(b => b.classList.remove('active'));
+  document.getElementById('d-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ═══════════ QUIZ ═══════════
+const answers = {
+  q1: 'B', q2: 'C', q3: 'B', q4: 'B', q5: 'B',
+  q6: 'C', q7: 'B', q8: 'B', q9: 'B', q10: 'B',
+  q11: 'B', q12: 'B', q13: 'C', q14: 'B', q15: 'B'
+};
+
+let score = 0;
+let answered = 0;
+const answeredQ = new Set();
+
+function checkAns(btn, choice, qid) {
+  if (answeredQ.has(qid)) return;
+  answeredQ.add(qid);
+  answered++;
+  const correct = answers[qid];
+  const opts = btn.parentElement.querySelectorAll('.q-opt');
+  opts.forEach(o => {
+    o.disabled = true;
+    const letter = o.textContent.charAt(0);
+    if (letter === correct) o.classList.add('correct');
+  });
+  if (choice === correct) {
+    btn.classList.add('correct');
+    score++;
+  } else {
+    btn.classList.add('wrong');
+  }
+  document.getElementById('eq' + qid).classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('answeredNum').textContent = answered;
+}
+
+function toggleFRQ(btn) {
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? '▼ Hide Answer' : '▶ Show Model Answer';
+}
+
+function resetQuiz() {
+  score = 0; answered = 0;
+  answeredQ.clear();
+  document.getElementById('scoreNum').textContent = '0';
+  document.getElementById('answeredNum').textContent = '0';
+  document.querySelectorAll('.q-opt').forEach(o => {
+    o.disabled = false;
+    o.classList.remove('correct','wrong','selected');
+  });
+  document.querySelectorAll('.q-explain').forEach(e => e.classList.remove('show'));
+  document.querySelectorAll('.frq-answer').forEach(a => {
+    a.classList.remove('show');
+    if (a.previousElementSibling) a.previousElementSibling.textContent = '▶ Show Model Answer';
+  });
+}
+</script>
+</body>
+</html>
