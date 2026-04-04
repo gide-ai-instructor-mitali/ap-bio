@@ -3,290 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cladograms</title>
+    <title>Cladogram</title>
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
+            --bg: #f1f5f9;
+            --card: #ffffff;
             --primary: #3b82f6;
-            --primary-hover: #2563eb;
-            --text-main: #1e293b;
-            --border-color: #e2e8f0;
+            --selected: #fde047;
             --correct: #22c55e;
             --incorrect: #ef4444;
-            --trait-color: #ea580c;
-            --org-color: #8b5cf6;
         }
 
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            font-variant-numeric: tabular-nums;
-        }
-
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            text-align: center;
-        }
-
-        th { background-color: #f1f5f9; font-size: 0.9rem; }
+        body { font-family: system-ui, sans-serif; background: var(--bg); padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .container { width: 100%; max-width: 900px; background: var(--card); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         
-        .total-row { background-color: #eff6ff; font-weight: bold; color: var(--primary); }
-        .total-col { background-color: #faf5ff; font-weight: bold; color: var(--org-color); }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
+        .total-cell { background: #f8fafc; font-weight: bold; color: var(--primary); }
 
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            justify-content: center;
+        .quiz-layout { display: grid; grid-template-columns: 200px 1fr; gap: 20px; margin-top: 20px; }
+        
+        .bank { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .item { 
+            padding: 10px; background: white; border: 2px solid #cbd5e1; 
+            border-radius: 6px; margin-bottom: 8px; cursor: pointer; 
+            font-weight: bold; text-align: center; transition: 0.2s;
+        }
+        .item:hover { border-color: var(--primary); }
+        .item.selected { background: var(--selected); border-color: orange; transform: scale(1.05); }
+
+        .cladogram-panel { 
+            position: relative; height: 450px; border: 1px solid #e2e8f0; 
+            border-radius: 8px; background: white; 
         }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+        .slot {
+            position: absolute; width: 110px; height: 40px;
+            border: 2px dashed #cbd5e1; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; color: #94a3b8; cursor: pointer; background: white;
+            z-index: 10; overflow: hidden;
         }
+        .slot:hover { border-color: var(--primary); background: #eff6ff; }
+        .slot.filled { border-style: solid; color: black; font-size: 13px; border-color: #94a3b8; }
+        .slot.correct { background: #dcfce7; border-color: var(--correct); }
+        .slot.incorrect { background: #fee2e2; border-color: var(--incorrect); }
 
-        button:hover { transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        button.secondary { background-color: #64748b; }
-
-        .game-area {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .bank {
-            background: #f1f5f9;
-            padding: 15px;
-            border-radius: 12px;
-            min-height: 200px;
-        }
-
-        .bank-title { font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; color: #64748b; }
-
-        .draggable {
-            padding: 10px;
-            background: white;
-            border: 2px solid #cbd5e1;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            cursor: grab;
-            text-align: center;
-            font-weight: 600;
-            transition: border-color 0.2s;
-        }
-
-        .draggable[data-type="organism"] { border-left: 5px solid var(--org-color); }
-        .draggable[data-type="trait"] { border-left: 5px solid var(--trait-color); }
-
-        .cladogram-panel {
-            position: relative;
-            background: white;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            height: 450px;
-        }
-
-        .drop-zone {
-            position: absolute;
-            width: 120px;
-            height: 45px;
-            border: 2px dashed #cbd5e1;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.9);
-            font-size: 0.85rem;
-            z-index: 10;
-        }
-
-        .drop-zone.correct { border-color: var(--correct); background: #f0fdf4; border-style: solid; }
-        .drop-zone.incorrect { border-color: var(--incorrect); background: #fef2f2; border-style: solid; }
-
-        /* Path Lines Styling */
-        svg line { stroke: #94a3b8; stroke-width: 3; }
-
+        svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        line { stroke: #cbd5e1; stroke-width: 3; }
+        
+        .controls { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
+        button { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; color: white; background: var(--primary); }
+        .btn-check { background: var(--correct); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 style="text-align:center; margin-bottom:10px;">Evolutionary Matrix Decipherer</h2>
-    <p style="text-align:center; color:#64748b; margin-bottom:20px;">Use totals to find the order. <strong>Row Totals</strong> = Organism Rank | <strong>Column Totals</strong> = Trait Chronology.</p>
-
-    <div id="tableContainer"></div>
+    <h2 style="text-align:center">Cladogram Builder: Click-to-Place</h2>
+    <div id="matrixUI"></div>
 
     <div class="controls">
-        <button onclick="scrambleColumns()">🔀 Scramble Columns</button>
-        <button onclick="toggleAnalysis()" class="secondary">📊 Toggle Totals Analysis</button>
-        <button onclick="checkAnswers()" style="background-color: var(--correct);">✅ Verify Tree</button>
-        <button onclick="resetAll()" class="secondary">🔄 Reset</button>
+        <button onclick="scramble()">🔀 Scramble Columns</button>
+        <button style="background:#64748b" onclick="toggleTotals()">📊 Toggle Analysis</button>
     </div>
 
-    <div class="game-area">
+    <div class="quiz-layout">
         <div class="banks">
-            <div class="bank" id="orgBank" ondrop="drop(event)" ondragover="allowDrop(event)" data-type="organism">
-                <div class="bank-title">Organisms</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-A" data-type="organism">Organism A</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-B" data-type="organism">Organism B</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-C" data-type="organism">Organism C</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-D" data-type="organism">Organism D</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-E" data-type="organism">Organism E</div>
+            <div class="bank" id="bank-org">
+                <p style="font-size:11px; font-weight:bold; color:#64748b">ORGANISMS</p>
+                <div class="item" id="org-A" onclick="selectItem(this)" data-type="org">Org A</div>
+                <div class="item" id="org-B" onclick="selectItem(this)" data-type="org">Org B</div>
+                <div class="item" id="org-C" onclick="selectItem(this)" data-type="org">Org C</div>
+                <div class="item" id="org-D" onclick="selectItem(this)" data-type="org">Org D</div>
+                <div class="item" id="org-E" onclick="selectItem(this)" data-type="org">Org E</div>
             </div>
-            <div class="bank" id="traitBank" style="margin-top:20px;" ondrop="drop(event)" ondragover="allowDrop(event)" data-type="trait">
-                <div class="bank-title">Traits</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Backbone" data-type="trait">Backbone</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Lungs" data-type="trait">Lungs</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Hair" data-type="trait">Hair</div>
-                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Claws" data-type="trait">Retractable Claws</div>
+            <div class="bank" id="bank-trait" style="margin-top:15px">
+                <p style="font-size:11px; font-weight:bold; color:#64748b">TRAITS</p>
+                <div class="item" id="trait-1" onclick="selectItem(this)" data-type="trait">Backbone</div>
+                <div class="item" id="trait-2" onclick="selectItem(this)" data-type="trait">Lungs</div>
+                <div class="item" id="trait-3" onclick="selectItem(this)" data-type="trait">Hair</div>
+                <div class="item" id="trait-4" onclick="selectItem(this)" data-type="trait">Claws</div>
             </div>
         </div>
 
         <div class="cladogram-panel">
-            <svg width="100%" height="100%">
-                <line x1="80" y1="400" x2="650" y2="100" />
-                <line x1="180" y1="350" x2="180" y2="60" />
-                <line x1="300" y1="285" x2="300" y2="60" />
-                <line x1="420" y1="220" x2="420" y2="60" />
-                <line x1="540" y1="155" x2="540" y2="60" />
+            <svg>
+                <line x1="50" y1="400" x2="650" y2="80" />
+                <line x1="150" y1="350" x2="150" y2="60" />
+                <line x1="280" y1="285" x2="280" y2="60" />
+                <line x1="410" y1="215" x2="410" y2="60" />
+                <line x1="540" y1="145" x2="540" y2="60" />
             </svg>
 
-            <div class="drop-zone" style="left:120px; top:10px;" data-type="organism" data-correct="org-A">Tip 1</div>
-            <div class="drop-zone" style="left:240px; top:10px;" data-type="organism" data-correct="org-C">Tip 2</div>
-            <div class="drop-zone" style="left:360px; top:10px;" data-type="organism" data-correct="org-E">Tip 3</div>
-            <div class="drop-zone" style="left:480px; top:10px;" data-type="organism" data-correct="org-D">Tip 4</div>
-            <div class="drop-zone" style="left:600px; top:75px;" data-type="organism" data-correct="org-B">Tip 5</div>
+            <div class="slot" style="left:95px; top:15px" data-type="org" data-ans="org-A" onclick="placeItem(this)">Tip 1</div>
+            <div class="slot" style="left:225px; top:15px" data-type="org" data-ans="org-C" onclick="placeItem(this)">Tip 2</div>
+            <div class="slot" style="left:355px; top:15px" data-type="org" data-ans="org-E" onclick="placeItem(this)">Tip 3</div>
+            <div class="slot" style="left:485px; top:15px" data-type="org" data-ans="org-D" onclick="placeItem(this)">Tip 4</div>
+            <div class="slot" style="left:600px; top:80px" data-type="org" data-ans="org-B" onclick="placeItem(this)">Tip 5</div>
 
-            <div class="drop-zone" style="left:200px; top:350px;" data-type="trait" data-correct="trait-Backbone">Trait 1</div>
-            <div class="drop-zone" style="left:320px; top:285px;" data-type="trait" data-correct="trait-Lungs">Trait 2</div>
-            <div class="drop-zone" style="left:440px; top:220px;" data-type="trait" data-correct="trait-Hair">Trait 3</div>
-            <div class="drop-zone" style="left:560px; top:155px;" data-type="trait" data-correct="trait-Claws">Trait 4</div>
+            <div class="slot" style="left:170px; top:340px" data-type="trait" data-ans="trait-1" onclick="placeItem(this)">Trait 1</div>
+            <div class="slot" style="left:300px; top:275px" data-type="trait" data-ans="trait-2" onclick="placeItem(this)">Trait 2</div>
+            <div class="slot" style="left:430px; top:205px" data-type="trait" data-ans="trait-3" onclick="placeItem(this)">Trait 3</div>
+            <div class="slot" style="left:560px; top:135px" data-type="trait" data-ans="trait-4" onclick="placeItem(this)">Trait 4</div>
         </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-check" onclick="checkAll()">Check My Answers</button>
+        <button style="background:#64748b" onclick="location.reload()">Clear All</button>
     </div>
 </div>
 
 <script>
-    const traitMapping = {
-        'Backbone': 0, 'Lungs': 1, 'Hair': 2, 'Retractable Claws': 3
-    };
-    const baseData = {
-        'A': [0, 0, 0, 0], 'B': [1, 1, 1, 1], 'C': [1, 0, 0, 0],
-        'D': [1, 1, 1, 0], 'E': [1, 1, 0, 0]
-    };
-    
-    let currentTraits = Object.keys(traitMapping);
-    let showAnalysis = false;
+    const traits = ["Backbone", "Lungs", "Hair", "Claws"];
+    const matrix = { 'A':[0,0,0,0], 'B':[1,1,1,1], 'C':[1,0,0,0], 'D':[1,1,1,0], 'E':[1,1,0,0] };
+    let currentTraits = [...traits];
+    let showTotals = false;
+    let selectedEl = null;
 
-    function renderTable() {
-        const container = document.getElementById('tableContainer');
-        let html = `<table><thead><tr><th>Organism</th>`;
+    function render() {
+        let html = `<table><tr><th>Organism</th>`;
         currentTraits.forEach(t => html += `<th>${t}</th>`);
-        if(showAnalysis) html += `<th class="total-col">Row Total</th>`;
-        html += `</tr></thead><tbody>`;
-
+        if(showTotals) html += `<th class="total-cell">Row Sum</th>`;
+        html += `</tr>`;
+        
         let colTotals = new Array(currentTraits.length).fill(0);
-
-        Object.entries(baseData).forEach(([org, vals]) => {
-            html += `<tr><td><strong>${org}</strong></td>`;
-            let rTotal = 0;
+        Object.entries(matrix).forEach(([name, vals]) => {
+            html += `<tr><td><strong>${name}</strong></td>`;
+            let rSum = 0;
             currentTraits.forEach((t, i) => {
-                let v = vals[traitMapping[t]];
+                let v = vals[traits.indexOf(t)];
                 html += `<td>${v}</td>`;
-                rTotal += v;
-                colTotals[i] += v;
+                rSum += v; colTotals[i] += v;
             });
-            if(showAnalysis) html += `<td class="total-col">${rTotal}</td>`;
+            if(showTotals) html += `<td class="total-cell">${rSum}</td>`;
             html += `</tr>`;
         });
 
-        if(showAnalysis) {
-            html += `<tr class="total-row"><td>Column Total</td>`;
-            colTotals.forEach(ct => html += `<td>${ct}</td>`);
+        if(showTotals) {
+            html += `<tr class="total-cell"><td>Trait Frequency</td>`;
+            colTotals.forEach(c => html += `<td>${c}</td>`);
             html += `<td>-</td></tr>`;
         }
-        
-        html += `</tbody></table>`;
-        container.innerHTML = html;
+        document.getElementById('matrixUI').innerHTML = html + `</table>`;
     }
 
-    function scrambleColumns() {
-        currentTraits.sort(() => Math.random() - 0.5);
-        renderTable();
+    function selectItem(el) {
+        if(selectedEl) selectedEl.classList.remove('selected');
+        if(selectedEl === el) { selectedEl = null; return; }
+        selectedEl = el;
+        el.classList.add('selected');
     }
 
-    function toggleAnalysis() {
-        showAnalysis = !showAnalysis;
-        renderTable();
-    }
+    function placeItem(slot) {
+        // If slot is filled, return item to bank
+        if(slot.dataset.itemId) {
+            const item = document.getElementById(slot.dataset.itemId);
+            item.style.display = "block";
+            slot.innerHTML = slot.dataset.origText;
+            slot.classList.remove('filled', 'correct', 'incorrect');
+            delete slot.dataset.itemId;
+            return;
+        }
 
-    // Drag Drop Logic
-    function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
-    function allowDrop(ev) { ev.preventDefault(); }
-
-    function drop(ev) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const el = document.getElementById(data);
-        const target = ev.target.closest('.drop-zone, .bank');
-
-        if (!target || target.dataset.type !== el.dataset.type) return;
-
-        if (target.classList.contains('drop-zone')) {
-            if (target.children.length === 0) {
-                target.innerText = "";
-                target.appendChild(el);
+        // If something is selected, place it
+        if(selectedEl) {
+            if(selectedEl.dataset.type !== slot.dataset.type) {
+                alert("Wrong type! Put organisms on tips and traits on branches.");
+                return;
             }
-        } else {
-            target.appendChild(el);
+            slot.dataset.origText = slot.innerHTML;
+            slot.innerHTML = selectedEl.innerHTML;
+            slot.dataset.itemId = selectedEl.id;
+            slot.classList.add('filled');
+            selectedEl.style.display = "none";
+            selectedEl.classList.remove('selected');
+            selectedEl = null;
         }
     }
 
-    function checkAnswers() {
-        let zones = document.querySelectorAll('.cladogram-panel .drop-zone');
-        zones.forEach(z => {
-            z.classList.remove('correct', 'incorrect');
-            if (z.firstElementChild && z.firstElementChild.id === z.dataset.correct) {
-                z.classList.add('correct');
-            } else {
-                z.classList.add('incorrect');
+    function checkAll() {
+        document.querySelectorAll('.slot').forEach(slot => {
+            slot.classList.remove('correct', 'incorrect');
+            if(slot.dataset.itemId) {
+                if(slot.dataset.itemId === slot.dataset.ans) slot.classList.add('correct');
+                else slot.classList.add('incorrect');
             }
         });
     }
 
-    function resetAll() {
-        location.reload();
-    }
+    function scramble() { currentTraits.sort(() => Math.random() - 0.5); render(); }
+    function toggleTotals() { showTotals = !showTotals; render(); }
 
-    renderTable();
+    render();
 </script>
 </body>
 </html>
