@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cladograms</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --text-main: #1e293b;
+            --border-color: #e2e8f0;
+            --correct: #22c55e;
+            --incorrect: #ef4444;
+            --trait-color: #ea580c;
+            --org-color: #8b5cf6;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: center;
+        }
+
+        th { background-color: #f1f5f9; font-size: 0.9rem; }
+        
+        .total-row { background-color: #eff6ff; font-weight: bold; color: var(--primary); }
+        .total-col { background-color: #faf5ff; font-weight: bold; color: var(--org-color); }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover { transform: translateY(-1px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button.secondary { background-color: #64748b; }
+
+        .game-area {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .bank {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 12px;
+            min-height: 200px;
+        }
+
+        .bank-title { font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; color: #64748b; }
+
+        .draggable {
+            padding: 10px;
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: grab;
+            text-align: center;
+            font-weight: 600;
+            transition: border-color 0.2s;
+        }
+
+        .draggable[data-type="organism"] { border-left: 5px solid var(--org-color); }
+        .draggable[data-type="trait"] { border-left: 5px solid var(--trait-color); }
+
+        .cladogram-panel {
+            position: relative;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            height: 450px;
+        }
+
+        .drop-zone {
+            position: absolute;
+            width: 120px;
+            height: 45px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.9);
+            font-size: 0.85rem;
+            z-index: 10;
+        }
+
+        .drop-zone.correct { border-color: var(--correct); background: #f0fdf4; border-style: solid; }
+        .drop-zone.incorrect { border-color: var(--incorrect); background: #fef2f2; border-style: solid; }
+
+        /* Path Lines Styling */
+        svg line { stroke: #94a3b8; stroke-width: 3; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align:center; margin-bottom:10px;">Evolutionary Matrix Decipherer</h2>
+    <p style="text-align:center; color:#64748b; margin-bottom:20px;">Use totals to find the order. <strong>Row Totals</strong> = Organism Rank | <strong>Column Totals</strong> = Trait Chronology.</p>
+
+    <div id="tableContainer"></div>
+
+    <div class="controls">
+        <button onclick="scrambleColumns()">🔀 Scramble Columns</button>
+        <button onclick="toggleAnalysis()" class="secondary">📊 Toggle Totals Analysis</button>
+        <button onclick="checkAnswers()" style="background-color: var(--correct);">✅ Verify Tree</button>
+        <button onclick="resetAll()" class="secondary">🔄 Reset</button>
+    </div>
+
+    <div class="game-area">
+        <div class="banks">
+            <div class="bank" id="orgBank" ondrop="drop(event)" ondragover="allowDrop(event)" data-type="organism">
+                <div class="bank-title">Organisms</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-A" data-type="organism">Organism A</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-B" data-type="organism">Organism B</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-C" data-type="organism">Organism C</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-D" data-type="organism">Organism D</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="org-E" data-type="organism">Organism E</div>
+            </div>
+            <div class="bank" id="traitBank" style="margin-top:20px;" ondrop="drop(event)" ondragover="allowDrop(event)" data-type="trait">
+                <div class="bank-title">Traits</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Backbone" data-type="trait">Backbone</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Lungs" data-type="trait">Lungs</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Hair" data-type="trait">Hair</div>
+                <div class="draggable" draggable="true" ondragstart="drag(event)" id="trait-Claws" data-type="trait">Retractable Claws</div>
+            </div>
+        </div>
+
+        <div class="cladogram-panel">
+            <svg width="100%" height="100%">
+                <line x1="80" y1="400" x2="650" y2="100" />
+                <line x1="180" y1="350" x2="180" y2="60" />
+                <line x1="300" y1="285" x2="300" y2="60" />
+                <line x1="420" y1="220" x2="420" y2="60" />
+                <line x1="540" y1="155" x2="540" y2="60" />
+            </svg>
+
+            <div class="drop-zone" style="left:120px; top:10px;" data-type="organism" data-correct="org-A">Tip 1</div>
+            <div class="drop-zone" style="left:240px; top:10px;" data-type="organism" data-correct="org-C">Tip 2</div>
+            <div class="drop-zone" style="left:360px; top:10px;" data-type="organism" data-correct="org-E">Tip 3</div>
+            <div class="drop-zone" style="left:480px; top:10px;" data-type="organism" data-correct="org-D">Tip 4</div>
+            <div class="drop-zone" style="left:600px; top:75px;" data-type="organism" data-correct="org-B">Tip 5</div>
+
+            <div class="drop-zone" style="left:200px; top:350px;" data-type="trait" data-correct="trait-Backbone">Trait 1</div>
+            <div class="drop-zone" style="left:320px; top:285px;" data-type="trait" data-correct="trait-Lungs">Trait 2</div>
+            <div class="drop-zone" style="left:440px; top:220px;" data-type="trait" data-correct="trait-Hair">Trait 3</div>
+            <div class="drop-zone" style="left:560px; top:155px;" data-type="trait" data-correct="trait-Claws">Trait 4</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const traitMapping = {
+        'Backbone': 0, 'Lungs': 1, 'Hair': 2, 'Retractable Claws': 3
+    };
+    const baseData = {
+        'A': [0, 0, 0, 0], 'B': [1, 1, 1, 1], 'C': [1, 0, 0, 0],
+        'D': [1, 1, 1, 0], 'E': [1, 1, 0, 0]
+    };
+    
+    let currentTraits = Object.keys(traitMapping);
+    let showAnalysis = false;
+
+    function renderTable() {
+        const container = document.getElementById('tableContainer');
+        let html = `<table><thead><tr><th>Organism</th>`;
+        currentTraits.forEach(t => html += `<th>${t}</th>`);
+        if(showAnalysis) html += `<th class="total-col">Row Total</th>`;
+        html += `</tr></thead><tbody>`;
+
+        let colTotals = new Array(currentTraits.length).fill(0);
+
+        Object.entries(baseData).forEach(([org, vals]) => {
+            html += `<tr><td><strong>${org}</strong></td>`;
+            let rTotal = 0;
+            currentTraits.forEach((t, i) => {
+                let v = vals[traitMapping[t]];
+                html += `<td>${v}</td>`;
+                rTotal += v;
+                colTotals[i] += v;
+            });
+            if(showAnalysis) html += `<td class="total-col">${rTotal}</td>`;
+            html += `</tr>`;
+        });
+
+        if(showAnalysis) {
+            html += `<tr class="total-row"><td>Column Total</td>`;
+            colTotals.forEach(ct => html += `<td>${ct}</td>`);
+            html += `<td>-</td></tr>`;
+        }
+        
+        html += `</tbody></table>`;
+        container.innerHTML = html;
+    }
+
+    function scrambleColumns() {
+        currentTraits.sort(() => Math.random() - 0.5);
+        renderTable();
+    }
+
+    function toggleAnalysis() {
+        showAnalysis = !showAnalysis;
+        renderTable();
+    }
+
+    // Drag Drop Logic
+    function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+    function allowDrop(ev) { ev.preventDefault(); }
+
+    function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        const el = document.getElementById(data);
+        const target = ev.target.closest('.drop-zone, .bank');
+
+        if (!target || target.dataset.type !== el.dataset.type) return;
+
+        if (target.classList.contains('drop-zone')) {
+            if (target.children.length === 0) {
+                target.innerText = "";
+                target.appendChild(el);
+            }
+        } else {
+            target.appendChild(el);
+        }
+    }
+
+    function checkAnswers() {
+        let zones = document.querySelectorAll('.cladogram-panel .drop-zone');
+        zones.forEach(z => {
+            z.classList.remove('correct', 'incorrect');
+            if (z.firstElementChild && z.firstElementChild.id === z.dataset.correct) {
+                z.classList.add('correct');
+            } else {
+                z.classList.add('incorrect');
+            }
+        });
+    }
+
+    function resetAll() {
+        location.reload();
+    }
+
+    renderTable();
+</script>
+</body>
+</html>
