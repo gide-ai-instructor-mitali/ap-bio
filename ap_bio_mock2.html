@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Biology · Mock Exam 2 Final</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#0d1117;--surface:#161b22;--surface2:#21262d;--surface3:#30363d;
+  --border:#30363d;--border2:#484f58;--text:#e6edf3;--text2:#8b949e;--text3:#6e7681;
+  --green:#3fb950;--green-dim:#1a4423;--green-bg:rgba(63,185,80,.12);
+  --amber:#f0883e;--amber-dim:#3d2010;--amber-bg:rgba(240,136,62,.12);
+  --red:#f85149;--red-dim:#3d0c0a;--red-bg:rgba(248,81,73,.12);
+  --blue:#58a6ff;--blue-dim:#0d2840;--blue-bg:rgba(88,166,255,.12);
+  --teal:#39d0d8;--radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+
+/* ── HEADER ── */
+header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 22px;}
+.logo{display:flex;align-items:center;gap:10px;}
+.lbadge{width:32px;height:32px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:13px;color:#fff;background:var(--amber);}
+.ltitle{font-family:'DM Serif Display',serif;font-size:16px;}
+.lsub{font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;display:block;}
+.hdr-mid{display:flex;align-items:center;gap:6px;}
+.sec-pill{padding:5px 14px;border-radius:20px;font-family:'DM Mono',monospace;font-size:11px;border:1px solid var(--border2);color:var(--text3);cursor:pointer;transition:all .2s;}
+.sec-pill.active{background:var(--amber);border-color:var(--amber);color:var(--bg);}
+.sec-pill.done{background:var(--green-bg);border-color:var(--green-dim);color:var(--green);}
+.sec-pill:not(.active):hover{border-color:var(--text2);color:var(--text2);}
+.timer-pill{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:5px 12px;font-family:'DM Mono',monospace;font-size:14px;display:flex;align-items:center;gap:7px;cursor:pointer;}
+.timer-pill.warn{border-color:var(--red);color:var(--red);animation:tp 1s infinite;}
+@keyframes tp{0%,100%{opacity:1}50%{opacity:.55}}
+.tdot{width:7px;height:7px;border-radius:50%;background:var(--green);}
+.tdot.tick{animation:bl 1s infinite;}
+.tdot.off{background:var(--amber);}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .18s;}
+.btn-amber{background:var(--amber);color:var(--bg);}
+.btn-amber:hover{opacity:.85;}
+.btn-ghost{background:transparent;color:var(--text2);border-color:var(--border2);}
+.btn-ghost:hover{background:var(--surface2);color:var(--text);}
+.btn-green{background:var(--green-bg);color:var(--green);border-color:var(--green-dim);}
+.btn-green:hover{background:var(--green);color:var(--bg);}
+.prog{height:2px;background:var(--surface3);}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--amber),var(--teal));transition:width .4s;}
+
+/* ── SECTIONS ── */
+.section{display:none;}
+.section.active{display:block;}
+
+/* ── LOADER ── */
+#s-load{display:flex;align-items:center;justify-content:center;min-height:80vh;}
+.load-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:36px 44px;max-width:480px;width:100%;text-align:center;}
+.load-card h2{font-family:'DM Serif Display',serif;font-size:26px;margin-bottom:8px;}
+.load-card p{color:var(--text2);font-size:14px;line-height:1.7;margin-bottom:20px;}
+.upload-zone{border:2px dashed var(--border2);border-radius:8px;padding:28px 16px;cursor:pointer;transition:all .2s;margin-bottom:14px;}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--amber);background:var(--amber-bg);}
+.uz-icon{font-size:32px;margin-bottom:6px;}
+.uz-text{color:var(--text2);font-size:13px;}
+.uz-text strong{color:var(--amber);}
+input[type=file]{display:none;}
+.form-row{display:flex;gap:8px;margin-bottom:12px;}
+.finput{flex:1;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:8px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;}
+.finput:focus{border-color:var(--amber);}
+.mode-row{display:flex;gap:8px;margin-bottom:14px;}
+.mopt{flex:1;padding:9px;border:1px solid var(--border2);border-radius:var(--radius);cursor:pointer;text-align:center;font-size:13px;color:var(--text2);transition:all .2s;}
+.mopt:hover,.mopt.sel{border-color:var(--amber);background:var(--amber-bg);color:var(--amber);}
+.mopt small{display:block;font-family:'DM Mono',monospace;font-size:10px;margin-top:2px;opacity:.7;}
+.badge-loaded{background:var(--green-bg);border:1px solid var(--green-dim);border-radius:var(--radius);padding:6px 12px;display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:11px;color:var(--green);margin-bottom:12px;}
+
+/* ── MCQ SECTION ── */
+#s-mcq{display:none;}
+.mcq-wrap{display:grid;grid-template-columns:230px 1fr;min-height:calc(100vh - 62px);}
+.sidebar{background:var(--surface);border-right:1px solid var(--border);position:sticky;top:62px;height:calc(100vh - 62px);overflow-y:auto;display:flex;flex-direction:column;}
+.sb-hdr{padding:9px 12px;font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);border-bottom:1px solid var(--border);}
+.qgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:9px;}
+.qb{aspect-ratio:1;border-radius:4px;font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;border:1px solid var(--border2);color:var(--text3);background:none;transition:all .12s;display:flex;align-items:center;justify-content:center;position:relative;}
+.qb:hover{border-color:var(--amber);color:var(--amber);}
+.qb.cur{background:var(--amber);color:var(--bg);border-color:var(--amber);}
+.qb.ans{background:var(--green-bg);color:var(--green);border-color:var(--green-dim);}
+.qb.flag{border-color:var(--red);color:var(--red);}
+.qb.flag::after{content:'▲';position:absolute;top:-3px;right:-3px;font-size:7px;}
+.sb-stats{padding:9px 12px;border-top:1px solid var(--border);margin-top:auto;}
+.sr{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);padding:2px 0;}
+.sr .sv{color:var(--text2);}
+.sb-btn-area{padding:9px 12px;display:flex;flex-direction:column;gap:6px;}
+.q-panel{padding:26px 34px 60px;max-width:800px;overflow-y:auto;}
+.q-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);}
+.q-top span{color:var(--text2);}
+.stim{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;border-left:3px solid var(--teal);}
+.stim-cap{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:8px;}
+.stim-pass{font-size:13px;line-height:1.8;color:var(--text2);}
+.stim-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px;}
+.stim-tbl th{background:var(--surface2);border:1px solid var(--border2);padding:5px 8px;font-family:'DM Mono',monospace;font-size:9px;text-align:left;color:var(--text2);}
+.stim-tbl td{border:1px solid var(--border);padding:5px 8px;color:var(--text2);}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:14px;}
+.q-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.badge{font-family:'DM Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;text-transform:uppercase;}
+.bu{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-dim);}
+.bd{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-dim);}
+.q-num{font-family:'DM Serif Display',serif;font-size:11px;color:var(--text3);margin-bottom:7px;display:block;}
+.q-stem{font-size:15px;line-height:1.75;color:var(--text);}
+.opts{display:flex;flex-direction:column;gap:6px;margin-top:16px;}
+.opt-row{display:flex;align-items:stretch;border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;transition:border-color .15s;}
+.opt-row.sel{border-color:var(--amber);}
+.opt-row.struck .opt-body{opacity:.3;text-decoration:line-through;}
+.opt-x{background:none;border:none;border-right:1px solid var(--border);padding:0 10px;font-size:11px;color:var(--text3);cursor:pointer;flex-shrink:0;}
+.opt-x:hover{background:var(--red-bg);color:var(--red);}
+.opt-body{flex:1;display:flex;align-items:center;gap:10px;padding:9px 12px;background:none;border:none;cursor:pointer;text-align:left;color:var(--text);font-size:14px;line-height:1.5;}
+.opt-letter{font-family:'DM Mono',monospace;font-size:12px;color:var(--text3);flex-shrink:0;width:16px;}
+.opt-row.sel .opt-letter{color:var(--amber);}
+.exp-pane{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-top:4px;border-left:3px solid var(--green);}
+.q-nav{display:flex;align-items:center;gap:7px;margin-top:14px;}
+.flag-btn{display:flex;align-items:center;gap:5px;padding:6px 10px;border-radius:var(--radius);border:1px solid var(--border2);background:none;color:var(--text3);font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;transition:all .18s;}
+.flag-btn.on,.flag-btn:hover{border-color:var(--red);color:var(--red);background:var(--red-bg);}
+
+/* ── FRQ SECTION ── */
+#s-frq{display:none;max-width:860px;margin:0 auto;padding:28px 24px 60px;}
+.frq-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px;overflow:hidden;}
+.frq-hdr{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
+.frq-num{font-family:'DM Serif Display',serif;font-size:22px;color:var(--amber);}
+.frq-meta{flex:1;}
+.frq-type{font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);}
+.frq-title{font-size:14px;color:var(--text2);}
+.frq-pts-badge{font-family:'DM Mono',monospace;font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid var(--border2);color:var(--text2);}
+.frq-body{padding:18px 22px;}
+.frq-scenario{font-size:14px;line-height:1.8;color:var(--text2);margin-bottom:18px;padding:12px 14px;background:var(--surface2);border-radius:var(--radius);border-left:3px solid var(--teal);}
+.frq-part{margin-bottom:16px;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius);}
+.part-hdr{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.part-letter{font-family:'DM Mono',monospace;font-size:11px;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-dim);border-radius:3px;padding:2px 7px;flex-shrink:0;margin-top:2px;}
+.part-prompt{font-size:14px;line-height:1.75;color:var(--text);}
+.part-pts{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-left:auto;flex-shrink:0;}
+.frq-textarea{width:100%;min-height:100px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.7;color:var(--text);resize:vertical;outline:none;transition:border-color .2s;}
+.frq-textarea:focus{border-color:var(--amber);}
+.wc{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:4px;text-align:right;}
+
+/* ── REPORT ── */
+#s-report{display:none;max-width:880px;margin:0 auto;padding:32px 24px 60px;}
+.rep-hero{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:28px 32px;text-align:center;margin-bottom:22px;}
+.rep-big{font-family:'DM Serif Display',serif;font-size:52px;color:var(--amber);line-height:1;}
+.rep-sub{font-family:'DM Mono',monospace;font-size:13px;color:var(--text2);margin-top:4px;}
+.ap-badge{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:5px 16px;margin-top:10px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid;font-weight:500;}
+.rep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-bottom:22px;}
+.rep-cell{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;}
+.rc-lbl{font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;}
+.rc-bar{background:var(--surface3);border-radius:2px;height:5px;margin-bottom:5px;overflow:hidden;}
+.rc-fill{height:100%;border-radius:2px;}
+.rc-stat{font-family:'DM Mono',monospace;font-size:10px;color:var(--text2);}
+
+/* ── NOTIF ── */
+.notif{position:fixed;bottom:22px;right:22px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius);padding:9px 15px;font-size:13px;z-index:5000;transform:translateY(60px);opacity:0;transition:all .3s;max-width:300px;}
+.notif.show{transform:translateY(0);opacity:1;}
+
+@media(max-width:680px){.mcq-wrap{grid-template-columns:1fr;}.sidebar{display:none;}.q-panel{padding:14px;}}
+
+/* Print styles for response sheet */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .rs-container { max-width: 100% !important; }
+}
+.rs-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.rs-modal{background:var(--surface);border:1px solid var(--border);border-radius:10px;width:min(900px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;}
+.rs-hdr{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.rs-hdr h3{font-family:'DM Serif Display',serif;font-size:18px;}
+.rs-body{overflow-y:auto;padding:22px;flex:1;}
+.rs-section{margin-bottom:28px;}
+.rs-sec-title{font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.rs-mcq-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.rs-mcq-item{background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:'DM Mono',monospace;font-size:10px;display:flex;align-items:center;gap:6px;}
+.rs-mcq-num{color:var(--text3);min-width:20px;}
+.rs-mcq-ans{color:var(--amber);font-weight:500;font-size:12px;}
+.rs-mcq-ans.correct{color:var(--green);}
+.rs-mcq-ans.skip{color:var(--text3);}
+.rs-frq-item{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px;}
+.rs-frq-title{font-family:'DM Mono',monospace;font-size:10px;color:var(--amber);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em;}
+.rs-part{margin-bottom:10px;padding:8px 10px;border:1px solid var(--border);border-radius:4px;}
+.rs-part-letter{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:4px;}
+.rs-part-text{font-size:13px;line-height:1.65;color:var(--text);white-space:pre-wrap;word-break:break-word;}
+.rs-empty{color:var(--text3);font-style:italic;font-size:12px;}
+.rs-actions{display:flex;gap:8px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="logo">
+      <div class="lbadge">AP</div>
+      <div><div class="ltitle" id="h-title">AP Biology Mock Exam 2 · Full Exam</div><span class="lsub" id="h-sub">Units 1–8 · All Big Ideas</span></div>
+    </div>
+    <div class="hdr-mid" id="sec-nav" style="display:none;">
+      <div class="sec-pill active" id="pill-mcq" onclick="goSection('mcq')">Section I · MCQ</div>
+      <div class="sec-pill" id="pill-frq" onclick="goSection('frq')">Section II · FRQ</div>
+      <div class="sec-pill" id="pill-report" onclick="goSection('report')">Report</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="timer-pill" id="timer" onclick="toggleTimer()"><div class="tdot off" id="tdot"></div><span id="tdisp">–:––</span></div>
+      <div id="hdr-btns" style="display:none;gap:6px;"></div>
+    </div>
+  </div>
+  <div class="prog"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+</header>
+
+<!-- START -->
+<div id="s-load" class="section active">
+  <div style="display:flex;align-items:center;justify-content:center;min-height:80vh;">
+    <div class="load-card">
+      <h2>AP Biology Full Mock Exam 2</h2>
+      <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;">Units 1–8 · All Big Ideas</p>
+      <p>Enter your name and period to begin your 2 hr 40 min timed mock — Section I (60 MCQs, 90 min) then Section II (6 FRQs, 70 min).</p>
+      <br>
+      <div class="form-row" style="margin-bottom:10px;">
+        <input class="finput" id="inp-name" placeholder="Your name" autocomplete="off">
+        <input class="finput" id="inp-period" placeholder="Period" style="max-width:120px;" autocomplete="off">
+      </div>
+      <div id="badge-ready" style="background:var(--green-bg);border:1px solid var(--green-dim);border-radius:var(--radius);padding:8px 14px;display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;color:var(--green);margin-bottom:14px;">
+        <span>✓</span><span><b>AP Biology Mock Exam 2 · Full Exam</b> — 60 MCQs · 6 FRQs · Ready</span>
+      </div>
+      <button class="btn btn-amber" style="width:100%;justify-content:center;padding:10px;" onclick="beginExam()">Begin Mock Exam →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MCQ -->
+<div id="s-mcq" class="section">
+  <div class="mcq-wrap">
+    <div class="sidebar">
+      <div class="sb-hdr" id="sb-title">Section I — Questions</div>
+      <div class="qgrid" id="qgrid"></div>
+      <div class="sb-stats">
+        <div class="sr"><span>Answered</span><span class="sv" id="st-a">0</span></div>
+        <div class="sr"><span>Flagged</span><span class="sv" id="st-f">0</span></div>
+        <div class="sr"><span>Time</span><span class="sv" id="st-t">90:00</span></div>
+      </div>
+      <div class="sb-btn-area">
+        <button class="btn btn-ghost" style="font-size:11px;justify-content:center;" onclick="goSection('frq')">Section II: FRQ →</button>
+        <button class="btn btn-amber" style="font-size:11px;justify-content:center;" onclick="finishMCQ()">Finish Section I</button>
+      </div>
+    </div>
+    <div class="q-panel" id="q-panel"></div>
+  </div>
+</div>
+
+<!-- FRQ -->
+<div id="s-frq" class="section">
+  <!-- print reminder bar -->
+  <div style="background:var(--amber-bg);border-bottom:1px solid var(--amber-dim);padding:8px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);">
+    <span>⚠ Responses are auto-saved to this browser only — <b>print or download your response sheet before closing this tab.</b></span>
+    <div style="display:flex;gap:6px;flex-shrink:0;">
+      <button class="btn btn-amber" style="font-size:10px;padding:4px 10px;" onclick="showResponseSheet()">Response Sheet</button>
+      <button class="btn btn-ghost" style="font-size:10px;padding:4px 10px;" onclick="printRS()">🖨 Print</button>
+    </div>
+  </div>
+  <div style="max-width:860px;margin:0 auto;padding:28px 24px 60px;" id="frq-inner">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div><h2 style="font-family:'DM Serif Display',serif;font-size:22px;">Section II — Free Response</h2>
+        <p style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);margin-top:4px;">6 questions · 70 minutes recommended</p></div>
+      <button class="btn btn-green" onclick="finishFRQ()">Finish Section II →</button>
+    </div>
+    <div id="frq-list"></div>
+  </div>
+</div>
+
+<!-- REPORT -->
+<div id="s-report" class="section">
+  <div style="max-width:880px;margin:0 auto;padding:32px 24px 60px;" id="report-inner"></div>
+</div>
+
+<!-- RESPONSE SHEET MODAL -->
+<div id="rs-overlay" class="rs-overlay" style="display:none;" onclick="if(event.target===this)closeRS()">
+  <div class="rs-modal">
+    <div class="rs-hdr">
+      <h3>Response Sheet</h3>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-amber" onclick="downloadRS()">⬇ Download HTML</button>
+        <button class="btn btn-ghost" onclick="printRS()">🖨 Print</button>
+        <button class="btn btn-ghost" onclick="closeRS()">✕ Close</button>
+      </div>
+    </div>
+    <div class="rs-body" id="rs-body"></div>
+  </div>
+</div>
+
+<div class="notif" id="notif"></div>
+
+<script>
+// XML loaded from external file: ap_bio_mock2_final.xml
+
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+const E = {
+  qs:[], ss:{}, frqs:[], meta:{},
+  answers:{}, flags:new Set(), struck:{},
+  frqResponses:{},
+  cur:0, mode:'mock', student:'', period:'',
+  mcqDone:false, frqDone:false,
+  timerSec:0, timerRunning:false, timerInt:null,
+  curSection:'load',
+  mcqTimeUsed:0,
+};
+
+// ═══════════════════════════════════════════════
+// XML PARSE
+// ═══════════════════════════════════════════════
+function t(el,name){const n=el.getElementsByTagName(name)[0];return n?n.textContent.trim():'';}
+
+// ═══════════════════════════════════════════════
+// MARKDOWN RENDERER (tables + paragraphs)
+// ═══════════════════════════════════════════════
+function renderMarkdown(text, inherit){
+  // inherit=true: <p> tags get no inline colour (parent CSS takes over)
+  const pStyle=inherit?'font-size:13px;line-height:1.8;margin-bottom:8px;':'font-size:13px;line-height:1.8;color:var(--text2);margin-bottom:8px;';
+  const lines=text.split('\n');
+  let html='';
+  let i=0;
+  while(i<lines.length){
+    const line=lines[i];
+    if(line.trim().startsWith('|')){
+      const tbl=[];
+      while(i<lines.length&&lines[i].trim().startsWith('|')){tbl.push(lines[i].trim());i++;}
+      if(tbl.length>=1){
+        const headers=tbl[0].split('|').slice(1,-1).map(h=>h.trim());
+        const isSep=tbl.length>1&&/^\|[\s|:-]+\|$/.test(tbl[1]);
+        const dataStart=isSep?2:1;
+        html+='<table class="stim-tbl"><thead><tr>'+headers.map(h=>`<th>${h}</th>`).join('')+'</tr></thead><tbody>';
+        for(let r=dataStart;r<tbl.length;r++){
+          const cells=tbl[r].split('|').slice(1,-1).map(c=>c.trim());
+          html+='<tr>'+cells.map(c=>`<td>${c}</td>`).join('')+'</tr>';
+        }
+        html+='</tbody></table>';
+      }
+    } else if(line.trim()===''){
+      i++;
+    } else {
+      let block='';
+      while(i<lines.length&&lines[i].trim()!==''&&!lines[i].trim().startsWith('|')){block+=lines[i]+'\n';i++;}
+      html+=`<p style="${pStyle}">${block.trim()}</p>`;
+    }
+  }
+  return html;
+}
+
+// ═══════════════════════════════════════════════
+// LOCAL STORAGE PERSISTENCE
+// ═══════════════════════════════════════════════
+const LS_KEY='ap_bio_mock2_v1';
+function saveState(){
+  try{
+    localStorage.setItem(LS_KEY,JSON.stringify({
+      student:E.student, period:E.period,
+      answers:E.answers,
+      flags:[...E.flags],
+      struck:Object.fromEntries(Object.entries(E.struck).map(([k,v])=>[k,[...v]])),
+      frqResponses:E.frqResponses,
+      mcqDone:E.mcqDone, frqDone:E.frqDone,
+      timerSec:E.timerSec, mcqTimeUsed:E.mcqTimeUsed,
+      cur:E.cur, curSection:E.curSection,
+    }));
+  }catch(e){}
+}
+function loadState(){
+  try{
+    const raw=localStorage.getItem(LS_KEY); if(!raw) return false;
+    const d=JSON.parse(raw); if(!d.student) return false;
+    E.student=d.student; E.period=d.period||'';
+    E.answers=d.answers||{};
+    E.flags=new Set(d.flags||[]);
+    E.struck=Object.fromEntries(Object.entries(d.struck||{}).map(([k,v])=>[k,new Set(v)]));
+    E.frqResponses=d.frqResponses||{};
+    E.mcqDone=d.mcqDone||false; E.frqDone=d.frqDone||false;
+    E.timerSec=d.timerSec||0; E.mcqTimeUsed=d.mcqTimeUsed||0;
+    E.cur=d.cur||0; E.curSection=d.curSection||'mcq';
+    return true;
+  }catch(e){return false;}
+}
+function clearState(){localStorage.removeItem(LS_KEY);}
+
+function parseXML(str){
+  const doc=new DOMParser().parseFromString(str,'application/xml');
+  if(doc.querySelector('parseerror')||doc.querySelector('parsererror')) throw new Error('XML parse error');
+  const root=doc.documentElement;
+  const titleEl=doc.getElementsByTagName('Title')[0];
+  E.meta={title:titleEl?titleEl.textContent.trim():'AP Bio Mock 2',id:root.getAttribute('id')||'exam'};
+
+  // Stimulus sets
+  E.ss={};
+  Array.from(doc.getElementsByTagName('StimulusSet')).forEach(ss=>{
+    const sid=ss.getAttribute('id'), type=ss.getAttribute('type');
+    const sc=ss.querySelector('StimulusContent')||ss;
+    const cap=t(sc,'Caption')||t(sc,'Title');
+    let h=cap?`<div class="stim-cap">${cap}</div>`:'';
+    const format=(sc.getAttribute('format')||'').toLowerCase();
+    if(type==='text_passage'){
+      h+=`<div class="stim-pass">${t(sc,'Passage')}</div>`;
+    } else if(type==='quantitative'||format==='table'){
+      const intro=t(sc,'Intro'); if(intro) h+=`<p style="font-size:12px;color:var(--text2);margin-bottom:6px;">${intro}</p>`;
+      const hdrs=Array.from(sc.getElementsByTagName('H')).map(h=>h.textContent);
+      const rows=Array.from(sc.getElementsByTagName('Row'));
+      if(hdrs.length) h+='<table class="stim-tbl"><thead><tr>'+hdrs.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>'+
+        rows.map(r=>'<tr>'+Array.from(r.getElementsByTagName('C')).map(c=>`<td>${c.textContent}</td>`).join('')+'</tr>').join('')+'</tbody></table>';
+      const notes=t(sc,'Notes'); if(notes) h+=`<p style="font-size:11px;color:var(--text3);margin-top:6px;">${notes}</p>`;
+    } else {
+      const intro=t(sc,'Intro'); if(intro) h+=`<p style="font-size:12px;color:var(--text2);margin-bottom:8px;line-height:1.7;">${intro}</p>`;
+      const alt=t(sc,'AltText'); if(alt) h+=`<div class="stim-pass">[Diagram] ${alt}</div>`;
+      const content=t(sc,'Content'); if(content) h+=`<div class="stim-pass">${renderMarkdown(content)}</div>`;
+    }
+    E.ss[sid]=h;
+  });
+
+  // MCQ
+  E.qs=[];
+  Array.from(doc.getElementsByTagName('Question')).forEach(q=>{
+    const unit=q.getAttribute('unit'); if(!unit) return;
+    const op=q.getElementsByTagName('Options')[0]; if(!op) return;
+    const opts=Array.from(op.getElementsByTagName('Option'));
+    const ans=opts.findIndex(o=>o.getAttribute('correct')==='true');
+    E.qs.push({id:q.getAttribute('id'),unit,dok:q.getAttribute('dok')||'',prac:q.getAttribute('practice')||'',
+      ssRef:q.getAttribute('stimulusRef')||null,stem:t(q,'Stem'),opts:opts.map(o=>o.textContent.trim()),ans,
+      exp:t(q,'Explanation'),kwds:Array.from(q.getElementsByTagName('Keyword')).map(k=>k.textContent).join(', ')});
+  });
+
+  // FRQs — handle both <Prompt> and <Question> tags, parse <Visual> tables
+  E.frqs=[];
+  Array.from(doc.getElementsByTagName('FRQ')).forEach(frq=>{
+    const fid=frq.getAttribute('id');
+    const ftype=frq.getAttribute('type')||'';
+    const ftotal=frq.getAttribute('totalPoints')||'10';
+    const ftitle=t(frq,'Title');
+    const scenario=t(frq,'Scenario');
+
+    // Parse embedded Visual table (FRQ-level)
+    let visualHTML='';
+    const vis=frq.querySelector('Visual');
+    if(vis){
+      const vcap=t(vis,'Caption');
+      const vhdrs=Array.from(vis.getElementsByTagName('H')).map(h=>h.textContent);
+      const vrows=Array.from(vis.getElementsByTagName('Row'));
+      if(vcap||vhdrs.length){
+        visualHTML+=`<div class="stim" style="margin-bottom:14px;">`;
+        if(vcap) visualHTML+=`<div class="stim-cap">${vcap}</div>`;
+        if(vhdrs.length) visualHTML+='<table class="stim-tbl"><thead><tr>'+vhdrs.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>'+
+          vrows.map(r=>'<tr>'+Array.from(r.getElementsByTagName('C')).map(c=>`<td>${c.textContent}</td>`).join('')+'</tr>').join('')+'</tbody></table>';
+        const valt=vis.getAttribute('altText')||t(vis,'AltText');
+        if(valt&&!vhdrs.length) visualHTML+=`<div class="stim-pass">[${valt}]</div>`;
+        visualHTML+=`</div>`;
+      }
+    }
+
+    const parts=Array.from(frq.getElementsByTagName('Part')).map(p=>({
+      id:p.getAttribute('id'),
+      pts:p.getAttribute('points'),
+      prompt:t(p,'Prompt')||t(p,'Question'),
+    }));
+    E.frqs.push({id:fid,type:ftype,total:ftotal,title:ftitle,scenario,visualHTML,parts});
+  });
+
+  if(!E.qs.length) throw new Error('No MCQ questions found');
+}
+
+// ═══════════════════════════════════════════════
+// SESSION START
+// ═══════════════════════════════════════════════
+function beginExam(){
+  const name=document.getElementById('inp-name').value.trim();
+  if(!name){document.getElementById('inp-name').style.borderColor='var(--red)';notif('⚠ Enter your name to begin');return;}
+  E.student=name; E.period=document.getElementById('inp-period').value.trim();
+  E.mode='mock';
+  document.getElementById('h-title').textContent=E.meta.title;
+  document.getElementById('h-sub').textContent=`${name} · ${E.period||'AP Biology'}`;
+  document.getElementById('sec-nav').style.display='flex';
+  goSection('mcq');
+  buildGrid();
+  renderQ(0);
+  startTimer(90*60);
+  saveState();
+  notif('⏱ Section I timer started — 90 minutes.');
+}
+
+// ═══════════════════════════════════════════════
+// SECTION SWITCH
+// ═══════════════════════════════════════════════
+function goSection(sec){
+  ['load','mcq','frq','report'].forEach(s=>{
+    const el=document.getElementById('s-'+s);
+    el.style.display=s===sec?'block':'none';
+    el.classList.toggle('active',s===sec);
+  });
+  document.querySelectorAll('.sec-pill').forEach(p=>p.classList.remove('active'));
+  const pill=document.getElementById('pill-'+sec);
+  if(pill) pill.classList.add('active');
+  E.curSection=sec;
+  if(sec==='frq'){ const fl=document.getElementById('frq-list'); if(E.frqs.length&&fl&&fl.innerHTML.trim()==='') renderFRQ(); }
+  if(sec==='report') buildReport();
+  updateProg();
+}
+
+// ═══════════════════════════════════════════════
+// TIMER
+// ═══════════════════════════════════════════════
+function startTimer(sec){
+  E.timerSec=sec; E.timerRunning=false;
+  updateTimerDisplay();
+  toggleTimer();
+}
+function toggleTimer(){
+  if(E.mcqDone&&E.frqDone) return;
+  E.timerRunning=!E.timerRunning;
+  const dot=document.getElementById('tdot');
+  if(E.timerRunning){dot.className='tdot tick';E.timerInt=setInterval(tick,1000);}
+  else{dot.className='tdot off';clearInterval(E.timerInt);}
+}
+function tick(){
+  E.timerSec--;
+  updateTimerDisplay();
+  if(E.curSection==='mcq') E.mcqTimeUsed++;
+  if(E.timerSec%30===0) saveState();
+  if(E.timerSec<=0){
+    clearInterval(E.timerInt);E.timerRunning=false;
+    if(E.curSection==='mcq'){notif('⏱ MCQ time up — moving to FRQ');setTimeout(()=>{finishMCQ();startTimer(70*60);},1500);}
+    else{notif('⏱ Time up — submitting exam');setTimeout(finishFRQ,1500);}
+  }
+  if(E.timerSec===300) document.getElementById('timer').classList.add('warn');
+}
+function updateTimerDisplay(){
+  const m=Math.floor(E.timerSec/60),s=E.timerSec%60;
+  const disp=`${m}:${s.toString().padStart(2,'0')}`;
+  document.getElementById('tdisp').textContent=disp;
+  document.getElementById('st-t').textContent=disp;
+}
+
+// ═══════════════════════════════════════════════
+// MCQ ENGINE
+// ═══════════════════════════════════════════════
+function buildGrid(){
+  document.getElementById('qgrid').innerHTML=E.qs.map((q,i)=>{
+    let c='qb'; if(i===E.cur)c+=' cur'; if(E.answers[q.id]!==undefined)c+=' ans'; if(E.flags.has(q.id))c+=' flag';
+    return `<button class="${c}" onclick="jump(${i})">${i+1}</button>`;
+  }).join('');
+  const ans=Object.keys(E.answers).filter(k=>E.qs.find(q=>q.id===k)).length;
+  document.getElementById('st-a').textContent=`${ans}/${E.qs.length}`;
+  document.getElementById('st-f').textContent=E.flags.size;
+  updateProg();
+}
+
+function renderQ(idx){
+  E.cur=idx; const q=E.qs[idx];
+  const ans=E.answers[q.id]; const fl=E.flags.has(q.id); const str=E.struck[q.id]||new Set();
+  const stim=q.ssRef&&E.ss[q.ssRef]?`<div class="stim">${E.ss[q.ssRef]}</div>`:'';
+  const optsH=q.opts.map((o,oi)=>{
+    let rc='opt-row'; if(ans===oi)rc+=' sel'; if(str.has(oi))rc+=' struck';
+    return `<div class="${rc}" id="or-${idx}-${oi}">
+      <button class="opt-x" onclick="strike(${idx},${oi})" ${E.mcqDone?'disabled':''}>✕</button>
+      <button class="opt-body" onclick="pick(${idx},${oi})">
+        <span class="opt-letter">${'ABCD'[oi]}</span><span>${o}</span></button></div>`;
+  }).join('');
+  const expH=E.mcqDone&&ans!==undefined
+    ?`<div class="exp-pane" style="border-left-color:${ans===q.ans?'var(--green)':'var(--red)'};">
+       <div style="font-family:'DM Mono',monospace;font-size:11px;color:${ans===q.ans?'var(--green)':'var(--red)'};margin-bottom:6px;">${ans===q.ans?'✓ Correct':'✗ Incorrect · Correct: '+'ABCD'[q.ans]}</div>
+       <div style="font-size:13px;line-height:1.75;color:var(--text2);">${q.exp}</div></div>`:'';
+  document.getElementById('q-panel').innerHTML=`
+    <div class="q-top"><div>Q<span>${idx+1}</span> of ${E.qs.length}</div><div>Unit <span>${q.unit}</span> · DOK <span>${q.dok}</span></div></div>
+    ${stim}
+    <div class="q-card">
+      <div class="q-badges"><span class="badge bu">Unit ${q.unit}</span><span class="badge bd">DOK ${q.dok}</span></div>
+      <span class="q-num">Question ${idx+1}</span>
+      <div class="q-stem">${q.stem}</div>
+      <div class="opts">${optsH}</div>
+    </div>${expH}
+    <div class="q-nav">
+      <button class="flag-btn ${fl?'on':''}" onclick="toggleFlag('${q.id}')">🚩 ${fl?'Flagged':'Flag'}</button>
+      <div style="margin-left:auto;display:flex;gap:6px;">
+        <button class="btn btn-ghost" onclick="renderQ(${idx-1})" ${idx===0?'disabled':''}>← Prev</button>
+        <button class="btn btn-ghost" onclick="renderQ(${idx+1})" ${idx===E.qs.length-1?'disabled':''}>Next →</button>
+        ${idx===E.qs.length-1?`<button class="btn btn-amber" onclick="finishMCQ()">Finish Section I</button>`:''}
+      </div>
+    </div>`;
+  buildGrid();
+}
+
+function pick(qi,oi){const q=E.qs[qi];if(E.mcqDone)return;E.answers[q.id]=oi;renderQ(qi);saveState();}
+function strike(qi,oi){const q=E.qs[qi];if(!E.struck[q.id])E.struck[q.id]=new Set();E.struck[q.id].has(oi)?E.struck[q.id].delete(oi):E.struck[q.id].add(oi);const r=document.getElementById(`or-${qi}-${oi}`);if(r)r.classList.toggle('struck',E.struck[q.id].has(oi));saveState();}
+function toggleFlag(qid){E.flags.has(qid)?E.flags.delete(qid):E.flags.add(qid);renderQ(E.cur);saveState();}
+function jump(i){renderQ(i);}
+
+function finishMCQ(){
+  const un=E.qs.filter(q=>E.answers[q.id]===undefined).length;
+  if(un>0&&!confirm(`${un} MCQ(s) unanswered. Finish Section I anyway?`)) return;
+  E.mcqDone=true;
+  clearInterval(E.timerInt);E.timerRunning=false;
+  document.getElementById('tdot').className='tdot off';
+  document.getElementById('pill-mcq').classList.add('done');
+  renderFRQ();
+  goSection('frq');
+  startTimer(70*60);
+  saveState();
+  notif('✓ Section I complete — 70 min FRQ timer started.');
+}
+
+// ═══════════════════════════════════════════════
+// FRQ RENDERER
+// ═══════════════════════════════════════════════
+function renderFRQ(){
+  const letters=['a','b','c','d','e','f'];
+  document.getElementById('frq-list').innerHTML=E.frqs.map((frq,fi)=>`
+    <div class="frq-card">
+      <div class="frq-hdr">
+        <div class="frq-num">FRQ ${fi+1}</div>
+        <div class="frq-meta">
+          <div class="frq-type">${frq.type.replace(/_/g,' ')}</div>
+          <div class="frq-title">${frq.title||''}</div>
+        </div>
+        <div class="frq-pts-badge">${frq.total} pts</div>
+      </div>
+      <div class="frq-body">
+        ${frq.scenario?`<div class="frq-scenario">${renderMarkdown(frq.scenario,true)}</div>`:''}
+        ${frq.visualHTML||''}
+        ${frq.parts.map((p,pi)=>`
+          <div class="frq-part">
+            <div class="part-hdr">
+              <span class="part-letter">${letters[pi]||pi}</span>
+              <div class="part-prompt">${p.prompt}</div>
+              <div class="part-pts">${p.pts} pt${p.pts>1?'s':''}</div>
+            </div>
+            <textarea class="frq-textarea" id="frq-${frq.id}-${p.id}"
+              placeholder="Write your response here…"
+              oninput="saveResponse('${frq.id}','${p.id}',this.value);updateWC(this,'wc-${frq.id}-${p.id}')"
+            >${E.frqResponses[frq.id+'-'+p.id]||''}</textarea>
+            <div class="wc" id="wc-${frq.id}-${p.id}">0 words</div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function saveResponse(fid,pid,val){E.frqResponses[fid+'-'+pid]=val;saveState();}
+function updateWC(ta,wcId){
+  const w=ta.value.trim().split(/\s+/).filter(Boolean).length;
+  const el=document.getElementById(wcId);if(el)el.textContent=`${w} word${w!==1?'s':''}`;
+}
+
+function finishFRQ(){
+  E.frqDone=true;
+  clearInterval(E.timerInt);E.timerRunning=false;
+  document.getElementById('tdot').className='tdot off';
+  document.getElementById('pill-frq').classList.add('done');
+  goSection('report');
+  saveState();
+  notif('✓ Exam complete — viewing combined report.');
+}
+
+// ═══════════════════════════════════════════════
+// COMBINED REPORT
+// ═══════════════════════════════════════════════
+function buildReport(){
+  const correct=E.qs.filter(q=>E.answers[q.id]===q.ans).length;
+  const total=E.qs.length;
+  const pct=total?Math.round(correct/total*100):0;
+  const apScore=pct>=75?5:pct>=60?4:pct>=45?3:pct>=30?2:1;
+  const apCol=apScore>=3?'var(--green)':apScore===2?'var(--amber)':'var(--red)';
+  const units=[...new Set(E.qs.map(q=>q.unit))].sort((a,b)=>+a-+b);
+  const unitCards=units.map(u=>{
+    const uqs=E.qs.filter(q=>q.unit===u);
+    const uc=uqs.filter(q=>E.answers[q.id]===q.ans).length;
+    const up=Math.round(uc/uqs.length*100);
+    const bc=up>=75?'var(--green)':up>=50?'var(--amber)':'var(--red)';
+    return `<div class="rep-cell"><div class="rc-lbl">Unit ${u}</div>
+      <div class="rc-bar"><div class="rc-fill" style="width:${up}%;background:${bc}"></div></div>
+      <div class="rc-stat">${uc}/${uqs.length} · ${up}%</div></div>`;
+  }).join('');
+  const frqSummary=E.frqs.map((frq,i)=>{
+    const wordCount=frq.parts.reduce((sum,p)=>{
+      const val=E.frqResponses[frq.id+'-'+p.id]||'';
+      return sum+(val.trim().split(/\s+/).filter(Boolean).length);
+    },0);
+    const partsAnswered=frq.parts.filter(p=>(E.frqResponses[frq.id+'-'+p.id]||'').trim().length>0).length;
+    return `<div class="rep-cell"><div class="rc-lbl">FRQ ${i+1}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);margin-top:4px;">${wordCount} words written</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-top:2px;">${partsAnswered}/${frq.parts.length} parts attempted · ${frq.total} pts</div></div>`;
+  }).join('');
+  const secI_min=Math.round(E.mcqTimeUsed/60);
+  document.getElementById('report-inner').innerHTML=`
+    <div class="rep-hero">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);margin-bottom:10px;">${E.student} · ${E.period||'AP Biology'} · ${E.meta.title}</div>
+      <div class="rep-big">${correct}<span style="font-size:24px;color:var(--text2);">/${total}</span></div>
+      <div class="rep-sub">Section I MCQ · ${pct}% correct</div>
+      <div class="ap-badge" style="color:${apCol};border-color:${apCol};">Predicted AP Score: ${apScore} / 5</div>
+      <div style="display:flex;justify-content:center;gap:20px;margin-top:16px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);">
+        <span>MCQ raw: <span style="color:var(--text2)">${correct}/${total}</span></span>
+        <span>Time used: <span style="color:var(--text2)">${secI_min} min</span></span>
+        <span>Skipped: <span style="color:var(--text2)">${total-Object.keys(E.answers).length}</span></span>
+      </div>
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:8px;">Section I · Score by Unit</div>
+    <div class="rep-grid">${unitCards}</div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:8px;">Section II · FRQ Response Summary</div>
+    <div class="rep-grid">${frqSummary}</div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;">AP Score Guide (MCQ section)</div>
+      <div style="display:flex;gap:0;border-radius:4px;overflow:hidden;font-family:'DM Mono',monospace;font-size:10px;">
+        ${[['5','≥75%','var(--green)'],['4','60–74%','#3d7a3d'],['3','45–59%','var(--amber)'],['2','30–44%','#7a5a30'],['1','<30%','var(--red)']].map(([s,r,c])=>
+          `<div style="flex:1;background:${c};padding:6px 4px;text-align:center;color:white;opacity:${apScore==s?1:.5};"><div style="font-size:14px;font-weight:600;">${s}</div><div style="font-size:9px;">${r}</div></div>`).join('')}
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="btn btn-ghost" onclick="goSection('mcq');renderQ(E.cur)">← Review MCQs</button>
+      <button class="btn btn-ghost" onclick="goSection('frq')">Review FRQs</button>
+      <button class="btn btn-ghost" onclick="exportCSV()">⬇ Export MCQ CSV</button>
+      <button class="btn btn-amber" onclick="showResponseSheet()">📄 Export Response Sheet</button>
+    </div>`;
+}
+
+function exportCSV(){
+  const rows=[['Q#','ID','Unit','DOK','Your Answer','Correct','Result']];
+  E.qs.forEach((q,i)=>{
+    const ch=E.answers[q.id];
+    rows.push([i+1,q.id,q.unit,q.dok,
+      ch!==undefined?'ABCD'[ch]:'—','ABCD'[q.ans],
+      ch===q.ans?'Correct':ch===undefined?'Skipped':'Incorrect']);
+  });
+  const a=Object.assign(document.createElement('a'),{href:'data:text/csv,'+encodeURIComponent(rows.map(r=>r.join(',')).join('\n')),download:`${E.student.replace(/\s+/g,'_')}_mock1_MCQ.csv`});
+  a.click();
+}
+
+// ═══════════════════════════════════════════════
+// RESPONSE SHEET
+// ═══════════════════════════════════════════════
+function showResponseSheet(){
+  const letters=['a','b','c','d','e','f'];
+  // MCQ grid
+  const mcqRows=E.qs.map((q,i)=>{
+    const ch=E.answers[q.id];
+    const ansStr=ch!==undefined?'ABCD'[ch]:'—';
+    const cls=ch===undefined?'skip':(ch===q.ans?'correct':'');
+    return `<div class="rs-mcq-item"><span class="rs-mcq-num">${i+1}</span><span class="rs-mcq-ans ${cls}">${ansStr}</span></div>`;
+  }).join('');
+
+  // FRQ responses
+  const frqRows=E.frqs.map((frq,fi)=>{
+    const parts=frq.parts.map((p,pi)=>{
+      const resp=E.frqResponses[frq.id+'-'+p.id]||'';
+      const wc=resp.trim().split(/\s+/).filter(Boolean).length;
+      return `<div class="rs-part">
+        <div class="rs-part-letter">Part ${letters[pi]||pi} · ${p.pts} pt${p.pts>1?'s':''}</div>
+        <div style="font-size:11px;color:var(--text3);margin-bottom:6px;font-family:'DM Mono',monospace;">${p.prompt.length>120?p.prompt.slice(0,120)+'…':p.prompt}</div>
+        ${resp?`<div class="rs-part-text">${resp}</div><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--text3);margin-top:4px;">${wc} word${wc!==1?'s':''}</div>`:'<div class="rs-empty">No response written</div>'}
+      </div>`;
+    }).join('');
+    return `<div class="rs-frq-item"><div class="rs-frq-title">FRQ ${fi+1} — ${frq.title||frq.type}</div>${parts}</div>`;
+  }).join('');
+
+  const correct=E.qs.filter(q=>E.answers[q.id]===q.ans).length;
+  const pct=Math.round(correct/E.qs.length*100);
+  const now=new Date().toLocaleString();
+
+  document.getElementById('rs-body').innerHTML=`
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-bottom:20px;">
+      <div style="font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:4px;">AP Bio Mock 2 · Response Sheet</div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);">
+        <span style="margin-right:16px;">Student: <b>${E.student}</b></span>
+        <span style="margin-right:16px;">Period: <b>${E.period||'—'}</b></span>
+        <span style="margin-right:16px;">MCQ: <b>${correct}/${E.qs.length} (${pct}%)</b></span>
+        <span>Generated: <b>${now}</b></span>
+      </div>
+    </div>
+    <div class="rs-section">
+      <div class="rs-sec-title">Section I — MCQ Responses (${E.qs.length} questions)</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:8px;">
+        ✓ correct shown in green · ✕ incorrect/skipped shown normally
+      </div>
+      <div class="rs-mcq-grid">${mcqRows}</div>
+    </div>
+    <div class="rs-section">
+      <div class="rs-sec-title">Section II — FRQ Written Responses</div>
+      ${frqRows}
+    </div>`;
+  document.getElementById('rs-overlay').style.display='flex';
+}
+
+function closeRS(){document.getElementById('rs-overlay').style.display='none';}
+
+function printRS(){
+  const win=window.open('','_blank');
+  const correct=E.qs.filter(q=>E.answers[q.id]===q.ans).length;
+  const pct=Math.round(correct/E.qs.length*100);
+  const letters=['a','b','c','d','e','f'];
+  const now=new Date().toLocaleString();
+  const mcqTable=E.qs.map((q,i)=>{
+    const ch=E.answers[q.id];
+    const ans=ch!==undefined?'ABCD'[ch]:'—';
+    const correct_ans='ABCD'[q.ans];
+    const result=ch===undefined?'Skip':ch===q.ans?'✓':'✗';
+    const color=ch===undefined?'#666':ch===q.ans?'#2a7a2a':'#a00';
+    return `<tr><td>${i+1}</td><td style="font-weight:bold;color:${color}">${ans}</td><td>${correct_ans}</td><td style="color:${color}">${result}</td><td>U${q.unit}</td></tr>`;
+  }).join('');
+  const frqSection=E.frqs.map((frq,fi)=>`
+    <div style="margin-bottom:24px;page-break-inside:avoid;">
+      <div style="font-weight:bold;font-size:14px;border-bottom:1px solid #333;padding-bottom:4px;margin-bottom:10px;">FRQ ${fi+1} — ${frq.title||frq.type} (${frq.total} pts)</div>
+      ${frq.parts.map((p,pi)=>{
+        const resp=E.frqResponses[frq.id+'-'+p.id]||'';
+        const wc=resp.trim().split(/\s+/).filter(Boolean).length;
+        return `<div style="margin-bottom:12px;padding:8px;border:1px solid #ccc;border-radius:4px;">
+          <div style="font-size:11px;color:#555;font-weight:bold;margin-bottom:4px;">Part ${letters[pi]||pi} · ${p.pts} pt${p.pts>1?'s':''}</div>
+          <div style="font-size:11px;color:#333;margin-bottom:6px;font-style:italic;">${p.prompt}</div>
+          <div style="font-size:12px;line-height:1.7;white-space:pre-wrap;min-height:40px;${resp?'':'color:#999;font-style:italic;'}">${resp||'(no response written)'}</div>
+          ${resp?`<div style="font-size:10px;color:#888;margin-top:4px;">${wc} word${wc!==1?'s':''}</div>`:''}
+        </div>`;
+      }).join('')}
+    </div>`).join('');
+  win.document.write(`<!DOCTYPE html><html><head><title>Response Sheet · ${E.student}</title>
+  <style>body{font-family:Georgia,serif;max-width:850px;margin:0 auto;padding:20px;color:#111;}
+  h1{font-size:18px;}table{border-collapse:collapse;width:100%;}
+  td,th{border:1px solid #ccc;padding:4px 7px;font-size:11px;}
+  th{background:#f0f0f0;} .mcq-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;}
+  @media print{@page{margin:15mm;}}
+  </style></head><body>
+  <h1>AP Bio Mock 2 · Response Sheet</h1>
+  <p style="font-size:12px;color:#555;">Student: <b>${E.student}</b> &nbsp;|&nbsp; Period: <b>${E.period||'—'}</b> &nbsp;|&nbsp; MCQ Score: <b>${correct}/${E.qs.length} (${pct}%)</b> &nbsp;|&nbsp; Generated: ${now}</p>
+  <hr>
+  <h2 style="font-size:14px;margin-top:16px;">Section I — MCQ Answers</h2>
+  <table><thead><tr><th>Q#</th><th>Your Answer</th><th>Correct</th><th>Result</th><th>Unit</th></tr></thead><tbody>${mcqTable}</tbody></table>
+  <h2 style="font-size:14px;margin-top:20px;">Section II — FRQ Written Responses</h2>
+  ${frqSection}
+  </body></html>`);
+  win.document.close();
+  setTimeout(()=>win.print(),400);
+}
+
+function downloadRS(){
+  const correct=E.qs.filter(q=>E.answers[q.id]===q.ans).length;
+  const pct=Math.round(correct/E.qs.length*100);
+  const letters=['a','b','c','d','e','f'];
+  const now=new Date().toLocaleString();
+  const mcqRows=E.qs.map((q,i)=>{
+    const ch=E.answers[q.id];
+    const ans=ch!==undefined?'ABCD'[ch]:'—';
+    const ca='ABCD'[q.ans];
+    const result=ch===undefined?'Skip':ch===q.ans?'✓':'✗';
+    const color=ch===undefined?'#888':ch===q.ans?'#2a7a2a':'#c00';
+    return `<tr><td>${i+1}</td><td style="font-weight:700;color:${color}">${ans}</td><td>${ca}</td><td style="color:${color}">${result}</td><td>U${q.unit}</td><td>DOK ${q.dok}</td></tr>`;
+  }).join('');
+  const frqSection=E.frqs.map((frq,fi)=>`
+    <div style="margin-bottom:28px;border:1px solid #ddd;border-radius:6px;overflow:hidden;">
+      <div style="background:#f5f5f5;padding:10px 14px;font-weight:bold;border-bottom:1px solid #ddd;">FRQ ${fi+1} — ${frq.title||frq.type} &nbsp;<span style="color:#666;font-weight:400;">(${frq.total} pts)</span></div>
+      <div style="padding:12px 14px;">
+      ${frq.parts.map((p,pi)=>{
+        const resp=E.frqResponses[frq.id+'-'+p.id]||'';
+        const wc=resp.trim().split(/\s+/).filter(Boolean).length;
+        return `<div style="margin-bottom:14px;padding:10px;background:#fafafa;border:1px solid #e0e0e0;border-radius:4px;">
+          <div style="font-weight:bold;font-size:12px;color:#444;">Part ${letters[pi]||pi} · ${p.pts} pt${p.pts>1?'s':''}</div>
+          <div style="font-size:11px;color:#666;margin:4px 0 8px;font-style:italic;">${p.prompt}</div>
+          <div style="font-size:13px;line-height:1.75;white-space:pre-wrap;${resp?'':'color:#aaa;font-style:italic;'}">${resp||'(no response written)'}</div>
+          ${resp?`<div style="font-size:10px;color:#999;margin-top:6px;">${wc} word${wc!==1?'s':''}</div>`:''}
+        </div>`;
+      }).join('')}
+      </div>
+    </div>`).join('');
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Response Sheet · ${E.student}</title>
+<style>body{font-family:'Georgia',serif;max-width:900px;margin:0 auto;padding:24px;color:#111;background:#fff;}
+h1{font-size:20px;margin-bottom:4px;}h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:#555;margin:20px 0 8px;border-bottom:1px solid #ddd;padding-bottom:4px;}
+table{border-collapse:collapse;width:100%;font-size:11px;}td,th{border:1px solid #ccc;padding:4px 8px;}th{background:#f0f0f0;font-size:10px;text-transform:uppercase;letter-spacing:.04em;}
+</style></head><body>
+<h1>AP Bio Mock 2 · Response Sheet</h1>
+<p style="color:#555;font-size:12px;">Student: <b>${E.student}</b> &nbsp;|&nbsp; Period: <b>${E.period||'—'}</b> &nbsp;|&nbsp; MCQ Score: <b>${correct}/${E.qs.length} (${pct}%)</b> &nbsp;|&nbsp; ${now}</p>
+<h2>Section I — MCQ Answers</h2>
+<table><thead><tr><th>Q#</th><th>Your Ans</th><th>Correct</th><th>Result</th><th>Unit</th><th>DOK</th></tr></thead><tbody>${mcqRows}</tbody></table>
+<h2>Section II — Free Response</h2>${frqSection}
+</body></html>`;
+  const a=document.createElement('a');
+  a.href='data:text/html;charset=utf-8,'+encodeURIComponent(html);
+  a.download=`${E.student.replace(/\s+/g,'_')}_APBio_Mock2_ResponseSheet.html`;
+  a.click();
+  notif('✓ Response sheet downloaded.');
+}
+
+// ═══════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════
+function updateProg(){
+  const ans=Object.keys(E.answers).filter(k=>E.qs.find(q=>q.id===k)).length;
+  const total=E.qs.length||1;
+  document.getElementById('prog').style.width=`${ans/total*100}%`;
+}
+function notif(msg){
+  const el=document.getElementById('notif');
+  el.textContent=msg;el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),3200);
+}
+document.addEventListener('keydown',e=>{
+  if(document.activeElement.tagName==='TEXTAREA'||document.activeElement.tagName==='INPUT') return;
+  if(E.curSection!=='mcq') return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') renderQ(Math.min(E.cur+1,E.qs.length-1));
+  if(e.key==='ArrowLeft' ||e.key==='ArrowUp')   renderQ(Math.max(E.cur-1,0));
+  if(['1','2','3','4'].includes(e.key)) pick(E.cur,+e.key-1);
+  if(e.key==='f'||e.key==='F') toggleFlag(E.qs[E.cur]?.id);
+});
+
+// ═══════════════════════════════════════════════
+// PRINT / CLOSE REMINDER
+// ═══════════════════════════════════════════════
+window.addEventListener('beforeunload',function(e){
+  const hasResponses=Object.values(E.frqResponses).some(v=>v&&v.trim());
+  if(hasResponses){
+    e.preventDefault();
+    e.returnValue='You have FRQ responses — print or download your response sheet before leaving.';
+  }
+});
+
+// ═══════════════════════════════════════════════
+// INIT — fetch external XML, then restore session
+// ═══════════════════════════════════════════════
+(function init(){
+  function applyDOM(){
+    ['s-load','s-mcq','s-frq','s-report'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el) el.style.display=el.id==='s-load'?'block':'none';
+    });
+  }
+  fetch('ap_bio_mock2_final.xml')
+    .then(r=>{if(!r.ok) throw new Error('HTTP '+r.status); return r.text();})
+    .then(xml=>{
+      try{ parseXML(xml); } catch(ex){ console.error('XML parse error:',ex); notif('⚠ Error parsing exam XML: '+ex.message); applyDOM(); return; }
+      applyDOM();
+      // Restore saved session if one exists
+      if(loadState()&&E.student){
+        document.getElementById('inp-name').value=E.student;
+        document.getElementById('inp-period').value=E.period;
+        // Show resume banner
+        const card=document.querySelector('.load-card');
+        const banner=document.createElement('div');
+        banner.style.cssText='background:var(--blue-bg);border:1px solid var(--blue-dim);border-radius:var(--radius);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:"DM Mono",monospace;font-size:11px;color:var(--blue);margin-bottom:12px;';
+        banner.innerHTML=`<span>↩ Session saved for <b>${E.student}</b> — resume or start fresh</span><button onclick="clearState();location.reload();" style="background:none;border:1px solid var(--blue-dim);border-radius:3px;padding:2px 8px;font-size:10px;color:var(--blue);cursor:pointer;">New Exam</button>`;
+        card.insertBefore(banner,card.querySelector('button'));
+        // Auto-resume into the correct section
+        resumeSession();
+      }
+    })
+    .catch(err=>{ console.error('Failed to load XML:',err); notif('⚠ Could not load ap_bio_mock2_final.xml — open via a local server or browser with file access.'); applyDOM(); });
+})();
+
+function resumeSession(){
+  document.getElementById('h-title').textContent=E.meta.title||'AP Biology Mock Exam 2';
+  document.getElementById('h-sub').textContent=`${E.student} · ${E.period||'AP Biology'}`;
+  document.getElementById('sec-nav').style.display='flex';
+  if(E.mcqDone) document.getElementById('pill-mcq').classList.add('done');
+  if(E.frqDone) document.getElementById('pill-frq').classList.add('done');
+  buildGrid();
+  const sec=E.curSection||'mcq';
+  if(sec==='mcq'){ goSection('mcq'); renderQ(E.cur); }
+  else if(sec==='frq'){ renderFRQ(); goSection('frq'); }
+  else if(sec==='report'){ goSection('report'); }
+  else { goSection('mcq'); renderQ(E.cur); }
+  // Restart timer only if not done
+  if(!E.mcqDone&&!E.frqDone&&E.timerSec>0){
+    updateTimerDisplay();
+    toggleTimer();
+    notif('↩ Session restored — timer resumed.');
+  } else if(E.timerSec>0){
+    updateTimerDisplay();
+  }
+}
+</script>
+</body>
+</html>

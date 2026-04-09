@@ -1,0 +1,1058 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Exam subject="AP Biology" mockNumber="1">
+
+  
+  
+  
+
+  <StimulusSet id="b1ss1">
+    <Title>Enzyme Kinetics and Competitive Inhibition</Title>
+    <Content>
+A research team studied the activity of the enzyme lactase, which catalyzes the hydrolysis of lactose into glucose and galactose. They measured the rate of the reaction at various substrate concentrations [S] with and without a competitive inhibitor. The results are shown in Figure 1.
+
+Figure 1. Rate of lactose hydrolysis (µmol/min) versus substrate concentration (mM) for lactase alone (solid line) and lactase + competitive inhibitor (dashed line).
+
+| [S] (mM) | Rate without inhibitor (µmol/min) | Rate with inhibitor (µmol/min) |
+|---|---|---|
+| 0.5 | 12 | 4 |
+| 1.0 | 22 | 10 |
+| 2.0 | 35 | 20 |
+| 4.0 | 44 | 32 |
+| 8.0 | 48 | 42 |
+| 16.0 | 50 | 48 |
+
+Both curves approach the same maximum rate (Vmax ≈ 50 µmol/min) at high substrate concentrations. The Km (substrate concentration at half-maximal velocity) for lactase alone is approximately 1.5 mM, while the apparent Km with the inhibitor is approximately 5.0 mM.
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q01" />
+      <QuestionRef id="b1q02" />
+      <QuestionRef id="b1q03" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss2">
+    <Title>Cellular Respiration and Oxygen Consumption</Title>
+    <Content>
+Students used respirometers to measure the rate of oxygen consumption in germinating and nongerminating pea seeds at two temperatures. Each respirometer contained a vial of KOH to absorb CO₂, so any change in gas volume reflects O₂ consumption. Results after 20 minutes are shown in Table 1.
+
+Table 1. Change in respirometer volume (mL O₂ consumed) after 20 minutes.
+
+| Condition | 10°C | 25°C |
+|---|---|---|
+| Germinating peas | 0.15 mL | 0.68 mL |
+| Nongerminating peas | 0.02 mL | 0.04 mL |
+| Glass beads (control) | 0.00 mL | 0.01 mL |
+
+Corrected values (subtracting control): Germinating at 10°C = 0.15 mL; Germinating at 25°C = 0.67 mL; Nongerminating at 10°C = 0.02 mL; Nongerminating at 25°C = 0.03 mL.
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q09" />
+      <QuestionRef id="b1q10" />
+      <QuestionRef id="b1q11" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss3">
+    <Title>Chi-Square Analysis of Dihybrid Cross</Title>
+    <Content>
+A genetics student crossed two pea plants heterozygous for seed shape (Rr) and seed color (Yy). The expected phenotypic ratio for a dihybrid cross is 9:3:3:1. The student observed the following results from 400 offspring:
+
+Table 2. Observed and expected offspring from a dihybrid cross (RrYy × RrYy).
+
+| Phenotype | Observed | Expected (9:3:3:1) |
+|---|---|---|
+| Round, Yellow | 230 | 225 |
+| Round, Green | 62 | 75 |
+| Wrinkled, Yellow | 80 | 75 |
+| Wrinkled, Green | 28 | 25 |
+| Total | 400 | 400 |
+
+Chi-square critical value at p = 0.05 with 3 degrees of freedom = 7.815.
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q22" />
+      <QuestionRef id="b1q23" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss4">
+    <Title>Hardy-Weinberg Equilibrium in a Butterfly Population</Title>
+    <Content>
+In a population of 500 butterflies, wing color is determined by a single gene with two alleles: B (dark, dominant) and b (light, recessive). A field survey found 80 butterflies with light wings (bb).
+
+Assuming Hardy-Weinberg equilibrium:
+- p² + 2pq + q² = 1 (genotype frequencies)
+- p + q = 1 (allele frequencies)
+
+Where p = frequency of dominant allele (B) and q = frequency of recessive allele (b).
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q35" />
+      <QuestionRef id="b1q36" />
+      <QuestionRef id="b1q37" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss5">
+    <Title>Signal Transduction and Epinephrine Response</Title>
+    <Content>
+Figure 2 shows a simplified signal transduction pathway for the hormone epinephrine (adrenaline) in liver cells.
+
+Pathway: Epinephrine binds to a G-protein-coupled receptor (GPCR) on the cell surface → activated G protein activates adenylyl cyclase → adenylyl cyclase converts ATP to cyclic AMP (cAMP) → cAMP activates protein kinase A (PKA) → PKA phosphorylates glycogen phosphorylase → glycogen phosphorylase breaks down glycogen into glucose-1-phosphate → glucose is released into the blood.
+
+Key features:
+- Signal amplification occurs at multiple steps (one receptor activates many G proteins; each adenylyl cyclase produces many cAMP molecules; each PKA activates many phosphorylase molecules).
+- The response is terminated when: (1) epinephrine is removed; (2) phosphodiesterase degrades cAMP; (3) phosphatases remove phosphate groups from activated enzymes.
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q16" />
+      <QuestionRef id="b1q17" />
+      <QuestionRef id="b1q18" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss6">
+    <Title>Phylogenetic Tree of Vertebrate Limbs</Title>
+    <Content>
+Figure 3 shows a phylogenetic tree depicting the evolutionary relationships among five vertebrate taxa based on molecular and morphological data. The tree includes: fish (ray-finned), amphibians, reptiles, birds, and mammals. All tetrapods (amphibians, reptiles, birds, mammals) share a common ancestor that possessed a basic pentadactyl (five-digit) limb structure. The forelimbs of these organisms have been modified for different functions:
+
+- Whale: flipper (short, broad bones for swimming)
+- Bat: elongated digits supporting a wing membrane
+- Human: hand with opposable thumb for grasping
+- Bird: fused bones forming a wing for flight
+- Frog: shorter limb for jumping and swimming
+
+Despite different functions, all share the same underlying skeletal pattern: humerus → radius/ulna → carpals → metacarpals → phalanges.
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q40" />
+      <QuestionRef id="b1q41" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  <StimulusSet id="b1ss7">
+    <Title>Population Growth in Paramecium</Title>
+    <Content>
+Researchers grew two species of Paramecium (P. aurelia and P. caudatum) separately and together in identical culture conditions with a fixed daily food supply.
+
+Table 3. Population density (individuals/mL) over 18 days.
+
+| Day | P. aurelia (alone) | P. caudatum (alone) | P. aurelia (together) | P. caudatum (together) |
+|---|---|---|---|---|
+| 0 | 2 | 2 | 2 | 2 |
+| 2 | 10 | 8 | 10 | 7 |
+| 4 | 40 | 30 | 38 | 20 |
+| 6 | 100 | 75 | 95 | 35 |
+| 8 | 160 | 120 | 155 | 20 |
+| 10 | 180 | 140 | 178 | 10 |
+| 12 | 190 | 145 | 188 | 5 |
+| 14 | 195 | 148 | 192 | 2 |
+| 16 | 195 | 148 | 195 | 1 |
+| 18 | 195 | 148 | 195 | 0 |
+    </Content>
+    <QuestionRefs>
+      <QuestionRef id="b1q55" />
+      <QuestionRef id="b1q56" />
+      <QuestionRef id="b1q57" />
+    </QuestionRefs>
+  </StimulusSet>
+
+  
+  
+  
+
+  
+
+  <Question id="b1q01" unit="1" subunit="1.7" practice="SP2" bigIdea="BI2" dok="2" stimulusRef="b1ss1">
+    <Stem>Based on the data in Figure 1, the competitive inhibitor most likely reduces the reaction rate at low substrate concentrations by</Stem>
+    <Options>
+      <Option id="A" correct="false">Lowering the Vmax by reducing the total number of functional enzyme molecules in the solution</Option>
+    <Option id="B" correct="false">Binding to an allosteric site and permanently changing the enzyme's conformation</Option>
+      <Option id="C" correct="true">Binding to the active site of lactase and competing with lactose for access to the active site</Option>
+      <Option id="D" correct="false">Permanently denaturing the enzyme by altering its primary structure</Option>
+      </Options>
+    <Explanation>Competitive inhibition: the inhibitor structurally resembles the substrate and competes for the active site. At low [S], the inhibitor occupies many active sites → reduced rate. At high [S], substrate outcompetes the inhibitor → rate approaches the same Vmax. The data confirms this: both curves reach Vmax ≈ 50 µmol/min, but the inhibited curve requires higher [S] to reach half-maximal velocity (apparent Km increases from 1.5 to 5.0 mM). In contrast, noncompetitive inhibition would lower Vmax (Option D), and denaturation (Option A) would be irreversible. Allosteric inhibition (Option C) typically changes Vmax and/or produces a sigmoidal kinetic curve rather than the Michaelis-Menten kinetics shown here.</Explanation>
+    <Keywords><Keyword>competitive inhibition</Keyword><Keyword>enzyme kinetics</Keyword><Keyword>active site</Keyword><Keyword>Km</Keyword><Keyword>Vmax</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q02" unit="1" subunit="1.7" practice="SP4" bigIdea="BI2" dok="2" stimulusRef="b1ss1">
+    <Stem>Using the data table, at what substrate concentration does the presence of the competitive inhibitor have the GREATEST proportional effect on reducing the reaction rate?</Stem>
+    <Options>
+      <Option id="A" correct="false">4.0 mM — rate drops from 44 to 32 µmol/min (27% reduction)</Option>
+      <Option id="B" correct="false">16.0 mM — rate drops from 50 to 48 µmol/min (4% reduction)</Option>
+      <Option id="C" correct="true">0.5 mM</Option>
+      <Option id="D" correct="false">The proportional effect is equal at all substrate concentrations</Option>
+    </Options>
+    <Explanation>Proportional reduction at each [S]: 0.5 mM: (12-4)/12 = 67%; 1.0 mM: (22-10)/22 = 55%; 2.0 mM: (35-20)/35 = 43%; 4.0 mM: (44-32)/44 = 27%; 8.0 mM: (48-42)/48 = 12.5%; 16.0 mM: (50-48)/50 = 4%. The pattern shows that competitive inhibition is most effective at low substrate concentrations and becomes progressively less effective as [S] increases. This is a hallmark of competitive inhibition: at very high [S], the substrate overwhelms the inhibitor for active site binding. This mathematical analysis demonstrates the competitive nature of the inhibition — the substrate and inhibitor are in a dynamic competition for the same binding site.</Explanation>
+    <Keywords><Keyword>competitive inhibition</Keyword><Keyword>proportional reduction</Keyword><Keyword>substrate concentration</Keyword><Keyword>data analysis</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q03" unit="1" subunit="1.7" practice="SP6" bigIdea="BI2" dok="2" stimulusRef="b1ss1">
+    <Stem>A student claims that the inhibitor is noncompetitive rather than competitive. Which evidence from the data BEST refutes this claim?</Stem>
+    <Options>
+      <Option id="A" correct="false">The inhibitor reduces the rate at all substrate concentrations tested</Option>
+      <Option id="B" correct="false">The reaction rate is zero when no substrate is present</Option>
+    <Option id="C" correct="true">Both curves approach the same Vmax (≈50 µmol/min)</Option>
+      <Option id="D" correct="false">The Km value changes in the presence of the inhibitor</Option>
+      </Options>
+    <Explanation>Distinguishing competitive from noncompetitive inhibition: Competitive: same Vmax, increased Km (inhibitor competes for active site; can be overcome by excess substrate). Noncompetitive: decreased Vmax, same Km (inhibitor binds allosteric site; reduces effective enzyme concentration regardless of [S]). The data shows both curves reach Vmax ≈ 50, so the inhibitor is competitive. Option A is true for both competitive and noncompetitive inhibitors (both reduce rate). Option B (Km change) is consistent with competitive inhibition but does not refute the noncompetitive claim by itself. Option D is irrelevant — no enzyme-catalyzed reaction occurs without substrate. The unchanged Vmax is the definitive diagnostic criterion.</Explanation>
+    <Keywords><Keyword>noncompetitive vs competitive</Keyword><Keyword>Vmax</Keyword><Keyword>argumentation</Keyword><Keyword>evidence</Keyword><Keyword>enzyme inhibition</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q04" unit="1" subunit="1.1" practice="SP1" bigIdea="BI2" dok="1">
+    <Stem>Water has a high specific heat capacity, meaning it resists changes in temperature. This property is biologically important because it</Stem>
+    <Options>
+      <Option id="A" correct="false">Makes water a nonpolar solvent capable of dissolving lipids</Option>
+    <Option id="B" correct="true">Enables aquatic environments and organisms to maintain relatively stable temperatures despite fluctuations in ambient temperature</Option>
+      <Option id="C" correct="false">Allows water molecules to form ionic bonds with dissolved solutes</Option>
+      <Option id="D" correct="false">Prevents water from evaporating under any environmental conditions</Option>
+      </Options>
+    <Explanation>Water's high specific heat (4.184 J/g·°C) is due to the extensive hydrogen bonding network: before temperature can rise, hydrogen bonds between water molecules must first absorb energy and partially break. This means large bodies of water (oceans, lakes) moderate coastal and aquatic temperatures. Biologically: (1) Aquatic organisms experience less temperature fluctuation than terrestrial ones; (2) Blood/cytoplasm (largely water) buffers cellular temperature changes; (3) Evaporative cooling (high heat of vaporization, related to H-bonding) allows organisms to dissipate excess heat (sweating, transpiration). Water is polar (not nonpolar — Option D), forms hydrogen bonds (not ionic — Option A), and does evaporate (Option C is incorrect).</Explanation>
+    <Keywords><Keyword>specific heat</Keyword><Keyword>hydrogen bonding</Keyword><Keyword>water properties</Keyword><Keyword>temperature regulation</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q05" unit="1" subunit="1.4" practice="SP1" bigIdea="BI2" dok="1">
+    <Stem>Cellulose and starch are both polysaccharides composed of glucose monomers, yet humans can digest starch but not cellulose. This difference is due to</Stem>
+    <Options>
+      <Option id="A" correct="false">Cellulose molecules being too small to be broken down by digestive enzymes</Option>
+    <Option id="B" correct="false">Starch being a lipid while cellulose is a carbohydrate</Option>
+      <Option id="C" correct="false">Cellulose being composed of fructose rather than glucose</Option>
+      <Option id="D" correct="true">The different glycosidic linkages</Option>
+      </Options>
+    <Explanation>Both starch and cellulose are glucose polymers, but the orientation of the glycosidic bond differs: Starch: α-glucose linked by α-1,4 bonds (and α-1,6 at branch points in amylopectin) → helical structure → accessible to α-amylase. Cellulose: β-glucose linked by β-1,4 bonds → every other glucose is flipped 180° → forms straight, rigid chains that hydrogen-bond to adjacent chains → tough, insoluble fibrils (structural component of plant cell walls). Humans lack cellulase (the enzyme that hydrolyzes β-1,4 linkages), so cellulose passes through the digestive tract as insoluble fiber. Ruminants (cows, sheep) digest cellulose using symbiotic bacteria and protists in their specialized stomachs (rumen) that produce cellulase. This illustrates how a small molecular difference (α vs β linkage) produces dramatically different macromolecular properties.</Explanation>
+    <Keywords><Keyword>cellulose</Keyword><Keyword>starch</Keyword><Keyword>glycosidic linkage</Keyword><Keyword>alpha beta</Keyword><Keyword>polysaccharide</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q06" unit="1" subunit="1.6" practice="SP1" bigIdea="BI3" dok="1">
+    <Stem>DNA and RNA are both nucleic acids but differ in structure and function. Which structural difference between DNA and RNA is correctly stated?</Stem>
+    <Options>
+      <Option id="A" correct="false">RNA is always double-stranded while DNA is always single-stranded</Option>
+      <Option id="B" correct="false">DNA contains phosphodiester bonds while RNA does not</Option>
+      <Option id="C" correct="false">DNA contains amino acids as its monomers while RNA contains nucleotides</Option>
+    <Option id="D" correct="true">DNA contains the sugar deoxyribose and the base thymine, while RNA contains the sugar ribose and the base uracil</Option>
+      </Options>
+    <Explanation>Key DNA vs RNA structural differences: (1) Sugar: DNA has deoxyribose (missing –OH on 2' carbon); RNA has ribose (–OH on 2' carbon). The 2'–OH in RNA makes it more susceptible to hydrolysis and less chemically stable, which is why DNA serves as the long-term genetic storage molecule. (2) Bases: DNA uses A, T, G, C; RNA uses A, U, G, C. Thymine (DNA) and uracil (RNA) differ by one methyl group. (3) Strandedness: DNA is typically double-stranded (double helix with antiparallel strands joined by complementary base pairing: A-T with 2 H-bonds, G-C with 3 H-bonds); RNA is typically single-stranded (but can form internal base-paired structures like tRNA cloverleaf, rRNA secondary structures). Both use phosphodiester bonds (Option A is wrong). Both are nucleic acid polymers of nucleotide monomers (Option D confuses proteins and nucleic acids).</Explanation>
+    <Keywords><Keyword>DNA vs RNA</Keyword><Keyword>deoxyribose ribose</Keyword><Keyword>thymine uracil</Keyword><Keyword>nucleic acid structure</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q07" unit="2" subunit="2.3" practice="SP1" bigIdea="BI2" dok="1">
+    <Stem>The fluid mosaic model of the plasma membrane describes the membrane as</Stem>
+    <Options>
+      <Option id="A" correct="false">A carbohydrate wall that provides structural rigidity and is impermeable to all molecules</Option>
+    <Option id="B" correct="true">A dynamic structure with a phospholipid bilayer in which proteins float and move laterally, creating a mosaic pattern</Option>
+      <Option id="C" correct="false">A single layer of phospholipids with their hydrophobic tails exposed to the aqueous environment</Option>
+      <Option id="D" correct="false">A rigid, solid structure composed entirely of phospholipids with no protein components</Option>
+      </Options>
+    <Explanation>The fluid mosaic model (Singer &amp; Nicolson, 1972): "Fluid" — phospholipids and many proteins move laterally within each leaflet of the bilayer (lateral diffusion); this fluidity depends on fatty acid chain saturation and cholesterol content. "Mosaic" — the membrane contains a diverse array of proteins (integral/transmembrane proteins spanning the bilayer; peripheral proteins attached to surfaces) creating a patchwork pattern. Components: phospholipid bilayer (hydrophilic heads face aqueous environments, hydrophobic tails face interior); integral proteins (channels, carriers, receptors); peripheral proteins (enzymes, structural); glycoproteins and glycolipids (cell recognition); cholesterol (modulates fluidity). The membrane is selectively permeable — small nonpolar molecules (O₂, CO₂) cross freely; polar molecules and ions require transport proteins.</Explanation>
+    <Keywords><Keyword>fluid mosaic model</Keyword><Keyword>phospholipid bilayer</Keyword><Keyword>membrane proteins</Keyword><Keyword>selective permeability</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q08" unit="2" subunit="2.7" practice="SP6" bigIdea="BI2" dok="2">
+    <Stem>A red blood cell is placed in a 0.3% NaCl solution (hypotonic to the cell's cytoplasm). Which prediction about the cell's fate is MOST accurate?</Stem>
+    <Options>
+      <Option id="A" correct="false">The cell will shrink (crenate) as water leaves by osmosis</Option>
+      <Option id="B" correct="false">No net water movement will occur because the solution is isotonic</Option>
+      <Option id="C" correct="false">NaCl will move into the cell by osmosis until equilibrium is reached</Option>
+    <Option id="D" correct="true">Water will enter the cell by osmosis (from the region of lower solute concentration outside to higher solute concentration inside), causing the cell to swell and potentially lyse (burst) because animal cells lack a rigid cell wall to resist osmotic pressure</Option>
+      </Options>
+    <Explanation>Osmosis: net movement of water across a selectively permeable membrane from a region of lower solute concentration (higher water potential) to higher solute concentration (lower water potential). In a hypotonic solution: external solute concentration &lt; internal → water enters the cell → cell swells. Animal cells: no cell wall → swelling leads to lysis (hemolysis in RBCs). Plant cells: rigid cell wall provides turgor pressure that resists further water entry → cell becomes turgid but does not burst. Option B describes a hypertonic solution. Option D confuses osmosis (water movement) with solute diffusion. Normal saline for RBCs is ~0.9% NaCl (isotonic); 0.3% is hypotonic and will cause lysis.</Explanation>
+    <Keywords><Keyword>osmosis</Keyword><Keyword>hypotonic</Keyword><Keyword>lysis</Keyword><Keyword>water potential</Keyword><Keyword>tonicity</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q09" unit="3" subunit="3.5" practice="SP4" bigIdea="BI2" dok="2" stimulusRef="b1ss2">
+    <Stem>Based on Table 1, which statement BEST describes the relationship between temperature and oxygen consumption in germinating peas?</Stem>
+    <Options>
+      <Option id="A" correct="true">Germinating peas at 25°C consumed approximately 4.5 times more oxygen than those at 10°C (0.67 vs 0.15 mL), indicating that higher temperature increases the rate of cellular respiration, consistent with increased enzyme activity at warmer temperatures</Option>
+      <Option id="B" correct="false">Germinating peas consumed less oxygen at 25°C than at 10°C</Option>
+      <Option id="C" correct="false">Temperature has no effect on oxygen consumption in germinating peas</Option>
+      <Option id="D" correct="false">Nongerminating peas consumed more oxygen than germinating peas at both temperatures</Option>
+    </Options>
+    <Explanation>Temperature and metabolic rate: germinating peas at 25°C consumed 0.67 mL O₂ vs 0.15 mL at 10°C — a 4.47× increase. This reflects the Q₁₀ effect: biological reaction rates approximately double with each 10°C increase (Q₁₀ ≈ 2). For a 15°C increase: expected increase ≈ 2^(15/10) = 2^1.5 ≈ 2.83×. The observed 4.47× increase exceeds this, possibly because 10°C is near the lower threshold for germination enzymes. Germinating seeds are metabolically active (mobilizing stored starch, undergoing rapid cell division and elongation) and consume far more O₂ than nongerminating seeds (dormant, minimal metabolism). Nongerminating seeds show minimal respiration (0.02-0.03 mL), just basal maintenance. The glass bead control accounts for any pressure/volume changes due to temperature alone.</Explanation>
+    <Keywords><Keyword>respiration rate</Keyword><Keyword>temperature</Keyword><Keyword>germination</Keyword><Keyword>oxygen consumption</Keyword><Keyword>Q10</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q10" unit="3" subunit="3.5" practice="SP3" bigIdea="BI2" dok="2" stimulusRef="b1ss2">
+    <Stem>What is the purpose of the glass bead control in this experiment?</Stem>
+    <Options>
+      <Option id="A" correct="false">Glass beads produce CO₂ that the KOH needs to absorb</Option>
+      <Option id="B" correct="false">Glass beads provide a food source for the germinating peas</Option>
+    <Option id="C" correct="false">Glass beads consume oxygen at a known rate, providing a calibration standard</Option>
+      <Option id="D" correct="true">Glass beads are non-living and do not respire</Option>
+      </Options>
+    <Explanation>Experimental controls: the glass bead tube contains no living material → any volume change must be due to physical factors (atmospheric pressure changes, temperature-induced gas expansion/contraction). The control values (0.00 mL at 10°C, 0.01 mL at 25°C) are subtracted from experimental values to isolate the biological signal (O₂ consumption by cellular respiration) from physical noise. The KOH absorbs CO₂ produced by respiration, so only O₂ consumption affects volume. Without the control, a 0.01 mL change due to temperature could be mistakenly attributed to respiration. This illustrates a fundamental principle of experimental design: controls must be identical to experimental setups in all respects except the variable being tested (here, the presence of living organisms).</Explanation>
+    <Keywords><Keyword>experimental control</Keyword><Keyword>glass beads</Keyword><Keyword>respirometer</Keyword><Keyword>variables</Keyword><Keyword>experimental design</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q11" unit="3" subunit="3.5" practice="SP6" bigIdea="BI2" dok="2" stimulusRef="b1ss2">
+    <Stem>A student hypothesizes that nongerminating peas are not alive because they show almost no oxygen consumption. Which evidence BEST refutes this hypothesis?</Stem>
+    <Options>
+      <Option id="A" correct="true">Nongerminating peas do consume a small but measurable amount of oxygen (0.02–0.03 mL after correction), indicating that basal cellular respiration is occurring at a very low rate</Option>
+      <Option id="B" correct="false">Glass beads also showed minimal gas volume changes, proving that minimal oxygen consumption indicates life</Option>
+      <Option id="C" correct="false">Nongerminating peas are green, and green organisms are always alive</Option>
+    <Option id="D" correct="false">Nongerminating peas have the same mass as germinating peas</Option>
+      </Options>
+    <Explanation>Seed dormancy: nongerminating (dry) seeds are alive but metabolically quiescent. Key evidence: (1) They consume small but nonzero amounts of O₂ (0.02-0.03 mL vs 0.00 mL for glass beads) — this indicates ongoing cellular respiration; (2) When given water and favorable conditions, they germinate and grow; (3) Seed viability tests (tetrazolium staining) confirm living cells. Dormancy adaptations: very low water content (5-15%) slows enzymatic reactions; thick seed coat limits gas exchange; growth hormones (e.g., abscisic acid) inhibit germination until environmental signals (water, temperature, light) trigger breaking of dormancy and mobilization of stored reserves. The low but detectable respiration rate maintains membrane integrity and repairs accumulated DNA damage during dormancy.</Explanation>
+    <Keywords><Keyword>seed dormancy</Keyword><Keyword>basal respiration</Keyword><Keyword>argumentation</Keyword><Keyword>evidence</Keyword><Keyword>viability</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q12" unit="2" subunit="2.9" practice="SP2" bigIdea="BI2" dok="2">
+    <Stem>The endoplasmic reticulum (ER) exists as two distinct types: rough ER (studded with ribosomes) and smooth ER (lacking ribosomes). A cell that specializes in producing large quantities of steroid hormones would be expected to have an especially extensive</Stem>
+    <Options>
+      <Option id="A" correct="false">Rough ER, because steroid hormones are proteins that require ribosome-mediated translation</Option>
+      <Option id="B" correct="true">Smooth ER</Option>
+      <Option id="C" correct="false">Golgi apparatus, because steroid hormones are packaged and secreted exclusively by the Golgi</Option>
+      <Option id="D" correct="false">Nucleolus, because steroid hormones are assembled from ribosomal RNA</Option>
+    </Options>
+    <Explanation>Smooth ER functions: (1) Lipid synthesis — phospholipids, cholesterol, steroid hormones; (2) Detoxification — liver hepatocytes have extensive smooth ER with cytochrome P450 enzymes that metabolize drugs, alcohol, and toxins; (3) Calcium storage — in muscle cells (sarcoplasmic reticulum); (4) Carbohydrate metabolism — glucose-6-phosphatase in liver smooth ER. Steroid-producing cells (adrenal cortex → cortisol, aldosterone; ovary → estrogen, progesterone; testis → testosterone) have abundant smooth ER because steroids are derived from cholesterol via lipid-modifying enzymes localized in the smooth ER membrane. Rough ER has ribosomes and synthesizes secreted proteins and membrane proteins — not lipid-derived molecules like steroids. Cells with extensive rough ER include plasma cells (antibody production) and pancreatic acinar cells (digestive enzyme secretion).</Explanation>
+    <Keywords><Keyword>smooth ER</Keyword><Keyword>steroid synthesis</Keyword><Keyword>lipid metabolism</Keyword><Keyword>cell compartmentalization</Keyword><Keyword>organelle function</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q13" unit="2" subunit="2.2" practice="SP6" bigIdea="BI4" dok="2">
+    <Stem>As cells increase in size, the volume increases as the cube of the radius while surface area increases only as the square. This relationship limits cell size because</Stem>
+    <Options>
+      <Option id="A" correct="false">Larger cells have too much surface area for their volume, leading to excessive nutrient absorption</Option>
+      <Option id="B" correct="false">Surface area increases faster than volume, causing the membrane to rupture</Option>
+    <Option id="C" correct="true">A large cell's surface area becomes insufficient relative to its volume to support the rate of exchange (nutrients in, wastes out) needed to maintain cellular metabolism</Option>
+      <Option id="D" correct="false">Larger cells cannot contain DNA because the nucleus size is fixed</Option>
+      </Options>
+    <Explanation>Surface area to volume ratio (SA:V): for a sphere, SA = 4πr², V = (4/3)πr³. As r increases: SA:V = 3/r → decreases. Example: r=1 → SA:V = 3; r=10 → SA:V = 0.3. Biological consequence: all materials enter and leave the cell through its surface membrane (nutrients, O₂, CO₂, wastes). As the cell grows, its metabolic demands (proportional to volume) increase faster than its exchange capacity (proportional to SA). At some point, the membrane cannot import nutrients or export wastes fast enough → cell becomes metabolically limited. Adaptations to increase SA:V: (1) Stay small (most cells 1-100 µm); (2) Become elongated or flat rather than spherical; (3) Develop membrane folds (microvilli in intestinal epithelial cells increase absorptive surface ~20×); (4) Multinucleation (skeletal muscle fibers — multiple nuclei serve a large cytoplasmic volume). Cell division maintains favorable SA:V ratios.</Explanation>
+    <Keywords><Keyword>surface area to volume</Keyword><Keyword>cell size</Keyword><Keyword>diffusion limitation</Keyword><Keyword>SA:V ratio</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q14" unit="2" subunit="2.5" practice="SP1" bigIdea="BI2" dok="2">
+    <Stem>Active transport differs from facilitated diffusion in that active transport</Stem>
+    <Options>
+      <Option id="A" correct="false">Moves molecules down their concentration gradient using transport proteins</Option>
+      <Option id="B" correct="false">Does not require membrane proteins and occurs directly through the lipid bilayer</Option>
+      <Option id="C" correct="true">Moves molecules against their concentration gradient (from low to high concentration) and requires an input of cellular energy (typically ATP hydrolysis), while facilitated diffusion moves molecules down their gradient and requires no energy input</Option>
+      <Option id="D" correct="false">Only transports water molecules across the membrane</Option>
+    </Options>
+    <Explanation>Comparison of membrane transport: (1) Simple diffusion — small, nonpolar molecules (O₂, CO₂, ethanol) move through the lipid bilayer down their concentration gradient; no energy, no protein required. (2) Facilitated diffusion — polar molecules or ions move through channel proteins or carrier proteins down their gradient; no energy required; e.g., aquaporins (water), glucose transporters (GLUT), ion channels. (3) Active transport — molecules move against their gradient via pump proteins powered by ATP. Primary active transport: Na⁺/K⁺-ATPase pumps 3 Na⁺ out and 2 K⁺ in per ATP hydrolyzed, maintaining electrochemical gradients essential for nerve impulses, muscle contraction, and cell volume regulation. Secondary active transport (cotransport): uses the gradient established by primary transport — e.g., Na⁺/glucose cotransporter in intestinal epithelium. (4) Bulk transport: endocytosis (in) and exocytosis (out) for large particles; requires energy.</Explanation>
+    <Keywords><Keyword>active transport</Keyword><Keyword>facilitated diffusion</Keyword><Keyword>ATP</Keyword><Keyword>concentration gradient</Keyword><Keyword>membrane transport</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q15" unit="3" subunit="3.4" practice="SP2" bigIdea="BI2" dok="2">
+    <Stem>In the light-dependent reactions of photosynthesis, which statement correctly describes the flow of electrons?</Stem>
+    <Options>
+      <Option id="A" correct="false">Electrons flow from CO₂ to glucose during the light reactions</Option>
+      <Option id="B" correct="true">Electrons flow from water (split by photolysis at Photosystem II) through the electron transport chain to Photosystem I, and ultimately to NADP⁺, reducing it to NADPH</Option>
+      <Option id="C" correct="false">Electrons flow from NADPH to water to CO₂</Option>
+      <Option id="D" correct="false">Electrons flow from ATP to ADP, releasing energy for carbon fixation</Option>
+    </Options>
+    <Explanation>Light-dependent reactions (thylakoid membrane): Noncyclic electron flow: H₂O → PSII → plastoquinone → cytochrome b6f complex → plastocyanin → PSI → ferredoxin → NADP⁺ reductase → NADPH. At PSII: water is split (photolysis: 2H₂O → 4H⁺ + 4e⁻ + O₂); electrons replace those excited from PSII by light. At PSI: electrons are re-energized by light and passed to NADP⁺, producing NADPH. Chemiosmosis: the electron transport chain pumps H⁺ from stroma into the thylakoid lumen; the resulting proton gradient drives ATP synthase (ATP synthesis). Net products per pair of electrons: 1 NADPH + ~1.5 ATP + ½ O₂. These products (ATP and NADPH) are then used in the Calvin cycle (light-independent reactions) to fix CO₂ into G3P/glucose. CO₂ fixation occurs in the Calvin cycle (Option C), not the light reactions.</Explanation>
+    <Keywords><Keyword>light reactions</Keyword><Keyword>electron flow</Keyword><Keyword>photosystems</Keyword><Keyword>NADPH</Keyword><Keyword>chemiosmosis</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q16" unit="4" subunit="4.2" practice="SP2" bigIdea="BI4" dok="2" stimulusRef="b1ss5">
+    <Stem>Based on Figure 2, which feature of the epinephrine signal transduction pathway explains how a small number of epinephrine molecules can trigger the release of millions of glucose molecules?</Stem>
+    <Options>
+      <Option id="A" correct="false">Each epinephrine molecule directly converts one glycogen molecule into one glucose molecule</Option>
+      <Option id="B" correct="true">Signal amplification through an enzyme cascade: one receptor activates multiple G proteins, each G protein activates an adenylyl cyclase that produces many cAMP molecules, each cAMP activates a PKA that phosphorylates many target enzymes</Option>
+      <Option id="C" correct="false">The pathway reduces the number of activated molecules at each step, concentrating the signal</Option>
+    <Option id="D" correct="false">Epinephrine enters the cell and directly binds to glycogen, causing it to break down</Option>
+      </Options>
+    <Explanation>Signal amplification (cascade): at each enzymatic step in the pathway, one activated molecule activates many downstream molecules. Quantitative example: 1 epinephrine molecule → 1 receptor → ~100 G proteins → ~100 adenylyl cyclases → ~10,000 cAMP molecules → ~10,000 PKA activities → ~100,000 phosphorylase activities → ~10,000,000 glucose molecules released. This amplification allows: (1) Sensitivity — response to very low hormone concentrations; (2) Speed — exponential expansion of the signal at each step. Epinephrine does NOT enter the cell (it's a water-soluble amine that cannot cross the lipid bilayer — Option C). The cascade amplifies (expands), not reduces (Option D), the signal. This amplification is a fundamental feature of many signal transduction pathways and explains why cells can respond dramatically to minute quantities of signaling molecules.</Explanation>
+    <Keywords><Keyword>signal amplification</Keyword><Keyword>enzyme cascade</Keyword><Keyword>signal transduction</Keyword><Keyword>epinephrine</Keyword><Keyword>GPCR</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q17" unit="4" subunit="4.3" practice="SP6" bigIdea="BI4" dok="2" stimulusRef="b1ss5">
+    <Stem>The pathway description states that phosphodiesterase degrades cAMP to terminate the signal. If a drug inhibited phosphodiesterase activity, what would be the expected effect on liver cells exposed to epinephrine?</Stem>
+    <Options>
+      <Option id="A" correct="false">Epinephrine would be unable to bind its receptor</Option>
+    <Option id="B" correct="false">The cells would produce less glucose because phosphodiesterase is required for glycogen breakdown</Option>
+      <Option id="C" correct="true">The signal would persist longer than normal because cAMP would not be degraded</Option>
+      <Option id="D" correct="false">The cells would not respond to epinephrine because cAMP could not be produced</Option>
+      </Options>
+    <Explanation>Phosphodiesterase (PDE) converts cAMP → AMP (inactive), terminating the second messenger signal. If PDE is inhibited: cAMP accumulates → PKA remains active → glycogen phosphorylase remains phosphorylated (active) → glycogen breakdown continues → sustained glucose release. Real-world application: caffeine inhibits phosphodiesterase, prolonging cAMP signaling — this contributes to caffeine's stimulatory effects (sustained epinephrine-like responses: increased heart rate, alertness, glucose mobilization). This question illustrates a key principle: signal transduction pathways require both activation AND termination mechanisms. Disrupting termination produces a constitutively active pathway (analogous to an "always on" switch), which can have pathological consequences — some cancers result from constitutively active growth factor signaling pathways.</Explanation>
+    <Keywords><Keyword>phosphodiesterase</Keyword><Keyword>cAMP</Keyword><Keyword>signal termination</Keyword><Keyword>caffeine</Keyword><Keyword>constitutive activation</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q18" unit="4" subunit="4.4" practice="SP6" bigIdea="BI4" dok="2" stimulusRef="b1ss5">
+    <Stem>The epinephrine pathway stimulates glycogen breakdown (catabolic), while insulin signaling stimulates glycogen synthesis (anabolic). These two opposing pathways represent an example of</Stem>
+    <Options>
+      <Option id="A" correct="false">Endosymbiosis — the two pathways originated in different ancestral organisms</Option>
+    <Option id="B" correct="false">Apoptosis — the two hormones trigger programmed cell death in liver cells</Option>
+      <Option id="C" correct="false">Positive feedback — each hormone amplifies the other's effect</Option>
+      <Option id="D" correct="true">Negative feedback and antagonistic regulation</Option>
+      </Options>
+    <Explanation>Blood glucose homeostasis: a classic negative feedback system with antagonistic hormones: (1) High blood glucose → pancreatic beta cells release insulin → insulin promotes glucose uptake (GLUT4 translocation to muscle/fat cell membranes), glycogen synthesis, lipogenesis → blood glucose decreases. (2) Low blood glucose → pancreatic alpha cells release glucagon; adrenal medulla releases epinephrine → these promote glycogenolysis (glycogen → glucose) and gluconeogenesis → blood glucose increases. The two pathways counteract each other, maintaining blood glucose in the range of ~70-110 mg/dL. This is negative feedback because the output (change in blood glucose) opposes the initial stimulus. Positive feedback (Option A) would amplify deviations — e.g., oxytocin during labor. This antagonistic regulation illustrates Big Idea 4: biological systems interact to maintain homeostasis through complex feedback mechanisms.</Explanation>
+    <Keywords><Keyword>negative feedback</Keyword><Keyword>homeostasis</Keyword><Keyword>insulin glucagon</Keyword><Keyword>blood glucose regulation</Keyword><Keyword>antagonistic hormones</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q19" unit="4" subunit="4.5" practice="SP1" bigIdea="BI3" dok="1">
+    <Stem>During which phase of the cell cycle does DNA replication occur, resulting in duplicated chromosomes each consisting of two identical sister chromatids joined at the centromere?</Stem>
+    <Options>
+      <Option id="A" correct="false">M phase (mitosis)</Option>
+      <Option id="B" correct="false">G1 phase (first gap)</Option>
+      <Option id="C" correct="false">Cytokinesis</Option>
+    <Option id="D" correct="true">S phase (synthesis) of interphase</Option>
+      </Options>
+    <Explanation>Cell cycle phases: G1 (cell growth, organelle duplication, G1/S checkpoint) → S (DNA synthesis/replication) → G2 (further growth, G2/M checkpoint, error checking) → M (mitosis: prophase → prometaphase → metaphase → anaphase → telophase) → Cytokinesis (cell division). During S phase: each chromosome (1 DNA double helix) is replicated by DNA polymerase → becomes two sister chromatids (two identical DNA double helices) joined at the centromere by cohesin proteins. The cell transitions from 2n DNA content to 4n DNA content during S phase. G1 and G2 are "gap" phases with growth but no DNA replication. M phase is when the replicated chromosomes are separated. Cytokinesis divides the cytoplasm. The S phase takes approximately 6-8 hours in a typical mammalian cell with a 24-hour cell cycle.</Explanation>
+    <Keywords><Keyword>S phase</Keyword><Keyword>DNA replication</Keyword><Keyword>sister chromatids</Keyword><Keyword>cell cycle</Keyword><Keyword>centromere</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q20" unit="4" subunit="4.6" practice="SP6" bigIdea="BI3" dok="2">
+    <Stem>The tumor suppressor protein p53 is often called the "guardian of the genome." When DNA damage is detected, p53</Stem>
+    <Options>
+      <Option id="A" correct="false">Stimulates oncogene expression to accelerate cell growth</Option>
+    <Option id="B" correct="false">Directly repairs the damaged DNA by acting as a DNA polymerase</Option>
+      <Option id="C" correct="false">Promotes rapid cell division to replace damaged cells</Option>
+      <Option id="D" correct="true">Halts the cell cycle at the G1/S checkpoint to allow time for DNA repair</Option>
+      </Options>
+    <Explanation>p53 (TP53 gene): a transcription factor activated by DNA damage, oncogene activation, or hypoxia. Functions: (1) Cell cycle arrest — p53 activates transcription of p21, which inhibits cyclin-dependent kinases (CDKs), halting the cell cycle at G1/S; this provides time for DNA repair pathways (nucleotide excision repair, base excision repair, mismatch repair). (2) Apoptosis — if damage is too severe, p53 activates pro-apoptotic genes (BAX, PUMA, NOXA) that trigger mitochondrial release of cytochrome c → caspase cascade → cell death. (3) Senescence — irreversible cell cycle arrest in severely damaged cells. p53 is mutated in approximately 50% of all human cancers — loss of p53 function allows cells with DNA damage to continue dividing, accumulating mutations that can lead to uncontrolled growth. Oncogenes (Option D) promote cell growth; tumor suppressors like p53 inhibit it — they are functionally opposite.</Explanation>
+    <Keywords><Keyword>p53</Keyword><Keyword>tumor suppressor</Keyword><Keyword>cell cycle checkpoint</Keyword><Keyword>apoptosis</Keyword><Keyword>DNA damage</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q21" unit="4" subunit="4.1" practice="SP1" bigIdea="BI4" dok="1">
+    <Stem>Paracrine signaling differs from endocrine signaling in that paracrine signals</Stem>
+    <Options>
+      <Option id="A" correct="false">Are transmitted electrically via nerve impulses along axons</Option>
+      <Option id="B" correct="true">Act on nearby target cells by diffusing short distances through the extracellular fluid, whereas endocrine signals (hormones) travel through the bloodstream to reach distant target cells throughout the body</Option>
+      <Option id="C" correct="false">Require direct cell-to-cell contact through gap junctions</Option>
+      <Option id="D" correct="false">Can only signal one specific cell at a time, while endocrine signals affect every cell in the body equally</Option>
+    </Options>
+    <Explanation>Types of cell signaling by distance: (1) Direct contact — gap junctions (ions, small molecules between adjacent cells); cell-surface molecules (immune cell recognition). (2) Paracrine — local signaling; molecules diffuse to nearby cells (range: µm to mm). Examples: growth factors, neurotransmitters (synaptic signaling is a specialized form of paracrine), histamine release during inflammation, morphogens during embryonic development. (3) Endocrine — long-distance signaling via hormones transported in blood. Examples: insulin (pancreas → body-wide), thyroxine (thyroid → body-wide), estrogen (ovary → body-wide). (4) Autocrine — cell signals itself (same cell type). All signaling requires: (1) a signaling molecule (ligand); (2) a receptor on or in the target cell; (3) a signal transduction pathway; (4) a cellular response. Not every cell responds to every hormone — only cells with the specific receptor for that signal can respond (Option D is incorrect).</Explanation>
+    <Keywords><Keyword>paracrine signaling</Keyword><Keyword>endocrine signaling</Keyword><Keyword>local signaling</Keyword><Keyword>cell communication</Keyword><Keyword>hormones</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q22" unit="5" subunit="5.3" practice="SP5" bigIdea="BI3" dok="2" stimulusRef="b1ss3">
+    <Stem>Calculate the chi-square (χ²) value for the dihybrid cross data in Table 2.</Stem>
+    <Options>
+      <Option id="A" correct="false">χ² = 15.63</Option>
+    <Option id="B" correct="true">χ² ≈ 2.87</Option>
+      <Option id="C" correct="false">χ² = 0.00</Option>
+      <Option id="D" correct="false">χ² = 7.815</Option>
+      </Options>
+    <Explanation>Chi-square calculation: χ² = Σ[(O-E)²/E]. For each phenotype: Round Yellow: (230-225)²/225 = 25/225 = 0.111; Round Green: (62-75)²/75 = 169/75 = 2.253; Wrinkled Yellow: (80-75)²/75 = 25/75 = 0.333; Wrinkled Green: (28-25)²/25 = 9/25 = 0.360. Total χ² = 0.111 + 2.253 + 0.333 + 0.360 = 3.057 ≈ 3.05. With df = 4-1 = 3 and critical value 7.815 at p = 0.05: since 3.05 &lt; 7.815, we fail to reject the null hypothesis. The null hypothesis states that the observed ratios do not differ significantly from the expected 9:3:3:1 ratio. Conclusion: the data are consistent with independent assortment of the two gene loci (Mendel's Law of Independent Assortment), supporting that the genes for seed shape and color are on different chromosomes (or far apart on the same chromosome).</Explanation>
+    <Keywords><Keyword>chi-square</Keyword><Keyword>dihybrid cross</Keyword><Keyword>expected ratio</Keyword><Keyword>null hypothesis</Keyword><Keyword>independent assortment</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q23" unit="5" subunit="5.3" practice="SP5" bigIdea="BI3" dok="2" stimulusRef="b1ss3">
+    <Stem>Based on the chi-square analysis, what conclusion should the student draw?</Stem>
+    <Options>
+      <Option id="A" correct="false">The results prove that the 9:3:3:1 ratio is exactly correct with zero deviation</Option>
+    <Option id="B" correct="true">The null hypothesis should NOT be rejected</Option>
+      <Option id="C" correct="false">The null hypothesis should be rejected because the observed ratios differ from expected</Option>
+      <Option id="D" correct="false">The genes for seed shape and color are linked on the same chromosome</Option>
+      </Options>
+    <Explanation>Interpreting chi-square results: If χ² &lt; critical value → fail to reject H₀ → observed deviations are likely due to random sampling variation (chance), not a real biological effect. If χ² &gt; critical value → reject H₀ → observed deviations are statistically significant, suggesting the data do not fit the expected ratio (perhaps gene linkage, epistasis, or other non-Mendelian inheritance). Here: 3.05 &lt; 7.815 → fail to reject → data fit the 9:3:3:1 ratio → genes assort independently. Important nuances: "fail to reject" ≠ "prove the null is true" (Option D) — we can never prove a null hypothesis, only fail to find evidence against it. If the genes were linked (Option C), we would expect significant deviations from 9:3:3:1 (χ² &gt; 7.815), with excess of parental phenotypes and deficit of recombinant phenotypes.</Explanation>
+    <Keywords><Keyword>chi-square interpretation</Keyword><Keyword>fail to reject</Keyword><Keyword>null hypothesis</Keyword><Keyword>independent assortment</Keyword><Keyword>statistical significance</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q24" unit="5" subunit="5.1" practice="SP1" bigIdea="BI3" dok="2">
+    <Stem>Crossing over during prophase I of meiosis increases genetic diversity by</Stem>
+    <Options>
+      <Option id="A" correct="false">Converting diploid cells directly into haploid cells without reducing chromosome number</Option>
+    <Option id="B" correct="false">Duplicating entire chromosomes to produce polyploid cells</Option>
+      <Option id="C" correct="true">Exchanging segments of DNA between homologous chromosomes at chiasmata, producing recombinant chromosomes with novel combinations of alleles that differ from both parental chromosomes</Option>
+      <Option id="D" correct="false">Deleting harmful alleles from chromosomes during synapsis</Option>
+      </Options>
+    <Explanation>Crossing over (recombination): during prophase I, homologous chromosome pairs (bivalents) synapse (align closely). At points called chiasmata, non-sister chromatids exchange corresponding segments via breakage and reunion mediated by recombination enzymes. Result: recombinant chromatids carry alleles from both parents on the same chromosome — combinations that did not exist in either parent. Example: if parent has chromosome with alleles AB and homolog with ab, crossing over can produce Ab and aB recombinant chromosomes. This increases the number of unique gamete genotypes beyond what independent assortment alone provides. Sources of genetic variation in meiosis: (1) Crossing over (recombination); (2) Independent assortment of homologous pairs (2²³ = ~8.4 million possible chromosome combinations in humans); (3) Random fertilization. Together these mechanisms ensure that each gamete is genetically unique, providing the raw material for natural selection.</Explanation>
+    <Keywords><Keyword>crossing over</Keyword><Keyword>recombination</Keyword><Keyword>chiasmata</Keyword><Keyword>genetic diversity</Keyword><Keyword>meiosis</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q25" unit="5" subunit="5.4" practice="SP1" bigIdea="BI3" dok="2">
+    <Stem>In codominance, heterozygous individuals express both alleles simultaneously. Which example illustrates codominance?</Stem>
+    <Options>
+      <Option id="A" correct="false">Two heterozygous parents produce offspring in a 9:3:3:1 phenotypic ratio</Option>
+    <Option id="B" correct="true">In the ABO blood group system, an individual with genotype I^A I^B expresses both A and B antigens on their red blood cells, resulting in type AB blood</Option>
+      <Option id="C" correct="false">A red-flowered plant crossed with a white-flowered plant produces pink-flowered offspring</Option>
+      <Option id="D" correct="false">A tall pea plant crossed with a short pea plant produces all tall offspring</Option>
+      </Options>
+    <Explanation>Non-Mendelian inheritance patterns: Codominance: both alleles are fully and separately expressed in the heterozygote. ABO blood types: I^A produces A antigen; I^B produces B antigen; I^A I^B produces BOTH antigens → type AB. The alleles do not blend — both distinct proteins are present on the cell surface. Incomplete dominance: the heterozygote shows an intermediate (blended) phenotype. Example: red (RR) × white (rr) → pink (Rr) snapdragons (Option A). Neither allele fully masks the other. Complete dominance: one allele fully masks the recessive allele (Option C — tall is dominant over short in Mendel's peas). Dihybrid cross (Option D — 9:3:3:1) involves two genes, not codominance at one gene. Other non-Mendelian patterns: epistasis (one gene affects expression of another), polygenic inheritance (multiple genes → continuous variation), pleiotropy (one gene → multiple phenotypic effects).</Explanation>
+    <Keywords><Keyword>codominance</Keyword><Keyword>ABO blood type</Keyword><Keyword>non-Mendelian</Keyword><Keyword>incomplete dominance</Keyword><Keyword>heterozygote</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q26" unit="5" subunit="5.2" practice="SP6" bigIdea="BI1" dok="2">
+    <Stem>Compared to mitosis, meiosis produces greater genetic variation in offspring. Which feature of meiosis contributes to this variation but does NOT occur in mitosis?</Stem>
+    <Options>
+      <Option id="A" correct="true">Independent assortment of homologous chromosomes during metaphase I</Option>
+      <Option id="B" correct="false">Cytokinesis at the end of cell division</Option>
+    <Option id="C" correct="false">DNA replication during S phase</Option>
+      <Option id="D" correct="false">Separation of sister chromatids during cell division</Option>
+      </Options>
+    <Explanation>Meiosis-specific sources of genetic variation: (1) Independent assortment — during metaphase I, each bivalent (homologous pair) orients randomly at the metaphase plate, independent of other bivalents. For n chromosome pairs: 2ⁿ possible gamete combinations (2²³ ≈ 8.4 million in humans). (2) Crossing over — exchange of genetic material between homologs during prophase I (see b1q24). (3) Random fertilization — any of millions of genetically distinct eggs can fuse with any of millions of distinct sperm. Mitosis features shared with meiosis (not unique to meiosis): DNA replication (S phase in both), sister chromatid separation (anaphase in mitosis, anaphase II in meiosis), and cytokinesis. Mitosis does NOT involve: homolog pairing, crossing over, or independent assortment — so mitosis produces genetically identical daughter cells (barring mutation).</Explanation>
+    <Keywords><Keyword>independent assortment</Keyword><Keyword>meiosis vs mitosis</Keyword><Keyword>genetic variation</Keyword><Keyword>metaphase I</Keyword><Keyword>homologous chromosomes</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q27" unit="5" subunit="5.5" practice="SP1" bigIdea="BI4" dok="1">
+    <Stem>Hydrangea flowers can be blue in acidic soil (pH &lt; 6) or pink in alkaline soil (pH &gt; 7), despite having the same genotype. This is an example of</Stem>
+    <Options>
+      <Option id="A" correct="false">Incomplete penetrance of a lethal allele</Option>
+    <Option id="B" correct="false">A chromosomal mutation changing the flower color gene</Option>
+      <Option id="C" correct="true">Environmental effects on phenotype</Option>
+      <Option id="D" correct="false">Codominance between the blue and pink alleles</Option>
+      </Options>
+    <Explanation>Phenotype = Genotype + Environment. Hydrangea color: the anthocyanin pigment in flowers changes color depending on aluminum availability (controlled by soil pH). Acidic soil → aluminum is soluble → absorbed by plant → complexes with anthocyanins → blue/purple. Alkaline soil → aluminum is insoluble → not absorbed → anthocyanins remain pink/red. Same genes, same pigment — but environmental chemistry alters the final phenotype. Other examples of environmental effects on phenotype: (1) Temperature-sensitive alleles — Siamese cat coat color (cooler extremities are darker due to tyrosinase enzyme being active only below ~33°C); (2) Nutrition — human height is influenced by both genetics and diet; (3) Phenylketonuria (PKU) — genetic disorder whose effects can be mitigated by environmental intervention (low-phenylalanine diet). These examples illustrate that genes provide a range of possible phenotypes (reaction norm), and the environment determines where within that range the organism falls.</Explanation>
+    <Keywords><Keyword>environmental effects</Keyword><Keyword>phenotype</Keyword><Keyword>genotype</Keyword><Keyword>phenotypic plasticity</Keyword><Keyword>hydrangea</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q28" unit="3" subunit="3.1" practice="SP1" bigIdea="BI2" dok="1">
+    <Stem>Enzymes increase the rate of chemical reactions by</Stem>
+    <Options>
+      <Option id="A" correct="false">Increasing the temperature of the reactants</Option>
+      <Option id="B" correct="false">Changing the overall free energy change (ΔG) of the reaction</Option>
+      <Option id="C" correct="false">Increasing the equilibrium concentration of products relative to reactants</Option>
+    <Option id="D" correct="true">Lowering the activation energy required for the reaction to proceed</Option>
+      </Options>
+    <Explanation>Enzyme catalysis: enzymes are biological catalysts (mostly proteins, some RNA = ribozymes) that accelerate reactions by 10⁶–10¹² fold. Mechanism: the enzyme's active site binds substrate(s), forming an enzyme-substrate complex. The active site provides: (1) Proximity and orientation — brings substrates together in correct alignment; (2) Strain — distorts substrate bonds toward the transition state; (3) Microenvironment — acidic/basic/hydrophobic residues in the active site facilitate bond breaking/making. Result: lower activation energy (Ea) → more molecules can reach the transition state at body temperature (37°C). Enzymes do NOT: change ΔG (thermodynamics unchanged — Option C), shift equilibrium (Option D), or change temperature (Option A). They increase the rate of reaching equilibrium from both directions. Enzymes are specific (lock-and-key or induced-fit models) and are reusable (not consumed in the reaction).</Explanation>
+    <Keywords><Keyword>enzyme catalysis</Keyword><Keyword>activation energy</Keyword><Keyword>active site</Keyword><Keyword>transition state</Keyword><Keyword>biological catalyst</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q29" unit="3" subunit="3.3" practice="SP1" bigIdea="BI2" dok="1">
+    <Stem>ATP (adenosine triphosphate) is often called the "energy currency" of the cell. The energy stored in ATP is released when</Stem>
+    <Options>
+      <Option id="A" correct="false">A phosphate group is added to ADP by hydrolysis</Option>
+      <Option id="B" correct="false">The adenine base is separated from the ribose sugar</Option>
+      <Option id="C" correct="false">ATP is converted to glucose through an oxidation reaction</Option>
+    <Option id="D" correct="true">The terminal phosphate group is removed by hydrolysis (ATP + H₂O → ADP + Pᵢ), releasing approximately 7.3 kcal/mol of free energy that can be coupled to endergonic cellular processes</Option>
+      </Options>
+    <Explanation>ATP structure: adenine base + ribose sugar + three phosphate groups linked by phosphoanhydride bonds. The terminal (γ) phosphate bond is a "high-energy" bond because: (1) Electrostatic repulsion — three negatively charged phosphate groups repel each other; (2) Resonance stabilization — ADP + Pᵢ products have more resonance forms than ATP; (3) Hydration — products are more hydrated than reactants. Hydrolysis: ATP + H₂O → ADP + Pᵢ; ΔG° = −7.3 kcal/mol (exergonic). This energy is coupled to endergonic processes: muscle contraction (myosin), active transport (Na⁺/K⁺ pump), biosynthesis (DNA replication, protein synthesis). ATP is regenerated by: substrate-level phosphorylation (glycolysis, Krebs cycle), oxidative phosphorylation (ETC + ATP synthase in mitochondria), and photophosphorylation (light reactions in chloroplasts). A human body turns over its own weight in ATP per day (~40-70 kg).</Explanation>
+    <Keywords><Keyword>ATP</Keyword><Keyword>hydrolysis</Keyword><Keyword>phosphoanhydride bond</Keyword><Keyword>energy coupling</Keyword><Keyword>ADP</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q30" unit="3" subunit="3.5" practice="SP2" bigIdea="BI2" dok="2">
+    <Stem>During aerobic cellular respiration, the electron transport chain (ETC) and oxidative phosphorylation produce the majority of ATP. The ETC is located on the</Stem>
+    <Options>
+      <Option id="A" correct="true">Inner mitochondrial membrane (cristae)</Option>
+      <Option id="B" correct="false">Outer mitochondrial membrane</Option>
+      <Option id="C" correct="false">Plasma membrane of the cell</Option>
+    <Option id="D" correct="false">Mitochondrial matrix, dissolved in the aqueous interior</Option>
+      </Options>
+    <Explanation>Mitochondrial structure and respiration localization: Outer membrane: permeable to small molecules (porins); separates cytoplasm from intermembrane space. Intermembrane space: H⁺ accumulates here during ETC (high [H⁺], low pH). Inner membrane (cristae — folded to increase surface area): ETC complexes I-IV + ATP synthase embedded here. Matrix: Krebs cycle enzymes, pyruvate dehydrogenase, mitochondrial DNA and ribosomes. ETC process: NADH → Complex I → ubiquinone → Complex III → cytochrome c → Complex IV → O₂ (terminal electron acceptor, reduced to H₂O). At Complexes I, III, and IV, energy from electron transfer pumps H⁺ from matrix to intermembrane space. The resulting electrochemical gradient (~200 mV, ~1 pH unit) drives H⁺ through ATP synthase (chemiosmosis) → ATP synthesis. ~30-32 ATP per glucose from aerobic respiration (vs 2 ATP from glycolysis alone). Cristae folding increases inner membrane surface area, accommodating more ETC complexes and ATP synthases.</Explanation>
+    <Keywords><Keyword>electron transport chain</Keyword><Keyword>inner mitochondrial membrane</Keyword><Keyword>chemiosmosis</Keyword><Keyword>ATP synthase</Keyword><Keyword>oxidative phosphorylation</Keyword></Keywords>
+  </Question>
+
+
+  
+
+  <Question id="b1q31" unit="3" subunit="3.4" practice="SP6" bigIdea="BI2" dok="2">
+    <Stem>If the thylakoid membrane were disrupted so that it could no longer maintain a proton gradient, which products of the light-dependent reactions would be MOST directly affected?</Stem>
+    <Options>
+      <Option id="A" correct="false">O₂ production would stop but ATP production would continue</Option>
+      <Option id="B" correct="false">All products would be unaffected because the proton gradient is not involved in the light reactions</Option>
+    <Option id="C" correct="false">Only NADPH production would stop</Option>
+      <Option id="D" correct="true">ATP production via chemiosmosis would cease because ATP synthase requires the proton gradient (H⁺ concentration difference across the thylakoid membrane) to drive the phosphorylation of ADP</Option>
+      </Options>
+    <Explanation>Chemiosmosis in photosynthesis: the ETC in the thylakoid membrane pumps H⁺ from the stroma into the thylakoid lumen, building a proton gradient (~1,000× concentration difference, pH ~5 in lumen vs ~8 in stroma). H⁺ flows back through ATP synthase (CF₀-CF₁ complex) → rotational catalysis → ADP + Pᵢ → ATP. If the membrane is leaky: H⁺ gradient collapses → ATP synthase cannot function → no photophosphorylation. This is analogous to uncoupling in mitochondria. NADPH production: electrons from PSI reduce NADP⁺ → NADPH; this does not directly require the proton gradient (though in practice, a disrupted membrane would likely affect overall electron flow). O₂ production (water splitting at PSII) is upstream and could continue initially. The experiment with DCMU (blocks electron flow between PSII and PSI) vs uncouplers (collapse gradient but allow electron flow) helps distinguish these effects.</Explanation>
+    <Keywords><Keyword>proton gradient</Keyword><Keyword>chemiosmosis</Keyword><Keyword>ATP synthase</Keyword><Keyword>thylakoid</Keyword><Keyword>uncoupling</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q32" unit="3" subunit="3.2" practice="SP6" bigIdea="BI2" dok="2">
+    <Stem>An enzyme has an optimal temperature of 37°C. If the temperature is raised to 70°C, the enzyme's activity drops to zero. This loss of activity is MOST likely due to</Stem>
+    <Options>
+      <Option id="A" correct="false">The enzyme converting all available substrate to product at the higher temperature</Option>
+      <Option id="B" correct="true">Denaturation</Option>
+      <Option id="C" correct="false">The activation energy of the reaction increasing with temperature</Option>
+    <Option id="D" correct="false">The substrate becoming too cold to bind the active site</Option>
+      </Options>
+    <Explanation>Enzyme-temperature relationship: as temperature increases from low values, reaction rate increases (higher kinetic energy → more enzyme-substrate collisions, Q₁₀ effect) until reaching an optimum. Above the optimum, thermal energy disrupts the weak bonds maintaining protein structure: (1) Hydrogen bonds between R-groups; (2) Ionic (electrostatic) interactions; (3) Hydrophobic interactions (van der Waals). These bonds maintain the specific 3D conformation of the active site (tertiary/quaternary structure). Denaturation: the enzyme unfolds → active site geometry is lost → substrate can no longer bind → catalysis ceases. Denaturation is often irreversible (unlike the reversible effects of competitive inhibitors). Primary structure (peptide bonds) remains intact. Different enzymes have different optimal temperatures: human enzymes ~37°C; thermophilic archaea enzymes ~80–100°C (more ionic bonds and disulfide bridges stabilize their structure). pH can also cause denaturation by altering ionization states of R-groups.</Explanation>
+    <Keywords><Keyword>denaturation</Keyword><Keyword>temperature</Keyword><Keyword>enzyme structure</Keyword><Keyword>tertiary structure</Keyword><Keyword>active site</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q33" unit="4" subunit="4.5" practice="SP2" bigIdea="BI3" dok="2">
+    <Stem>During mitosis, sister chromatids are separated during anaphase by the shortening of kinetochore microtubules. What would happen if the spindle assembly checkpoint failed to detect that one chromosome was not properly attached to the spindle?</Stem>
+    <Options>
+      <Option id="A" correct="true">Nondisjunction could occur</Option>
+      <Option id="B" correct="false">Both daughter cells would receive the correct number of chromosomes</Option>
+      <Option id="C" correct="false">The cell would automatically undergo apoptosis before completing division</Option>
+      <Option id="D" correct="false">The cell would revert to G1 phase and start the cell cycle over</Option>
+    </Options>
+    <Explanation>Spindle assembly checkpoint (SAC): monitors whether all kinetochores are attached to spindle microtubules before allowing anaphase to proceed. The SAC proteins (MAD1, MAD2, BUB1, BUBR1) inhibit the anaphase-promoting complex (APC/C) until all chromosomes achieve bipolar attachment (one kinetochore attached to each pole). If the checkpoint fails: the cell proceeds to anaphase with an unattached chromosome → that chromosome may be randomly distributed → aneuploidy (incorrect chromosome number). Consequences: (1) Monosomy (2n-1) — usually lethal; (2) Trisomy (2n+1) — often lethal; trisomy 21 (Down syndrome) is the most common survivable autosomal trisomy in humans; (3) Cancer — many cancer cells are aneuploid due to checkpoint failures. Option C would require functional p53/checkpoint mechanisms. The SAC is a critical quality control that ensures equal chromosome distribution — its failure is a major source of chromosomal instability in cancer cells.</Explanation>
+    <Keywords><Keyword>spindle assembly checkpoint</Keyword><Keyword>nondisjunction</Keyword><Keyword>aneuploidy</Keyword><Keyword>trisomy</Keyword><Keyword>chromosome segregation</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q34" unit="4" subunit="4.1" practice="SP6" bigIdea="BI4" dok="2">
+    <Stem>Quorum sensing in bacteria involves the release and detection of signaling molecules called autoinducers. When the population density reaches a threshold, the accumulated autoinducers trigger coordinated gene expression in the entire population. This is an example of</Stem>
+    <Options>
+      <Option id="A" correct="false">Meiotic recombination that increases bacterial genetic diversity</Option>
+      <Option id="B" correct="false">Apoptosis triggered by overcrowding in the bacterial population</Option>
+    <Option id="C" correct="false">Endocrine signaling, because the signal travels through the bloodstream</Option>
+      <Option id="D" correct="true">Cell-to-cell communication that allows bacteria to coordinate behaviors (biofilm formation, bioluminescence, virulence factor production) as a function of population density</Option>
+      </Options>
+    <Explanation>Quorum sensing: a cell-density-dependent communication system in bacteria. Each bacterium produces and secretes autoinducer molecules (e.g., acyl-homoserine lactones in Gram-negative bacteria, oligopeptides in Gram-positive bacteria). At low cell density: autoinducer concentration is low → no response. At high cell density: autoinducer accumulates above threshold → binds intracellular receptors (transcription factors) → activates coordinate gene expression. Examples: Vibrio fischeri bioluminescence (light organ of Hawaiian bobtail squid — bacteria produce light only at high density); Pseudomonas aeruginosa biofilm formation (chronic lung infections in cystic fibrosis patients); Staphylococcus aureus virulence factor production. Biofilm: structured bacterial communities embedded in an extracellular polymeric matrix; resistance to antibiotics 100-1,000× higher than planktonic cells. Quorum sensing is a potential drug target — disrupting it (quorum quenching) could reduce bacterial virulence without directly killing bacteria.</Explanation>
+    <Keywords><Keyword>quorum sensing</Keyword><Keyword>autoinducer</Keyword><Keyword>bacterial communication</Keyword><Keyword>biofilm</Keyword><Keyword>cell signaling</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q38" unit="6" subunit="6.2" practice="SP1" bigIdea="BI3" dok="1">
+    <Stem>During DNA replication, the enzyme DNA polymerase III can only synthesize new DNA in the 5' to 3' direction. Because the two strands of the DNA double helix are antiparallel, this means</Stem>
+    <Options>
+      <Option id="A" correct="true">One strand (the leading strand) is synthesized continuously toward the replication fork, while the other (the lagging strand) must be synthesized discontinuously in short fragments (Okazaki fragments) that are later joined by DNA ligase</Option>
+      <Option id="B" correct="false">Replication proceeds in only one direction from the origin of replication</Option>
+    <Option id="C" correct="false">Both new strands are synthesized continuously in the same direction</Option>
+      <Option id="D" correct="false">DNA polymerase can only replicate one strand; the other is copied by RNA polymerase</Option>
+      </Options>
+    <Explanation>Semiconservative replication: the double helix is unwound by helicase at the replication fork; each original strand serves as a template. Leading strand: the template runs 3'→5', so DNA pol III synthesizes continuously 5'→3' toward the replication fork. Lagging strand: the template runs 5'→3', so DNA pol III must synthesize 5'→3' AWAY from the fork in short segments: (1) Primase lays down RNA primers; (2) DNA pol III extends each primer → Okazaki fragments (~1,000–2,000 nt in prokaryotes, ~100–200 nt in eukaryotes); (3) DNA pol I removes RNA primers and replaces with DNA; (4) DNA ligase seals the nicks between adjacent fragments. Both strands are replicated with high fidelity: error rate ~1/10⁹ bases (proofreading by DNA pol III's 3'→5' exonuclease activity + mismatch repair). Replication is bidirectional from each origin (Option D is incorrect), with two replication forks moving in opposite directions.</Explanation>
+    <Keywords><Keyword>DNA replication</Keyword><Keyword>leading strand</Keyword><Keyword>lagging strand</Keyword><Keyword>Okazaki fragments</Keyword><Keyword>DNA polymerase</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q39" unit="6" subunit="6.3" practice="SP1" bigIdea="BI3" dok="2">
+    <Stem>In eukaryotes, the pre-mRNA transcript undergoes several processing steps before leaving the nucleus as mature mRNA. Which of the following is NOT a step in eukaryotic RNA processing?</Stem>
+    <Options>
+      <Option id="A" correct="false">Splicing — removal of introns (noncoding sequences) and joining of exons (coding sequences) by the spliceosome</Option>
+      <Option id="B" correct="false">Addition of a poly-A tail (~200 adenine nucleotides) to the 3' end that protects from exonuclease degradation and aids in nuclear export</Option>
+      <Option id="C" correct="false">Addition of a 5' methylguanine cap that protects the mRNA from degradation and aids ribosome recognition</Option>
+      <Option id="D" correct="true">Reverse transcription</Option>
+    </Options>
+    <Explanation>Eukaryotic pre-mRNA processing (all occur in the nucleus before export): (1) 5' cap — a modified guanine (7-methylguanosine) added co-transcriptionally; functions: protection from 5' exonucleases, ribosome binding signal for translation initiation, nuclear export signal. (2) 3' poly-A tail — 100-250 adenines added by poly-A polymerase after cleavage at the polyadenylation signal (AAUAAA); functions: protection from 3' exonucleases, nuclear export, translation efficiency. (3) RNA splicing — introns removed, exons joined; performed by the spliceosome (complex of snRNPs = small nuclear ribonucleoproteins). Alternative splicing: different exon combinations produce different mRNA variants from the same gene → increases protein diversity (&gt;95% of human multi-exon genes undergo alternative splicing). Reverse transcription (Option D) converts RNA → DNA; it occurs in retroviruses (reverse transcriptase enzyme) and in cells via telomerase and retrotransposons, but is NOT a standard mRNA processing step.</Explanation>
+    <Keywords><Keyword>RNA processing</Keyword><Keyword>5' cap</Keyword><Keyword>poly-A tail</Keyword><Keyword>splicing</Keyword><Keyword>introns exons</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q42" unit="6" subunit="6.4" practice="SP2" bigIdea="BI3" dok="2">
+    <Stem>During translation, a ribosome moves along an mRNA strand and reads codons (three-nucleotide sequences). If the mRNA sequence reads 5'-AUG GCU UAC GAA-3', how many amino acids will this segment encode?</Stem>
+    <Options>
+      <Option id="A" correct="true">4 amino acids</Option>
+      <Option id="B" correct="false">3 amino acids — AUG is only a start signal and does not encode an amino acid</Option>
+      <Option id="C" correct="false">12 amino acids — one per nucleotide</Option>
+      <Option id="D" correct="false">6 amino acids — each codon of two nucleotides specifies one amino acid</Option>
+    </Options>
+    <Explanation>The genetic code: 64 codons (4³ = 64 possible three-nucleotide combinations) encoding 20 amino acids + 3 stop codons (UAA, UAG, UGA). The code is: (1) Triplet — three nucleotides per codon; (2) Degenerate (redundant) — most amino acids are specified by more than one codon (e.g., Ala = GCU, GCC, GCA, GCG); (3) Unambiguous — each codon specifies exactly one amino acid; (4) Nearly universal — with minor exceptions (mitochondria, some protists). AUG serves dual function: start codon (initiates translation; recruits initiator tRNA carrying Met) AND encodes methionine throughout the coding sequence. Translation: ribosome has A site (aminoacyl-tRNA entry), P site (peptidyl-tRNA), E site (exit). tRNAs with complementary anticodons bring the specified amino acids; peptide bonds form between adjacent amino acids → growing polypeptide chain.</Explanation>
+    <Keywords><Keyword>translation</Keyword><Keyword>codons</Keyword><Keyword>genetic code</Keyword><Keyword>amino acids</Keyword><Keyword>triplet code</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q43" unit="6" subunit="6.5" practice="SP1" bigIdea="BI3" dok="2">
+    <Stem>The lac operon in E. coli is an example of gene regulation in prokaryotes. The operon is induced (turned on) when</Stem>
+    <Options>
+      <Option id="A" correct="true">Lactose is present and glucose is absent</Option>
+      <Option id="B" correct="false">Glucose is abundant and lactose is absent</Option>
+      <Option id="C" correct="false">Both glucose and lactose are absent from the environment</Option>
+      <Option id="D" correct="false">The repressor protein is constitutively bound to the operator regardless of conditions</Option>
+    </Options>
+    <Explanation>lac operon regulation (Jacob &amp; Monod, 1961): components — promoter, operator, structural genes (lacZ = β-galactosidase, lacY = permease, lacA = transacetylase), and the regulatory gene (lacI = repressor). Negative regulation: lacI produces a repressor protein that binds the operator, blocking RNA polymerase → genes OFF. When lactose is present: allolactose (isomer of lactose) binds repressor → conformational change → repressor releases operator → RNA pol can transcribe. Positive regulation (catabolite repression): when glucose is low → cAMP levels rise → cAMP binds CAP (catabolite activator protein) → CAP-cAMP complex binds upstream of promoter → enhances RNA pol binding → high transcription. Maximum expression requires: lactose present (repressor inactive) AND glucose absent (CAP active). When glucose is present: even if lactose is present, cAMP is low → CAP inactive → only basal transcription. This ensures bacteria preferentially use glucose (more efficient) before lactose.</Explanation>
+    <Keywords><Keyword>lac operon</Keyword><Keyword>gene regulation</Keyword><Keyword>repressor</Keyword><Keyword>CAP</Keyword><Keyword>inducible operon</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q44" unit="6" subunit="6.7" practice="SP6" bigIdea="BI3" dok="2">
+    <Stem>A point mutation changes a single base pair in a gene's coding region. Which type of point mutation is MOST likely to have a severe effect on the resulting protein?</Stem>
+    <Options>
+      <Option id="A" correct="false">A mutation in an intron that is removed during RNA splicing</Option>
+    <Option id="B" correct="false">A silent (synonymous) mutation that does not change the amino acid</Option>
+      <Option id="C" correct="false">A conservative missense mutation replacing one amino acid with a chemically similar one</Option>
+      <Option id="D" correct="true">A frameshift mutation (insertion or deletion of one or two nucleotides)</Option>
+      </Options>
+    <Explanation>Point mutation severity hierarchy: (1) Silent/synonymous: third-position wobble base change → same amino acid (e.g., GCU→GCC both = Ala). No effect on protein. (2) Missense: amino acid substitution. Conservative (chemically similar replacement, e.g., Asp→Glu) → often mild. Non-conservative (e.g., charged → nonpolar) → can be severe (sickle cell: Glu→Val in hemoglobin). (3) Nonsense: creates a premature stop codon → truncated protein → usually nonfunctional. (4) Frameshift: insertion or deletion of nucleotides not in multiples of 3 → shifts the reading frame → all downstream amino acids are wrong → highly likely to produce nonfunctional protein with premature stop codon. Frameshifts are typically the most damaging. Intronic mutations (Option D) are usually neutral unless they affect splice sites (the conserved GT...AG sequences at intron-exon boundaries), in which case they can be severe.</Explanation>
+    <Keywords><Keyword>frameshift mutation</Keyword><Keyword>point mutation</Keyword><Keyword>reading frame</Keyword><Keyword>insertion deletion</Keyword><Keyword>protein function</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q45" unit="6" subunit="6.6" practice="SP1" bigIdea="BI3" dok="2">
+    <Stem>All cells in a multicellular organism contain the same DNA, yet a muscle cell and a neuron have very different structures and functions. This is because</Stem>
+    <Options>
+      <Option id="A" correct="false">Mutations during development change the DNA sequence in each cell type</Option>
+      <Option id="B" correct="true">Differential gene expression</Option>
+      <Option id="C" correct="false">Different cell types contain different genes — neurons lack muscle genes and vice versa</Option>
+      <Option id="D" correct="false">Neurons and muscle cells have different numbers of chromosomes</Option>
+    </Options>
+    <Explanation>Cell differentiation: all somatic cells in an organism share the same genome (with rare exceptions like mature RBCs that lack nuclei, and immune cells that undergo V(D)J recombination). Different cell types arise from differential gene expression: Muscle cells express: myosin, actin, troponin, myoglobin, creatine kinase → contractile machinery. Neurons express: ion channels, neurotransmitter receptors, synaptic vesicle proteins, neurofilaments → signaling machinery. Mechanisms controlling differential expression: (1) Transcription factors — combinatorial control (master regulators like MyoD for muscle); (2) Epigenetics — DNA methylation of promoter CpG islands silences genes; histone acetylation opens chromatin → transcription; histone methylation can activate or repress depending on residue. (3) Alternative splicing — same gene → different protein variants. (4) Post-transcriptional regulation — miRNAs degrade specific mRNAs. Evidence: cloning (Dolly the sheep) demonstrated that even a differentiated cell's nucleus contains a complete genome capable of directing development of an entire organism.</Explanation>
+    <Keywords><Keyword>differential gene expression</Keyword><Keyword>cell differentiation</Keyword><Keyword>epigenetics</Keyword><Keyword>transcription factors</Keyword><Keyword>cell specialization</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q46" unit="6" subunit="6.8" practice="SP3" bigIdea="BI3" dok="2">
+    <Stem>Gel electrophoresis separates DNA fragments by size. After running a restriction digest of a plasmid on an agarose gel, a researcher observes three bands. This means the restriction enzyme</Stem>
+    <Options>
+      <Option id="A" correct="false">Destroyed the plasmid DNA, and the three bands are degradation products</Option>
+    <Option id="B" correct="false">Did not cut the plasmid at all — three bands represent three different conformations of uncut plasmid</Option>
+      <Option id="C" correct="false">Cut the plasmid at one site, producing one linear fragment</Option>
+      <Option id="D" correct="true">Cut the circular plasmid at three restriction sites, producing three linear fragments of different sizes</Option>
+      </Options>
+    <Explanation>Restriction enzyme digestion of circular DNA: a circular plasmid cut at n sites produces n linear fragments. Three bands = three cuts = three fragments of different sizes. Gel electrophoresis: DNA is negatively charged (phosphate backbone) and migrates toward the positive electrode. Smaller fragments encounter less resistance in the agarose gel pores → move farther. Size estimation: a DNA ladder (fragments of known sizes) is run alongside the sample. If the plasmid were cut at 1 site: 1 band (1 linear fragment). If uncut: 1-3 bands (supercoiled, relaxed circular, and linear conformations can migrate differently — Option C is possible for uncut DNA but would not produce clean distinct bands like a restriction digest). Restriction enzymes (endonucleases) cut at specific palindromic sequences (e.g., EcoRI: 5'-GAATTC-3') producing either sticky ends (overhangs) or blunt ends.</Explanation>
+    <Keywords><Keyword>gel electrophoresis</Keyword><Keyword>restriction enzyme</Keyword><Keyword>plasmid</Keyword><Keyword>DNA fragments</Keyword><Keyword>biotechnology</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q47" unit="6" subunit="6.1" practice="SP1" bigIdea="BI3" dok="1">
+    <Stem>Chargaff's rules state that in double-stranded DNA, the amount of adenine equals the amount of thymine, and the amount of guanine equals the amount of cytosine. These rules are explained by</Stem>
+    <Options>
+      <Option id="A" correct="true">Complementary base pairing</Option>
+      <Option id="B" correct="false">The sugar-phosphate backbone containing equal numbers of all four bases</Option>
+    <Option id="C" correct="false">Adenine and thymine being identical molecules with the same molecular weight</Option>
+      <Option id="D" correct="false">All four bases being present in equal amounts in all organisms</Option>
+      </Options>
+    <Explanation>Chargaff's rules (1950): %A = %T; %G = %C; therefore %A + %G = %T + %C (purines = pyrimidines). This was a key clue for Watson &amp; Crick's double helix model (1953): complementary base pairing between the two antiparallel strands explains the 1:1 ratios. Base pairing specificity: A-T: 2 hydrogen bonds (one from N-H...O, one from N-H...N). G-C: 3 hydrogen bonds → GC-rich regions are more thermally stable (higher melting temperature, Tm). A purine (2-ring: A, G) always pairs with a pyrimidine (1-ring: T/U, C), maintaining a constant width of the double helix (~2 nm). Note: Chargaff's rules apply to double-stranded DNA but NOT to single-stranded DNA or RNA, where %A ≠ %T/%U. The A:T and G:C ratios vary between species (e.g., human DNA is ~30% A, 30% T, 20% G, 20% C), but the 1:1 complementary ratios are universal in dsDNA.</Explanation>
+    <Keywords><Keyword>Chargaff's rules</Keyword><Keyword>complementary base pairing</Keyword><Keyword>hydrogen bonds</Keyword><Keyword>double helix</Keyword><Keyword>DNA structure</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q35" unit="7" subunit="7.5" practice="SP5" bigIdea="BI1" dok="2" stimulusRef="b1ss4">
+    <Stem>Using the Hardy-Weinberg equation and the data provided, calculate the frequency of the recessive allele (q) in the butterfly population.</Stem>
+    <Options>
+      <Option id="A" correct="true">q = 0.4</Option>
+      <Option id="B" correct="false">q = 0.16</Option>
+      <Option id="C" correct="false">q = 0.6</Option>
+    <Option id="D" correct="false">q = 0.04</Option>
+      </Options>
+    <Explanation>Hardy-Weinberg calculation: Step 1: Frequency of homozygous recessive (bb) = q² = 80/500 = 0.16. Step 2: q = √0.16 = 0.4. Step 3: p = 1 - q = 1 - 0.4 = 0.6. Verification: p² = 0.36 (BB); 2pq = 0.48 (Bb); q² = 0.16 (bb). Total = 1.00 ✓. Expected phenotypes: Dark (BB + Bb) = 0.36 + 0.48 = 0.84 × 500 = 420; Light (bb) = 0.16 × 500 = 80 ✓. HW assumptions (all must be met for equilibrium): (1) Large population (no genetic drift); (2) No migration (no gene flow); (3) No mutation; (4) Random mating; (5) No natural selection. Violations of any assumption cause allele frequencies to change across generations — the population evolves.</Explanation>
+    <Keywords><Keyword>Hardy-Weinberg</Keyword><Keyword>allele frequency</Keyword><Keyword>q squared</Keyword><Keyword>population genetics</Keyword><Keyword>calculation</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q36" unit="7" subunit="7.5" practice="SP5" bigIdea="BI1" dok="2" stimulusRef="b1ss4">
+    <Stem>Based on the calculated allele frequencies, what percentage of the butterfly population is expected to be heterozygous (Bb)?</Stem>
+    <Options>
+      <Option id="A" correct="false">60%</Option>
+    <Option id="B" correct="false">36%</Option>
+      <Option id="C" correct="true">48%</Option>
+      <Option id="D" correct="false">16%</Option>
+      </Options>
+    <Explanation>Heterozygote frequency: 2pq = 2 × 0.6 × 0.4 = 0.48 (48%). This is the largest genotype class: BB = p² = 0.36 (36%); Bb = 2pq = 0.48 (48%); bb = q² = 0.16 (16%). In expected numbers: BB = 180; Bb = 240; bb = 80. Total = 500 ✓. The heterozygous class is largest when p and q are relatively close to each other (maximum heterozygosity occurs when p = q = 0.5 → 2pq = 0.50). Since both Bb and BB butterflies have dark wings (B is dominant), the phenotypic ratio is 420 dark : 80 light, but the genotypic ratio reveals that more than half of the dark butterflies (240/420 = 57%) are actually carriers of the recessive allele. This "hidden" genetic variation is maintained in heterozygotes and provides raw material for natural selection if environmental conditions change.</Explanation>
+    <Keywords><Keyword>heterozygote frequency</Keyword><Keyword>2pq</Keyword><Keyword>Hardy-Weinberg</Keyword><Keyword>carrier frequency</Keyword><Keyword>genotype frequency</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q37" unit="7" subunit="7.4" practice="SP6" bigIdea="BI1" dok="2" stimulusRef="b1ss4">
+    <Stem>Five years later, a new survey finds that light-colored butterflies (bb) have increased to 120 out of 500. A researcher claims the population is no longer in Hardy-Weinberg equilibrium. Which factor could explain this shift?</Stem>
+    <Options>
+      <Option id="A" correct="false">The mutation rate remained unchanged at its naturally low level</Option>
+    <Option id="B" correct="false">The population increased to 10,000 individuals, making it more stable</Option>
+      <Option id="C" correct="false">The butterflies continued to mate randomly as before</Option>
+      <Option id="D" correct="true">Directional selection may be favoring light-colored individuals</Option>
+      </Options>
+    <Explanation>Hardy-Weinberg equilibrium departures: q² increased from 0.16 to 0.24 (120/500); q increased from 0.4 to 0.49. The b allele frequency rose significantly in 5 years (~5-10 butterfly generations). Possible causes: (1) Directional selection — favoring bb phenotype (e.g., predator avoidance if background color changed, or if a new predator preferentially detects dark individuals); (2) Genetic drift — unlikely in a population of 500 (too large for dramatic drift); (3) Migration — influx of individuals carrying b alleles from another population; (4) Non-random mating — light individuals preferentially mating with each other. Options C and D describe conditions that maintain HW equilibrium, not disrupt it. Option A (larger population) would reduce drift, making equilibrium more stable. The most parsimonious explanation for a consistent directional change in allele frequency is natural selection, which is evolution by definition.</Explanation>
+    <Keywords><Keyword>directional selection</Keyword><Keyword>allele frequency change</Keyword><Keyword>HW violation</Keyword><Keyword>evolution</Keyword><Keyword>natural selection</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q40" unit="7" subunit="7.7" practice="SP2" bigIdea="BI1" dok="2" stimulusRef="b1ss6">
+    <Stem>The forelimb structures described in Figure 3 (whale flipper, bat wing, human hand, bird wing, frog forelimb) share the same underlying bone pattern despite serving different functions. These structures are classified as</Stem>
+    <Options>
+      <Option id="A" correct="false">Vestigial structures — functionless remnants with no current purpose</Option>
+      <Option id="B" correct="false">Analogous structures — similar function but different evolutionary origin</Option>
+      <Option id="C" correct="false">Convergent structures — independently evolved in each lineage from different ancestral structures</Option>
+    <Option id="D" correct="true">Homologous structures</Option>
+      </Options>
+    <Explanation>Homologous structures: same underlying structure inherited from a common ancestor, modified for different functions → evidence of divergent evolution (one ancestor → many descendants). Tetrapod forelimb: the basic pentadactyl (five-digit) plan originated in lobe-finned fish ancestors (~375 Mya, Tiktaalik). Modifications: whale → flipper (shortened, broadened for swimming); bat → wing (elongated digits 2-5 with skin membrane); bird → wing (fused hand bones, feathers); human → grasping hand (opposable thumb); frog → jumping/swimming limb. Contrast: Analogous structures: similar function, different origin (convergent evolution) — e.g., butterfly wing (chitinous exoskeleton) and bird wing (modified tetrapod forelimb) both enable flight but have completely different structural origins. Vestigial structures: reduced/functionless remnants of formerly functional structures — e.g., human appendix, whale pelvic bones, flightless bird wings.</Explanation>
+    <Keywords><Keyword>homologous structures</Keyword><Keyword>divergent evolution</Keyword><Keyword>common ancestor</Keyword><Keyword>pentadactyl limb</Keyword><Keyword>comparative anatomy</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q41" unit="7" subunit="7.6" practice="SP1" bigIdea="BI1" dok="2" stimulusRef="b1ss6">
+    <Stem>Which additional line of evidence would MOST strongly support the conclusion that these five taxa share a common ancestor, beyond the anatomical homology shown in Figure 3?</Stem>
+    <Options>
+      <Option id="A" correct="false">They all reproduce through external fertilization in aquatic environments</Option>
+    <Option id="B" correct="false">They all live in the same geographic region today</Option>
+      <Option id="C" correct="false">They all have identical body sizes and metabolic rates</Option>
+      <Option id="D" correct="true">Molecular evidence</Option>
+      </Options>
+    <Explanation>Multiple lines of evidence for common ancestry: (1) Comparative anatomy — homologous structures (as described); (2) Molecular biology — DNA/protein sequence comparisons show conserved sequences across related taxa. Hox genes control body plan development in all animals (highly conserved from fruit flies to humans, diverged ~600 Mya); the more closely related two species are, the more similar their sequences. (3) Embryology — vertebrate embryos share developmental features (pharyngeal pouches, post-anal tail, dorsal hollow nerve cord) that diverge later in development. (4) Fossil record — transitional fossils (Tiktaalik: fish→tetrapod; Archaeopteryx: dinosaur→bird) show intermediate forms. (5) Biogeography — distribution patterns consistent with common ancestry and subsequent dispersal/vicariance. Molecular phylogenetics is especially powerful because it provides quantitative data and a molecular clock for estimating divergence times independent of morphological evidence.</Explanation>
+    <Keywords><Keyword>molecular evidence</Keyword><Keyword>common ancestry</Keyword><Keyword>Hox genes</Keyword><Keyword>DNA sequence comparison</Keyword><Keyword>evolution evidence</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q48" unit="7" subunit="7.1" practice="SP1" bigIdea="BI1" dok="1">
+    <Stem>Natural selection acts on phenotypes, not directly on genotypes. For natural selection to cause evolution in a population, which conditions must be met?</Stem>
+    <Options>
+      <Option id="A" correct="false">All individuals in the population must be genetically identical</Option>
+      <Option id="B" correct="true">There must be: (1) heritable variation in traits among individuals, (2) differential reproductive success (some phenotypes produce more surviving offspring), and (3) competition for limited resources</Option>
+      <Option id="C" correct="false">Individuals must intentionally choose which traits to pass to offspring</Option>
+    <Option id="D" correct="false">The environment must remain perfectly constant over all generations</Option>
+      </Options>
+    <Explanation>Darwin's four postulates for natural selection: (1) Variation — individuals differ in their traits (phenotypic variation). (2) Heritability — at least some of this variation is genetically based and can be passed to offspring. (3) Overproduction — organisms produce more offspring than can survive (competition for resources). (4) Differential survival and reproduction — individuals with traits better suited to the environment survive longer and reproduce more → pass on favorable alleles → allele frequency changes → population evolves. Natural selection requires variation (Option A contradicts this — no variation = no selection). Environments change (Option C — selection pressure changes with environment). Selection is not intentional (Option D — it is a natural, unguided process). Natural selection is the only evolutionary mechanism that produces adaptation (fit between organism and environment). Other mechanisms (drift, gene flow, mutation) change allele frequencies but are not directional with respect to fitness.</Explanation>
+    <Keywords><Keyword>natural selection</Keyword><Keyword>heritable variation</Keyword><Keyword>differential reproduction</Keyword><Keyword>fitness</Keyword><Keyword>Darwin</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q49" unit="7" subunit="7.10" practice="SP1" bigIdea="BI1" dok="2">
+    <Stem>Two populations of the same bird species become separated by a new mountain range. Over thousands of generations, the populations accumulate different mutations and adaptations. When individuals from the two populations are brought together, they can no longer produce viable offspring. This is an example of</Stem>
+    <Options>
+      <Option id="A" correct="false">Sympatric speciation — speciation occurring without geographic isolation</Option>
+      <Option id="B" correct="false">Artificial selection — humans intentionally bred the two populations to be different</Option>
+      <Option id="C" correct="false">Genetic drift alone — the mountain range directly caused mutations in both populations</Option>
+    <Option id="D" correct="true">Allopatric speciation</Option>
+      </Options>
+    <Explanation>Speciation modes: Allopatric speciation: geographic barrier → populations isolated → independent evolution → reproductive isolation → two species. Most common speciation mode. Examples: Darwin's finches (island colonization → isolation → adaptive radiation); Grand Canyon squirrel populations (canyon separated Kaibab and Abert squirrels). Geographic barriers: mountains, rivers, ocean (island formation), glaciers, deserts. Sympatric speciation: speciation without geographic isolation — occurs within the same area. Mechanisms: polyploidy (common in plants — genome duplication creates instant reproductive isolation); habitat differentiation; temporal isolation (breeding at different times); sexual selection. The mountain range is a physical barrier (vicariance event) that prevents gene flow → each population experiences different selection pressures, mutation events, and drift → genetic divergence accumulates → eventually prezygotic and/or postzygotic barriers prevent interbreeding → speciation complete.</Explanation>
+    <Keywords><Keyword>allopatric speciation</Keyword><Keyword>geographic isolation</Keyword><Keyword>reproductive isolation</Keyword><Keyword>gene flow</Keyword><Keyword>speciation</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q50" unit="7" subunit="7.11" practice="SP6" bigIdea="BI1" dok="2">
+    <Stem>Sickle cell disease is caused by a homozygous recessive genotype (HbˢHbˢ) that produces abnormal hemoglobin. Heterozygous individuals (HbᴬHbˢ) have sickle cell trait — they are largely asymptomatic but have increased resistance to malaria. In regions where malaria is endemic, the frequency of the Hbˢ allele is maintained at relatively high levels. This is an example of</Stem>
+    <Options>
+      <Option id="A" correct="true">Balancing selection (specifically heterozygote advantage / overdominance)</Option>
+      <Option id="B" correct="false">Bottleneck effect — a random reduction in population size increased the Hbˢ frequency</Option>
+      <Option id="C" correct="false">Directional selection — one phenotype is always favored over the others</Option>
+      <Option id="D" correct="false">Gene flow — migration from non-malarial regions introduces the Hbˢ allele</Option>
+    </Options>
+    <Explanation>Heterozygote advantage (balancing selection): when the heterozygote has higher fitness than either homozygote, natural selection maintains both alleles at stable frequencies (balanced polymorphism). Sickle cell: HbᴬHbᴬ — normal hemoglobin, susceptible to malaria (Plasmodium falciparum thrives in normal RBCs); HbᴬHbˢ — sickle cell trait, largely healthy AND resistant to malaria (infected RBCs sickle and are cleared by the spleen; Plasmodium has difficulty developing in heterozygous RBCs); HbˢHbˢ — sickle cell disease (RBCs sickle under low O₂ → vaso-occlusion, pain crises, anemia, organ damage → reduced fitness). In malarial regions: heterozygotes survive both threats → highest fitness → both alleles maintained. Hbˢ frequency correlates with malaria prevalence: ~20% in sub-Saharan Africa vs &lt;1% in non-malarial regions. This is NOT directional selection (which would eliminate one allele) or drift (which is random, not associated with malaria distribution).</Explanation>
+    <Keywords><Keyword>heterozygote advantage</Keyword><Keyword>balancing selection</Keyword><Keyword>sickle cell</Keyword><Keyword>malaria</Keyword><Keyword>overdominance</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q51" unit="7" subunit="7.9" practice="SP2" bigIdea="BI1" dok="2">
+    <Stem>On a phylogenetic tree, two species that share a more recent common ancestor are more closely related than species with a more distant common ancestor. If species A and B diverged 10 million years ago, and species A and C diverged 50 million years ago, which statement is correct?</Stem>
+    <Options>
+      <Option id="A" correct="true">Species A and B are more closely related to each other than either is to C</Option>
+      <Option id="B" correct="false">Species B and C are more closely related to each other than either is to A</Option>
+      <Option id="C" correct="false">All three species are equally related to each other because they all share a common ancestor</Option>
+      <Option id="D" correct="false">Species C is more closely related to A than B is, because C diverged first</Option>
+    </Options>
+    <Explanation>Phylogenetic relatedness: determined by recency of common ancestry, NOT by morphological similarity or geographic proximity. Species A and B: diverged 10 Mya → more recent common ancestor → more closely related → share more genetic similarity and more shared derived characters (synapomorphies). Species A and C: diverged 50 Mya → more distant common ancestor → less closely related. Reading phylogenetic trees: the key is the branching pattern (topology), not branch length or species position on the tips. Sister taxa: two lineages that share an immediate common ancestor (A and B are sister taxa in this scenario). Outgroup: a more distantly related taxon used to root the tree and determine character polarity (C could serve as an outgroup for the A-B clade). All three DO share a common ancestor (Option C), but "more closely related" means sharing a MORE RECENT ancestor — relatedness is relative, not absolute.</Explanation>
+    <Keywords><Keyword>phylogenetic tree</Keyword><Keyword>common ancestor</Keyword><Keyword>relatedness</Keyword><Keyword>sister taxa</Keyword><Keyword>divergence time</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q52" unit="7" subunit="7.2" practice="SP1" bigIdea="BI1" dok="2">
+    <Stem>A population of lizards lives on a rocky desert with tan-colored sand. Most lizards have tan body coloring that provides camouflage from predatory birds. After a volcanic eruption covers the area with dark lava, which evolutionary outcome is MOST likely?</Stem>
+    <Options>
+      <Option id="A" correct="false">All lizards will immediately change their skin color to match the dark lava</Option>
+      <Option id="B" correct="false">Predatory birds will evolve color blindness so they can no longer see the tan lizards</Option>
+    <Option id="C" correct="true">Directional selection will shift the population toward darker coloring over generations</Option>
+      <Option id="D" correct="false">The population will go extinct because no individuals can survive on dark lava</Option>
+      </Options>
+    <Explanation>This scenario mirrors real observations: Hopi Reservation lava flow lizards (Sceloporus cowlesi near Carrizozo, NM) show melanism on dark lava vs tan coloring on surrounding desert. Mechanism: (1) Pre-existing variation — mutations producing darker coloring exist at low frequency in the population before the environmental change; (2) Changed selection pressure — on dark lava, dark lizards are camouflaged (lower predation → higher survival and reproduction) while tan lizards are conspicuous (higher predation → lower fitness); (3) Over generations — dark alleles increase in frequency → population mean color shifts toward darker phenotype. This is directional selection. Key points: evolution acts on pre-existing variation (Option A — individuals don't change; the population changes); populations rarely go entirely extinct if there is standing genetic variation (Option C); evolution of the predator is far less likely than evolution of the prey (Option D). Similar examples: peppered moth (Biston betularia) industrial melanism during the Industrial Revolution.</Explanation>
+    <Keywords><Keyword>directional selection</Keyword><Keyword>camouflage</Keyword><Keyword>environmental change</Keyword><Keyword>lava flow lizards</Keyword><Keyword>adaptation</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q53" unit="8" subunit="8.2" practice="SP1" bigIdea="BI2" dok="2">
+    <Stem>In a food web, approximately 10% of energy is transferred from one trophic level to the next. If primary producers fix 10,000 kcal of energy, approximately how much energy is available to tertiary consumers?</Stem>
+    <Options>
+      <Option id="A" correct="false">100 kcal</Option>
+      <Option id="B" correct="false">1,000 kcal</Option>
+      <Option id="C" correct="false">10,000 kcal — energy is conserved equally across all trophic levels</Option>
+    <Option id="D" correct="true">10 kcal</Option>
+      </Options>
+    <Explanation>Ecological energy transfer: the 10% rule (Lindeman's efficiency): only ~10% of energy at each trophic level is incorporated into biomass at the next level. The remaining ~90% is: (1) Lost as metabolic heat through cellular respiration (~60-80%); (2) Used in life processes (movement, homeostasis); (3) Contained in uneaten parts or undigested material (detritus → decomposers). Calculation: 10,000 kcal (producers) × 0.10 = 1,000 (primary consumers) × 0.10 = 100 (secondary consumers) × 0.10 = 10 (tertiary consumers). This explains why: (1) Food chains are typically limited to 4-5 trophic levels — insufficient energy to support higher levels; (2) Top predators are rare and have large ranges; (3) Biomass pyramids are typically widest at the base; (4) Eating lower on the food chain is more energy-efficient (vegetarian diets support more people per hectare than meat-based diets). Exception: inverted biomass pyramids can occur in aquatic systems where producers (phytoplankton) have high turnover rates.</Explanation>
+    <Keywords><Keyword>10% rule</Keyword><Keyword>energy transfer</Keyword><Keyword>trophic levels</Keyword><Keyword>ecological efficiency</Keyword><Keyword>food web</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q54" unit="8" subunit="8.3" practice="SP6" bigIdea="BI4" dok="2">
+    <Stem>A population of deer on an island grows rapidly after wolves are removed. After several years, the deer population crashes dramatically. Which factor MOST likely caused the crash?</Stem>
+    <Options>
+      <Option id="A" correct="true">The deer population exceeded the island's carrying capacity (K)</Option>
+      <Option id="B" correct="false">Favorable weather conditions caused the deer to migrate off the island</Option>
+      <Option id="C" correct="false">The deer evolved to require less food, reducing their population voluntarily</Option>
+      <Option id="D" correct="false">The wolves returned exactly when the population peaked</Option>
+    </Options>
+    <Explanation>Population ecology: carrying capacity (K) is the maximum population size an environment can sustain indefinitely given available resources. Without top-down regulation (predation by wolves): the deer population grows exponentially initially (plenty of resources), then overshoots K when population growth rate exceeds the environment's ability to replenish resources. Overshoot → resource depletion (overgrazing → vegetation loss → soil erosion) → density-dependent factors intensify: (1) Intraspecific competition for diminishing food → starvation; (2) Increased disease transmission at high density; (3) Physiological stress → reduced reproduction. The population crashes below K because resources have been degraded. Recovery may be slow if vegetation is severely damaged. Classic example: Kaibab Plateau deer (Arizona, 1920s) — predator removal led to population explosion from ~4,000 to ~100,000, followed by mass starvation and crash to ~10,000. Also: St. Matthew Island reindeer (introduced 1944, peaked at ~6,000 in 1963, crashed to 42 by 1966).</Explanation>
+    <Keywords><Keyword>carrying capacity</Keyword><Keyword>population overshoot</Keyword><Keyword>density-dependent</Keyword><Keyword>predator removal</Keyword><Keyword>population crash</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q55" unit="8" subunit="8.5" practice="SP4" bigIdea="BI4" dok="2" stimulusRef="b1ss7">
+    <Stem>Based on Table 3, describe the outcome when P. aurelia and P. caudatum are grown together. What ecological principle does this illustrate?</Stem>
+    <Options>
+      <Option id="A" correct="false">Both species show identical growth curves whether grown alone or together</Option>
+    <Option id="B" correct="false">P. aurelia goes extinct while P. caudatum flourishes</Option>
+      <Option id="C" correct="true">P. caudatum is driven to extinction (0 individuals by Day 18) while P. aurelia reaches the same carrying capacity as when grown alone (~195)</Option>
+      <Option id="D" correct="false">Both species thrive equally when grown together, showing mutualism</Option>
+      </Options>
+    <Explanation>Gause's competitive exclusion principle (1934): two species with identical ecological niches cannot coexist — the superior competitor will eventually eliminate the inferior one. Data: P. aurelia alone → K ≈ 195; P. caudatum alone → K ≈ 148. Together: P. aurelia → ~195 (unaffected), P. caudatum → 0 (extinction). P. aurelia wins because it grows faster (higher intrinsic growth rate, r) and utilizes resources more efficiently → outcompetes P. caudatum for the fixed food supply. This is a laboratory demonstration of interspecific competition. In nature, competitive exclusion is often incomplete because: (1) Niche partitioning — species divide resources spatially, temporally, or by type (character displacement); (2) Environmental heterogeneity — different patches favor different species; (3) Predation/disturbance — prevents competitive dominants from monopolizing resources (intermediate disturbance hypothesis).</Explanation>
+    <Keywords><Keyword>competitive exclusion</Keyword><Keyword>Gause</Keyword><Keyword>interspecific competition</Keyword><Keyword>Paramecium</Keyword><Keyword>niche</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q56" unit="8" subunit="8.4" practice="SP4" bigIdea="BI4" dok="2" stimulusRef="b1ss7">
+    <Stem>Based on Table 3, at approximately what day does P. aurelia grown alone transition from exponential growth to logistic growth (approaching carrying capacity)?</Stem>
+    <Options>
+      <Option id="A" correct="false">Day 2</Option>
+      <Option id="B" correct="false">The population shows exponential growth throughout the entire 18 days</Option>
+    <Option id="C" correct="true">Between Day 8 and Day 10</Option>
+      <Option id="D" correct="false">Day 18, when the population has completely stabilized</Option>
+      </Options>
+    <Explanation>Logistic growth (dN/dt = rN[(K-N)/K]): the population growth rate decreases as N approaches K. Looking at P. aurelia growth increments: Day 0-2: +8; Day 2-4: +30; Day 4-6: +60; Day 6-8: +60 (maximum growth rate — inflection point of the logistic curve at K/2 ≈ 97.5); Day 8-10: +20; Day 10-12: +10; Day 12-14: +5; Day 14-18: ≈0. The transition from exponential to logistic occurs around Day 8-10 when the growth increment drops sharply from 60 to 20 per 2-day interval. At this point, the population (~160-180) is approaching K (195), and density-dependent factors (resource competition, waste accumulation) slow growth. The inflection point (maximum growth rate = rK/4) occurs around Day 6-8 when population ≈ K/2 ≈ 97 (actual: ~100-160 range). By Day 14-18, the population has reached K and growth rate ≈ 0.</Explanation>
+    <Keywords><Keyword>logistic growth</Keyword><Keyword>carrying capacity</Keyword><Keyword>growth rate</Keyword><Keyword>density-dependent</Keyword><Keyword>inflection point</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q57" unit="8" subunit="8.5" practice="SP3" bigIdea="BI4" dok="2" stimulusRef="b1ss7">
+    <Stem>A student wants to test whether P. caudatum could coexist with P. aurelia if provided with an alternative food source. Which experimental modification would BEST test this hypothesis?</Stem>
+    <Options>
+      <Option id="A" correct="false">Running the experiment for only 2 days instead of 18</Option>
+    <Option id="B" correct="false">Removing P. aurelia from the mixed culture and observing P. caudatum alone</Option>
+      <Option id="C" correct="true">Adding a second, different food resource to the mixed culture that P. caudatum can exploit but P. aurelia cannot</Option>
+      <Option id="D" correct="false">Increasing the temperature of all cultures by 10°C</Option>
+      </Options>
+    <Explanation>Niche partitioning hypothesis: if P. caudatum can access a resource that P. aurelia cannot, the two species would no longer be competing for exactly the same niche → coexistence becomes possible. This directly tests the competitive exclusion principle's assumption of identical niches. Experimental design: (1) Control — mixed culture with single food source (same as original experiment; expect exclusion); (2) Treatment — mixed culture with original food source + novel food exploitable only by P. caudatum; (3) Prediction — if niche partitioning enables coexistence, both species should persist in the treatment (P. aurelia dominates food 1, P. caudatum shifts to food 2). In nature, Gause himself demonstrated this: P. aurelia and P. bursaria coexist because P. bursaria feeds on bottom sediments while P. aurelia feeds in the water column — niche differentiation prevents competitive exclusion.</Explanation>
+    <Keywords><Keyword>niche partitioning</Keyword><Keyword>resource partitioning</Keyword><Keyword>coexistence</Keyword><Keyword>experimental design</Keyword><Keyword>competition</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q58" unit="8" subunit="8.1" practice="SP1" bigIdea="BI4" dok="1">
+    <Stem>Many plants flower only when the night length exceeds a critical duration (short-day plants) or falls below a critical duration (long-day plants). This response to seasonal changes in day length is called</Stem>
+    <Options>
+      <Option id="A" correct="true">Photoperiodism</Option>
+      <Option id="B" correct="false">Thigmotropism</Option>
+    <Option id="C" correct="false">Chemotaxis</Option>
+      <Option id="D" correct="false">Gravitropism</Option>
+      </Options>
+    <Explanation>Photoperiodism: response to relative lengths of light and dark periods. Despite the names "short-day" and "long-day," the critical variable is actually NIGHT LENGTH (continuous dark period): Short-day (long-night) plants: flower when night &gt; critical length (e.g., chrysanthemums, poinsettias, soybeans — bloom in autumn/winter). Long-day (short-night) plants: flower when night &lt; critical length (e.g., spinach, lettuce, wheat — bloom in spring/summer). Mechanism: phytochrome photoreceptor system. Phytochrome exists in two interconvertible forms: Pr (absorbs red light, 660 nm) ↔ Pfr (absorbs far-red light, 730 nm). Sunlight converts Pr→Pfr; darkness slowly converts Pfr→Pr. The Pfr/Pr ratio signals the duration of the dark period. A brief flash of red light during the night can interrupt the dark period and prevent short-day plants from flowering → commercial application (greenhouse growers use night-interruption lighting). Other tropisms: gravitropism (gravity), thigmotropism (touch), chemotaxis (chemical gradients in motile organisms).</Explanation>
+    <Keywords><Keyword>photoperiodism</Keyword><Keyword>phytochrome</Keyword><Keyword>flowering</Keyword><Keyword>night length</Keyword><Keyword>seasonal response</Keyword></Keywords>
+  </Question>
+
+  
+
+  <Question id="b1q59" unit="2" subunit="2.1" practice="SP6" bigIdea="BI4" dok="2">
+    <Stem>Both prokaryotic and eukaryotic cells contain ribosomes, DNA, and a plasma membrane. However, eukaryotic cells differ from prokaryotic cells in possessing</Stem>
+    <Options>
+      <Option id="A" correct="false">A plasma membrane — prokaryotes lack membranes entirely</Option>
+      <Option id="B" correct="false">DNA — prokaryotic cells use RNA as their genetic material instead of DNA</Option>
+      <Option id="C" correct="true">Membrane-bound organelles (nucleus, mitochondria, endoplasmic reticulum, Golgi apparatus, lysosomes) that compartmentalize cellular functions</Option>
+      <Option id="D" correct="false">Ribosomes — prokaryotic cells cannot synthesize proteins</Option>
+    </Options>
+    <Explanation>Prokaryote vs eukaryote comparison: Shared features: DNA (genetic material), ribosomes (protein synthesis), plasma membrane (selective barrier), cytoplasm. Prokaryotic features: no nucleus (DNA in nucleoid region); no membrane-bound organelles; smaller ribosomes (70S vs 80S); typically smaller cells (0.1-5 µm); single circular chromosome + plasmids; cell wall (peptidoglycan in bacteria). Eukaryotic features: membrane-bound nucleus (nuclear envelope with pores); mitochondria (aerobic respiration); ER (protein/lipid synthesis); Golgi (modification/sorting); lysosomes (digestion); cytoskeleton (structural support, intracellular transport); larger cells (10-100 µm); multiple linear chromosomes with histones. The endosymbiotic theory explains the origin of mitochondria and chloroplasts: they were once free-living prokaryotes engulfed by ancestral eukaryotic cells — evidence includes double membranes, own circular DNA, 70S ribosomes, binary fission.</Explanation>
+    <Keywords><Keyword>prokaryote eukaryote</Keyword><Keyword>membrane-bound organelles</Keyword><Keyword>compartmentalization</Keyword><Keyword>cell structure</Keyword></Keywords>
+  </Question>
+
+  <Question id="b1q60" unit="2" subunit="2.10" practice="SP1" bigIdea="BI1" dok="2">
+    <Stem>The endosymbiotic theory proposes that mitochondria and chloroplasts originated from free-living prokaryotes engulfed by ancestral eukaryotic cells. Which evidence BEST supports this theory?</Stem>
+    <Options>
+      <Option id="A" correct="false">Mitochondria and chloroplasts are identical to each other in structure and function</Option>
+      <Option id="B" correct="false">Mitochondria and chloroplasts are found only in prokaryotic cells</Option>
+      <Option id="C" correct="true">Both organelles have their own circular DNA, 70S ribosomes (similar to bacteria), and double membranes (inner membrane from the engulfed prokaryote, outer from the host's vesicle)</Option>
+      <Option id="D" correct="false">All eukaryotic cells contain both mitochondria and chloroplasts</Option>
+    </Options>
+    <Explanation>Endosymbiotic theory (Lynn Margulis, 1967): Evidence for endosymbiosis: (1) Double membrane — inner (original prokaryotic membrane) + outer (host vacuolar membrane); (2) Own DNA — circular, lacking histones, similar to bacterial chromosomes; (3) 70S ribosomes — same size as bacterial ribosomes (not 80S like eukaryotic cytoplasmic ribosomes); (4) Binary fission — replicate by dividing independently within the cell; (5) Size — similar to bacteria (~1-2 µm for mitochondria); (6) Phylogenetic analysis — mitochondrial rRNA sequences are most closely related to alphaproteobacteria; chloroplast rRNA sequences are most closely related to cyanobacteria; (7) Antibiotics — some antibiotics that target bacterial ribosomes (chloramphenicol, streptomycin) also inhibit mitochondrial and chloroplast protein synthesis. Not all eukaryotes have chloroplasts (Option D — only photosynthetic organisms: plants, algae). Some eukaryotes have lost mitochondria (anaerobic protists have mitosomes or hydrogenosomes).</Explanation>
+    <Keywords><Keyword>endosymbiotic theory</Keyword><Keyword>mitochondria origin</Keyword><Keyword>chloroplast origin</Keyword><Keyword>Margulis</Keyword><Keyword>evidence</Keyword></Keywords>
+  </Question>
+
+  
+  
+  
+
+  <FRQ id="b1frq1" type="experimental_results" total="9">
+    <Title>Interpreting and Evaluating Experimental Results — Enzyme Catalysis</Title>
+    <Scenario>A team of researchers investigated the effect of temperature on catalase activity. Catalase is an enzyme found in nearly all living organisms that catalyzes the decomposition of hydrogen peroxide (H₂O₂) into water and oxygen: 2H₂O₂ → 2H₂O + O₂.
+
+The researchers measured the rate of O₂ production (mL/min) at six temperatures using purified catalase from bovine liver. Each trial used the same enzyme concentration and substrate concentration [H₂O₂].
+
+Table 1. Rate of O₂ production by catalase at different temperatures.
+| Temperature (°C) | Rate of O₂ production (mL/min) | Standard Error |
+|---|---|---|
+| 10 | 3.2 | ±0.4 |
+| 20 | 7.8 | ±0.6 |
+| 30 | 14.5 | ±0.9 |
+| 37 | 18.2 | ±0.7 |
+| 50 | 8.1 | ±1.3 |
+| 60 | 0.4 | ±0.2 |
+
+The researchers also tested catalase from the thermophilic bacterium Thermus aquaticus and found it had an optimal temperature of 80°C with no loss of activity at 60°C.</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the biological role of catalase and explain why organisms produce this enzyme.</Prompt>
+      </Part>
+      <Part id="b" pts="3">
+        <Prompt>Using the data in Table 1: (i) identify the optimal temperature for bovine catalase, (ii) describe the overall trend in enzyme activity across the temperature range tested, and (iii) explain why the rate of O₂ production decreased at temperatures above 37°C.</Prompt>
+      </Part>
+      <Part id="c" pts="3">
+        <Prompt>The standard error at 50°C (±1.3) is notably larger than at other temperatures. (i) Calculate the 95% confidence interval for the 50°C data point (95% CI ≈ mean ± 2 × SE). (ii) Do the 95% confidence intervals for the 37°C and 50°C measurements overlap? (iii) What does this indicate about whether the difference in activity between these two temperatures is statistically significant?</Prompt>
+      </Part>
+      <Part id="d" pts="2">
+        <Prompt>Predict how the activity-versus-temperature curve for Thermus aquaticus catalase would differ from the bovine catalase curve. Justify your prediction by connecting it to the molecular properties of thermophilic enzymes.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+  <FRQ id="b1frq2" type="experimental_results_graphing" total="9">
+    <Title>Interpreting and Evaluating Experimental Results with Graphing — Transpiration Rates</Title>
+    <Scenario>A biology student investigated the effect of environmental conditions on transpiration rates in two plant species: a mesophyte (adapted to moderate moisture) and a xerophyte (adapted to dry conditions). The student measured water loss (mL/hr) from potted plants under four conditions: (1) normal room conditions (22°C, 45% humidity, still air), (2) high light intensity (supplemental lamp), (3) low humidity (25%), and (4) wind (fan blowing across leaves). Each condition was tested with three replicate plants per species.
+
+Table 1. Mean transpiration rates (mL/hr ± SE).
+| Condition | Mesophyte (mL/hr) | Xerophyte (mL/hr) |
+|---|---|---|
+| Normal | 3.2 ± 0.3 | 0.8 ± 0.1 |
+| High light | 5.1 ± 0.4 | 1.4 ± 0.2 |
+| Low humidity | 6.8 ± 0.5 | 1.2 ± 0.2 |
+| Wind | 4.5 ± 0.3 | 1.0 ± 0.1 |</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the process of transpiration and explain why it occurs in plants.</Prompt>
+      </Part>
+      <Part id="b" pts="4">
+        <Prompt>Construct an appropriately labeled bar graph comparing the transpiration rates of the mesophyte and xerophyte under all four conditions. Include: (i) appropriate axis labels with units, (ii) a legend distinguishing the two species, (iii) error bars representing standard error, and (iv) appropriate scaling.</Prompt>
+      </Part>
+      <Part id="c" pts="2">
+        <Prompt>(i) Identify which environmental condition produced the GREATEST increase in transpiration rate for the mesophyte compared to normal conditions. (ii) Explain the mechanism by which this condition increases transpiration rate.</Prompt>
+      </Part>
+      <Part id="d" pts="2">
+        <Prompt>The xerophyte showed much smaller changes in transpiration rate across all conditions compared to the mesophyte. Predict TWO structural adaptations that xerophytes possess that would account for this reduced sensitivity to environmental conditions, and justify each prediction.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+  <FRQ id="b1frq3" type="scientific_investigation" total="4">
+    <Title>Scientific Investigation — Effect of Antibiotics on Bacterial Growth</Title>
+    <Scenario>A microbiologist wants to determine whether a newly discovered compound from a tropical soil fungus has antibiotic properties against Escherichia coli bacteria. Preliminary observations suggest the compound inhibits bacterial growth on agar plates.</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the general mechanism by which antibiotics inhibit bacterial growth or kill bacteria.</Prompt>
+      </Part>
+      <Part id="b" pts="1">
+        <Prompt>Design an experiment to test the compound's effectiveness, including: the independent variable, dependent variable, an appropriate positive control, and a negative control.</Prompt>
+      </Part>
+      <Part id="c" pts="1">
+        <Prompt>State the null hypothesis for this experiment.</Prompt>
+      </Part>
+      <Part id="d" pts="1">
+        <Prompt>If the compound produces a zone of inhibition (clear area around a paper disk soaked in the compound) significantly larger than the negative control but smaller than the positive control, justify a claim about the compound's antibiotic effectiveness.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+  <FRQ id="b1frq4" type="conceptual_analysis" total="4">
+    <Title>Conceptual Analysis — Cellular Respiration and Photosynthesis</Title>
+    <Scenario>Cellular respiration and photosynthesis are complementary metabolic processes that cycle carbon and energy through biological systems.</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the inputs and outputs of cellular respiration (aerobic).</Prompt>
+      </Part>
+      <Part id="b" pts="1">
+        <Prompt>Explain how the products of photosynthesis serve as the reactants for cellular respiration, and vice versa, creating a biogeochemical cycle for carbon.</Prompt>
+      </Part>
+      <Part id="c" pts="1">
+        <Prompt>Predict the effect on atmospheric CO₂ levels if global photosynthesis rates decreased significantly (e.g., due to massive deforestation) while respiration rates remained constant.</Prompt>
+      </Part>
+      <Part id="d" pts="1">
+        <Prompt>Justify why both photosynthesis and cellular respiration require membrane-enclosed compartments (chloroplasts and mitochondria, respectively) to function efficiently.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+  <FRQ id="b1frq5" type="analyze_model" total="4">
+    <Title>Analyze Model or Visual Representation — Cell Membrane Transport</Title>
+    <Scenario>A diagram shows a section of a cell membrane with the following components: (1) a phospholipid bilayer; (2) an integral protein forming a channel specific for K⁺ ions; (3) a Na⁺/K⁺ ATPase pump actively transporting 3 Na⁺ out and 2 K⁺ in per ATP hydrolyzed; (4) a glucose transport protein (GLUT1) facilitating glucose diffusion down its concentration gradient; and (5) a small O₂ molecule passing directly through the lipid bilayer. The extracellular fluid has high [Na⁺] and low [K⁺]; the cytoplasm has low [Na⁺] and high [K⁺].</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the structural feature of the phospholipid bilayer that allows O₂ to pass through without a transport protein.</Prompt>
+      </Part>
+      <Part id="b" pts="1">
+        <Prompt>Explain why K⁺ ions require a channel protein to cross the membrane, even when moving down their concentration gradient.</Prompt>
+      </Part>
+      <Part id="c" pts="1">
+        <Prompt>Using the model, represent what would happen to the concentration gradients of Na⁺ and K⁺ if the Na⁺/K⁺ ATPase pump were inhibited (e.g., by ouabain).</Prompt>
+      </Part>
+      <Part id="d" pts="1">
+        <Prompt>Explain how the Na⁺/K⁺ ATPase relates to the larger concept of homeostasis at the cellular level.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+  <FRQ id="b1frq6" type="analyze_data" total="4">
+    <Title>Analyze Data — Allele Frequencies and Natural Selection</Title>
+    <Scenario>Researchers tracked allele frequencies for a coat-color gene in a mouse population living in a desert environment over 20 generations. The gene has two alleles: D (dark coat, dominant) and d (light/sandy coat, recessive). The population lives on sandy terrain with hawk predators.
+
+Table 1. Allele frequencies over 20 generations.
+| Generation | Frequency of D allele | Frequency of d allele |
+|---|---|---|
+| 0 | 0.70 | 0.30 |
+| 5 | 0.55 | 0.45 |
+| 10 | 0.40 | 0.60 |
+| 15 | 0.28 | 0.72 |
+| 20 | 0.20 | 0.80 |</Scenario>
+    <Parts>
+      <Part id="a" pts="1">
+        <Prompt>Describe the trend in allele frequencies over the 20 generations.</Prompt>
+      </Part>
+      <Part id="b" pts="1">
+        <Prompt>Describe the expected change in the frequency of the dd (light-colored) phenotype between Generation 0 and Generation 20. (Calculate q² at each time point.)</Prompt>
+      </Part>
+      <Part id="c" pts="1">
+        <Prompt>Using the data, evaluate the hypothesis that natural selection is favoring the light-colored (dd) phenotype in this population.</Prompt>
+      </Part>
+      <Part id="d" pts="1">
+        <Prompt>Explain how the observed changes in allele frequency relate to the concept of adaptation, connecting experimental results to the broader theory of evolution by natural selection.</Prompt>
+      </Part>
+    </Parts>
+  </FRQ>
+
+</Exam>
