@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Biology: Master Compendium of Heredity & Evolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #334155;
+            --accent-blue: #2563eb;
+            --accent-red: #dc2626;
+            --accent-green: #16a34a;
+            --accent-purple: #9333ea;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Merriweather', serif; 
+            background-color: var(--bg-main); 
+            color: var(--primary); 
+            line-height: 1.7; 
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5, .sans, nav { font-family: 'Inter', sans-serif; }
+        
+        .card { 
+            background: var(--card-bg); 
+            border-radius: 0.75rem; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 1px 3px -1px rgba(0,0,0,0.02); 
+            padding: 2rem; 
+            margin-bottom: 2rem; 
+            border: 1px solid #e2e8f0; 
+        }
+        
+        .formula-box { 
+            background-color: #f1f5f9; 
+            border-left: 4px solid var(--accent-blue); 
+            padding: 1rem 1.5rem; 
+            margin: 1.25rem 0; 
+            border-radius: 0 0.5rem 0.5rem 0; 
+            font-family: 'Inter', sans-serif; 
+        }
+        
+        .logic-step { 
+            background-color: #f0fdfa; 
+            border: 1px solid #ccfbf1; 
+            padding: 1rem; 
+            border-radius: 0.5rem; 
+            margin-top: 1rem; 
+            font-family: 'Inter', sans-serif;
+        }
+
+        .alert-box {
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 4px solid var(--accent-red);
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .grid-header { background: var(--primary); color: white; padding: 0.75rem; font-weight: bold; text-align: left; }
+        .concept-tag { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+        
+        /* Table styling */
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-family: 'Inter', sans-serif; font-size: 0.9rem;}
+        th, td { border: 1px solid #cbd5e1; padding: 0.75rem; text-align: left; }
+        th { background-color: #f1f5f9; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+
+        .toc-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .toc-link:hover { color: var(--accent-red); text-decoration: underline; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- HEADER & TOC -->
+        <header class="mb-12 border-b-4 border-slate-800 pb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">AP Biology Master Compendium</h1>
+            <p class="text-xl text-slate-600 sans mb-6">Integration of Unit 5 (Heredity) & Unit 7 (Natural Selection)</p>
+            
+            <nav class="bg-slate-100 p-6 rounded-lg border border-slate-200">
+                <h2 class="text-lg font-bold mb-3 uppercase tracking-wider text-slate-800">Table of Contents</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <ul class="space-y-2 list-disc pl-5">
+                        <li><a href="#meiosis" class="toc-link">1. Meiosis & Sources of Genetic Variation</a></li>
+                        <li><a href="#mendelian" class="toc-link">2. Mendelian Inheritance & Statistical Logic</a></li>
+                        <li><a href="#non-mendelian" class="toc-link">3. Complex & Non-Mendelian Genetics</a></li>
+                        <li><a href="#pedigrees" class="toc-link">4. Pedigree Decryption Flowchart</a></li>
+                    </ul>
+                    <ul class="space-y-2 list-disc pl-5">
+                        <li><a href="#population" class="toc-link">5. Population Genetics & Hardy-Weinberg</a></li>
+                        <li><a href="#selection" class="toc-link">6. Evolutionary Forces & Modes of Selection</a></li>
+                        <li><a href="#speciation" class="toc-link">7. Speciation & Isolating Mechanisms</a></li>
+                        <li><a href="#phylogeny" class="toc-link">8. Phylogeny, Cladistics & Evidence</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ==========================================
+             UNIT 5: HEREDITY
+             ========================================== -->
+
+        <!-- SECTION 1: MEIOSIS -->
+        <section id="meiosis" class="card">
+            <span class="concept-tag">Cellular Level</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">1. Meiosis & Genetic Variation</h2>
+            <p>Meiosis ensures the transmission of traits from one generation to the next while simultaneously creating massive genetic diversity necessary for evolution.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700 mb-2">The 3 Sources of Genetic Variation</h3>
+                    <ol class="list-decimal pl-5 space-y-3">
+                        <li><strong>Crossing Over (Prophase I):</strong> Homologous chromosomes pair up (synapsis) to form a tetrad. Non-sister chromatids exchange genetic material at the <em>chiasmata</em>. Results in recombinant chromosomes.</li>
+                        <li><strong>Independent Assortment (Metaphase I):</strong> Homologous pairs line up randomly at the metaphase plate. The number of possible combinations is $2^n$ (where $n$ is the haploid number). For humans: $2^{23} \approx 8.4$ million combinations.</li>
+                        <li><strong>Random Fertilization:</strong> Any sperm can fuse with any unfertilized egg ($8.4 \text{ mil} \times 8.4 \text{ mil} \approx 70$ trillion diploid combinations).</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700 mb-2">Chromosomal Abnormalities</h3>
+                    <div class="alert-box">
+                        <strong class="sans block mb-1">Nondisjunction Logic</strong>
+                        Failure of homologous chromosomes (Meiosis I) or sister chromatids (Meiosis II) to separate.
+                        <ul class="list-disc pl-5 mt-2">
+                            <li><strong>Meiosis I Error:</strong> All gametes are abnormal ($n+1$, $n+1$, $n-1$, $n-1$).</li>
+                            <li><strong>Meiosis II Error:</strong> Half gametes abnormal, half normal ($n+1$, $n-1$, $n$, $n$).</li>
+                        </ul>
+                        <em>Aneuploidy:</em> Having an abnormal number of a particular chromosome (e.g., Trisomy 21 / Down Syndrome).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MENDELIAN & STATS -->
+        <section id="mendelian" class="card">
+            <span class="concept-tag">Statistical Logic</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">2. Mendelian Inheritance & Statistical Logic</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold sans text-blue-700 mb-2">Probability Rules</h3>
+                    <div class="formula-box">
+                        <p class="font-bold mb-1">The Product Rule (AND)</p>
+                        $$P(A \text{ and } B) = P(A) \times P(B)$$
+                        <p class="text-sm text-slate-600 mt-1">For independent events occurring simultaneously (e.g., calculating $aabbcc$ from a trihybrid cross).</p>
+                    </div>
+                    <div class="formula-box">
+                        <p class="font-bold mb-1">The Sum Rule (OR)</p>
+                        $$P(A \text{ or } B) = P(A) + P(B)$$
+                        <p class="text-sm text-slate-600 mt-1">For mutually exclusive events (e.g., calculating probability of a heterozygote: $Aa$ OR $aA$).</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold sans text-blue-700 mb-2">Chi-Square ($X^2$) Goodness of Fit Test</h3>
+                    <p class="text-sm mb-2">Determines if observed phenotypic ratios deviate significantly from Mendelian expected ratios.</p>
+                    <div class="formula-box mb-2">
+                        $$\chi^2 = \sum \frac{(O - E)^2}{E}$$
+                    </div>
+                    <div class="logic-step text-sm">
+                        <strong class="sans">Null Hypothesis ($H_0$):</strong> There is NO significant difference between observed and expected data. (i.e., The genes are assorting independently).<br><br>
+                        <strong>Degrees of Freedom ($df$):</strong> Number of phenotypic classes minus 1 ($n - 1$).<br><br>
+                        <strong>Evaluation:</strong> If calculated $\chi^2 > \text{Critical Value}$ (at $p=0.05$), you <strong>Reject $H_0$</strong>. This implies an alternative hypothesis: genes are linked, or evolution/selection is occurring.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: NON-MENDELIAN -->
+        <section id="non-mendelian" class="card">
+            <span class="concept-tag">Advanced Genetics</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">3. Complex & Non-Mendelian Genetics</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <!-- Epistasis & Polygenic -->
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700">Epistasis</h3>
+                    <p class="text-sm mb-2">The expression of one gene modifies or masks another independently assorting gene.</p>
+                    <table>
+                        <thead>
+                            <tr><th>Type</th><th>Dihybrid Cross Ratio</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Recessive Epistasis (e.g., Labradors)</td><td>9:3:4</td></tr>
+                            <tr><td>Dominant Epistasis (e.g., Squash color)</td><td>12:3:1</td></tr>
+                            <tr><td>Complementary Gene Action</td><td>9:7</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="text-xl font-bold sans text-blue-700 mt-6">Polygenic Inheritance</h3>
+                    <p class="text-sm mb-2">Multiple genes control one trait, resulting in continuous variation (a bell curve distribution). Examples: Height, skin pigmentation.</p>
+                    <div class="p-4 border rounded bg-white mt-2">
+                        <svg viewBox="0 0 200 100" class="w-full h-auto">
+                            <path d="M 10 90 C 40 90, 60 10, 100 10 C 140 10, 160 90, 190 90" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
+                            <line x1="10" y1="90" x2="190" y2="90" stroke="black" stroke-width="1"/>
+                            <text x="100" y="85" text-anchor="middle" font-size="8" font-family="sans-serif">Average Phenotype</text>
+                            <text x="100" y="98" text-anchor="middle" font-size="8" font-family="sans-serif">Continuous Variation (e.g. Skin Color)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Linkage, Sex-Linked, Plasticity -->
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700">Gene Linkage & Mapping</h3>
+                    <p class="text-sm mb-2">Genes on the same chromosome inherited together. Crossing over breaks linkage.</p>
+                    <div class="formula-box py-2 text-sm">
+                        $$\text{Recombination Frequency (RF)} = \frac{\text{Recombinants}}{\text{Total Offspring}} \times 100$$
+                    </div>
+                    <ul class="text-sm list-disc pl-5 space-y-1">
+                        <li>$1\% \text{ RF} = 1 \text{ Map Unit (cM)}$</li>
+                        <li><strong>Crucial Constraint:</strong> RF cannot exceed 50%. An RF of 50% means genes assort independently.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold sans text-blue-700 mt-6">Environmental Effects</h3>
+                    <p class="text-sm mb-2"><strong>Phenotypic Plasticity:</strong> Genotypes produce different phenotypes depending on environmental conditions (e.g., soil pH affecting Hydrangea flower color; temperature affecting Himalayan rabbit fur melanin).</p>
+
+                    <h3 class="text-xl font-bold sans text-blue-700 mt-6">Extranuclear Inheritance</h3>
+                    <p class="text-sm">Traits controlled by mitochondrial (mtDNA) or chloroplast (cpDNA). Inherited entirely maternally. An affected mother passes the trait to <strong>100%</strong> of her offspring.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PEDIGREES -->
+        <section id="pedigrees" class="card bg-slate-900 text-white border-none">
+            <span class="concept-tag bg-blue-900 text-blue-200">Diagnostic Logic</span>
+            <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-2">4. Pedigree Decryption Flowchart</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Autosomal Recessive -->
+                <div class="bg-slate-800 rounded-lg p-4 border border-slate-600">
+                    <h4 class="font-bold sans text-sm text-center mb-4 text-emerald-400 uppercase tracking-wide">Autosomal Recessive</h4>
+                    <svg viewBox="0 0 200 120" class="w-full max-w-[200px]">
+                        <rect x="60" y="10" width="20" height="20" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="130" cy="20" r="10" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="80" y1="20" x2="120" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="20" x2="100" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="50" y1="40" x2="150" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <!-- Offspring -->
+                        <line x1="50" y1="40" x2="50" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="50" cy="70" r="10" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="40" x2="100" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="90" y="60" width="20" height="20" fill="#10b981" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="150" y1="40" x2="150" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="150" cy="70" r="10" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                    </svg>
+                    <div class="mt-4 text-xs text-slate-300">
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Skips generations.</li>
+                            <li>Unaffected parents <em>can</em> have an affected child ($Aa \times Aa$).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Autosomal Dominant -->
+                <div class="bg-slate-800 rounded-lg p-4 border border-slate-600">
+                    <h4 class="font-bold sans text-sm text-center mb-4 text-rose-400 uppercase tracking-wide">Autosomal Dominant</h4>
+                    <svg viewBox="0 0 200 120" class="w-full max-w-[200px]">
+                        <rect x="60" y="10" width="20" height="20" fill="#f43f5e" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="130" cy="20" r="10" fill="#f43f5e" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="80" y1="20" x2="120" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="20" x2="100" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="50" y1="40" x2="150" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <!-- Offspring -->
+                        <line x1="50" y1="40" x2="50" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="40" y="60" width="20" height="20" fill="#f43f5e" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="40" x2="100" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="100" cy="70" r="10" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="150" y1="40" x2="150" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="150" cy="70" r="10" fill="#f43f5e" stroke="#94a3b8" stroke-width="2"/>
+                    </svg>
+                    <div class="mt-4 text-xs text-slate-300">
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Appears in every generation.</li>
+                            <li>Affected parents <em>can</em> have unaffected child ($Aa \times Aa$).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- X-Linked Recessive -->
+                <div class="bg-slate-800 rounded-lg p-4 border border-slate-600">
+                    <h4 class="font-bold sans text-sm text-center mb-4 text-blue-400 uppercase tracking-wide">X-Linked Recessive</h4>
+                    <svg viewBox="0 0 200 120" class="w-full max-w-[200px]">
+                        <rect x="60" y="10" width="20" height="20" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <defs>
+                            <linearGradient id="carrier">
+                                <stop offset="50%" stop-color="white"/><stop offset="50%" stop-color="#475569"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="130" cy="20" r="10" fill="url(#carrier)" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="80" y1="20" x2="120" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="20" x2="100" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="50" y1="40" x2="150" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <!-- Offspring -->
+                        <line x1="50" y1="40" x2="50" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="40" y="60" width="20" height="20" fill="#60a5fa" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="40" x2="100" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="100" cy="70" r="10" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="150" y1="40" x2="150" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="140" y="60" width="20" height="20" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                    </svg>
+                    <div class="mt-4 text-xs text-slate-300">
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Massive male bias.</li>
+                            <li>Affected fathers pass mutation to ALL daughters (carriers), NO sons.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mitochondrial -->
+                <div class="bg-slate-800 rounded-lg p-4 border border-slate-600">
+                    <h4 class="font-bold sans text-sm text-center mb-4 text-purple-400 uppercase tracking-wide">Mitochondrial</h4>
+                    <svg viewBox="0 0 200 120" class="w-full max-w-[200px]">
+                        <rect x="60" y="10" width="20" height="20" fill="white" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="130" cy="20" r="10" fill="#a855f7" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="80" y1="20" x2="120" y2="20" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="20" x2="100" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="50" y1="40" x2="150" y2="40" stroke="#94a3b8" stroke-width="2"/>
+                        <!-- Offspring -->
+                        <line x1="50" y1="40" x2="50" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="40" y="60" width="20" height="20" fill="#a855f7" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="100" y1="40" x2="100" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <circle cx="100" cy="70" r="10" fill="#a855f7" stroke="#94a3b8" stroke-width="2"/>
+                        <line x1="150" y1="40" x2="150" y2="60" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="140" y="60" width="20" height="20" fill="#a855f7" stroke="#94a3b8" stroke-width="2"/>
+                    </svg>
+                    <div class="mt-4 text-xs text-slate-300">
+                        <ul class="list-disc pl-4 space-y-1">
+                            <li>Maternal inheritance strictly.</li>
+                            <li>Affected mother passes to 100% of offspring.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             UNIT 7: NATURAL SELECTION
+             ========================================== -->
+
+        <!-- SECTION 5: HW & POPULATION GENETICS -->
+        <section id="population" class="card">
+            <span class="concept-tag bg-emerald-100 text-emerald-800">Population Dynamics</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">5. Population Genetics & Hardy-Weinberg</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-xl font-bold sans text-slate-800 mb-2">Hardy-Weinberg Mathematical Rigor</h3>
+                    <p class="text-sm mb-4">A null hypothesis model stating allele frequencies remain constant in the absence of evolutionary influences.</p>
+                    
+                    <div class="p-5 bg-slate-900 text-white rounded-lg font-mono shadow-inner">
+                        <p class="text-emerald-400 text-sm mb-1">/* Allele Frequencies */</p>
+                        <p class="text-xl mb-4">p + q = 1</p>
+                        
+                        <p class="text-emerald-400 text-sm mb-1">/* Genotype / Individual Frequencies */</p>
+                        <p class="text-xl">p² + 2pq + q² = 1</p>
+                    </div>
+
+                    <div class="alert-box mt-4">
+                        <strong class="sans">Computational Tip:</strong> Always find <strong>$q^2$</strong> first. The recessive phenotype frequency in the prompt IS $q^2$. Take the square root to find $q$, then calculate $p$.
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold sans text-slate-800 mb-2">The 5 Conditions for Equilibrium</h3>
+                    <p class="text-sm mb-4 italic">If ANY of these are violated, microevolution is occurring.</p>
+                    <ol class="list-decimal pl-5 space-y-2 text-sm bg-slate-50 p-4 rounded border">
+                        <li><strong>No mutations:</strong> The gene pool is not modified.</li>
+                        <li><strong>Random mating:</strong> No sexual selection or inbreeding.</li>
+                        <li><strong>No gene flow:</strong> No migration of alleles into/out of the population.</li>
+                        <li><strong>Very large population size:</strong> Prevents Genetic Drift.</li>
+                        <li><strong>No natural selection:</strong> All traits have equal fitness.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: MODES OF SELECTION & FORCES -->
+        <section id="selection" class="card">
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">6. Evolutionary Forces & Modes of Selection</h2>
+            
+            <h3 class="text-2xl font-bold sans text-slate-800 mb-4">Non-Selective Drivers (Genetic Drift & Flow)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-sm">
+                <div class="border rounded p-4 flex flex-col md:flex-row gap-4 items-center bg-slate-50">
+                    <div class="flex-1">
+                        <strong class="text-blue-700 text-lg">Genetic Drift (Bottleneck Effect)</strong>
+                        <p class="mt-2">Random fluctuations in allele frequencies. A drastic reduction in population size (disaster) leaves a random, non-representative surviving gene pool. Impacts small populations heavily.</p>
+                    </div>
+                    <div class="w-32 flex-shrink-0">
+                        <svg viewBox="0 0 100 150" class="w-full">
+                            <!-- Bottle -->
+                            <path d="M 30 140 L 30 60 C 30 50, 45 40, 45 30 L 45 10 L 55 10 L 55 30 C 55 40, 70 50, 70 60 L 70 140 Z" fill="rgba(255,255,255,0.9)" stroke="#1e293b" stroke-width="2"/>
+                            <!-- Original Pop -->
+                            <circle cx="40" cy="130" r="3" fill="#dc2626"/><circle cx="50" cy="125" r="3" fill="#2563eb"/><circle cx="60" cy="130" r="3" fill="#dc2626"/>
+                            <circle cx="45" cy="115" r="3" fill="#16a34a"/><circle cx="55" cy="110" r="3" fill="#dc2626"/><circle cx="40" cy="100" r="3" fill="#2563eb"/>
+                            <circle cx="60" cy="95" r="3" fill="#16a34a"/><circle cx="50" cy="85" r="3" fill="#dc2626"/><circle cx="45" cy="75" r="3" fill="#2563eb"/>
+                            <!-- Surviving Pop -->
+                            <circle cx="50" cy="20" r="3" fill="#dc2626"/><circle cx="50" cy="5" r="3" fill="#dc2626"/>
+                            <!-- Flow arrows -->
+                            <path d="M 50 10 L 50 -10 M 45 -5 L 50 -10 L 55 -5" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="border rounded p-4 bg-slate-50 flex flex-col justify-center">
+                    <strong class="text-blue-700 text-lg">Gene Flow & Founder Effect</strong>
+                    <ul class="list-disc pl-5 mt-2 space-y-2">
+                        <li><strong>Gene Flow:</strong> Movement of alleles between populations. <em>Reduces</em> genetic differences between populations over time.</li>
+                        <li><strong>Founder Effect:</strong> A few individuals isolate to form a new colony. The new gene pool does not match the original population (a form of drift).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold sans text-slate-800 mb-6">Modes of Natural Selection</h3>
+            <p class="mb-4 text-sm">Natural Selection acts on the <strong>phenotype</strong> (improving fitness), which consequently alters <strong>genotype</strong> frequencies over time.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Directional -->
+                <div class="text-center bg-white p-4 rounded shadow-sm border">
+                    <h4 class="font-bold sans mb-2 text-blue-700">Directional Selection</h4>
+                    <svg viewBox="0 0 200 120" class="w-full">
+                        <line x1="10" y1="100" x2="190" y2="100" stroke="#0f172a" stroke-width="2"/>
+                        <!-- Original -->
+                        <path d="M 20 100 C 50 100, 50 20, 80 20 C 110 20, 110 100, 140 100" fill="transparent" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+                        <!-- Shifted -->
+                        <path d="M 60 100 C 90 100, 90 20, 120 20 C 150 20, 150 100, 180 100" fill="rgba(37, 99, 235, 0.2)" stroke="#2563eb" stroke-width="3"/>
+                        <path d="M 80 10 L 120 10 L 115 5 M 120 10 L 115 15" fill="transparent" stroke="#0f172a" stroke-width="2"/>
+                    </svg>
+                    <p class="text-xs mt-2">Favors one extreme. Bell curve shifts.<br><em>Ex: Antibiotic resistance.</em></p>
+                </div>
+                <!-- Stabilizing -->
+                <div class="text-center bg-white p-4 rounded shadow-sm border">
+                    <h4 class="font-bold sans mb-2 text-emerald-700">Stabilizing Selection</h4>
+                    <svg viewBox="0 0 200 120" class="w-full">
+                        <line x1="10" y1="100" x2="190" y2="100" stroke="#0f172a" stroke-width="2"/>
+                        <!-- Original -->
+                        <path d="M 20 100 C 60 100, 60 40, 100 40 C 140 40, 140 100, 180 100" fill="transparent" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+                        <!-- Narrowed -->
+                        <path d="M 50 100 C 80 100, 90 10, 100 10 C 110 10, 120 100, 150 100" fill="rgba(22, 163, 74, 0.2)" stroke="#16a34a" stroke-width="3"/>
+                        <path d="M 30 50 L 70 50 L 65 45 M 70 50 L 65 55" fill="transparent" stroke="#0f172a" stroke-width="2"/>
+                        <path d="M 170 50 L 130 50 L 135 45 M 130 50 L 135 55" fill="transparent" stroke="#0f172a" stroke-width="2"/>
+                    </svg>
+                    <p class="text-xs mt-2">Favors intermediate variants. Curve narrows.<br><em>Ex: Human birth weights.</em></p>
+                </div>
+                <!-- Disruptive -->
+                <div class="text-center bg-white p-4 rounded shadow-sm border">
+                    <h4 class="font-bold sans mb-2 text-purple-700">Disruptive Selection</h4>
+                    <svg viewBox="0 0 200 120" class="w-full">
+                        <line x1="10" y1="100" x2="190" y2="100" stroke="#0f172a" stroke-width="2"/>
+                        <!-- Original -->
+                        <path d="M 20 100 C 60 100, 60 20, 100 20 C 140 20, 140 100, 180 100" fill="transparent" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4"/>
+                        <!-- Split -->
+                        <path d="M 20 100 C 35 100, 40 30, 60 30 C 80 30, 85 90, 100 90 C 115 90, 120 30, 140 30 C 160 30, 165 100, 180 100" fill="rgba(147, 51, 234, 0.2)" stroke="#9333ea" stroke-width="3"/>
+                    </svg>
+                    <p class="text-xs mt-2">Favors both extremes. Curve splits.<br><em>Ex: Small & large finch beaks.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SPECIATION -->
+        <section id="speciation" class="card">
+            <span class="concept-tag bg-rose-100 text-rose-800">Macroevolution</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">7. Speciation & Isolating Mechanisms</h2>
+            
+            <p class="mb-4"><strong>Biological Species Concept:</strong> A species is a group of populations whose members have the potential to interbreed in nature and produce viable, fertile offspring.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700 border-b pb-1 mb-3">Allopatric Speciation</h3>
+                    <p class="text-sm">Gene flow is interrupted when a population is divided into geographically isolated subpopulations (e.g., river changes course, mountain range forms). Mutations and selection occur independently in the separated populations.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700 border-b pb-1 mb-3">Sympatric Speciation</h3>
+                    <p class="text-sm">Speciation occurs in populations that live in the same geographic area. Often driven by polyploidy (common in plants), habitat differentiation, or sexual selection.</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold sans text-slate-800 mb-3">Reproductive Isolating Barriers</h3>
+            <table>
+                <thead>
+                    <tr><th class="w-1/4">Barrier Type</th><th class="w-1/4">Mechanism</th><th>Example</th></tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr><td rowspan="5" class="font-bold bg-blue-50">Prezygotic<br><span class="font-normal text-xs">(Blocks fertilization)</span></td>
+                        <td class="font-semibold">Habitat Isolation</td><td>Two species of garter snakes live in same area, but one is aquatic and one is terrestrial.</td></tr>
+                    <tr><td class="font-semibold">Temporal Isolation</td><td>Species breed during different times of day, different seasons, or different years.</td></tr>
+                    <tr><td class="font-semibold">Behavioral Isolation</td><td>Unique courtship rituals or mate recognition signals.</td></tr>
+                    <tr><td class="font-semibold">Mechanical Isolation</td><td>Morphological differences prevent successful mating (e.g., snail shell spirals).</td></tr>
+                    <tr><td class="font-semibold">Gametic Isolation</td><td>Sperm of one species cannot fertilize eggs of another.</td></tr>
+                    
+                    <tr><td rowspan="3" class="font-bold bg-rose-50">Postzygotic<br><span class="font-normal text-xs">(Blocks viability/fertility)</span></td>
+                        <td class="font-semibold">Reduced Hybrid Viability</td><td>Genes interact to impair the hybrid's development or survival.</td></tr>
+                    <tr><td class="font-semibold">Reduced Hybrid Fertility</td><td>Hybrids are vigorous but sterile (e.g., Mule = Horse x Donkey).</td></tr>
+                    <tr><td class="font-semibold">Hybrid Breakdown</td><td>First-generation hybrids are viable/fertile, but when they mate, the next generation is feeble/sterile.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 8: PHYLOGENY & EVIDENCE -->
+        <section id="phylogeny" class="card">
+            <span class="concept-tag bg-purple-100 text-purple-800">Systematics</span>
+            <h2 class="text-3xl font-bold text-slate-800 mb-6 border-b pb-2">8. Phylogeny, Cladistics & Evidence</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <h3 class="text-xl font-bold sans text-blue-700 mb-2">Evidence for Evolution</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-sm">
+                        <li><strong>Fossil Record:</strong> Transitional fossils show evolutionary links (e.g., Tiktaalik). Radiometric dating establishes timelines.</li>
+                        <li><strong>Homologous Structures:</strong> Anatomical resemblances representing variations on a structural theme present in a common ancestor (e.g., forelimbs of mammals). Shows <em>divergent evolution</em>.</li>
+                        <li><strong>Analogous Structures:</strong> Similar function, different origin (e.g., bird wing vs. insect wing). Shows <em>convergent evolution</em>.</li>
+                        <li><strong>Vestigial Structures:</strong> Remnants of features that served important functions in an organism's ancestors (e.g., whale pelvis).</li>
+                        <li><strong>Molecular Biology:</strong> The most precise evidence. Universal genetic code (DNA/RNA). Comparing amino acid sequences in conserved proteins (like Cytochrome C) reveals relatedness.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded border">
+                    <h3 class="text-xl font-bold sans text-blue-700 mb-4 text-center">Reading a Cladogram</h3>
+                    <svg viewBox="0 0 250 200" class="w-full max-w-[300px]">
+                        <!-- Main Diagonal branch -->
+                        <line x1="20" y1="180" x2="200" y2="20" stroke="#1e293b" stroke-width="3"/>
+                        
+                        <!-- Branches -->
+                        <line x1="80" y1="126" x2="120" y2="20" stroke="#1e293b" stroke-width="3"/>
+                        <line x1="140" y1="73" x2="160" y2="20" stroke="#1e293b" stroke-width="3"/>
+                        <line x1="20" y1="180" x2="40" y2="20" stroke="#1e293b" stroke-width="3"/> <!-- Outgroup -->
+
+                        <!-- Taxa labels -->
+                        <text x="35" y="15" font-family="sans-serif" font-size="12" font-weight="bold">Lancelet</text>
+                        <text x="110" y="15" font-family="sans-serif" font-size="12" font-weight="bold">Trout</text>
+                        <text x="150" y="15" font-family="sans-serif" font-size="12" font-weight="bold">Lizard</text>
+                        <text x="195" y="15" font-family="sans-serif" font-size="12" font-weight="bold">Human</text>
+
+                        <!-- Derived Characters (Ticks) -->
+                        <line x1="60" y1="140" x2="70" y2="150" stroke="#dc2626" stroke-width="3"/>
+                        <text x="75" y="155" fill="#dc2626" font-family="sans-serif" font-size="10">Vertebrae</text>
+                        
+                        <line x1="110" y1="95" x2="120" y2="105" stroke="#dc2626" stroke-width="3"/>
+                        <text x="125" y="110" fill="#dc2626" font-family="sans-serif" font-size="10">Amniotic Egg</text>
+
+                        <line x1="170" y1="42" x2="180" y2="52" stroke="#dc2626" stroke-width="3"/>
+                        <text x="185" y="57" fill="#dc2626" font-family="sans-serif" font-size="10">Hair</text>
+                    </svg>
+                    <div class="logic-step text-xs mt-4">
+                        <strong>Principle of Maximum Parsimony:</strong> The cladogram that requires the fewest evolutionary events (appearances of shared derived characters) is the most likely.
+                        <br><br><strong>Outgroup:</strong> The Lancelet. Used as a baseline for comparison. Diverged before the lineage containing the groups being studied.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
