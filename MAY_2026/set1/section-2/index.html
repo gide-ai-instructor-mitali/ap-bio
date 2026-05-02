@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Biology 2026 · Predicted FRQ · mitali.gide.ai</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   MONOCHROME OFFICIAL PALETTE
+══════════════════════════════════════ */
+:root{
+  --ink:#0a0a0a;
+  --ink2:#333;
+  --ink3:#555;
+  --rule:#bbb;
+  --rule2:#ddd;
+  --bg:#f5f4f0;
+  --page:#ffffff;
+  --hdr:#111;
+  --accent:#1a1a1a;
+  --stripe:#f2f2f0;
+  --reveal-bg:#f8f8f6;
+  --good:#2a6e2a;
+  --miss:#8a1a1a;
+  --partial:#5a4a00;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",sans-serif;font-size:14px;color:var(--ink);line-height:1.6}
+h1,h2,h3,h4{font-family:"Source Serif 4",Georgia,serif;font-weight:600;line-height:1.2}
+p{margin-bottom:.5rem;color:var(--ink2)}
+ul,ol{color:var(--ink2);padding-left:1.5rem}
+li{margin-bottom:3px}
+strong{color:var(--ink);font-weight:600}
+
+/* ══ PAGE WRAPPER ══ */
+.page{width:860px;margin:2rem auto;background:var(--page);box-shadow:0 4px 40px rgba(0,0,0,.18);position:relative;border-top:5px solid var(--ink)}
+.page-inner{padding:0}
+
+/* ══ HEADER ══ */
+.exam-header{border-bottom:3px solid var(--ink);padding:0}
+.hdr-top{display:flex;align-items:stretch;min-height:80px}
+.hdr-ap-box{background:var(--ink);color:#fff;padding:1rem 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:110px;flex-shrink:0}
+.hdr-ap-box .ap-big{font-family:"Source Serif 4",serif;font-size:44px;font-weight:700;line-height:1;letter-spacing:-1px}
+.hdr-ap-box .ap-sub{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;opacity:.7;margin-top:2px}
+.hdr-title{flex:1;padding:1rem 1.5rem;border-left:none;display:flex;flex-direction:column;justify-content:center}
+.hdr-title h1{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.hdr-title h2{font-size:13.5px;font-weight:400;color:var(--ink3)}
+.hdr-logo{padding:1rem 1.5rem;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;border-left:1px solid var(--rule2)}
+.hdr-meta{background:var(--ink);color:#ccc;padding:.4rem 1.5rem;display:flex;gap:1.75rem;font-size:11.5px}
+.hdr-meta span{opacity:.85}
+.hdr-meta span::before{content:"· ";opacity:.5}
+.hdr-meta span:first-child::before{content:""}
+
+/* ══ PREDICTED BANNER ══ */
+.pred-banner{background:var(--ink);color:#aaa;text-align:center;padding:.55rem;font-size:11px;letter-spacing:.4px;border-bottom:1px solid #333}
+.pred-banner strong{color:#ddd;font-size:12px;letter-spacing:1px}
+
+/* ══ BYLINE ══ */
+.byline-bar{display:flex;align-items:center;justify-content:space-between;padding:.5rem 1.5rem;border-bottom:1px solid var(--rule2);background:#fafaf8}
+.byline-left{font-size:10.5px;color:var(--ink3);letter-spacing:.5px}
+.byline-left span{font-weight:600;color:var(--ink);font-style:italic}
+.byline-right{font-size:10.5px;color:var(--ink3)}
+
+/* ══ INSTRUCTIONS ══ */
+.instructions{margin:1.5rem;padding:1rem 1.25rem;border:1.5px solid var(--ink);background:#fff}
+.instructions h3{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem;color:var(--ink);border-bottom:1px solid var(--rule2);padding-bottom:.4rem}
+.instructions ul{font-size:12.5px;line-height:1.85}
+
+/* ══ SECTION DIVIDERS ══ */
+.sec-div{background:var(--ink);color:#fff;padding:.55rem 1.5rem;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.sec-sub{padding:.5rem 1.5rem;font-size:12px;background:var(--stripe);border-bottom:1px solid var(--rule2);color:var(--ink2)}
+
+/* ══ QUESTIONS ══ */
+.question{padding:1.75rem 1.5rem 1.25rem;border-bottom:2px solid var(--rule)}
+.q-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule2)}
+.q-num{font-family:"Source Serif 4",serif;font-size:22px;font-weight:700;color:var(--ink);min-width:30px}
+.q-badge{display:inline-block;border:1.5px solid var(--ink);font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 9px;color:var(--ink)}
+.q-badge.short{background:var(--ink);color:#fff}
+.q-pts-box{margin-left:auto;border:1px solid var(--rule);padding:.2rem .75rem;font-size:11px;color:var(--ink3);text-align:center}
+.q-pts-box .n{display:block;font-size:18px;font-weight:700;color:var(--ink);font-family:"Source Serif 4",serif;line-height:1}
+
+/* ══ CONTEXT BOX ══ */
+.ctx-box{border:1px solid var(--rule);padding:.9rem 1.1rem;margin-bottom:1.1rem;background:#fefefe;font-size:13px;line-height:1.75}
+.ctx-lbl{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem}
+
+/* ══ FIGURES ══ */
+.fig{margin:.9rem 0;border:1px solid var(--rule);background:#fff;padding:.65rem}
+.fig-title{font-size:11.5px;font-weight:700;text-align:center;margin-bottom:.4rem;color:var(--ink)}
+.fig-cap{font-size:10.5px;text-align:center;color:var(--ink3);margin-top:.3rem;font-style:italic}
+.two-fig{display:flex;gap:.75rem;margin:.9rem 0}
+.two-fig .fig{flex:1}
+
+/* ══ DATA TABLES ══ */
+.dtbl{width:100%;border-collapse:collapse;font-size:12px;margin:.4rem 0}
+.dtbl th{background:var(--ink);color:#fff;padding:6px 10px;text-align:center;border:1px solid var(--ink)}
+.dtbl td{padding:5px 10px;border:1px solid var(--rule);text-align:center;vertical-align:middle}
+.dtbl tr:nth-child(even) td{background:var(--stripe)}
+.dtbl .rh{background:#eee;font-weight:600;text-align:left;border-left:3px solid var(--ink)}
+
+/* ══ PARTS ══ */
+.part{margin-bottom:.875rem;padding-left:1rem}
+.part-lbl{font-weight:700;font-size:13.5px;display:inline;margin-right:.3rem}
+.cmd{font-style:italic;font-weight:700}
+.part-pts{font-size:10.5px;color:var(--ink3);margin-left:.2rem}
+
+/* ══ REVEAL BUTTON ══ */
+.reveal-btn{display:block;margin:1.25rem 0 .5rem;padding:.55rem 1.25rem;background:#fff;border:1.5px solid var(--ink);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:"Source Sans 3",sans-serif;text-align:center;transition:all .15s;color:var(--ink)}
+.reveal-btn:hover{background:var(--ink);color:#fff}
+.reveal-btn.revealed{background:var(--ink);color:#fff;pointer-events:none}
+
+/* ══ ANSWER PANEL ══ */
+.answer-panel{display:none;border:1.5px solid var(--ink);border-top:3px solid var(--ink);margin:.25rem 0 .5rem;background:var(--reveal-bg)}
+.answer-panel.open{display:block}
+.ans-hdr{background:var(--ink);color:#fff;padding:.5rem 1.1rem;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.75rem}
+.ans-hdr .total-pts{margin-left:auto;background:rgba(255,255,255,.15);padding:2px 10px;border-radius:2px}
+.ans-part{padding:1rem 1.1rem;border-bottom:1px solid var(--rule2)}
+.ans-part:last-child{border-bottom:none}
+.ans-part-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:.35rem;display:flex;align-items:center;gap:.5rem}
+.ans-part-lbl .pts-badge{background:var(--ink);color:#fff;font-size:9px;padding:1px 7px}
+.ans-body{font-size:13px;line-height:1.7;color:var(--ink2)}
+
+/* ══ SEMANTIC SCORE ══ */
+.score-panel{display:none;border:1px solid var(--rule);margin:.5rem 0;background:#fff}
+.score-panel.open{display:block}
+.score-hdr{background:#1a1a1a;color:#fff;padding:.4rem 1.1rem;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.score-wrap{padding:.75rem 1.1rem}
+.score-input{width:100%;min-height:80px;border:1px solid var(--rule);padding:.5rem;font-family:"Source Sans 3",sans-serif;font-size:13px;resize:vertical;line-height:1.6}
+.score-submit{margin-top:.5rem;padding:.45rem 1rem;background:var(--ink);color:#fff;border:none;cursor:pointer;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-family:"Source Sans 3",sans-serif}
+.score-result{margin-top:.75rem;padding:.65rem .875rem;border:1px solid var(--rule);background:var(--stripe);font-size:13px;display:none}
+.kw-hit{color:var(--good);font-weight:600;font-size:11px;display:inline-block;margin:1px 3px;padding:1px 6px;border:1px solid var(--good);background:#f0faf0}
+.kw-miss{color:var(--miss);font-size:11px;display:inline-block;margin:1px 3px;padding:1px 6px;border:1px solid #ccc;background:#fafafa;text-decoration:line-through;opacity:.6}
+.score-bar{height:10px;background:#eee;margin:.6rem 0;border:1px solid var(--rule)}
+.score-fill{height:100%;background:var(--ink);transition:width .4s}
+.score-num{font-size:22px;font-weight:700;font-family:"Source Serif 4",serif;color:var(--ink)}
+.score-label{font-size:11px;color:var(--ink3)}
+.score-fb{margin-top:.4rem;font-size:12.5px;padding:.5rem;border-left:3px solid var(--ink)}
+
+/* ══ PAGE BREAK HINT ══ */
+.page-cont{text-align:right;font-size:10.5px;color:var(--ink3);padding:.3rem 1.5rem;font-style:italic}
+
+/* ══ FOOTER ══ */
+.exam-footer{background:var(--ink);color:#888;font-size:10.5px;text-align:center;padding:.6rem}
+
+/* ══ SCORE SUMMARY ══ */
+.total-score-bar{margin:1.5rem;padding:1.25rem;border:2px solid var(--ink);background:#fff;display:flex;align-items:center;gap:2rem}
+.tsb-num{font-family:"Source Serif 4",serif;font-size:48px;font-weight:700;color:var(--ink);line-height:1}
+.tsb-detail{flex:1}
+.tsb-detail h3{font-size:14px;margin-bottom:.35rem}
+.tsb-prog{height:12px;background:#eee;border:1px solid var(--rule);margin:.4rem 0}
+.tsb-prog-fill{height:100%;background:var(--ink)}
+.tsb-label{font-size:11px;color:var(--ink3)}
+
+/* ══ SUB-SCENARIO ══ */
+.sub-ctx{background:var(--stripe);border-left:3px solid var(--ink);padding:.6rem 1rem;margin:.7rem 0;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+
+svg text{font-family:"Source Sans 3",Arial,sans-serif}
+
+/* ══ GIDE.AI BRANDING ══ */
+.gide-logo{height:32px;width:auto;display:block;object-fit:contain}
+.exam-footer{background:var(--ink);color:#888;font-size:10.5px;padding:0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;padding:.55rem 1.5rem;gap:1rem;flex-wrap:wrap}
+.foot-email{color:#C62828;text-decoration:none;font-weight:700;font-size:10.5px;white-space:nowrap}
+.foot-email:hover{text-decoration:underline}
+
+/* ══ PRINT CONTROLS BAR ══ */
+.print-controls{background:#fff;border-bottom:2px solid var(--ink);padding:.6rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.pc-brand{display:flex;align-items:center;gap:.6rem}
+.pc-logo{height:22px;width:auto}
+.pc-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2)}
+.pc-btns{display:flex;gap:.5rem;flex-wrap:wrap}
+.pc-btn{padding:.38rem .9rem;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:1.5px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;transition:all .1s;font-family:"Source Sans 3",sans-serif}
+.pc-btn:hover{background:var(--ink);color:#fff}
+.pc-btn-ws{border-color:var(--ink)}
+.pc-btn-key{border-color:#C62828;color:#C62828}
+.pc-btn-key:hover{background:#C62828;color:#fff}
+.pc-btn-rev{border-color:#555;color:#555}
+.pc-btn-rev:hover{background:#555;color:#fff}
+
+/* ══ WRITE LINES (worksheet print) ══ */
+.ws-block{display:none}
+.ws-line{height:1.6rem;border-bottom:1px solid #ccc;margin-bottom:1px}
+.ws-header{font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:.35rem;margin-top:.65rem}
+.ws-name-row{display:flex;gap:2rem;margin-bottom:1.5rem;margin-top:.5rem}
+.ws-name-row div{flex:1;border-bottom:1.5px solid var(--ink);padding-bottom:.2rem;font-size:10.5px;color:var(--ink3)}
+
+/* ══ PRINT MEDIA ══ */
+@media print{
+  .print-controls{display:none!important}
+  body{background:#fff!important}
+  .page{box-shadow:none!important;width:100%!important;margin:0!important;border-top:3px solid #111!important}
+  a{color:inherit!important;text-decoration:none!important}
+
+  /* ── Worksheet mode ── */
+  body.print-ws .answer-panel,
+  body.print-ws .score-panel,
+  body.print-ws .score-wrap,
+  body.print-ws .reveal-btn{display:none!important}
+  body.print-ws .ws-block{display:block!important}
+  body.print-ws .question{page-break-inside:avoid}
+  body.print-ws #q3,body.print-ws #q5{page-break-before:always}
+
+  /* ── Scoring sheet mode ── */
+  body.print-key .answer-panel{display:block!important}
+  body.print-key .reveal-btn{display:none!important}
+  body.print-key .score-panel,
+  body.print-key .score-wrap{display:none!important}
+  body.print-key .ans-key-stamp{display:block!important}
+  body.print-key .question{page-break-inside:avoid}
+  body.print-key #q3,body.print-key #q5{page-break-before:always}
+
+  /* ── Normal print (ctrl+p) ── */
+  body:not(.print-ws):not(.print-key) .score-panel,
+  body:not(.print-ws):not(.print-key) .score-wrap{display:none!important}
+}
+
+/* Answer key stamp (hidden until scoring sheet print) */
+.ans-key-stamp{display:none;background:#C62828;color:#fff;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;margin-left:auto}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ══ PRINT CONTROLS ══ -->
+<div class="print-controls">
+  <div class="pc-brand">
+    <img src="logo.jpeg" class="pc-logo" alt="gide.ai">
+    <span class="pc-label">AP Bio FRQ · 2026 Predicted</span>
+  </div>
+  <div class="pc-btns">
+    <button class="pc-btn pc-btn-ws" onclick="printWorksheet()">🖨 Print Worksheet</button>
+    <button class="pc-btn pc-btn-key" onclick="printScoringSheet()">📋 Print Scoring Sheet</button>
+    <button class="pc-btn pc-btn-rev" onclick="revealAll()">▼ Reveal All Answers</button>
+    <button class="pc-btn" style="border-color:#C62828;color:#C62828" onclick="resetFRQ()">↺ Reset / Replay</button>
+  </div>
+</div>
+
+<!-- ══ PREDICTED BANNER ══ -->
+<div class="pred-banner">
+  <strong>PREDICTED EXAMINATION · NOT AN OFFICIAL COLLEGE BOARD DOCUMENT</strong> · Constructed from analysis of 2020–2025 released exams, the 2025–26 CED, and current biological research · For study purposes only
+</div>
+
+<!-- ══ HEADER ══ -->
+<div class="exam-header">
+  <div class="hdr-top">
+    <div class="hdr-ap-box">
+      <span class="ap-big">AP</span>
+      <span class="ap-sub">College Board</span>
+    </div>
+    <div class="hdr-title">
+      <h1>AP® Biology Examination — 2026 (Predicted)</h1>
+      <h2>Free-Response Questions · Section II · 1 hour 30 minutes</h2>
+      <div style="margin-top:.4rem;font-size:11px;color:#888">6 Questions · 34 Total Points · 50% of examination score · Open-ended responses required in complete sentences</div>
+    </div>
+    <div class="hdr-logo">
+      <img src="logo.jpeg" class="gide-logo" alt="gide.ai">
+      <div style="font-size:8.5px;color:#888;margin-top:4px;letter-spacing:.05em;text-align:right">web.gide.ai</div>
+    </div>
+  </div>
+  <div class="hdr-meta">
+    <span>Monday, 4 May 2026 · Morning Session</span>
+    <span>Section II begins after Section I is collected</span>
+    <span>Calculators permitted for Section II</span>
+    <span>Write answers in this booklet</span>
+  </div>
+</div>
+
+<!-- ══ BYLINE ══ -->
+<div class="byline-bar">
+  <div class="byline-left">Authored &amp; designed <span>BY mitali.gide.ai</span> · Semantic answer scoring powered by keyword analysis</div>
+  <div class="byline-right" style="display:flex;align-items:center;gap:.75rem">
+    <span>Revision 1.0 · 2026 Exam Cycle</span>
+    <a href="mailto:mitali@gide.ai" style="font-size:10.5px;color:#C62828;font-weight:700;text-decoration:none">mitali@gide.ai</a>
+  </div>
+</div>
+
+<!-- ══ INSTRUCTIONS ══ -->
+<div class="instructions">
+  <h3>General Instructions for Section II</h3>
+  <ul>
+    <li>Answers must be written in <strong>complete sentences and paragraphs</strong>. Outlines, diagrams, or bulleted lists alone will not receive full credit unless specifically requested.</li>
+    <li>Questions 1 and 2 are <strong>long free-response questions</strong>. Spend approximately <strong>25 minutes</strong> on each.</li>
+    <li>Questions 3 through 6 are <strong>short free-response questions</strong>. Spend approximately <strong>8–10 minutes</strong> on each.</li>
+    <li>Show all work for calculations. Include correct units. Partial credit may be awarded for correct setup even if the final answer is incorrect.</li>
+    <li>Do not repeat the question in your answer. Begin each response directly. Label all parts clearly (a, b, c…).</li>
+    <li><strong>Semantic self-scoring available:</strong> Click <em>Reveal Answer</em> after each question to see the model answer. Type your own response in the scoring box for keyword-based feedback.</li>
+  </ul>
+</div>
+
+<!-- ══ SECTION II HEADER ══ -->
+<div class="sec-div">Section II — Free-Response Questions</div>
+<div class="sec-sub"><strong>Questions 1 and 2</strong> are long free-response questions worth <strong>9 points each</strong>. Questions <strong>3 through 6</strong> are short free-response questions worth <strong>4 points each</strong>. Total Section II: <strong>34 points</strong>.</div>
+
+<!-- ══════════════════════════════════════════
+     QUESTION 1 — RTK / KRAS / Drug Resistance
+══════════════════════════════════════════ -->
+<div class="question" id="q1">
+  <div class="q-hdr">
+    <span class="q-num">1</span>
+    <span class="q-badge">Long Free-Response</span>
+    <span style="font-size:12px;color:var(--ink3);font-style:italic">~25 minutes</span>
+    <div class="q-pts-box"><span class="n">9</span>points</div>
+  </div>
+
+  <div class="ctx-box">
+    <div class="ctx-lbl">Background</div>
+    Epidermal growth factor (EGF) binds the EGF receptor (EGFR), a receptor tyrosine kinase (RTK), on the surface of epithelial cells. EGF binding causes EGFR dimerisation and autophosphorylation of tyrosine residues on its cytoplasmic domain, activating the RAS–RAF–MEK–ERK mitogen-activated protein kinase (MAPK) cascade. Activated ERK enters the nucleus and drives transcription of proliferation genes including <em>c-Myc</em> and <em>cyclin D1</em>. In approximately 30% of colorectal cancers, the <em>KRAS</em> proto-oncogene carries the G12D point mutation (glycine→aspartate), which disables the GTPase activity of the RAS protein. Scientists studied two cell lines: normal colon epithelial cells (NCE) and KRAS G12D mutant cancer cells (KRC). Both were treated with increasing concentrations of gefitinib, a competitive inhibitor of the EGFR kinase domain. Cell viability (%) and pERK/total-ERK ratios were measured (Figures 1–3, Table 1).
+  </div>
+
+  <div class="two-fig">
+    <div class="fig">
+      <div class="fig-title">Figure 1. Cell viability (%) at increasing gefitinib concentrations</div>
+      <svg viewBox="0 0 310 210" style="width:100%;display:block">
+        <defs><pattern id="hx" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#555" stroke-width="1.2"/></pattern></defs>
+        <line x1="50" y1="12" x2="50" y2="165" stroke="#111" stroke-width="1.5"/>
+        <line x1="50" y1="165" x2="300" y2="165" stroke="#111" stroke-width="1.5"/>
+        <!-- Y -->
+        <text x="46" y="168" text-anchor="end" font-size="9">0</text>
+        <text x="46" y="138" text-anchor="end" font-size="9">20</text>
+        <text x="46" y="107" text-anchor="end" font-size="9">40</text>
+        <text x="46" y="76" text-anchor="end" font-size="9">60</text>
+        <text x="46" y="45" text-anchor="end" font-size="9">80</text>
+        <text x="46" y="15" text-anchor="end" font-size="9">100</text>
+        <line x1="50" y1="138" x2="300" y2="138" stroke="#eee" stroke-width="1"/>
+        <line x1="50" y1="107" x2="300" y2="107" stroke="#eee" stroke-width="1"/>
+        <line x1="50" y1="76" x2="300" y2="76" stroke="#eee" stroke-width="1"/>
+        <line x1="50" y1="45" x2="300" y2="45" stroke="#eee" stroke-width="1"/>
+        <line x1="50" y1="15" x2="300" y2="15" stroke="#eee" stroke-width="1"/>
+        <text x="12" y="92" text-anchor="middle" font-size="10" font-weight="bold" transform="rotate(-90 12 92)">Cell Viability (%)</text>
+        <!-- Groups -->
+        <!-- 0 µM -->
+        <text x="82" y="180" text-anchor="middle" font-size="8">0</text>
+        <rect x="62" y="15.5" width="13" height="149.5" fill="#111"/>
+        <rect x="77" y="16.8" width="13" height="148.2" fill="url(#hx)" stroke="#111" stroke-width="1"/>
+        <line x1="68" y1="9" x2="68" y2="22" stroke="#777" stroke-width="1.5"/><line x1="65" y1="9" x2="71" y2="9" stroke="#777" stroke-width="1.5"/>
+        <line x1="83" y1="10" x2="83" y2="23" stroke="#777" stroke-width="1.5"/><line x1="80" y1="10" x2="86" y2="10" stroke="#777" stroke-width="1.5"/>
+        <!-- 0.1 µM -->
+        <text x="140" y="180" text-anchor="middle" font-size="8">0.1</text>
+        <rect x="120" y="58.2" width="13" height="106.8" fill="#111"/>
+        <rect x="135" y="18.5" width="13" height="146.5" fill="url(#hx)" stroke="#111" stroke-width="1"/>
+        <line x1="126" y1="52" x2="126" y2="65" stroke="#777" stroke-width="1.5"/><line x1="123" y1="52" x2="129" y2="52" stroke="#777" stroke-width="1.5"/>
+        <line x1="141" y1="12" x2="141" y2="25" stroke="#777" stroke-width="1.5"/><line x1="138" y1="12" x2="144" y2="12" stroke="#777" stroke-width="1.5"/>
+        <!-- 1 µM -->
+        <text x="198" y="180" text-anchor="middle" font-size="8">1</text>
+        <rect x="178" y="114.7" width="13" height="50.3" fill="#111"/>
+        <rect x="193" y="32.3" width="13" height="132.7" fill="url(#hx)" stroke="#111" stroke-width="1"/>
+        <line x1="184" y1="108" x2="184" y2="121" stroke="#777" stroke-width="1.5"/><line x1="181" y1="108" x2="187" y2="108" stroke="#777" stroke-width="1.5"/>
+        <line x1="199" y1="26" x2="199" y2="39" stroke="#777" stroke-width="1.5"/><line x1="196" y1="26" x2="202" y2="26" stroke="#777" stroke-width="1.5"/>
+        <!-- 10 µM -->
+        <text x="258" y="180" text-anchor="middle" font-size="8">10</text>
+        <rect x="238" y="152.8" width="13" height="12.2" fill="#111"/>
+        <rect x="253" y="45.5" width="13" height="119.5" fill="url(#hx)" stroke="#111" stroke-width="1"/>
+        <line x1="244" y1="147" x2="244" y2="159" stroke="#777" stroke-width="1.5"/><line x1="241" y1="147" x2="247" y2="147" stroke="#777" stroke-width="1.5"/>
+        <line x1="259" y1="39" x2="259" y2="52" stroke="#777" stroke-width="1.5"/><line x1="256" y1="39" x2="262" y2="39" stroke="#777" stroke-width="1.5"/>
+        <!-- X title -->
+        <text x="175" y="195" text-anchor="middle" font-size="10" font-weight="bold">Gefitinib (µM)</text>
+        <!-- Legend -->
+        <rect x="55" y="197" width="10" height="9" fill="#111"/>
+        <text x="68" y="205" font-size="9">NCE (WT)</text>
+        <rect x="115" y="197" width="10" height="9" fill="url(#hx)" stroke="#111" stroke-width="1"/>
+        <text x="128" y="205" font-size="9">KRC (KRAS G12D)</text>
+        <text x="175" y="210" text-anchor="middle" font-size="8" fill="#888">Error bars = ±2 SE, n = 6</text>
+      </svg>
+    </div>
+
+    <div class="fig">
+      <div class="fig-title">Figure 2. pERK/total-ERK ratio at 1 µM gefitinib</div>
+      <svg viewBox="0 0 240 210" style="width:100%;display:block">
+        <line x1="45" y1="12" x2="45" y2="160" stroke="#111" stroke-width="1.5"/>
+        <line x1="45" y1="160" x2="230" y2="160" stroke="#111" stroke-width="1.5"/>
+        <text x="41" y="163" text-anchor="end" font-size="9">0.0</text>
+        <text x="41" y="125" text-anchor="end" font-size="9">0.5</text>
+        <text x="41" y="88" text-anchor="end" font-size="9">1.0</text>
+        <text x="41" y="51" text-anchor="end" font-size="9">1.5</text>
+        <text x="41" y="14" text-anchor="end" font-size="9">2.0</text>
+        <line x1="45" y1="125" x2="230" y2="125" stroke="#eee" stroke-width="1"/>
+        <line x1="45" y1="88" x2="230" y2="88" stroke="#eee" stroke-width="1"/>
+        <line x1="45" y1="51" x2="230" y2="51" stroke="#eee" stroke-width="1"/>
+        <text x="10" y="88" text-anchor="middle" font-size="9" font-weight="bold" transform="rotate(-90 10 88)">pERK / ERK</text>
+        <!-- NCE ctrl: 1.0 -->
+        <rect x="58" y="88" width="28" height="72" fill="#111"/>
+        <text x="72" y="177" text-anchor="middle" font-size="8">NCE</text>
+        <text x="72" y="186" text-anchor="middle" font-size="7">ctrl</text>
+        <line x1="72" y1="81" x2="72" y2="95" stroke="#555" stroke-width="1.5"/><line x1="69" y1="81" x2="75" y2="81" stroke="#555" stroke-width="1.5"/>
+        <!-- NCE +gef: 0.08 -->
+        <rect x="98" y="156.9" width="28" height="3.1" fill="#111" opacity=".4"/>
+        <text x="112" y="177" text-anchor="middle" font-size="8">NCE</text>
+        <text x="112" y="186" text-anchor="middle" font-size="7">+gef</text>
+        <line x1="112" y1="150" x2="112" y2="163" stroke="#555" stroke-width="1.5"/><line x1="109" y1="150" x2="115" y2="150" stroke="#555" stroke-width="1.5"/>
+        <!-- KRC ctrl: 1.9 -->
+        <rect x="152" y="17" width="28" height="143" fill="#555"/>
+        <text x="166" y="177" text-anchor="middle" font-size="8">KRC</text>
+        <text x="166" y="186" text-anchor="middle" font-size="7">ctrl</text>
+        <line x1="166" y1="10" x2="166" y2="24" stroke="#555" stroke-width="1.5"/><line x1="163" y1="10" x2="169" y2="10" stroke="#555" stroke-width="1.5"/>
+        <!-- KRC +gef: 1.7 -->
+        <rect x="192" y="30" width="28" height="130" fill="#555" opacity=".65"/>
+        <text x="206" y="177" text-anchor="middle" font-size="8">KRC</text>
+        <text x="206" y="186" text-anchor="middle" font-size="7">+gef</text>
+        <line x1="206" y1="23" x2="206" y2="37" stroke="#555" stroke-width="1.5"/><line x1="203" y1="23" x2="209" y2="23" stroke="#555" stroke-width="1.5"/>
+        <text x="137" y="200" text-anchor="middle" font-size="8" fill="#888">Error bars = ±2 SE, n = 4</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Table 1 -->
+  <div class="fig">
+    <div class="fig-title">Table 1. Summary data at 1 µM gefitinib (mean ± SE, n = 6)</div>
+    <table class="dtbl">
+      <thead><tr><th>Cell line</th><th>Treatment</th><th>Cell viability (%)</th><th>pERK/total-ERK</th><th>KRAS status</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">NCE</td><td>Control (0 µM)</td><td>98.2 ± 1.1</td><td>1.00 ± 0.08</td><td>Wild-type</td></tr>
+        <tr><td class="rh">NCE</td><td>1 µM gefitinib</td><td>31.4 ± 2.7</td><td>0.08 ± 0.02</td><td>Wild-type</td></tr>
+        <tr><td class="rh">KRC</td><td>Control (0 µM)</td><td>97.1 ± 1.3</td><td>1.90 ± 0.11</td><td>KRAS G12D</td></tr>
+        <tr><td class="rh">KRC</td><td>1 µM gefitinib</td><td>88.3 ± 2.1</td><td>1.70 ± 0.09</td><td>KRAS G12D</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Signal pathway diagram -->
+  <div class="fig">
+    <div class="fig-title">Figure 3. Simplified EGFR–RAS–MAPK signalling pathway</div>
+    <svg viewBox="0 0 720 100" style="width:100%;display:block">
+      <defs>
+        <marker id="a1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#222"/></marker>
+        <marker id="a1r" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#111"/></marker>
+      </defs>
+      <ellipse cx="42" cy="50" rx="38" ry="18" fill="#eee" stroke="#111" stroke-width="1.5"/>
+      <text x="42" y="47" text-anchor="middle" font-size="10" font-weight="bold">EGF</text>
+      <text x="42" y="59" text-anchor="middle" font-size="9" fill="#555">ligand</text>
+      <line x1="80" y1="50" x2="98" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="98" y="32" width="80" height="36" rx="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+      <text x="138" y="48" text-anchor="middle" font-size="10" font-weight="bold">EGFR</text>
+      <text x="138" y="61" text-anchor="middle" font-size="9" fill="#555">RTK dimer</text>
+      <text x="138" y="22" text-anchor="middle" font-size="9" fill="#111" font-weight="bold">Gefitinib ⊣</text>
+      <line x1="138" y1="24" x2="138" y2="32" stroke="#111" stroke-width="1.5" marker-end="url(#a1r)"/>
+      <line x1="178" y1="50" x2="198" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="198" y="32" width="76" height="36" rx="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+      <text x="236" y="47" text-anchor="middle" font-size="10" font-weight="bold">RAS</text>
+      <text x="236" y="60" text-anchor="middle" font-size="9" fill="#555">GDP→GTP</text>
+      <text x="236" y="80" text-anchor="middle" font-size="8" fill="#888">G12D = locked ON</text>
+      <line x1="274" y1="50" x2="294" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="294" y="32" width="60" height="36" rx="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+      <text x="324" y="53" text-anchor="middle" font-size="10" font-weight="bold">RAF</text>
+      <line x1="354" y1="50" x2="374" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="374" y="32" width="60" height="36" rx="4" fill="#fff" stroke="#111" stroke-width="1.5"/>
+      <text x="404" y="53" text-anchor="middle" font-size="10" font-weight="bold">MEK</text>
+      <line x1="434" y1="50" x2="454" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="454" y="32" width="60" height="36" rx="4" fill="#111"/>
+      <text x="484" y="48" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">pERK</text>
+      <text x="484" y="61" text-anchor="middle" font-size="9" fill="#aaa">→ nucleus</text>
+      <line x1="514" y1="50" x2="534" y2="50" stroke="#222" stroke-width="1.5" marker-end="url(#a1)"/>
+      <rect x="534" y="32" width="110" height="36" rx="4" fill="#eee" stroke="#111" stroke-width="1.5"/>
+      <text x="589" y="48" text-anchor="middle" font-size="10" font-weight="bold">Gene expression</text>
+      <text x="589" y="61" text-anchor="middle" font-size="9" fill="#555">c-Myc · Cyclin D1</text>
+      <text x="589" y="80" text-anchor="middle" font-size="9" fill="#111">→ proliferation</text>
+    </svg>
+    <div class="fig-cap">Arrows = activation. ⊣ = inhibition (competitive block of EGFR kinase domain by gefitinib).</div>
+  </div>
+
+  <!-- Parts -->
+  <div class="part"><span class="part-lbl">(a)</span><span class="cmd">Describe</span> a characteristic of the EGFR transmembrane domain that allows stable membrane embedding. <span class="cmd">Explain</span> why tyrosine phosphorylation of the cytoplasmic domain is necessary to initiate downstream signalling. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(b)</span><span class="cmd">Identify</span> the dependent variable in the cell-viability experiment. <span class="cmd">Justify</span> using NCE cells as a control. <span class="cmd">Justify</span> testing a range of gefitinib concentrations rather than a single concentration. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(c)</span>Using Table 1 and Figure 2, <span class="cmd">explain</span> why KRC cells maintain ~88% viability at 1 µM gefitinib while NCE viability falls to ~31%. Reference pERK data and the KRAS G12D mutation. <span class="cmd">Calculate</span> the percent change in pERK/total-ERK ratio in NCE cells between control and 1 µM gefitinib. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(d)</span>Trametinib is a MEK inhibitor. <span class="cmd">Predict</span> whether combining gefitinib and trametinib would reduce KRC cell viability more than gefitinib alone, and <span class="cmd">justify</span> using Figure 3. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(e)</span><span class="cmd">Explain</span> how the KRAS G12D point mutation constitutively activates the entire MAPK cascade, referencing normal GTPase function and the consequence of its loss. <span class="part-pts">(1 point)</span></div>
+
+  <!-- REVEAL BUTTON -->
+  <button class="reveal-btn" id="r1-btn" onclick="reveal(1)">▼ Reveal Model Answer — Question 1</button>
+
+  <!-- ANSWER PANEL -->
+  <div class="answer-panel" id="a1-panel">
+    <div class="ans-hdr">Model Answer — Question 1 <span class="total-pts">9 points available</span></div>
+
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (a) — 2 points <span class="pts-badge">1+1</span></div>
+      <div class="ans-body">
+        <strong>Point 1 (TM domain):</strong> The transmembrane domain of EGFR consists of a single α-helix composed predominantly of <em>nonpolar (hydrophobic)</em> amino acids whose R-groups are compatible with the hydrophobic interior of the phospholipid bilayer. Because the bilayer core repels polar and charged species, a hydrophobic helix is thermodynamically stable within it.<br><br>
+        <strong>Point 2 (phosphorylation):</strong> Upon EGF binding, EGFR dimerises and one kinase domain trans-phosphorylates tyrosine residues on the other subunit's cytoplasmic domain. These phosphotyrosines serve as <em>docking sites</em> for adaptor proteins containing SH2 domains (e.g., Grb2). Without phosphorylation, the cytoplasmic domain presents no binding sites for these adaptor proteins → no downstream complex can assemble → RAS is not activated → the cascade cannot propagate.
+      </div>
+
+      <!-- SEMANTIC SCORER Part a -->
+      <div style="margin-top:.6rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s1a')">▸ Check your answer for Part (a)</div>
+      <div class="score-panel" id="s1a">
+        <div class="score-hdr">Semantic Keyword Checker — Part (a)</div>
+        <div class="score-wrap">
+          <textarea class="score-input" placeholder="Type your answer here for keyword scoring..." id="t1a"></textarea>
+          <button class="score-submit" onclick="scoreAnswer('t1a','r1a',['nonpolar','hydrophobic','transmembrane','bilayer','R-group','fatty acid','phosphorylation','tyrosine','docking','SH2','adaptor','Grb2','RAS','cascade','cytoplasmic'])">Score My Answer</button>
+          <div class="score-result" id="r1a"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (b) — 2 points <span class="pts-badge">1+1</span></div>
+      <div class="ans-body">
+        <strong>DV:</strong> Cell viability (%), i.e., the percentage of cells remaining viable after treatment.<br><br>
+        <strong>NCE control justification:</strong> NCE cells have wild-type KRAS and represent normal, non-cancerous cell function. They establish the baseline viability response to gefitinib in cells where EGFR is the sole driver of MAPK signalling. Any difference between NCE and KRC cells can then be attributed specifically to the KRAS G12D mutation rather than to other cell-line differences.<br><br>
+        <strong>Range justification:</strong> A single concentration cannot reveal whether the dose–response is linear, sigmoidal, or threshold-dependent; it cannot identify the IC₅₀ (concentration producing 50% inhibition); and it cannot determine whether higher doses overcome resistance in KRC cells. A concentration range provides the full pharmacological profile.
+      </div>
+      <div style="margin-top:.6rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s1b')">▸ Check your answer for Part (b)</div>
+      <div class="score-panel" id="s1b">
+        <div class="score-hdr">Semantic Keyword Checker — Part (b)</div>
+        <div class="score-wrap">
+          <textarea class="score-input" placeholder="Type your answer here..." id="t1b"></textarea>
+          <button class="score-submit" onclick="scoreAnswer('t1b','r1b',['cell viability','viability','dependent','baseline','control','KRAS','mutation','attributed','dose','IC50','concentration range','sigmoidal','pharmacological','linear'])">Score My Answer</button>
+          <div class="score-result" id="r1b"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (c) — 2 points <span class="pts-badge">1+1</span></div>
+      <div class="ans-body">
+        <strong>Mechanism (1 pt):</strong> KRC cells harbour the KRAS G12D mutation that locks RAS in the active GTP-bound state regardless of upstream EGFR activity. Even when gefitinib completely blocks EGFR autophosphorylation, mutant RAS continuously activates RAF→MEK→ERK. Consequently, KRC pERK/total-ERK remains at 1.70 ± 0.09 with gefitinib — not significantly different from the untreated value of 1.90 ± 0.11 (overlapping error bars) — so proliferation gene expression continues and cell viability is maintained at 88.3%. NCE cells with wild-type KRAS depend entirely on EGFR for RAS activation; gefitinib blocks EGFR → RAS is not activated → pERK drops to 0.08 → cells do not receive a division signal → viability falls to 31.4%.<br><br>
+        <strong>Calculation (1 pt):</strong> NCE control pERK/ERK = 1.00; NCE + gefitinib = 0.08.<br>
+        % change = (0.08 − 1.00) ÷ 1.00 × 100 = <strong>−92%</strong> (a 92% decrease in pERK ratio).
+      </div>
+      <div style="margin-top:.6rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s1c')">▸ Check your answer for Part (c)</div>
+      <div class="score-panel" id="s1c">
+        <div class="score-hdr">Semantic Keyword Checker — Part (c)</div>
+        <div class="score-wrap">
+          <textarea class="score-input" placeholder="Type your answer here..." id="t1c"></textarea>
+          <button class="score-submit" onclick="scoreAnswer('t1c','r1c',['GTPase','GTP','constitutive','independent','RAF','MEK','pERK','proliferation','92','percent change','wild-type KRAS','downstream','bypass','locked'])">Score My Answer</button>
+          <div class="score-result" id="r1c"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (d) — 2 points <span class="pts-badge">1+1</span></div>
+      <div class="ans-body">
+        <strong>Prediction:</strong> Yes, the combination would reduce KRC viability more effectively than gefitinib alone.<br><br>
+        <strong>Justification:</strong> Gefitinib alone fails in KRC cells because mutant KRAS bypasses EGFR and constitutively activates RAF→MEK→ERK (Figure 3). Trametinib directly blocks MEK, which is downstream of mutant KRAS and therefore inaccessible to gefitinib. Combining both drugs inhibits the pathway at two independent nodes — EGFR (gefitinib) and MEK (trametinib) — preventing any residual pathway activity. With MEK blocked, even constitutively active KRAS cannot generate pERK → c-Myc and cyclin D1 are not transcribed → KRC cells stop proliferating → viability decreases. This vertical pathway inhibition strategy ("combo therapy") is the clinical rationale used in KRAS-mutant cancers.
+      </div>
+      <div style="margin-top:.6rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s1d')">▸ Check your answer for Part (d)</div>
+      <div class="score-panel" id="s1d">
+        <div class="score-hdr">Semantic Keyword Checker — Part (d)</div>
+        <div class="score-wrap">
+          <textarea class="score-input" placeholder="Type your answer here..." id="t1d"></textarea>
+          <button class="score-submit" onclick="scoreAnswer('t1d','r1d',['MEK inhibitor','trametinib','downstream','KRAS bypasses','combination','vertical','two nodes','pERK','c-Myc','cyclin D1','proliferation','viability','independent'])">Score My Answer</button>
+          <div class="score-result" id="r1d"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (e) — 1 point <span class="pts-badge">1</span></div>
+      <div class="ans-body">
+        Normally, RAS is activated (GDP→GTP exchange) when EGFR is stimulated, then rapidly inactivated by its intrinsic GTPase activity (GTP→GDP hydrolysis), terminating the signal. The KRAS G12D substitution (glycine→aspartate at position 12) sterically blocks the GTPase catalytic site — RAS cannot hydrolyse GTP and is permanently locked in the active GTP-bound conformation. Constitutively active RAS continuously activates RAF, which phosphorylates MEK, which phosphorylates ERK — the entire cascade runs indefinitely without any EGF ligand, driving uncontrolled cell proliferation.
+      </div>
+      <div style="margin-top:.6rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s1e')">▸ Check your answer for Part (e)</div>
+      <div class="score-panel" id="s1e">
+        <div class="score-hdr">Semantic Keyword Checker — Part (e)</div>
+        <div class="score-wrap">
+          <textarea class="score-input" placeholder="Type your answer here..." id="t1e"></textarea>
+          <button class="score-submit" onclick="scoreAnswer('t1e','r1e',['GTPase','hydrolysis','GTP','GDP','locked','constitutively','position 12','sterically','aspartate','glycine','RAF','constitutive activation','uncontrolled'])">Score My Answer</button>
+          <div class="score-result" id="r1e"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     QUESTION 2 — CRISPR / DNA repair / Genetics
+══════════════════════════════════════════ -->
+<div class="question" id="q2">
+  <div class="q-hdr">
+    <span class="q-num">2</span>
+    <span class="q-badge">Long Free-Response</span>
+    <span style="font-size:12px;color:var(--ink3);font-style:italic">~25 minutes</span>
+    <div class="q-pts-box"><span class="n">9</span>points</div>
+  </div>
+
+  <div class="ctx-box">
+    <div class="ctx-lbl">Background</div>
+    CRISPR-Cas9 is a bacterial immune system adapted as a precision gene-editing tool. A single guide RNA (sgRNA) with a sequence complementary to a target DNA strand directs the Cas9 nuclease to create a double-strand break (DSB). DSBs are repaired by either (1) <strong>Non-Homologous End Joining (NHEJ)</strong>, an error-prone pathway producing small insertions/deletions (indels), or (2) <strong>Homology-Directed Repair (HDR)</strong>, which uses a donor DNA template to insert a precise sequence. Scientists used CRISPR-Cas9 to delete three base pairs from the <em>smc3</em> gene encoding the SMC3 cohesin subunit. Three cell lines were generated: wild-type (WT), heterozygous edited (smc3+/Δ), and homozygous edited (smc3Δ/Δ). Chromosome segregation errors during mitosis were quantified (Table 2). A separate experiment measured NHEJ and HDR efficiencies at increasing sgRNA concentrations (Figure 4).
+  </div>
+
+  <div class="two-fig">
+    <div class="fig">
+      <div class="fig-title">Table 2. Chromosome segregation data (48 h, n = 200 cells/strain)</div>
+      <table class="dtbl">
+        <thead><tr><th>Cell line</th><th>SMC3 protein (% WT)</th><th>Segregation errors (%)</th><th>Aneuploidy rate per division (%)</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">WT</td><td>100</td><td>2.1 ± 0.4</td><td>0.8 ± 0.2</td></tr>
+          <tr><td class="rh">smc3+/Δ</td><td>48 ± 3</td><td>14.7 ± 1.9</td><td>6.3 ± 0.8</td></tr>
+          <tr><td class="rh">smc3Δ/Δ</td><td>3 ± 1</td><td>81.2 ± 3.6</td><td>44.1 ± 2.9</td></tr>
+        </tbody>
+      </table>
+      <div class="fig-cap">Mean ± SE; 3 biological replicates</div>
+    </div>
+    <div class="fig">
+      <div class="fig-title">Figure 4. Editing efficiency vs sgRNA concentration</div>
+      <svg viewBox="0 0 240 180" style="width:100%;display:block">
+        <line x1="40" y1="10" x2="40" y2="145" stroke="#111" stroke-width="1.5"/>
+        <line x1="40" y1="145" x2="225" y2="145" stroke="#111" stroke-width="1.5"/>
+        <text x="36" y="148" text-anchor="end" font-size="8">0</text>
+        <text x="36" y="116" text-anchor="end" font-size="8">20</text>
+        <text x="36" y="84" text-anchor="end" font-size="8">40</text>
+        <text x="36" y="52" text-anchor="end" font-size="8">60</text>
+        <text x="36" y="20" text-anchor="end" font-size="8">80</text>
+        <line x1="40" y1="116" x2="225" y2="116" stroke="#eee" stroke-width="1"/>
+        <line x1="40" y1="84" x2="225" y2="84" stroke="#eee" stroke-width="1"/>
+        <line x1="40" y1="52" x2="225" y2="52" stroke="#eee" stroke-width="1"/>
+        <text x="8" y="80" text-anchor="middle" font-size="9" font-weight="bold" transform="rotate(-90 8 80)">Efficiency (%)</text>
+        <!-- NHEJ: 3,38,52 at 0,50,100 nM -->
+        <polyline points="65,143.1 125,75.5 185,55.5" stroke="#111" stroke-width="2" fill="none"/>
+        <circle cx="65" cy="143.1" r="3.5" fill="#111"/>
+        <circle cx="125" cy="75.5" r="3.5" fill="#111"/>
+        <circle cx="185" cy="55.5" r="3.5" fill="#111"/>
+        <!-- HDR: 0.5,4,6 -->
+        <polyline points="65,144.7 125,141.2 185,139.5" stroke="#555" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+        <circle cx="65" cy="144.7" r="3.5" fill="#555"/>
+        <circle cx="125" cy="141.2" r="3.5" fill="#555"/>
+        <circle cx="185" cy="139.5" r="3.5" fill="#555"/>
+        <!-- X labels -->
+        <text x="65" y="157" text-anchor="middle" font-size="8">0</text>
+        <text x="125" y="157" text-anchor="middle" font-size="8">50</text>
+        <text x="185" y="157" text-anchor="middle" font-size="8">100</text>
+        <text x="130" y="168" text-anchor="middle" font-size="9" font-weight="bold">sgRNA conc. (nM)</text>
+        <!-- Legend -->
+        <line x1="45" y1="20" x2="65" y2="20" stroke="#111" stroke-width="2"/>
+        <text x="68" y="24" font-size="9">NHEJ</text>
+        <line x1="45" y1="35" x2="65" y2="35" stroke="#555" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="68" y="39" font-size="9">HDR</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="fig">
+    <div class="fig-title">Figure 5. CRISPR-Cas9 cleavage and DSB repair pathways</div>
+    <svg viewBox="0 0 660 110" style="width:100%;display:block">
+      <defs><marker id="a2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#333"/></marker></defs>
+      <rect x="10" y="40" width="140" height="22" rx="3" fill="#e8e8e8" stroke="#111" stroke-width="1.5"/>
+      <text x="80" y="55" text-anchor="middle" font-size="10" font-weight="bold">Target DNA (smc3)</text>
+      <rect x="38" y="18" width="84" height="20" rx="3" fill="#bbb" stroke="#111" stroke-width="1"/>
+      <text x="80" y="31" text-anchor="middle" font-size="9" font-weight="bold">sgRNA : Cas9</text>
+      <line x1="80" y1="38" x2="80" y2="40" stroke="#333" stroke-width="1.5" marker-end="url(#a2)"/>
+      <text x="72" y="72" font-size="16" fill="#111">⚡</text>
+      <text x="90" y="68" font-size="9" fill="#111" font-weight="bold">DSB</text>
+      <line x1="80" y1="62" x2="80" y2="74" stroke="#333" stroke-width="1.5"/>
+      <line x1="80" y1="74" x2="220" y2="74" stroke="#333" stroke-width="1.5" marker-end="url(#a2)"/>
+      <line x1="80" y1="74" x2="420" y2="74" stroke="#333" stroke-width="1.5" marker-end="url(#a2)"/>
+      <rect x="220" y="58" width="130" height="32" rx="4" fill="#eee" stroke="#111" stroke-width="1.5"/>
+      <text x="285" y="73" text-anchor="middle" font-size="10" font-weight="bold">NHEJ</text>
+      <text x="285" y="84" text-anchor="middle" font-size="9" fill="#333">Indels → frameshift → null</text>
+      <rect x="420" y="58" width="130" height="32" rx="4" fill="#fff" stroke="#111" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="485" y="73" text-anchor="middle" font-size="10" font-weight="bold">HDR</text>
+      <text x="485" y="84" text-anchor="middle" font-size="9" fill="#333">Template → precise insertion</text>
+      <text x="285" y="102" text-anchor="middle" font-size="9" fill="#666">↑ Efficient at high [sgRNA]</text>
+      <text x="485" y="102" text-anchor="middle" font-size="9" fill="#666">Requires donor template; low efficiency</text>
+    </svg>
+  </div>
+
+  <div class="part"><span class="part-lbl">(a)</span><span class="cmd">Describe</span> the molecular basis by which the sgRNA directs Cas9 to the <em>smc3</em> target sequence. <span class="part-pts">(1 point)</span></div>
+  <div class="part"><span class="part-lbl">(b)</span>Using Table 2, <span class="cmd">construct</span> an appropriately labelled bar graph showing segregation error rates for all three cell lines with error bars. In the space provided below. <span class="cmd">Determine</span> whether the difference between WT and smc3+/Δ is statistically significant. <span class="part-pts">(2 points)</span></div>
+  <div style="margin:0 1rem;min-height:130px;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;background:#fafafa"><span style="font-size:11px;color:#ccc;font-style:italic">Graph construction space</span></div>
+  <div class="part" style="margin-top:.75rem"><span class="part-lbl">(c)</span><span class="cmd">Explain</span> why smc3Δ/Δ cells (3% SMC3) show dramatically more segregation errors than smc3+/Δ cells (48% SMC3), using knowledge of cohesin's role in mitosis. <span class="part-pts">(1 point)</span></div>
+  <div class="part"><span class="part-lbl">(d)</span>Using Figure 4, <span class="cmd">describe</span> the relationship between sgRNA concentration and NHEJ efficiency. <span class="cmd">Explain</span> why HDR efficiency remains low even at 100 nM sgRNA. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(e)</span>Scientists plan gene therapy using HDR to correct a patient's <em>smc3</em> mutation. <span class="cmd">Justify</span> why both Cas9-sgRNA and a donor repair template must be co-delivered. <span class="cmd">Predict</span> segregation error rates in fully corrected cells compared to smc3+/Δ cells. <span class="part-pts">(2 points)</span></div>
+  <div class="part"><span class="part-lbl">(f)</span>The scientists introduced a <strong>3-bp</strong> deletion. <span class="cmd">Explain</span> why this specific size is less likely to cause complete loss of function than a 1-bp or 2-bp deletion at the same site. <span class="part-pts">(1 point)</span></div>
+
+  <button class="reveal-btn" id="r2-btn" onclick="reveal(2)">▼ Reveal Model Answer — Question 2</button>
+  <div class="answer-panel" id="a2-panel">
+    <div class="ans-hdr">Model Answer — Question 2 <span class="total-pts">9 points available</span></div>
+    <div class="ans-part">
+      <div class="ans-part-lbl">Part (a) — 1 pt <span class="pts-badge">1</span></div>
+      <div class="ans-body">The sgRNA contains a 20-nucleotide spacer sequence that is <em>complementary</em> to the target DNA strand of <em>smc3</em>. Sequence recognition occurs via Watson-Crick complementary base pairing (A–T and G–C hydrogen bonds) between the sgRNA spacer and the target strand. This positions Cas9's two nuclease domains (HNH and RuvC) to cleave both DNA strands, creating a blunt-ended DSB three bases upstream of the PAM sequence (NGG). Specificity depends entirely on the 20-nucleotide complementarity between sgRNA and target.</div>
+      <div style="margin-top:.5rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s2a')">▸ Check your answer</div>
+      <div class="score-panel" id="s2a"><div class="score-hdr">Semantic Keyword Checker — Q2(a)</div><div class="score-wrap"><textarea class="score-input" id="t2a" placeholder="Type your answer..."></textarea><button class="score-submit" onclick="scoreAnswer('t2a','r2a',['complementary','base pairing','20 nucleotide','spacer','Watson-Crick','PAM','sgRNA','specificity','hydrogen bonds','target strand'])">Score</button><div class="score-result" id="r2a"></div></div></div>
+    </div>
+    <div class="ans-part">
+      <div class="ans-part-lbl">Parts (b)–(f) — 8 pts <span class="pts-badge">2+1+2+2+1</span></div>
+      <div class="ans-body">
+        <strong>(b) Significance:</strong> WT error rate 2.1 ± 0.4 → ±2SE range: 1.3–2.9%. smc3+/Δ rate 14.7 ± 1.9 → ±2SE range: 10.9–18.5%. These ranges do NOT overlap → the difference is <em>statistically significant</em>. Graph: bar chart, x-axis = cell line, y-axis = "Cells with segregation errors (%)" from 0–100, error bars = ±1 SE drawn on each bar, bars accurately plotted.<br><br>
+        <strong>(c) Cohesin dosage:</strong> Cohesin (SMC3) physically holds sister chromatids together from S phase until anaphase. At 48% SMC3, most sister-chromatid pairs are still joined; at 3% SMC3 nearly no cohesin is present → sister chromatids are not held together → kinetochores cannot biorient → spindle assembly checkpoint is overwhelmed → massive segregation errors (81.2%) and aneuploidy (44.1%).<br><br>
+        <strong>(d) sgRNA/NHEJ relationship:</strong> Positive relationship — NHEJ efficiency increases as sgRNA concentration rises (3% → 52% from 0–100 nM) because more Cas9-sgRNA complex means more DSBs, and NHEJ repairs any DSB. HDR remains low (≤6%) because HDR requires a donor DNA template physically present at the break site. Increasing Cas9 activity (more breaks) does not provide more template; HDR is limited by template availability, not by cutting efficiency. HDR is also cell-cycle restricted (active only in S/G2 phase).<br><br>
+        <strong>(e) Gene therapy:</strong> Both must be co-delivered because Cas9-sgRNA creates the break at the precise <em>smc3</em> location, and the donor template must be present <em>at that moment and location</em> so HDR machinery can use it for precise repair. Without the template, NHEJ would occur, potentially worsening the mutation. Corrected cells (both alleles repaired) would produce 100% normal SMC3 → segregation errors return to ~2% WT baseline, dramatically lower than smc3+/Δ's 14.7%.<br><br>
+        <strong>(f) 3-bp vs 1/2-bp deletion:</strong> A 3-bp deletion removes exactly one codon; the reading frame is preserved because 3 is a multiple of the 3-nucleotide codon unit. All downstream codons continue to be read in-frame → protein is missing one amino acid but may retain partial function. A 1-bp or 2-bp deletion shifts the reading frame (frameshift) → all downstream codons are misread → aberrant amino acid sequence → premature stop codon → truncated non-functional protein → complete loss of function.
+      </div>
+      <div style="margin-top:.5rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s2bf')">▸ Check your answer for Parts (b)–(f)</div>
+      <div class="score-panel" id="s2bf"><div class="score-hdr">Semantic Keyword Checker — Q2(b-f)</div><div class="score-wrap"><textarea class="score-input" id="t2bfv" placeholder="Type your combined answer for Parts b-f..."></textarea><button class="score-submit" onclick="scoreAnswer('t2bfv','r2bfv',['overlap','significant','cohesin','sister chromatids','kinetochore','biorient','NHEJ','HDR','template','donor','frameshift','reading frame','in-frame','codon','anaphase','spindle','corrected','100%','WT baseline'])">Score</button><div class="score-result" id="r2bfv"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SHORT FRQ DIVIDER -->
+<div class="sec-div" style="margin-top:.5rem">Short Free-Response Questions — 3 through 6</div>
+<div class="sec-sub"><strong>4 points each · ~8–10 minutes each · Answer all 4 parts per question</strong></div>
+
+<!-- QUESTION 3 — Nitrogen cycle / Ecology -->
+<div class="question" id="q3">
+  <div class="q-hdr"><span class="q-num">3</span><span class="q-badge short">Short FRQ</span><span style="font-size:12px;color:var(--ink3);font-style:italic">~8–10 min</span><div class="q-pts-box"><span class="n">4</span>pts</div></div>
+  <div class="ctx-box"><div class="ctx-lbl">Background</div>Black locust (<em>Robinia pseudoacacia</em>) is an invasive nitrogen-fixing tree. Its root-associated <em>Rhizobium</em> bacteria convert atmospheric N₂ to NH₄⁺, dramatically raising soil nitrogen in invaded forests. Table 3 shows soil nitrogen concentrations and native plant diversity in invaded versus non-invaded control plots (n = 12 plots, matched for soil type and precipitation).</div>
+  <div class="fig">
+    <div class="fig-title">Table 3. Soil nitrogen and native plant diversity by treatment (mean ± SE)</div>
+    <table class="dtbl">
+      <thead><tr><th>Treatment</th><th>NH₄⁺ (mg/kg)</th><th>NO₃⁻ (mg/kg)</th><th>Total soil N (mg/kg)</th><th>Native spp. richness</th><th>Native biomass (g/m²)</th></tr></thead>
+      <tbody>
+        <tr><td class="rh">Non-invaded (control)</td><td>1.2 ± 0.2</td><td>0.4 ± 0.1</td><td>3.8 ± 0.3</td><td>22.4 ± 1.6</td><td>182 ± 14</td></tr>
+        <tr><td class="rh">Black locust invaded</td><td>8.7 ± 0.9</td><td>6.3 ± 0.8</td><td>24.1 ± 2.1</td><td>9.1 ± 1.3</td><td>78 ± 11</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sub-ctx"><strong>Nitrogen cycle reference:</strong> N₂-fixation: N₂ → NH₄⁺ · Nitrification: NH₄⁺ → NO₂⁻ → NO₃⁻ · Denitrification: NO₃⁻ → N₂ · Assimilation: plants take up NH₄⁺ or NO₃⁻</div>
+  <div class="part"><span class="part-lbl">A.</span><span class="cmd">Describe</span> how black locust invasion alters the nitrogen cycle in the invaded plots, referencing at least two specific nitrogen cycle processes. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">B.</span><span class="cmd">Explain</span> how increased bioavailable nitrogen leads to the decrease in native plant species richness shown in Table 3. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">C.</span><span class="cmd">State</span> the null hypothesis for an experiment testing whether removing black locust restores native species richness to pre-invasion levels. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">D.</span><span class="cmd">Justify</span> the claim that black locust invasion decreases ecosystem resilience, referencing biodiversity and functional redundancy. <span class="part-pts">(1 pt)</span></div>
+
+  <button class="reveal-btn" id="r3-btn" onclick="reveal(3)">▼ Reveal Model Answer — Question 3</button>
+  <div class="answer-panel" id="a3-panel">
+    <div class="ans-hdr">Model Answer — Question 3 <span class="total-pts">4 points</span></div>
+    <div class="ans-part"><div class="ans-part-lbl">A <span class="pts-badge">1</span></div><div class="ans-body">Black locust invasion dramatically increases nitrogen fixation (N₂ → NH₄⁺) via its <em>Rhizobium</em> root symbionts, raising NH₄⁺ from 1.2 to 8.7 mg/kg — a 7.25× increase. This elevated NH₄⁺ also accelerates <em>nitrification</em> (NH₄⁺ → NO₂⁻ → NO₃⁻ by nitrifying bacteria), raising NO₃⁻ from 0.4 to 6.3 mg/kg (15.75×). The net effect is that both forms of plant-available nitrogen increase massively, fundamentally altering the nutrient dynamics of the invaded ecosystem.</div>
+      <div style="margin-top:.5rem;font-size:11px;color:#888;font-style:italic;cursor:pointer" onclick="toggleScorer('s3a')">▸ Check your answer</div>
+      <div class="score-panel" id="s3a"><div class="score-hdr">Semantic Keyword Checker</div><div class="score-wrap"><textarea class="score-input" id="t3a" placeholder="Your answer..."></textarea><button class="score-submit" onclick="scoreAnswer('t3a','r3a',['nitrogen fixation','nitrification','NH4','NO3','Rhizobium','symbiont','increase','N2','fixation'])">Score</button><div class="score-result" id="r3a"></div></div></div>
+    </div>
+    <div class="ans-part"><div class="ans-part-lbl">B <span class="pts-badge">1</span></div><div class="ans-body">Native plant species in these low-nitrogen forests are adapted to nitrogen-poor conditions and are specialist nitrogen-efficient species. When black locust elevates soil nitrogen, fast-growing nitrophilous (nitrogen-loving) competitors — including the invasive itself and ruderal weeds — gain a competitive advantage, growing faster and outcompeting native specialists for light, water, and space. Competitive exclusion reduces native species richness from 22.4 to 9.1 (a 59% reduction), as nitrogen-efficient natives cannot compete against the newly favoured nitrophilous guild.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">C <span class="pts-badge">1</span></div><div class="ans-body"><em>"Black locust removal has no effect on native plant species richness."</em> [Must state "no effect" or "no significant difference"; IV = removal; DV = native species richness.]</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">D <span class="pts-badge">1</span></div><div class="ans-body">Black locust invasion reduces native species richness from 22.4 to 9.1 (–59%). Fewer species means reduced functional redundancy — fewer alternative species exist to fill an ecological role if any remaining native species is lost. When redundancy is low, any further disturbance (drought, additional invasion, disease) cannot be buffered by substitute species, so the ecosystem is less able to recover → decreased resilience. High biodiversity provides insurance against disturbance; this invasion removes most of that insurance.</div></div>
+  </div>
+</div>
+
+<!-- QUESTION 4 — Evolution / HW / Parallel evolution -->
+<div class="question" id="q4">
+  <div class="q-hdr"><span class="q-num">4</span><span class="q-badge short">Short FRQ</span><span style="font-size:12px;color:var(--ink3);font-style:italic">~8–10 min</span><div class="q-pts-box"><span class="n">4</span>pts</div></div>
+  <div class="ctx-box"><div class="ctx-lbl">Background</div><em>Astyanax mexicanus</em> cavefish populations have independently colonised ~30 cave systems over the last 20,000–750,000 years. Surface populations have functional eyes and pigmentation. Cave populations have repeatedly and independently evolved eye loss and albinism. The OCA2 protein is required for melanin synthesis. Table 4 shows OCA2 amino acid identities; Table 5 shows cave population genetics data.</div>
+  <div class="two-fig">
+    <div class="fig"><div class="fig-title">Table 4. OCA2 amino acid identities</div>
+      <table class="dtbl"><thead><tr><th>Comparison</th><th>% identity</th><th>Divergence time (yr)</th></tr></thead>
+      <tbody>
+        <tr><td>Surface vs surface (same river)</td><td>99.8</td><td>~1,000</td></tr>
+        <tr><td>Surface vs Pachón cave</td><td>94.2</td><td>~150,000</td></tr>
+        <tr><td>Surface vs Tinaja cave</td><td>94.9</td><td>~120,000</td></tr>
+        <tr><td>Pachón cave vs Tinaja cave</td><td>95.1</td><td>Independent</td></tr>
+      </tbody></table>
+    </div>
+    <div class="fig"><div class="fig-title">Table 5. Pachón cave population genetics (n = 80)</div>
+      <table class="dtbl"><thead><tr><th>Phenotype</th><th>n</th><th>Genotype</th></tr></thead>
+      <tbody>
+        <tr><td>Pigmented</td><td>12</td><td>PP or Pp</td></tr>
+        <tr><td>Albino</td><td>68</td><td>pp</td></tr>
+      </tbody></table>
+      <div class="fig-cap">P = functional allele; p = loss-of-function allele. Assume HWE.</div>
+    </div>
+  </div>
+  <div class="part"><span class="part-lbl">A.</span>Using Table 5, <span class="cmd">calculate</span> the frequency of the p allele and the expected frequency of Pp heterozygotes. Show all work. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">B.</span>Using Table 4, <span class="cmd">describe</span> the genetic evidence that evolution of OCA2 is occurring in cave populations. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">C.</span><span class="cmd">Explain</span> why pigmentation loss has evolved independently in all ~30 cave populations, referencing natural selection and the fitness cost of melanin synthesis in darkness. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">D.</span>A researcher claims eye loss could NOT be explained by genetic drift alone. <span class="cmd">Justify</span> this claim by comparing the predictive outcome of drift versus directional selection across 30 independent cave populations. <span class="part-pts">(1 pt)</span></div>
+
+  <button class="reveal-btn" id="r4-btn" onclick="reveal(4)">▼ Reveal Model Answer — Question 4</button>
+  <div class="answer-panel" id="a4-panel">
+    <div class="ans-hdr">Model Answer — Question 4 <span class="total-pts">4 points</span></div>
+    <div class="ans-part"><div class="ans-part-lbl">A <span class="pts-badge">1</span></div><div class="ans-body">Albino (pp) = 68/80 = 0.85 = q². ∴ q = √0.85 = 0.922. p = 1 − 0.922 = 0.078. Heterozygotes Pp = 2pq = 2(0.078)(0.922) = <strong>0.144 (14.4%)</strong>. [Show formula, show q² identification, show square root, show 2pq calculation.]</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">B <span class="pts-badge">1</span></div><div class="ans-body">Within surface populations of the same river, OCA2 amino acid identity is 99.8% — virtually no change. Between surface and cave populations (diverged ~120,000–150,000 years ago), OCA2 identity is only 94.2–94.9%, meaning cave populations have accumulated ~5.1–5.8% amino acid substitutions not found in surface fish. This measurable divergence in protein sequence reflects allele frequency change (evolution) occurring in cave populations since geographic isolation.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">C <span class="pts-badge">1</span></div><div class="ans-body">In permanent darkness, eyes provide no survival benefit — they cannot detect light — while melanin synthesis consumes metabolic energy and cellular resources. Individuals with loss-of-function mutations in <em>oca2</em> or eye development genes have slightly higher fitness because they redirect that energy to reproduction, foraging, or other functions. Natural selection therefore consistently and repeatedly favours the loss-of-function allele (p) in every cave population facing the same selective pressure (perpetual darkness + energy cost), driving p toward fixation independently in all cave systems.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">D <span class="pts-badge">1</span></div><div class="ans-body">Genetic drift is random — it is equally likely to increase or decrease any allele frequency by chance. If eye loss were due to drift, some cave populations would by chance lose the functional allele while others retained it, producing variable outcomes across 30 populations. Instead, all ~30 cave populations have independently evolved the same phenotype (eye loss and albinism) in the same direction. This consistent, repeated, directional outcome in every independently evolving population is the hallmark of natural selection, not drift. Only selection — acting on the same fitness cost in the same environment — would produce the same adaptive outcome reproducibly across 30 independent trials.</div></div>
+  </div>
+</div>
+
+<!-- QUESTION 5 — miRNA / Gene regulation -->
+<div class="question" id="q5">
+  <div class="q-hdr"><span class="q-num">5</span><span class="q-badge short">Short FRQ</span><span style="font-size:12px;color:var(--ink3);font-style:italic">~8–10 min</span><div class="q-pts-box"><span class="n">4</span>pts</div></div>
+  <div class="ctx-box"><div class="ctx-lbl">Background</div>MicroRNAs (miRNAs) are ~22-nt non-coding RNAs that repress gene expression post-transcriptionally. The cardiac miRNA <strong>miR-208</strong> is upregulated in hypoxic cardiac muscle cells. miR-208 targets the 3′UTR of <em>THRAP1</em> mRNA, which encodes a transcriptional repressor of cardiac myosin heavy chain (β-MHC) genes. When THRAP1 is present, β-MHC transcription is repressed; when THRAP1 is absent, β-MHC is expressed, enabling forceful cardiac contraction. Figure 6 shows miR-208 levels and THRAP1 protein under normal and hypoxic (stressed) conditions.</div>
+  <div class="fig">
+    <div class="fig-title">Figure 6. miR-208 expression and THRAP1 protein level in normal vs hypoxic cardiac cells</div>
+    <svg viewBox="0 0 480 150" style="width:100%;display:block">
+      <!-- Panel 1: miR-208 -->
+      <text x="115" y="12" text-anchor="middle" font-size="10" font-weight="bold">miR-208 (relative)</text>
+      <line x1="35" y1="18" x2="35" y2="115" stroke="#111" stroke-width="1.5"/>
+      <line x1="35" y1="115" x2="195" y2="115" stroke="#111" stroke-width="1.5"/>
+      <text x="30" y="118" text-anchor="end" font-size="8">0</text>
+      <text x="30" y="90" text-anchor="end" font-size="8">1</text>
+      <text x="30" y="62" text-anchor="end" font-size="8">2</text>
+      <text x="30" y="34" text-anchor="end" font-size="8">3</text>
+      <!-- Normal: 1.0 -->
+      <rect x="55" y="90" width="34" height="25" fill="#111"/>
+      <text x="72" y="130" text-anchor="middle" font-size="8">Normal</text>
+      <line x1="72" y1="84" x2="72" y2="97" stroke="#777" stroke-width="1.5"/><line x1="69" y1="84" x2="75" y2="84" stroke="#777" stroke-width="1.5"/>
+      <!-- Stressed: 3.8 -->
+      <rect x="120" y="22.4" width="34" height="92.6" fill="#555"/>
+      <text x="137" y="130" text-anchor="middle" font-size="8">Hypoxic</text>
+      <line x1="137" y1="16" x2="137" y2="29" stroke="#777" stroke-width="1.5"/><line x1="134" y1="16" x2="140" y2="16" stroke="#777" stroke-width="1.5"/>
+      <!-- Panel 2: THRAP1 -->
+      <text x="355" y="12" text-anchor="middle" font-size="10" font-weight="bold">THRAP1 protein (relative)</text>
+      <line x1="265" y1="18" x2="265" y2="115" stroke="#111" stroke-width="1.5"/>
+      <line x1="265" y1="115" x2="455" y2="115" stroke="#111" stroke-width="1.5"/>
+      <text x="260" y="118" text-anchor="end" font-size="8">0</text>
+      <text x="260" y="82" text-anchor="end" font-size="8">1</text>
+      <text x="260" y="46" text-anchor="end" font-size="8">2</text>
+      <!-- Normal: 2.9 -->
+      <rect x="285" y="46.3" width="34" height="68.7" fill="#111"/>
+      <text x="302" y="130" text-anchor="middle" font-size="8">Normal</text>
+      <line x1="302" y1="40" x2="302" y2="53" stroke="#777" stroke-width="1.5"/><line x1="299" y1="40" x2="305" y2="40" stroke="#777" stroke-width="1.5"/>
+      <!-- Hypoxic: 0.3 -->
+      <rect x="360" y="105.4" width="34" height="9.6" fill="#555"/>
+      <text x="377" y="130" text-anchor="middle" font-size="8">Hypoxic</text>
+      <line x1="377" y1="99" x2="377" y2="112" stroke="#777" stroke-width="1.5"/><line x1="374" y1="99" x2="380" y2="99" stroke="#777" stroke-width="1.5"/>
+      <text x="245" y="145" text-anchor="middle" font-size="8" fill="#888">Error bars = ±2 SE; n = 4 biological replicates</text>
+    </svg>
+  </div>
+  <div class="part"><span class="part-lbl">A.</span><span class="cmd">Describe</span> how miR-208 uses the RISC complex to reduce THRAP1 protein levels. Specify where in the cell this occurs and the molecular basis of target recognition. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">B.</span>Using Figure 6, <span class="cmd">explain</span> the inverse relationship between miR-208 and THRAP1 in hypoxic cells. Then <span class="cmd">predict</span> β-MHC transcription in hypoxic cells relative to normal. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">C.</span>A mutation destroys miR-208's binding site in THRAP1's 3′UTR. <span class="cmd">Predict</span> the effect on β-MHC expression and cardiac function in hypoxic cells. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">D.</span><span class="cmd">Explain</span> why miRNA-mediated THRAP1 repression is fundamentally different from silencing the THRAP1 gene by DNA methylation of its promoter, even though both reduce THRAP1 protein. <span class="part-pts">(1 pt)</span></div>
+
+  <button class="reveal-btn" id="r5-btn" onclick="reveal(5)">▼ Reveal Model Answer — Question 5</button>
+  <div class="answer-panel" id="a5-panel">
+    <div class="ans-hdr">Model Answer — Question 5 <span class="total-pts">4 points</span></div>
+    <div class="ans-part"><div class="ans-part-lbl">A <span class="pts-badge">1</span></div><div class="ans-body">miR-208 is loaded into the RISC complex in the <em>cytoplasm</em>. The guide strand of miR-208 base-pairs with a complementary sequence in the 3′UTR of THRAP1 mRNA via Watson-Crick hydrogen bonds — sequence-specific target recognition. Because animal miRNA-mRNA pairing is often imperfect, RISC primarily causes translational repression (ribosome stalling) and deadenylation of THRAP1 mRNA, reducing THRAP1 protein output. This is post-transcriptional regulation — the THRAP1 gene continues to be transcribed, but the protein is not efficiently translated.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">B <span class="pts-badge">1</span></div><div class="ans-body">In hypoxic cells, miR-208 rises ~3.8× (1.0 → 3.8), causing increased RISC-mediated translational repression of THRAP1 mRNA → THRAP1 protein falls ~10× (2.9 → 0.3). Without THRAP1, the transcriptional repressor of β-MHC is absent → β-MHC gene is derepressed → β-MHC transcription is <em>higher</em> in hypoxic cells than in normal cells. This allows the stressed heart to upregulate its contractile protein as an adaptive response to reduced oxygen.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">C <span class="pts-badge">1</span></div><div class="ans-body">If the miR-208 binding site is mutated, miR-208 cannot bind THRAP1 mRNA even when miR-208 is highly expressed in hypoxic cells. THRAP1 mRNA is no longer repressed → THRAP1 protein remains high during hypoxia → THRAP1 continues to repress the β-MHC promoter → β-MHC expression stays low → cardiac muscle cannot upregulate contractile protein in response to stress → impaired adaptive response to hypoxia, reduced cardiac contractile force.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">D <span class="pts-badge">1</span></div><div class="ans-body">miRNA regulation is <em>post-transcriptional</em> — the THRAP1 gene is still transcribed into mRNA; regulation acts on the mRNA in the cytoplasm after transcription is complete. DNA methylation of the THRAP1 promoter is <em>transcriptional/epigenetic</em> regulation — it prevents RNA polymerase from binding, so THRAP1 mRNA is never made. Key distinction: miRNA affects mRNA translation (cytoplasm, mRNA level); promoter methylation affects transcription initiation (nucleus, DNA level). Additionally, miRNA regulation is rapidly reversible (miR-208 levels change within hours); promoter methylation is inherited through cell divisions and is less rapidly reversible.</div></div>
+  </div>
+</div>
+
+<!-- QUESTION 6 — SGO1 / Meiosis / Protein dosage -->
+<div class="question" id="q6">
+  <div class="q-hdr"><span class="q-num">6</span><span class="q-badge short">Short FRQ</span><span style="font-size:12px;color:var(--ink3);font-style:italic">~8–10 min</span><div class="q-pts-box"><span class="n">4</span>pts</div></div>
+  <div class="ctx-box"><div class="ctx-lbl">Background</div>Shugoshin (SGO1) protects centromeric cohesin during meiosis I by recruiting PP2A phosphatase, which dephosphorylates and shields centromeric cohesin from separase cleavage. Scientists generated four <em>sgo1</em> point-mutation alleles (sgo1-A through sgo1-D) plus a heterozygous deletion (sgo1-D = +/del) in yeast. All four heterozygous mutant strains produce ~50% of WT SGO1 protein. Premature sister chromatid separation (PSCS) during meiosis I was measured (Figure 7).</div>
+  <div class="fig">
+    <div class="fig-title">Figure 7. SGO1 protein levels (Panel A) and premature sister chromatid separation (Panel B) across genotypes</div>
+    <svg viewBox="0 0 620 185" style="width:100%;display:block">
+      <!-- Panel A: protein -->
+      <text x="155" y="13" text-anchor="middle" font-size="10" font-weight="bold">Panel A: SGO1 protein (% WT)</text>
+      <line x1="30" y1="18" x2="30" y2="145" stroke="#111" stroke-width="1.5"/>
+      <line x1="30" y1="145" x2="295" y2="145" stroke="#111" stroke-width="1.5"/>
+      <text x="26" y="148" text-anchor="end" font-size="8">0</text>
+      <text x="26" y="103" text-anchor="end" font-size="8">50</text>
+      <text x="26" y="58" text-anchor="end" font-size="8">100</text>
+      <!-- WT: 100 -->
+      <rect x="40" y="58" width="30" height="87" fill="#111"/>
+      <text x="55" y="160" text-anchor="middle" font-size="8">WT</text>
+      <line x1="55" y1="51" x2="55" y2="65" stroke="#777" stroke-width="1.5"/><line x1="52" y1="51" x2="58" y2="51" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-A: ~52 -->
+      <rect x="85" y="101.2" width="30" height="43.8" fill="#555"/>
+      <text x="100" y="160" text-anchor="middle" font-size="8">sgo1-A</text>
+      <line x1="100" y1="94" x2="100" y2="108" stroke="#777" stroke-width="1.5"/><line x1="97" y1="94" x2="103" y2="94" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-B: ~49 -->
+      <rect x="130" y="102.9" width="30" height="42.1" fill="#555"/>
+      <text x="145" y="160" text-anchor="middle" font-size="8">sgo1-B</text>
+      <line x1="145" y1="95" x2="145" y2="110" stroke="#777" stroke-width="1.5"/><line x1="142" y1="95" x2="148" y2="95" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-C: ~48 -->
+      <rect x="175" y="103.8" width="30" height="41.2" fill="#555"/>
+      <text x="190" y="160" text-anchor="middle" font-size="8">sgo1-C</text>
+      <line x1="190" y1="97" x2="190" y2="111" stroke="#777" stroke-width="1.5"/><line x1="187" y1="97" x2="193" y2="97" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-D: ~50 -->
+      <rect x="220" y="103" width="30" height="42" fill="#555" opacity=".6"/>
+      <text x="235" y="160" text-anchor="middle" font-size="8">sgo1-D</text>
+      <text x="235" y="170" text-anchor="middle" font-size="7">(+/del)</text>
+      <line x1="235" y1="96" x2="235" y2="110" stroke="#777" stroke-width="1.5"/><line x1="232" y1="96" x2="238" y2="96" stroke="#777" stroke-width="1.5"/>
+
+      <!-- Panel B: PSCS -->
+      <text x="470" y="13" text-anchor="middle" font-size="10" font-weight="bold">Panel B: PSCS frequency (%)</text>
+      <line x1="310" y1="18" x2="310" y2="145" stroke="#111" stroke-width="1.5"/>
+      <line x1="310" y1="145" x2="610" y2="145" stroke="#111" stroke-width="1.5"/>
+      <text x="306" y="148" text-anchor="end" font-size="8">0</text>
+      <text x="306" y="115" text-anchor="end" font-size="8">10</text>
+      <text x="306" y="82" text-anchor="end" font-size="8">20</text>
+      <text x="306" y="49" text-anchor="end" font-size="8">30</text>
+      <text x="306" y="18" text-anchor="end" font-size="8">40</text>
+      <line x1="310" y1="115" x2="610" y2="115" stroke="#eee" stroke-width="1"/>
+      <line x1="310" y1="82" x2="610" y2="82" stroke="#eee" stroke-width="1"/>
+      <!-- WT: 3 -->
+      <rect x="320" y="136.1" width="30" height="8.9" fill="#111"/>
+      <text x="335" y="160" text-anchor="middle" font-size="8">WT</text>
+      <line x1="335" y1="130" x2="335" y2="143" stroke="#777" stroke-width="1.5"/><line x1="332" y1="130" x2="338" y2="130" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-A: 8 -->
+      <rect x="365" y="118.6" width="30" height="26.4" fill="#444"/>
+      <text x="380" y="160" text-anchor="middle" font-size="8">sgo1-A</text>
+      <line x1="380" y1="112" x2="380" y2="125" stroke="#777" stroke-width="1.5"/><line x1="377" y1="112" x2="383" y2="112" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-B: 36% -->
+      <rect x="410" y="26.2" width="30" height="118.8" fill="#111"/>
+      <text x="425" y="160" text-anchor="middle" font-size="8">sgo1-B</text>
+      <line x1="425" y1="19" x2="425" y2="33" stroke="#777" stroke-width="1.5"/><line x1="422" y1="19" x2="428" y2="19" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-C: 6 -->
+      <rect x="455" y="125.2" width="30" height="19.8" fill="#555"/>
+      <text x="470" y="160" text-anchor="middle" font-size="8">sgo1-C</text>
+      <line x1="470" y1="119" x2="470" y2="132" stroke="#777" stroke-width="1.5"/><line x1="467" y1="119" x2="473" y2="119" stroke="#777" stroke-width="1.5"/>
+      <!-- sgo1-D: 5 -->
+      <rect x="500" y="128.5" width="30" height="16.5" fill="#555" opacity=".6"/>
+      <text x="515" y="160" text-anchor="middle" font-size="8">sgo1-D</text>
+      <text x="515" y="170" text-anchor="middle" font-size="7">(+/del)</text>
+      <line x1="515" y1="122" x2="515" y2="135" stroke="#777" stroke-width="1.5"/><line x1="512" y1="122" x2="518" y2="122" stroke="#777" stroke-width="1.5"/>
+      <text x="460" y="182" text-anchor="middle" font-size="8" fill="#888">n = 200 meiotic cells/strain; error bars = ±2 SE</text>
+    </svg>
+    <div class="fig-cap">All four mutant alleles produce approximately 50% of WT SGO1 protein (Panel A). sgo1-D is a heterozygous deletion: one WT allele + one deleted allele.</div>
+  </div>
+
+  <div class="part"><span class="part-lbl">A.</span>Based on Panel B, <span class="cmd">identify</span> the allele that most severely disrupts cohesin protection. <span class="cmd">Describe</span> the difference in PSCS frequency between this allele and sgo1-D, using data. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">B.</span>All four alleles produce ~50% SGO1 protein yet sgo1-B shows dramatically higher PSCS. <span class="cmd">Explain</span> what this reveals about the sgo1-B protein specifically. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">C.</span><span class="cmd">Support</span> the claim that 50% of WT SGO1 protein is sufficient for normal centromeric cohesin protection, using data from Figure 7. <span class="part-pts">(1 pt)</span></div>
+  <div class="part"><span class="part-lbl">D.</span>PSCS occurs when centromeric cohesin is prematurely lost in meiosis I. <span class="cmd">Predict</span> the chromosome content of haploid cells produced by a cell with PSCS, and <span class="cmd">justify</span> why this is problematic for fertility. <span class="part-pts">(1 pt)</span></div>
+
+  <button class="reveal-btn" id="r6-btn" onclick="reveal(6)">▼ Reveal Model Answer — Question 6</button>
+  <div class="answer-panel" id="a6-panel">
+    <div class="ans-hdr">Model Answer — Question 6 <span class="total-pts">4 points</span></div>
+    <div class="ans-part"><div class="ans-part-lbl">A <span class="pts-badge">1</span></div><div class="ans-body"><strong>sgo1-B</strong> is the most severe allele — its PSCS frequency is ~36%, compared to sgo1-D's ~5%. The difference is approximately 31 percentage points; the ±2SE error bars for sgo1-B (36 ± ~12%) and sgo1-D (5 ± ~6%) do not overlap, confirming a statistically significant difference.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">B <span class="pts-badge">1</span></div><div class="ans-body">Because all alleles produce the same amount of protein (~50% WT), protein quantity cannot explain sgo1-B's high PSCS. The sgo1-B amino acid substitution must specifically disrupt SGO1's <em>functional domain</em> — most likely the region that recruits PP2A phosphatase or the centromere-binding domain — rendering the protein non-functional for cohesin protection even though it is produced normally. This demonstrates that protein quantity ≠ protein function: the sgo1-B protein is a <em>qualitative</em> loss-of-function (non-functional protein present at normal levels), not a quantitative one.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">C <span class="pts-badge">1</span></div><div class="ans-body">sgo1-D (heterozygous deletion) produces ~50% WT SGO1 protein from its single WT allele (the deleted allele contributes nothing). Panel B shows sgo1-D has only ~5% PSCS — not significantly different from WT's ~3% (overlapping ±2SE error bars). This demonstrates that 50% of normal SGO1 protein is sufficient for normal centromeric cohesin protection; the function is <em>not haploinsufficient</em>. The cohesin protection pathway operates normally at half the protein level.</div></div>
+    <div class="ans-part"><div class="ans-part-lbl">D <span class="pts-badge">1</span></div><div class="ans-body"><strong>Prediction:</strong> Some haploid cells will have 2 copies of a chromosome (n+1), while their sister cells will have 0 copies (n−1), producing aneuploid gametes. <strong>Justification:</strong> When centromeric cohesin is lost prematurely in meiosis I, sister chromatids separate before anaphase II. They then segregate independently and randomly, so some cells receive both chromatids of a chromosome pair while others receive none. Aneuploid gametes are problematic for fertility because fertilisation produces a trisomic zygote (e.g., trisomy 21) or a monosomic zygote (e.g., monosomy X) — most of which are either developmentally non-viable or cause serious chromosomal disorders, resulting in implantation failure, spontaneous abortion, or severe developmental disability.</div></div>
+  </div>
+</div>
+
+<!-- TOTAL SCORE TRACKER -->
+<div class="total-score-bar" id="total-score-display" style="display:none">
+  <div><div class="tsb-num" id="total-score-num">0</div><div style="font-size:11px;color:#888;margin-top:2px">/ 34 points</div></div>
+  <div class="tsb-detail">
+    <h3>Overall Semantic Score (keyword analysis)</h3>
+    <div class="tsb-prog"><div class="tsb-prog-fill" id="total-score-bar" style="width:0%"></div></div>
+    <div class="tsb-label" id="total-score-label">Complete all answers and scoring checks to see your overall score</div>
+  </div>
+</div>
+
+<!-- END OF EXAM -->
+<div style="padding:1.25rem 1.5rem;text-align:center;border-top:2px solid var(--ink);margin-top:.5rem">
+  <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--ink);text-transform:uppercase;margin-bottom:.3rem">End of Examination</p>
+  <p style="font-size:11px;color:var(--ink3)">Check that you have answered all four parts of every question. Confirm labels (a, b, c, d) are clear.</p>
+</div>
+
+<div class="exam-footer">
+  <div class="foot-inner">
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <img src="logo.jpeg" style="height:18px;width:auto;opacity:.8" alt="gide.ai">
+      <span>AP® Biology 2026 · Predicted FRQ · <strong style="color:#aaa">gide.ai</strong> · Not affiliated with College Board · For educational use only</span>
+    </div>
+    <a href="mailto:mitali@gide.ai" class="foot-email">mitali@gide.ai</a>
+  </div>
+</div>
+
+</div><!-- .page -->
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT — Reveal + Semantic Scoring
+══════════════════════════════════════════ -->
+<script>
+// ── Reveal single answer
+function reveal(n){
+  const btn=document.getElementById('r'+n+'-btn');
+  const panel=document.getElementById('a'+n+'-panel');
+  if(!panel) return;
+  panel.classList.add('open');
+  if(btn){btn.classList.add('revealed');btn.textContent='✓ Answer Revealed — Question '+n;}
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  saveFRQProgress();
+}
+
+// ── Reveal all answers
+function revealAll(){
+  for(let i=1;i<=6;i++) reveal(i);
+}
+
+// ── FRQ progress ──────────────────────────────────
+function saveFRQProgress(){
+  const openPanels=[];
+  for(let i=1;i<=6;i++){const p=document.getElementById('a'+i+'-panel');if(p&&p.classList.contains('open'))openPanels.push(i);}
+  const inputs={};
+  document.querySelectorAll('.score-input').forEach(el=>{if(el.value.trim())inputs[el.id]=el.value;});
+  localStorage.setItem('gide_frq_prog',JSON.stringify({openPanels,inputs,ts:Date.now()}));
+}
+function loadFRQProgress(){
+  try{
+    const d=JSON.parse(localStorage.getItem('gide_frq_prog')||'null');
+    if(!d)return;
+    if(Date.now()-d.ts>7*24*60*60*1000){localStorage.removeItem('gide_frq_prog');return;}
+    (d.openPanels||[]).forEach(n=>reveal(n));
+    Object.entries(d.inputs||{}).forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.value=v;});
+  }catch(e){}
+}
+function resetFRQ(){
+  if(!confirm('Reset all progress — close answers and clear scores?'))return;
+  document.querySelectorAll('.answer-panel.open').forEach(p=>p.classList.remove('open'));
+  for(let i=1;i<=6;i++){
+    const btn=document.getElementById('r'+i+'-btn');
+    if(btn){btn.classList.remove('revealed');btn.textContent='▼ Reveal Model Answer — Question '+i;}
+  }
+  document.querySelectorAll('.score-input').forEach(el=>el.value='');
+  document.querySelectorAll('.score-result').forEach(el=>el.style.display='none');
+  const disp=document.getElementById('total-score-display');if(disp)disp.style.display='none';
+  const bar=document.getElementById('total-score-bar');if(bar)bar.style.width='0%';
+  document.querySelectorAll('.ans-key-stamp').forEach(s=>s.remove());
+  scoreData={};
+  localStorage.removeItem('gide_frq_prog');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── Print Worksheet (blank answer lines, no model answers)
+function printWorksheet(){
+  // Inject student info row + write lines per question
+  const wsBlocks=[];
+  // Top student info block (injected once before first question)
+  const infoBlock=document.createElement('div');
+  infoBlock.className='ws-block ws-name-row';
+  infoBlock.innerHTML='<div>Student Name: ___________________________________</div><div>Date: ____________________</div><div>Period: _______</div>';
+  const firstQ=document.getElementById('q1');
+  if(firstQ) firstQ.parentNode.insertBefore(infoBlock,firstQ);
+  wsBlocks.push(infoBlock);
+
+  // Add write lines to each question
+  document.querySelectorAll('.question').forEach(q=>{
+    // Count parts to size the write area
+    const parts=q.querySelectorAll('.part');
+    const pts=q.querySelector('.q-pts-box .n');
+    const ptVal=pts?parseInt(pts.textContent)||4:4;
+    const lineCount=ptVal>=9?20:ptVal>=6?14:10;
+
+    const wb=document.createElement('div');
+    wb.className='ws-block';
+    let html='<div class="ws-header">Your Answer</div>';
+    for(let i=0;i<lineCount;i++) html+='<div class="ws-line"></div>';
+    wb.innerHTML=html;
+    wsBlocks.push(wb);
+
+    const btn=q.querySelector('.reveal-btn');
+    if(btn) q.insertBefore(wb,btn);
+    else q.appendChild(wb);
+  });
+
+  document.body.classList.add('print-ws');
+  window.print();
+  // Clean up
+  document.body.classList.remove('print-ws');
+  wsBlocks.forEach(el=>el.remove());
+}
+
+// ── Print Scoring Sheet (all model answers visible, marked ANSWER KEY)
+function printScoringSheet(){
+  // Reveal all panels and stamp ANSWER KEY
+  const stamps=[];
+  for(let i=1;i<=6;i++){
+    const panel=document.getElementById('a'+i+'-panel');
+    if(panel){
+      panel.classList.add('open');
+      const hdr=panel.querySelector('.ans-hdr');
+      if(hdr){
+        const stamp=document.createElement('span');
+        stamp.className='ans-key-stamp';
+        stamp.textContent='ANSWER KEY';
+        hdr.appendChild(stamp);
+        stamps.push(stamp);
+      }
+    }
+  }
+  document.body.classList.add('print-key');
+  window.print();
+  document.body.classList.remove('print-key');
+  stamps.forEach(s=>s.remove());
+}
+
+// ── Toggle scorer panels
+function toggleScorer(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// ── Semantic keyword scoring
+const FEEDBACK={
+  90:['Outstanding — full marks very likely.','Your answer demonstrates thorough command of the mechanism.'],
+  75:['Strong answer — likely earns full or near-full credit.','Good use of key terminology.'],
+  55:['Partial credit likely — key concepts present but some gaps.','Review the highlighted missing keywords.'],
+  35:['Weak answer — significant gaps in biological mechanism.','Study the model answer carefully.'],
+  0:['Insufficient — most key concepts missing.','Re-read the answer and try again.']
+};
+
+function getFeedback(pct){
+  if(pct>=90)return FEEDBACK[90];
+  if(pct>=75)return FEEDBACK[75];
+  if(pct>=55)return FEEDBACK[55];
+  if(pct>=35)return FEEDBACK[35];
+  return FEEDBACK[0];
+}
+
+let scoreData={};
+document.addEventListener('DOMContentLoaded',()=>{ setTimeout(loadFRQProgress,200); });
+
+function scoreAnswer(inputId, resultId, keywords){
+  const text=document.getElementById(inputId).value.toLowerCase();
+  const resultDiv=document.getElementById(resultId);
+  if(!text.trim()){resultDiv.style.display='block';resultDiv.innerHTML='<em style="color:#888">Please type your answer first.</em>';return;}
+
+  let hits=0, kwHtml='', missHtml='';
+  keywords.forEach(kw=>{
+    const kwL=kw.toLowerCase();
+    // flexible: check for word/phrase presence
+    if(text.includes(kwL)||text.includes(kwL.replace('-',''))|| text.includes(kwL.replace('+',' '))){
+      hits++;
+      kwHtml+=`<span class="kw-hit">✓ ${kw}</span>`;
+    }else{
+      missHtml+=`<span class="kw-miss">${kw}</span>`;
+    }
+  });
+  const pct=Math.round((hits/keywords.length)*100);
+  const fb=getFeedback(pct);
+
+  // Store for total
+  scoreData[resultId]={pct,hits,total:keywords.length};
+
+  // Build result html
+  resultDiv.style.display='block';
+  resultDiv.innerHTML=`
+    <div style="display:flex;align-items:baseline;gap:.75rem;margin-bottom:.5rem">
+      <span class="score-num">${pct}%</span>
+      <span class="score-label">${hits} of ${keywords.length} key concepts found</span>
+    </div>
+    <div class="score-bar"><div class="score-fill" style="width:${pct}%"></div></div>
+    <div class="score-fb" style="border-left-color:${pct>=75?'#2a6e2a':pct>=50?'#5a4a00':'#8a1a1a'}">
+      <strong>${fb[0]}</strong> ${fb[1]}
+    </div>
+    <div style="margin-top:.5rem;font-size:12px;font-weight:600;color:#333;margin-bottom:3px">Found in your answer:</div>
+    <div>${kwHtml||'<span style="font-size:12px;color:#888">None detected</span>'}</div>
+    ${missHtml?`<div style="margin-top:.4rem;font-size:12px;font-weight:600;color:#555;margin-bottom:3px">Consider adding:</div><div>${missHtml}</div>`:''}
+  `;
+
+  updateTotalScore();
+  saveFRQProgress();
+}
+
+function updateTotalScore(){
+  const keys=Object.keys(scoreData);
+  if(keys.length===0)return;
+  let totalPct=0;
+  keys.forEach(k=>{totalPct+=scoreData[k].pct;});
+  const avg=Math.round(totalPct/keys.length);
+  const approxPts=Math.round((avg/100)*34);
+
+  const disp=document.getElementById('total-score-display');
+  const numEl=document.getElementById('total-score-num');
+  const barEl=document.getElementById('total-score-bar');
+  const lblEl=document.getElementById('total-score-label');
+
+  disp.style.display='flex';
+  numEl.textContent=approxPts;
+  barEl.style.width=avg+'%';
+  lblEl.textContent=`Based on ${keys.length} scored answer${keys.length>1?'s':''} — keyword match rate: ${avg}%`;
+  disp.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     ANNOTATION SYSTEM — highlight · pen · sticky notes
+════════════════════════════════════════════════════ -->
+<style>
+/* Floating highlight colour picker */
+#hl-menu{display:none;position:fixed;z-index:10000;background:#111;padding:5px 7px;gap:5px;align-items:center;box-shadow:0 3px 16px rgba(0,0,0,.5);pointer-events:all}
+#hl-menu::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid #111}
+.hlm-sw{width:20px;height:20px;cursor:pointer;border:2px solid transparent;flex-shrink:0;transition:transform .08s}
+.hlm-sw:hover{border-color:rgba(255,255,255,.7)!important;transform:scale(1.2)}
+.hlm-x{display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:900;background:#444!important;color:#ccc;cursor:pointer;width:20px;height:20px;flex-shrink:0}
+.hlm-x:hover{background:#666!important;color:#fff}
+mark.hl{border-radius:0;padding:0 1px;cursor:pointer}
+mark.hl:hover{filter:brightness(.86)}
+/* Toolbar */
+#ann-wrap{position:fixed;right:14px;bottom:24px;z-index:9000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;user-select:none}
+#ann-fab{width:44px;height:44px;background:#111;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;border-top:3px solid #C62828;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+#ann-fab:hover{background:#333}
+#ann-panel{display:none;position:absolute;bottom:50px;right:0;background:#fff;border:2px solid #111;width:218px;box-shadow:0 6px 24px rgba(0,0,0,.22)}
+#ann-panel.open{display:block}
+.aph{background:#111;color:#fff;padding:.4rem .75rem;display:flex;align-items:center;justify-content:space-between}
+.aph b{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em}
+.aph button{background:none;border:none;color:#888;cursor:pointer;font-size:1rem;line-height:1}
+.aps{padding:.5rem .75rem;border-bottom:1px solid #eee}
+.aps:last-child{border-bottom:none}
+.apl{font-size:.58rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#999;display:block;margin-bottom:.3rem}
+.apr{display:flex;align-items:center;gap:.35rem;margin-bottom:.3rem;flex-wrap:wrap}
+.apbtn{padding:.28rem .6rem;font-size:.65rem;font-weight:900;border:1.5px solid #333;background:#fff;color:#333;cursor:pointer;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.apbtn:hover{background:#111;color:#fff;border-color:#111}
+.apbtn.on{background:#C62828!important;color:#fff!important;border-color:#C62828!important}
+.apbtn.rd{border-color:#C62828;color:#C62828}
+.apbtn.rd:hover{background:#C62828;color:#fff}
+.aphint{font-size:.6rem;color:#bbb;font-style:italic;margin-top:.2rem}
+.stk{position:fixed;min-width:130px;max-width:190px;background:#FFF9C4;border:1.5px solid #F9A825;box-shadow:2px 3px 10px rgba(0,0,0,.18);z-index:8000}
+.stk-hd{background:rgba(0,0,0,.1);padding:.18rem .45rem;display:flex;justify-content:space-between;align-items:center;cursor:move;user-select:none}
+.stk-hd span{font-size:.58rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:#7a6000}
+.stk-x{background:none;border:none;cursor:pointer;font-size:.85rem;color:#aaa;line-height:1;padding:0}
+.stk-body{padding:.35rem .5rem;min-height:50px;outline:none;font-size:.78rem;line-height:1.5;color:#333;font-family:inherit}
+#ann-canvas{position:fixed;top:0;left:0;z-index:7000;pointer-events:none;touch-action:none}
+body.ann-draw #ann-canvas{pointer-events:all;cursor:crosshair}
+body.ann-erase #ann-canvas{pointer-events:all;cursor:cell}
+/* Highlight note popup */
+#hl-np{position:fixed;z-index:10001;background:#fff;border:2px solid #111;width:218px;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.hnp-hd{background:#111;color:#fff;padding:.3rem .65rem;display:flex;align-items:center;justify-content:space-between}
+.hnp-hd b{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em}
+.hnp-hd button{background:none;border:none;color:#888;cursor:pointer;font-size:.9rem;line-height:1}
+.hnp-ta{width:100%;min-height:72px;resize:vertical;border:none;border-bottom:1px solid #eee;padding:.45rem .6rem;font-size:.78rem;font-family:inherit;outline:none;line-height:1.5;display:block;color:#111}
+.hnp-btns{display:flex;gap:.4rem;padding:.4rem .6rem}
+.hnp-btn{padding:.25rem .55rem;font-size:.62rem;font-weight:900;border:1.5px solid #333;background:#fff;color:#333;cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
+.hnp-btn:hover{background:#111;color:#fff}
+.hnp-del{border-color:#C62828;color:#C62828}
+.hnp-del:hover{background:#C62828;color:#fff}
+mark.hl.has-note{border-bottom:2px dotted rgba(198,40,40,.6)}
+mark.hl.has-note::after{content:'';display:inline-block;width:5px;height:5px;background:#C62828;border-radius:50%;vertical-align:super;margin-left:1px}
+@media print{#ann-wrap,#hl-menu,#hl-np,#ann-canvas,.stk{display:none!important}}
+</style>
+<script>
+;(function(){
+  const HLC=['#FFCDD2','#FFF176','#A5D6A7','#90CAF9','#CE93D8','#FFCCBC'];
+  let mode=null,penC='#C62828',penSz=3,drawing=false,canvas,ctx,noteOn=false,hlMenu,savedRange=null,hlNotes={},curHLN=null;
+  const SK='gide_frq';
+
+  // ── toolbar (no highlight swatches — popup handles it)
+  function mkTB(){
+    return`<button id="ann-fab" onclick="annO()" title="Draw · Notes · Annotate">✏</button>
+<div id="ann-panel">
+<div class="aph"><b>Annotate</b><button onclick="annO()">✕</button></div>
+<div class="aps">
+  <span class="apl">Highlight</span>
+  <div class="aphint" style="margin-top:0">Select any text — colour picker appears automatically</div>
+  <div class="apr" style="margin-top:.35rem">
+    <button class="apbtn rd" onclick="eraseHL()">✗ Remove all</button>
+  </div>
+</div>
+<div class="aps">
+  <span class="apl">Draw</span>
+  <div class="apr">
+    <button class="apbtn" id="ann-db" onclick="annDraw()">🖊 Pen</button>
+    <button class="apbtn" id="ann-deb" onclick="annDrawE()">⌫ Eraser</button>
+    <button class="apbtn rd" onclick="annCC()">Clear</button>
+  </div>
+  <div class="apr">
+    <input type="color" value="#C62828" oninput="annPC(this.value)" title="Pen colour" style="width:26px;height:22px;border:1.5px solid #ccc;padding:0;cursor:pointer;flex-shrink:0">
+    <input type="range" min="1" max="20" value="3" oninput="annPS(this.value)" style="flex:1">
+    <span id="ann-psz" style="font-size:.65rem;min-width:14px">3</span>
+  </div>
+</div>
+<div class="aps">
+  <span class="apl">Sticky notes</span>
+  <div class="apr"><button class="apbtn" id="ann-nb" onclick="annNT()">📌 Place Note</button></div>
+  <div class="aphint" id="ann-nh" style="display:none">Click anywhere on the page</div>
+</div>
+<div class="aps">
+  <div class="apr">
+    <button class="apbtn" onclick="annSv()">💾 Save</button>
+    <button class="apbtn" onclick="annLd()">📂 Load</button>
+    <button class="apbtn rd" onclick="annCA()">🗑 Clear All</button>
+  </div>
+</div>
+</div>`;
+  }
+
+  // ── floating colour picker that appears above any text selection
+  function mkHLMenu(){
+    const m=document.createElement('div');m.id='hl-menu';
+    m.innerHTML=HLC.map(c=>`<div class="hlm-sw" style="background:${c}" onclick="applyHL('${c}')" title="Highlight"></div>`).join('')
+      +`<div class="hlm-sw hlm-x" onclick="eraseHL()" title="Remove all highlights">✗</div>`;
+    document.body.appendChild(m);
+    // preventDefault keeps the browser from collapsing the selection when a swatch is clicked
+    m.addEventListener('mousedown',e=>e.preventDefault());
+    document.addEventListener('mousedown',e=>{if(!e.target.closest('#hl-menu'))m.style.display='none';},true);
+    return m;
+  }
+
+  function positionHL(sel){
+    if(!hlMenu||!sel||sel.isCollapsed||!sel.toString().trim())return;
+    const ac=sel.getRangeAt(0).commonAncestorContainer;
+    const el=ac.nodeType===1?ac:ac.parentElement;
+    if(!el||el.closest('#ann-wrap')||el.closest('.stk'))return;
+    // snapshot range now — clicking the popup would otherwise collapse the selection
+    savedRange=sel.getRangeAt(0).cloneRange();
+    const rect=savedRange.getBoundingClientRect();
+    const mw=hlMenu.scrollWidth||186;
+    const left=Math.max(8,Math.min(rect.left+(rect.width-mw)/2,window.innerWidth-mw-8));
+    const top=rect.top>48?rect.top-42:rect.bottom+8;
+    hlMenu.style.cssText=`display:flex;left:${left}px;top:${top}px`;
+  }
+
+  // TreeWalker highlight — uses savedRange so selection collapse doesn't matter
+  window.applyHL=function(color){
+    // prefer savedRange (set when popup opened); fall back to live selection
+    const range=savedRange||(window.getSelection()&&!window.getSelection().isCollapsed?window.getSelection().getRangeAt(0):null);
+    savedRange=null;
+    if(!range){hlMenu&&(hlMenu.style.display='none');return;}
+    const ac=range.commonAncestorContainer;
+    const el=ac.nodeType===1?ac:ac.parentElement;
+    if(!el||el.closest('#ann-wrap')||el.closest('.stk')){hlMenu&&(hlMenu.style.display='none');return;}
+    const host=ac.nodeType===3?ac.parentNode:ac;
+    const walker=document.createTreeWalker(host,NodeFilter.SHOW_TEXT,null);
+    const hits=[];let node;
+    while(node=walker.nextNode()){
+      if(!range.intersectsNode(node))continue;
+      const s=node===range.startContainer?range.startOffset:0;
+      const e=node===range.endContainer?range.endOffset:node.textContent.length;
+      if(s<e)hits.push({node,s,e});
+    }
+    hits.forEach(({node,s,e})=>{
+      const t=node.textContent,p=node.parentNode;if(!p)return;
+      const mk=document.createElement('mark');mk.className='hl';mk.style.background=color;
+      mk.dataset.hid='hl_'+Date.now()+'_'+Math.random().toString(36).slice(2,5);
+      mk.textContent=t.slice(s,e);
+      const frag=document.createDocumentFragment();
+      if(s>0)frag.appendChild(document.createTextNode(t.slice(0,s)));
+      frag.appendChild(mk);
+      if(e<t.length)frag.appendChild(document.createTextNode(t.slice(e)));
+      p.replaceChild(frag,node);
+    });
+    sel&&sel.removeAllRanges&&sel.removeAllRanges();
+    hlMenu&&(hlMenu.style.display='none');
+  };
+
+  window.eraseHL=function(){
+    document.querySelectorAll('mark.hl').forEach(m=>{
+      if(m.dataset.hid)delete hlNotes[m.dataset.hid];
+      const p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);
+    });
+    hlMenu&&(hlMenu.style.display='none');
+  };
+
+  // ── highlight note popup
+  function showHLNote(mark,x,y){
+    closeHLNotePopup();
+    if(!mark.dataset.hid)mark.dataset.hid='hl_'+Date.now();
+    const hid=mark.dataset.hid,txt=hlNotes[hid]||'';
+    const pp=document.createElement('div');pp.id='hl-np';
+    const px=Math.max(4,Math.min(x,window.innerWidth-230));
+    const py=Math.max(4,Math.min(y+10,window.innerHeight-200));
+    pp.style.cssText=`left:${px}px;top:${py}px`;
+    pp.innerHTML=`<div class="hnp-hd"><b>Highlight note</b><button onclick="closeHLNotePopup()">✕</button></div>`
+      +`<textarea class="hnp-ta" id="hnp-ta" placeholder="Type a note for this highlight…">${esc(txt)}</textarea>`
+      +`<div class="hnp-btns"><button class="hnp-btn" onclick="saveHLNote()">Save</button>`
+      +`<button class="hnp-btn hnp-del" onclick="deleteHL()">Remove highlight</button></div>`;
+    document.body.appendChild(pp);
+    curHLN={pp,mark,hid};
+    document.getElementById('hnp-ta').focus();
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  window.closeHLNotePopup=function(){if(curHLN){curHLN.pp.remove();curHLN=null;}};
+  window.saveHLNote=function(){
+    if(!curHLN)return;
+    const {mark,hid}=curHLN;
+    const txt=(document.getElementById('hnp-ta').value||'').trim();
+    if(txt){hlNotes[hid]=txt;mark.classList.add('has-note');mark.title=txt;}
+    else{delete hlNotes[hid];mark.classList.remove('has-note');mark.title='';}
+    closeHLNotePopup();
+    annAutoSave();
+  };
+  window.deleteHL=function(){
+    if(!curHLN)return;
+    const {mark,hid}=curHLN;
+    const p=mark.parentNode;while(mark.firstChild)p.insertBefore(mark.firstChild,mark);p.removeChild(mark);
+    delete hlNotes[hid];
+    closeHLNotePopup();
+    annAutoSave();
+  };
+
+  // silent auto-save for annotations
+  function annAutoSave(){
+    const nts=Array.from(document.querySelectorAll('.stk')).map(n=>({id:n.id,x:parseInt(n.style.left),y:parseInt(n.style.top),txt:n.querySelector('.stk-body').innerHTML}));
+    localStorage.setItem(SK+'_n',JSON.stringify(nts));
+    localStorage.setItem(SK+'_hn',JSON.stringify(hlNotes));
+    if(canvas)localStorage.setItem(SK+'_c',canvas.toDataURL());
+  }
+
+  // ── init
+  function init(){
+    const w=document.createElement('div');w.id='ann-wrap';w.innerHTML=mkTB();document.body.appendChild(w);
+    hlMenu=mkHLMenu();
+    canvas=document.createElement('canvas');canvas.id='ann-canvas';
+    canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+    document.body.appendChild(canvas);ctx=canvas.getContext('2d');
+    window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+    canvas.addEventListener('mousedown',ds);canvas.addEventListener('mousemove',dm);
+    canvas.addEventListener('mouseup',de);canvas.addEventListener('mouseleave',de);
+    canvas.addEventListener('touchstart',e=>{e.preventDefault();ds(e.touches[0]);},{passive:false});
+    canvas.addEventListener('touchmove',e=>{e.preventDefault();dm(e.touches[0]);},{passive:false});
+    canvas.addEventListener('touchend',de);
+    document.addEventListener('mouseup',e=>{
+      if(e.target.closest('#ann-wrap')||e.target.closest('#hl-menu')||e.target.closest('.stk')||e.target.closest('#hl-np')||mode==='draw'||mode==='erase')return;
+      setTimeout(()=>{
+        const sel=window.getSelection();
+        if(sel&&!sel.isCollapsed&&sel.toString().trim())positionHL(sel);
+        else if(hlMenu)hlMenu.style.display='none';
+      },30);
+    });
+    // click on existing mark → note popup; click elsewhere → close popups
+    document.addEventListener('click',e=>{
+      const mk=e.target.closest('mark.hl');
+      if(mk&&!e.target.closest('#hl-np')){e.preventDefault();showHLNote(mk,e.clientX,e.clientY);return;}
+      if(!e.target.closest('#hl-np'))closeHLNotePopup();
+      noteH(e);
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(hlMenu)hlMenu.style.display='none';closeHLNotePopup();setM(null);}});
+  }
+
+  function ds(e){if(mode!=='draw'&&mode!=='erase')return;drawing=true;ctx.beginPath();ctx.moveTo(e.clientX,e.clientY);}
+  function dm(e){
+    if(!drawing)return;
+    if(mode==='erase'){ctx.clearRect(e.clientX-penSz*3,e.clientY-penSz*3,penSz*6,penSz*6);return;}
+    ctx.strokeStyle=penC;ctx.lineWidth=penSz;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.lineTo(e.clientX,e.clientY);ctx.stroke();ctx.beginPath();ctx.moveTo(e.clientX,e.clientY);
+  }
+  function de(){drawing=false;}
+
+  function noteH(e){
+    if(!noteOn)return;
+    if(e.target.closest('#ann-wrap')||e.target.closest('.stk')||e.target.closest('#hl-menu'))return;
+    mkNote(e.clientX,e.clientY,'');annNT();
+  }
+  function mkNote(x,y,txt,id){
+    const nid=id||('sn'+Date.now());
+    const el=document.createElement('div');el.className='stk';el.id=nid;
+    el.style.cssText=`left:${x}px;top:${y}px`;
+    el.innerHTML=`<div class="stk-hd"><span>Note</span><button class="stk-x" onclick="this.closest('.stk').remove()">✕</button></div><div class="stk-body" contenteditable="true" spellcheck="false">${txt}</div>`;
+    document.body.appendChild(el);
+    const hd=el.querySelector('.stk-hd');let ox=0,oy=0;
+    hd.addEventListener('mousedown',ev=>{
+      ev.preventDefault();ox=ev.clientX-el.offsetLeft;oy=ev.clientY-el.offsetTop;
+      const mv=ev=>{el.style.left=(ev.clientX-ox)+'px';el.style.top=(ev.clientY-oy)+'px';};
+      const up=()=>{document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up);};
+      document.addEventListener('mousemove',mv);document.addEventListener('mouseup',up);
+    });
+    el.querySelector('.stk-body').focus();
+  }
+  function setM(m){
+    mode=m;
+    document.body.className=document.body.className.replace(/\bann-\S+/g,'').trim();
+    if(m==='draw')document.body.classList.add('ann-draw');
+    if(m==='erase')document.body.classList.add('ann-erase');
+    ['ann-db','ann-deb'].forEach(id=>{const b=document.getElementById(id);if(b)b.classList.remove('on');});
+    if(m==='draw'){const b=document.getElementById('ann-db');if(b)b.classList.add('on');}
+    if(m==='erase'){const b=document.getElementById('ann-deb');if(b)b.classList.add('on');}
+  }
+  window.annO=()=>document.getElementById('ann-panel').classList.toggle('open');
+  window.annDraw=()=>{setM(mode==='draw'?null:'draw');noteOn=false;};
+  window.annDrawE=()=>{setM(mode==='erase'?null:'erase');noteOn=false;};
+  window.annCC=()=>{if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);};
+  window.annPC=v=>{penC=v;};
+  window.annPS=v=>{penSz=parseInt(v);const e=document.getElementById('ann-psz');if(e)e.textContent=v;};
+  window.annNT=()=>{noteOn=!noteOn;const b=document.getElementById('ann-nb');if(b)b.classList.toggle('on',noteOn);const h=document.getElementById('ann-nh');if(h)h.style.display=noteOn?'block':'none';if(noteOn)setM(null);};
+  window.annSv=()=>{
+    annAutoSave();
+    alert('Annotations saved (notes, drawing, highlight notes).');
+  };
+  window.annLd=()=>{
+    const nts=JSON.parse(localStorage.getItem(SK+'_n')||'[]');
+    nts.forEach(n=>mkNote(n.x,n.y,n.txt,n.id));
+    const hn=JSON.parse(localStorage.getItem(SK+'_hn')||'{}');
+    Object.assign(hlNotes,hn);
+    document.querySelectorAll('mark.hl[data-hid]').forEach(m=>{
+      if(hlNotes[m.dataset.hid]){m.classList.add('has-note');m.title=hlNotes[m.dataset.hid];}
+    });
+    const cd=localStorage.getItem(SK+'_c');
+    if(cd&&canvas){const img=new Image();img.onload=()=>ctx.drawImage(img,0,0);img.src=cd;}
+    alert(nts.length||cd||Object.keys(hn).length?'Loaded.':'No saved annotations.');
+  };
+  window.annCA=()=>{
+    if(!confirm('Clear ALL annotations (highlights, drawings, notes, highlight-notes)?'))return;
+    document.querySelectorAll('mark.hl').forEach(m=>{const p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);});
+    document.querySelectorAll('.stk').forEach(n=>n.remove());
+    if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);
+    hlNotes={};
+    [SK+'_n',SK+'_c',SK+'_hn'].forEach(k=>localStorage.removeItem(k));
+  };
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init):init();
+})();
+</script>
+
+</body>
+</html>
